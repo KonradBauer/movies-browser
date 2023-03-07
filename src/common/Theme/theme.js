@@ -4,5 +4,6 @@ export const theme = {
     white: "#FFFFFF",
     mercury: "#E5E5E5",
     waterloo: "#7E839A",
+    mystic: "#E4E6F0",
   },
 };

@@ -80,7 +80,8 @@ export const Box = styled.div`
   height: 48px;
   width: 432px;
   margin-left: 411px;
-  border: 1px solid #e4e6f0;
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
   background: ${({ theme }) => theme.color.white};
 `;
