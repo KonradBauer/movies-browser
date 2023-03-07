@@ -15,6 +15,7 @@ export const common = {
     mobileMax: 767,
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
+    desktopHorizontal: 1250,
     desktopHorizontalMax: 1672,
   },
 };
