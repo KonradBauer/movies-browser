@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./common/Theme/theme";
-import { Header } from "./Header";
+import { Header } from "./layouts/Header/index";
 
 function App() {
   return (
