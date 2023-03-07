@@ -23,7 +23,7 @@ export const StyledLogo = styled(Logo)`
   margin-left: 293px;
   margin-right: 80px;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1672px) {
     margin: auto;
   }
 
@@ -71,7 +71,7 @@ export const MoviesButton = styled.button`
     height: 48px;
   }
 
-  @media (max-width: 1499px) {
+  @media (max-width: 1672px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
@@ -117,7 +117,7 @@ export const PeopleButton = styled.button`
     height: 48px;
   }
 
-  @media (max-width: 1499px) {
+  @media (max-width: 1672px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
@@ -136,7 +136,7 @@ export const Box = styled.div`
   border-radius: 33px;
   background: ${({ theme }) => theme.color.white};
 
-  @media (max-width: 1499px) {
+  @media (max-width: 1672px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
@@ -180,6 +180,5 @@ export const Input = styled.input`
 
   &::placeholder {
     color: inherit;
-    content: "Search for movies...";
   }
 `;
