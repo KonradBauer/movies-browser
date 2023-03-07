@@ -24,17 +24,14 @@ export const StyledLogo = styled(Logo)`
 
   @media (max-width: 1199px) {
     margin: auto;
-    flex-shrink: 1;
   }
 
   @media (max-width: 991px) {
     margin: auto;
-    flex-shrink: 1;
   }
 
   @media (max-width: 767px) {
     margin: auto;
-    flex-shrink: 1;
   }
 
   @media (max-width: 425px) {
@@ -144,7 +141,7 @@ export const Box = styled.div`
     flex-shrink: 1;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1199px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
