@@ -75,6 +75,7 @@ export const PeopleButton = styled.button`
 
 export const Box = styled.div`
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   height: 48px;
   width: 432px;
