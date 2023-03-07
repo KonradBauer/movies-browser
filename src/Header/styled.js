@@ -10,7 +10,7 @@ export const HeadContainer = styled.div`
   height: 94px;
   background: ${({ theme }) => theme.color.black};
 
-  @media (max-width: 1199px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     width: 100%;
     height: 142px;
     flex-wrap: wrap;
@@ -18,24 +18,22 @@ export const HeadContainer = styled.div`
 `;
 
 export const StyledLogo = styled(Logo)`
-  display: flex;
-  flex-shrink: 0;
   margin-left: 293px;
   margin-right: 80px;
 
-  @media (max-width: 1672px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     margin: auto;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: auto;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: auto;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     display: flex;
     height: 17px;
     width: 95px;
@@ -71,19 +69,19 @@ export const MoviesButton = styled.button`
     height: 48px;
   }
 
-  @media (max-width: 1672px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
@@ -117,7 +115,7 @@ export const PeopleButton = styled.button`
     height: 48px;
   }
 
-  @media (max-width: 1672px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
@@ -136,25 +134,25 @@ export const Box = styled.div`
   border-radius: 33px;
   background: ${({ theme }) => theme.color.white};
 
-  @media (max-width: 1672px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
 
-  @media (min-width: 767px) and (max-width: 1250px) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) and (max-width: 1250px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     margin: 1px 16px 16px 16px;
     flex-wrap: nowrap;
     flex-shrink: 1;
