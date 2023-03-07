@@ -7,3 +7,9 @@ export const theme = {
     mystic: "#E4E6F0",
   },
 };
+
+export const breakpoints = {
+  mobileMax: 767,
+  tabletVerticalMax: 991,
+  tabletHorizontalMax: 1199,
+};
