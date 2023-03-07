@@ -4,7 +4,7 @@ import { ReactComponent as Loupe } from "../common/svg/loupe.svg";
 
 export const HeadContainer = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   align-items: center;
   max-width: 1920px;
   height: 94px;
@@ -13,6 +13,7 @@ export const HeadContainer = styled.div`
   @media (max-width: 1199px) {
     width: 100%;
     height: 142px;
+    flex-wrap: wrap;
   }
 `;
 
@@ -64,13 +65,13 @@ export const MoviesButton = styled.button`
   cursor: pointer;
 
   &:focus {
-    border: 1px solid #ffffff;
+    border: 1px solid ${({ theme }) => theme.color.white};
     border-radius: 24px;
     width: 102px;
     height: 48px;
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1499px) {
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
