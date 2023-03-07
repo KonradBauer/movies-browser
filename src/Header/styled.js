@@ -4,11 +4,16 @@ import { ReactComponent as Loupe } from "../common/svg/loupe.svg";
 
 export const HeadContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
   max-width: 1920px;
   height: 94px;
   background: ${({ theme }) => theme.color.black};
+
+  @media (max-width: 1199px) {
+    width: 100%;
+    height: 142px;
+  }
 `;
 
 export const StyledLogo = styled(Logo)`
@@ -16,6 +21,30 @@ export const StyledLogo = styled(Logo)`
   flex-shrink: 0;
   margin-left: 293px;
   margin-right: 80px;
+
+  @media (max-width: 1199px) {
+    margin: auto;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 991px) {
+    margin: auto;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 767px) {
+    margin: auto;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 425px) {
+    display: flex;
+    height: 17px;
+    width: 95px;
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: none;
+  }
 `;
 
 export const MoviesButton = styled.button`
@@ -42,6 +71,24 @@ export const MoviesButton = styled.button`
     border-radius: 24px;
     width: 102px;
     height: 48px;
+  }
+
+  @media (max-width: 1199px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 991px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 767px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
   }
 `;
 
@@ -71,6 +118,12 @@ export const PeopleButton = styled.button`
     width: 102px;
     height: 48px;
   }
+
+  @media (max-width: 1499px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
 `;
 
 export const Box = styled.div`
@@ -84,6 +137,30 @@ export const Box = styled.div`
   border-color: ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
   background: ${({ theme }) => theme.color.white};
+
+  @media (max-width: 1499px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 1200px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
+  @media (min-width: 767px) and (max-width: 1250px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
+  @media (max-width: 320px) {
+    margin: 1px 16px 16px 16px;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
 `;
 
 export const StyledLoupe = styled(Loupe)`

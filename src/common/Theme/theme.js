@@ -8,8 +8,10 @@ export const theme = {
   },
 };
 
-export const breakpoints = {
-  mobileMax: 767,
-  tabletVerticalMax: 991,
-  tabletHorizontalMax: 1199,
+export const common = {
+  breakpoints: {
+    mobileMax: 767,
+    tabletVerticalMax: 991,
+    tabletHorizontalMax: 1199,
+  },
 };
