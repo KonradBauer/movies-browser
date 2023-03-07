@@ -10,8 +10,11 @@ export const theme = {
 
 export const common = {
   breakpoints: {
+    mobileS: 320,
+    mobileM: 425,
     mobileMax: 767,
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
+    desktopHorizontalMax: 1672,
   },
 };
