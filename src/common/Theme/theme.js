@@ -6,9 +6,7 @@ export const theme = {
     waterloo: "#7E839A",
     mystic: "#E4E6F0",
   },
-};
 
-export const common = {
   breakpoints: {
     mobileMax: 767,
     tabletVerticalMax: 991,
