@@ -15,13 +15,14 @@ import {
   Votes,
   Year,
 } from "./styled";
+import noPoster from "../common/images/no-poster.png";
 
 export const Tile = ({ widthContainer, srcImage, widthImage, heightImage }) => {
   return (
     <Container widthContainer={widthContainer}>
       <MobileContent>
         <Poster
-          src={srcImage}
+          src={srcImage ? srcImage : noPoster}
           alt=""
           widthImage={widthImage}
           heightImage={heightImage}
