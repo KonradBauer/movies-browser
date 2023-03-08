@@ -4,8 +4,8 @@ import { ReactComponent as Spinner } from "../../common/svg/spinner.svg";
 export const Disclaimer = styled.span`
   margin-top: 50px;
   margin-left: 276px;
-  max-width: 182px;
-  max-height: 18px;
+  max-width: 674px;
+  max-height: 43px;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -50,6 +50,10 @@ export const SpinnerWrapper = styled.div`
   align-items: center;
   margin-top: 219px;
   max-width: 1920px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    margin-top: 24px;
+  }
 `;
 
 const rotate = keyframes`
@@ -60,4 +64,9 @@ to {
 
 export const StyledSpinner = styled(Spinner)`
   animation: ${rotate} 1s linear infinite;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    width: 35px;
+    height: 35px;
+  }
 `;
