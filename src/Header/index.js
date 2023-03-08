@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <HeadContainer>
       <StyledLogo />
-      <MoviesButton>Movies</MoviesButton>
+      <MoviesButton autoFocus>Movies</MoviesButton>
       <PeopleButton>People</PeopleButton>
       <Box>
         <StyledLoupe />
