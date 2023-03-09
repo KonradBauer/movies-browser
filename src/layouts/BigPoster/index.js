@@ -1,3 +1,7 @@
+import { Background } from "./styled";
+
 export const BigPoster = () => {
-  return;
+  return <Background>
+    <Poster><Poster/>
+  </Background>
 };
