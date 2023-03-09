@@ -166,7 +166,7 @@ export const StyledLoupe = styled(Loupe)`
 export const Input = styled.input`
   display: flex;
   border: none;
-  width: 75%;
+  width: 73%;
   align-items: center;
   margin-left: 19px;
   font-family: "Poppins";
