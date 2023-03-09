@@ -5,7 +5,6 @@ import {
   Raiting,
   RaitingCap,
   RaitingNumber,
-  Shadow,
   StyledStar,
   Title,
   Votes,
@@ -16,7 +15,7 @@ export const BigPoster = () => {
   return (
     <>
       <Background>
-        <Poster src={PosterBig} alt="" />
+        <Poster src={PosterBig} alt="movie poster" />
         <MainInfo>
           <Title>Mulan long title</Title>
           <Raiting>
