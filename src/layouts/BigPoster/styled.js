@@ -30,7 +30,7 @@ export const Shadow = styled.div`
 
 export const MainInfo = styled.div`
   position: absolute;
-  width: 30%;
+  width: 45%;
   height: auto;
   left: 13%;
   top: 70%;
@@ -38,8 +38,8 @@ export const MainInfo = styled.div`
 `;
 
 export const Title = styled.text`
-  width: 503px;
-  height: 77px;
+  max-width: 503px;
+  max-height: 77px;
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
@@ -47,4 +47,24 @@ export const Title = styled.text`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    font-size: 15px;
+  }
 `;
