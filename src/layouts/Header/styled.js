@@ -8,7 +8,7 @@ export const HeadContainer = styled.div`
   align-items: center;
   max-width: 1920px;
   height: 94px;
-  background: ${({ theme }) => theme.color.black};
+  background: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     width: 100%;

@@ -12,7 +12,7 @@ export const Disclaimer = styled.span`
   line-height: 120%;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     margin: auto;
