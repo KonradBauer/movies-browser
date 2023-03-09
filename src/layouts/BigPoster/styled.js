@@ -33,9 +33,12 @@ export const MainInfo = styled.div`
   position: absolute;
   width: 45%;
   height: auto;
-  left: 13%;
-  top: 70%;
-  border: 1px solid black;
+  left: 11%;
+  top: 65%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    bottom: 5%;
+  }
 `;
 
 export const Title = styled.text`
@@ -78,6 +81,18 @@ export const Raiting = styled.div`
   width: 20%;
   height: auto;
   color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    margin-bottom: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    display: flex;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const StyledStar = styled(Star)`
@@ -119,10 +134,39 @@ export const RaitingCap = styled.text`
   right: 1518px;
   top: 23.93%;
   bottom: 75.46%;
-
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 120%;
+`;
+
+export const Votes = styled.div`
+  margin-top: 17px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    display: flex;
+    justify-content: center;
+    margin-top: -13px;
+    margin-right: 100px;
+    font-size: 10px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -13px;
+    margin-right: -10px;
+    font-size: 10px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    margin-top: -13px;
+    margin-right: 1px;
+    font-size: 10px;
+  }
 `;

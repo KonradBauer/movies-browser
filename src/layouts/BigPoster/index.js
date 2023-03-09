@@ -8,6 +8,7 @@ import {
   Shadow,
   StyledStar,
   Title,
+  Votes,
 } from "./styled";
 import PosterBig from "../../common/images/posterBig.png";
 
@@ -25,6 +26,7 @@ export const BigPoster = () => {
               <RaitingCap>/10</RaitingCap>
             </RaitingNumber>
           </Raiting>
+          <Votes>335 votes</Votes>
         </MainInfo>
       </Background>
     </>
