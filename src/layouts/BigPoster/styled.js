@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as Star } from "../../common/svg/star.svg";
 
 export const Background = styled.div`
   display: flex;
@@ -67,4 +68,61 @@ export const Title = styled.text`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     font-size: 15px;
   }
+`;
+
+export const Raiting = styled.div`
+  display: flex;
+  align-items: center;
+  grid-gap: 5px;
+  margin-top: 1%;
+  width: 20%;
+  height: auto;
+  color: ${({ theme }) => theme.color.white};
+`;
+
+export const StyledStar = styled(Star)`
+  max-width: 50%;
+  height: auto;
+`;
+
+export const RaitingNumber = styled.text`
+  max-width: 50%;
+  height: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 130%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    font-size: 15px;
+  }
+`;
+
+export const RaitingCap = styled.text`
+  width: 28px;
+  right: 1518px;
+  top: 23.93%;
+  bottom: 75.46%;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
 `;
