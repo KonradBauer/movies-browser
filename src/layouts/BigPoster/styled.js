@@ -6,11 +6,8 @@ export const Background = styled.div`
   justify-content: center;
   max-width: 1920px;
   max-height: 769px;
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.black};
   position: relative;
-  -webkit-box-shadow: inset 6px 11px 49px 44px rgba(66, 68, 90, 1);
-  -moz-box-shadow: inset 6px 11px 49px 44px rgba(66, 68, 90, 1);
-  box-shadow: inset 6px 11px 49px 44px rgba(66, 68, 90, 1);
 `;
 
 export const Poster = styled.img`
@@ -21,6 +18,11 @@ export const Poster = styled.img`
     max-width: 80%;
     max-height: auto;
   }
+`;
+
+export const Shadow = styled.div`
+  max-width: 1920px;
+  max-height: 769px;
 `;
 
 export const MainInfo = styled.div`
