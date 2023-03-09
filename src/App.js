@@ -6,7 +6,8 @@ import poster from "./common/images/poster.png";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Tile widthContainer={324} srcImage={poster} widthImage={292} heightImage={434} />
+      {/* <Tile srcImage={poster} /> */}
+      <Tile movieDetails={"movieDetails"} srcImage={poster} />
     </ThemeProvider>
   );
 }

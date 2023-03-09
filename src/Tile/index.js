@@ -2,8 +2,7 @@ import {
   Container,
   Description,
   Info,
-  MobileContent,
-  MobileDescription,
+  Content,
   Poster,
   Raiting,
   Rate,
@@ -14,44 +13,65 @@ import {
   Title,
   Votes,
   Year,
+  ProdAndReleaseInfo,
+  Production,
+  ReleaseDateText,
+  ReleaseDateContent,
+  ReleaseDate,
+  ProductionText,
+  ProductionContent,
+  MovieDescription,
+  MaxRate,
 } from "./styled";
 import noPoster from "../common/images/no-poster.png";
 
-export const Tile = ({ widthContainer, srcImage, widthImage, heightImage }) => {
+export const Tile = ({ movieDetails, srcImage }) => {
   return (
-    <Container widthContainer={widthContainer}>
-      <MobileContent>
-        <Poster
-          src={srcImage ? srcImage : noPoster}
-          alt=""
-          widthImage={widthImage}
-          heightImage={heightImage}
-        />
-        <MobileDescription>
-          <Description>
-            <Info>
-              <Title>Mulan</Title>
-              <Year>2020</Year>
-            </Info>
-            <Tags>
-              <Tag>
-                <TextTag>Action</TextTag>
-              </Tag>
-              <Tag>
-                <TextTag>Drama</TextTag>
-              </Tag>
-              <Tag>
-                <TextTag>Adventure</TextTag>
-              </Tag>
-            </Tags>
-          </Description>
-          <Raiting>
-            <StarIcon alt="" />
-            <Rate>7,8</Rate>
-            <Votes>35 votes</Votes>
-          </Raiting>
-        </MobileDescription>
-      </MobileContent>
+    <Container movieDetails={movieDetails}>
+      <Poster movieDetails={movieDetails} src={srcImage ? srcImage : noPoster} alt="" />
+      <Content movieDetails={movieDetails}>
+        <Description movieDetails={movieDetails}>
+          <Info>
+            <Title movieDetails={movieDetails}>Mulan</Title>
+            <Year movieDetails={movieDetails}>2020</Year>
+          </Info>
+          {movieDetails ? (
+            <ProdAndReleaseInfo>
+              <Production>
+                <ProductionText>Production:</ProductionText>
+                <ProductionContent>China, United States of America</ProductionContent>
+              </Production>
+              <ReleaseDate>
+                <ReleaseDateText>Release date:</ReleaseDateText>
+                <ReleaseDateContent>24.10.2020</ReleaseDateContent>
+              </ReleaseDate>
+            </ProdAndReleaseInfo>
+          ) : null}
+          <Tags movieDetails={movieDetails}>
+            <Tag>
+              <TextTag movieDetails={movieDetails}>Action</TextTag>
+            </Tag>
+            <Tag>
+              <TextTag movieDetails={movieDetails}>Drama</TextTag>
+            </Tag>
+            <Tag>
+              <TextTag movieDetails={movieDetails}>Adventure</TextTag>
+            </Tag>
+          </Tags>
+        </Description>
+        <Raiting movieDetails={movieDetails}>
+          <StarIcon alt="" />
+          <Rate>7,8{movieDetails ? <MaxRate>/ 10</MaxRate> : null}</Rate>
+          <Votes movieDetails={movieDetails}>335 votes</Votes>
+        </Raiting>
+        {movieDetails ? (
+          <MovieDescription>
+            A young Chinese maiden disguises herself as a male warrior in order to save her father.
+            Disguises herself as a male warrior in order to save her father. A young Chinese maiden
+            disguises herself as a male warrior in order to save her father.
+          </MovieDescription>
+        ) : null}
+      </Content>
     </Container>
   );
 };
