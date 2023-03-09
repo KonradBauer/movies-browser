@@ -6,6 +6,7 @@ export const Background = styled.div`
   max-width: 1920px;
   max-height: 769px;
   background-color: ${({ theme }) => theme.color.black};
+  position: relative;
 `;
 
 export const Poster = styled.img`
@@ -28,11 +29,12 @@ export const Shadow = styled.div`
 `;
 
 export const MainInfo = styled.div`
-  width: 503px;
-  height: 176px;
-  left: 276px;
-  top: 631px;
-  background-color: aliceblue;
+  position: absolute;
+  width: 30%;
+  height: auto;
+  left: 13%;
+  top: 70%;
+  border: 1px solid black;
 `;
 
 export const Title = styled.text`

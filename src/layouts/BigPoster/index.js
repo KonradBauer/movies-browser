@@ -6,6 +6,9 @@ export const BigPoster = () => {
     <>
       <Background>
         <Poster src={PosterBig} alt="" />
+        <MainInfo>
+          <Title>Mulan long title</Title>
+        </MainInfo>
       </Background>
     </>
   );
