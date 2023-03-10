@@ -144,7 +144,7 @@ export const Year = styled.div`
       margin-bottom: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        color: ${({theme})=>theme.color.waterloo};
+        color: ${({ theme }) => theme.color.waterloo};
         margin-bottom: 8px;
       }
     `}
@@ -183,7 +183,7 @@ export const Production = styled.div`
 
 export const ProductionText = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-   display: none;
+    display: none;
   }
 `;
 
@@ -201,60 +201,6 @@ export const ReleaseDateText = styled(StormGrayColorText)`
 `;
 
 export const ReleaseDateContent = styled(BlackColorText)``;
-
-export const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-  max-width: 279px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 107px;
-  }
-
-  ${({ movieDetails }) =>
-    movieDetails &&
-    css`
-      gap: 16px;
-      max-width: 295px;
-      margin-bottom: 24px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        gap: 8px;
-        margin-bottom: 8px;
-      }
-    `}
-`;
-
-export const Tag = styled.div`
-  background: ${({ theme }) => theme.color.mystic};
-  border-radius: 5px;
-  padding: 8px 16px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    padding: 4px 8px;
-  }
-`;
-
-export const TextTag = styled.div`
-  color: ${({ theme }) => theme.color.black};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
-  text-align: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 10px;
-    line-height: 1.1;
-  }
-
-  ${({ movieDetails }) =>
-    movieDetails &&
-    css`
-      line-height: 1;
-    `}
-`;
 
 export const Raiting = styled.div`
   display: flex;
@@ -303,7 +249,7 @@ export const Rate = styled.div`
     css`
       font-size: 22px;
       font-weight: 500;
-      line-height
+      line-height: 1.3;
     `}
 `;
 
@@ -344,7 +290,7 @@ export const Votes = styled.div`
       line-height: 1.2;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        color: ${({theme})=>theme.color.waterloo};
+        color: ${({ theme }) => theme.color.waterloo};
         font-size: 13px;
         line-height: 1.3;
       }

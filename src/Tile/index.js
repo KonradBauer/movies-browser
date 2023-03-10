@@ -7,9 +7,6 @@ import {
   Raiting,
   Rate,
   StarIcon,
-  Tag,
-  Tags,
-  TextTag,
   Title,
   Votes,
   Year,
@@ -24,6 +21,7 @@ import {
   MaxRate,
 } from "./styled";
 import noPoster from "../common/images/no-poster.png";
+import { TagsComponent } from "./Tags";
 
 export const Tile = ({ movieDetails, srcImage }) => {
   return (
@@ -47,17 +45,7 @@ export const Tile = ({ movieDetails, srcImage }) => {
               </ReleaseDate>
             </ProdAndReleaseInfo>
           ) : null}
-          <Tags movieDetails={movieDetails}>
-            <Tag>
-              <TextTag movieDetails={movieDetails}>Action</TextTag>
-            </Tag>
-            <Tag>
-              <TextTag movieDetails={movieDetails}>Drama</TextTag>
-            </Tag>
-            <Tag>
-              <TextTag movieDetails={movieDetails}>Adventure</TextTag>
-            </Tag>
-          </Tags>
+          <TagsComponent movieDetails={movieDetails} />
         </Description>
         <Raiting movieDetails={movieDetails}>
           <StarIcon alt="" />
