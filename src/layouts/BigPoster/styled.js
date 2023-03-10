@@ -20,6 +20,11 @@ export const Poster = styled.img`
   }
 `;
 
+export const Shadow = styled.div`
+  max-width: 1920px;
+  max-height: 769px;
+`;
+
 export const MainInfo = styled.div`
   position: absolute;
   width: 45%;
