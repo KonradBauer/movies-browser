@@ -17,7 +17,7 @@ export const MainText = styled.span`
   font-size: 36px;
   line-height: 120%;
   text-align: center;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     font-size: 30px;
@@ -36,7 +36,7 @@ export const SubText = styled.span`
   text-align: center;
   width: 426.53px;
   height: 58px;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodsmoke};
 `;
 
 export const StyledDanger = styled(Danger)`
