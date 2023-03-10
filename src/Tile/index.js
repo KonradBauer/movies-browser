@@ -1,15 +1,12 @@
 import {
   Container,
   Description,
-  Info,
   Content,
   Poster,
   Raiting,
   Rate,
   StarIcon,
-  Title,
   Votes,
-  Year,
   ProdAndReleaseInfo,
   Production,
   ReleaseDateText,
@@ -22,6 +19,7 @@ import {
 } from "./styled";
 import noPoster from "../common/images/no-poster.png";
 import { TagsComponent } from "./Tags";
+import { Information } from "./Information";
 
 export const Tile = ({ movieDetails, srcImage }) => {
   return (
@@ -29,10 +27,7 @@ export const Tile = ({ movieDetails, srcImage }) => {
       <Poster movieDetails={movieDetails} src={srcImage ? srcImage : noPoster} alt="" />
       <Content movieDetails={movieDetails}>
         <Description movieDetails={movieDetails}>
-          <Info>
-            <Title movieDetails={movieDetails}>Mulan</Title>
-            <Year movieDetails={movieDetails}>2020</Year>
-          </Info>
+          <Information />
           {movieDetails ? (
             <ProdAndReleaseInfo>
               <Production>
