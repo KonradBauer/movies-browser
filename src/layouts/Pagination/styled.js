@@ -7,10 +7,8 @@ export const Box = styled.div`
   padding: 0px;
   gap: 24px;
   width: 525px;
-  height: 36px;
   margin: auto;
   margin-top: 40px;
-  border: 1px solid woodsmoke;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -24,7 +22,6 @@ export const ButtonFirst = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 76px;
-  height: 36px;
   background: ${({ theme }) => theme.color.mystic};
   border-radius: 5px;
 `;
@@ -36,7 +33,6 @@ export const ButtonPrevious = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 106px;
-  height: 36px;
   background: ${({ theme }) => theme.color.mystic};
   border-radius: 5px;
 `;
@@ -48,8 +44,7 @@ export const ButtonNext = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 76px;
-  height: 36px;
-  background: ${({ theme }) => theme.color.mystic};
+  background: ${({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
 `;
 
@@ -60,8 +55,7 @@ export const ButtonLast = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 76px;
-  height: 36px;
-  background: ${({ theme }) => theme.color.mystic};
+  background: ${({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
 `;
 
@@ -83,8 +77,31 @@ export const Page = styled.text`
   align-items: center;
 `;
 
+export const Of = styled.text`
+  width: 16px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+`;
+
 export const PageNumber = styled.text`
   width: 6px;
   height: 24px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  color: ${({ theme }) => theme.color.woodsmoke};
+`;
+
+export const PageTotal = styled.text`
+  width: 31px;
+  height: 24px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
   color: ${({ theme }) => theme.color.woodsmoke};
 `;

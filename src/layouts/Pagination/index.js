@@ -6,9 +6,11 @@ import {
   ButtonLast,
   ButtonNext,
   ButtonPrevious,
+  Of,
   Page,
+  PageNumber,
   Pages,
-  StyledVectorLeft,
+  PageTotal,
 } from "./styled";
 
 export const Pagination = () => {
@@ -24,6 +26,9 @@ export const Pagination = () => {
       </ButtonPrevious>
       <Pages>
         <Page>Page</Page>
+        <PageNumber>1</PageNumber>
+        <Of>of</Of>
+        <PageTotal>500</PageTotal>
       </Pages>
       <ButtonNext>
         Next
