@@ -8,7 +8,7 @@ export const HeadContainer = styled.div`
   align-items: center;
   max-width: 1920px;
   height: 94px;
-  background: ${({ theme }) => theme.color.black};
+  background: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     width: 100%;
@@ -166,7 +166,7 @@ export const StyledLoupe = styled(Loupe)`
 export const Input = styled.input`
   display: flex;
   border: none;
-  width: 75%;
+  width: 73%;
   align-items: center;
   margin-left: 19px;
   font-family: "Poppins";
