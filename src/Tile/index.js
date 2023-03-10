@@ -3,10 +3,6 @@ import {
   Description,
   Content,
   Poster,
-  Raiting,
-  Rate,
-  StarIcon,
-  Votes,
   ProdAndReleaseInfo,
   Production,
   ReleaseDateText,
@@ -15,11 +11,11 @@ import {
   ProductionText,
   ProductionContent,
   MovieDescription,
-  MaxRate,
 } from "./styled";
 import noPoster from "../common/images/no-poster.png";
 import { TagsComponent } from "./Tags";
 import { Information } from "./Information";
+import { RaitingComponent } from "./Raiting";
 
 export const Tile = ({ movieDetails, srcImage }) => {
   return (
@@ -42,13 +38,7 @@ export const Tile = ({ movieDetails, srcImage }) => {
           ) : null}
           <TagsComponent movieDetails={movieDetails} />
         </Description>
-        <Raiting movieDetails={movieDetails}>
-          <StarIcon alt="" />
-          <Rate movieDetails={movieDetails}>
-            7,8{movieDetails ? <MaxRate movieDetails={movieDetails}>/ 10</MaxRate> : null}
-          </Rate>
-          <Votes movieDetails={movieDetails}>35 votes</Votes>
-        </Raiting>
+        <RaitingComponent movieDetails={movieDetails} />
       </Content>
       {movieDetails ? (
         <MovieDescription>
