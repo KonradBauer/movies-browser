@@ -39,7 +39,7 @@ export const Tile = ({ movieDetails, srcImage }) => {
             <ProdAndReleaseInfo>
               <Production>
                 <ProductionText>Production:</ProductionText>
-                <ProductionContent>China, United States of America</ProductionContent>
+                <ProductionContent>China, USA</ProductionContent>
               </Production>
               <ReleaseDate>
                 <ReleaseDateText>Release date:</ReleaseDateText>
@@ -61,17 +61,19 @@ export const Tile = ({ movieDetails, srcImage }) => {
         </Description>
         <Raiting movieDetails={movieDetails}>
           <StarIcon alt="" />
-          <Rate>7,8{movieDetails ? <MaxRate>/ 10</MaxRate> : null}</Rate>
-          <Votes movieDetails={movieDetails}>335 votes</Votes>
+          <Rate movieDetails={movieDetails}>
+            7,8{movieDetails ? <MaxRate movieDetails={movieDetails}>/ 10</MaxRate> : null}
+          </Rate>
+          <Votes movieDetails={movieDetails}>35 votes</Votes>
         </Raiting>
-        {movieDetails ? (
-          <MovieDescription>
-            A young Chinese maiden disguises herself as a male warrior in order to save her father.
-            Disguises herself as a male warrior in order to save her father. A young Chinese maiden
-            disguises herself as a male warrior in order to save her father.
-          </MovieDescription>
-        ) : null}
       </Content>
+      {movieDetails ? (
+        <MovieDescription>
+          A young Chinese maiden disguises herself as a male warrior in order to save her father.
+          Disguises herself as a male warrior in order to save her father. A young Chinese maiden
+          disguises herself as a male warrior in order to save her father.
+        </MovieDescription>
+      ) : null}
     </Container>
   );
 };
