@@ -8,7 +8,6 @@ import {
   StyledStar,
   Title,
   Votes,
-  Wrapper,
 } from "./styled";
 import PosterBig from "../../common/images/posterBig.png";
 
