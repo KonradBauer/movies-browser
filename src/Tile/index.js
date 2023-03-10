@@ -10,12 +10,12 @@ import {
   ReleaseDate,
   ProductionText,
   ProductionContent,
-  MovieDescription,
 } from "./styled";
 import noPoster from "../common/images/no-poster.png";
 import { TagsComponent } from "./Tags";
 import { Information } from "./Information";
 import { RaitingComponent } from "./Raiting";
+import { DescriptionComponent } from "./Description";
 
 export const Tile = ({ movieDetails, srcImage }) => {
   return (
@@ -41,11 +41,7 @@ export const Tile = ({ movieDetails, srcImage }) => {
         <RaitingComponent movieDetails={movieDetails} />
       </Content>
       {movieDetails ? (
-        <MovieDescription>
-          A young Chinese maiden disguises herself as a male warrior in order to save her father.
-          Disguises herself as a male warrior in order to save her father. A young Chinese maiden
-          disguises herself as a male warrior in order to save her father.
-        </MovieDescription>
+        <DescriptionComponent />
       ) : null}
     </Container>
   );
