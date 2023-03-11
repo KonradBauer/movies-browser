@@ -109,3 +109,51 @@ export const PageTotal = styled.text`
   display: flex;
   color: ${({ theme }) => theme.color.woodsmoke};
 `;
+
+export const ButtonFirstMobile = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 4px;
+  width: 38px;
+  height: 23px;
+  background: ${({ theme }) => theme.color.mystic};
+  border-radius: 5px;
+`;
+
+export const ButtonPreviousMobile = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  width: 29px;
+  height: 23px;
+  background: ${({ theme }) => theme.color.mystic};
+  border-radius: 5px;
+`;
+
+export const ButtonNextMobile = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  width: 29px;
+  height: 24px;
+  background: ${({ theme }) => theme.color.pattensBlue};
+  border-radius: 5px;
+`;
+
+export const ButtonLastMobile = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 4px;
+  width: 38px;
+  height: 24px;
+  background: ${({ theme }) => theme.color.pattensBlue};
+  border-radius: 5px;
+`;

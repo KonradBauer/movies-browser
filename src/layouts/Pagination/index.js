@@ -13,7 +13,12 @@ import {
   PageTotal,
 } from "./styled";
 
-export const Pagination = () => {
+export const Pagination = ({
+  ButtonFirstMobile,
+  ButtonPreviousMobile,
+  ButtonNextMobile,
+  ButtonLastMobile,
+}) => {
   return (
     <Box>
       <ButtonFirst>
