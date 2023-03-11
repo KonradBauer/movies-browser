@@ -5,10 +5,11 @@ import { RaitingComponent } from "./Raiting";
 import { DescriptionComponent } from "./Description";
 import { ProductionAndRelease } from "./ProductionAndRelease";
 import noPoster from "../../common/images/no-poster.png";
+import noperson from "../../common/images/no-person.png";
 
-export const Tile = ({ movie, movieDetails, srcImage }) => {
+export const Tile = ({ movie, movieDetails, person, role, srcImage }) => {
   return (
-    <Container movieDetails={movieDetails}>
+    <Container movieDetails={movieDetails} person={person}>
       {movie ? (
         <>
           <Poster src={srcImage ? srcImage : noPoster} alt="" />
@@ -35,6 +36,14 @@ export const Tile = ({ movie, movieDetails, srcImage }) => {
             <RaitingComponent movieDetails={movieDetails} />
           </Content>
           <DescriptionComponent />
+        </>
+      ) : (
+        ""
+      )}
+      {person ? (
+        <>
+          <Poster person={person} src={srcImage ? srcImage : noperson} alt="" />
+          <Information person={person} role={role} />
         </>
       ) : (
         ""

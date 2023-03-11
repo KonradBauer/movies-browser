@@ -3,6 +3,17 @@ import styled, { css } from "styled-components";
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${({ person }) =>
+    person &&
+    css`
+      text-align: center;
+      gap: 8px;
+      margin: 0;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+      }
+    `}
 `;
 
 export const Title = styled.h2`
@@ -28,12 +39,19 @@ export const Title = styled.h2`
         margin-bottom: 0;
       }
     `}
+
+  ${({ person }) =>
+    person &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 14px;
+      }
+    `}
 `;
 
 export const Year = styled.div`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -52,6 +70,23 @@ export const Year = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         color: ${({ theme }) => theme.color.waterloo};
         margin-bottom: 8px;
+      }
+    `}
+
+  ${({ person }) =>
+    person &&
+    css`
+      font-size: 18px;
+      height: 21px;
+
+      ${({ role }) =>
+        role &&
+        css`
+          display: inline;
+        `}
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 14px;
       }
     `}
 `;

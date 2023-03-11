@@ -41,6 +41,25 @@ export const Container = styled.div`
         gap: 16px;
       }
     `}
+
+  ${({ person }) =>
+    person &&
+    css`
+      max-width: 208px;
+      height: 339px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        max-width: 136px;
+        height: 245px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+    `}
 `;
 
 export const Poster = styled.img`
@@ -59,6 +78,18 @@ export const Poster = styled.img`
       width: 312px;
       height: 464px;
       grid-area: Poster;
+    `}
+
+  ${({ person }) =>
+    person &&
+    css`
+      width: 176px;
+      height: 231px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        width: 120px;
+        height: 178px;
+      }
     `}
 `;
 
