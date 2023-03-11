@@ -24,6 +24,7 @@ export const ButtonFirst = styled.div`
   width: 76px;
   background: ${({ theme }) => theme.color.mystic};
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const ButtonPrevious = styled.div`
@@ -35,6 +36,7 @@ export const ButtonPrevious = styled.div`
   width: 106px;
   background: ${({ theme }) => theme.color.mystic};
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const ButtonNext = styled.div`
@@ -46,6 +48,7 @@ export const ButtonNext = styled.div`
   width: 76px;
   background: ${({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const ButtonLast = styled.div`
@@ -57,6 +60,7 @@ export const ButtonLast = styled.div`
   width: 76px;
   background: ${({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const Pages = styled.div`
