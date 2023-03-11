@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./common/Theme/theme";
-import { Tile } from "./Tile";
+import { Tile } from "./layouts/Tile"
 import poster from "./common/images/poster.png";
 
 function App() {

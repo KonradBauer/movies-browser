@@ -4,7 +4,7 @@ import { Information } from "./Information";
 import { RaitingComponent } from "./Raiting";
 import { DescriptionComponent } from "./Description";
 import { ProductionAndRelease } from "./ProductionAndRelease";
-import noPoster from "../common/images/no-poster.png";
+import noPoster from "../../common/images/no-poster.png";
 
 export const Tile = ({ movieDetails, srcImage }) => {
   return (

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as Star } from "../../common/svg/shape-star.svg";
+import { ReactComponent as Star } from "../../../common/svg/shape-star.svg";
 
 export const Raiting = styled.div`
   display: flex;
