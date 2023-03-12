@@ -16,7 +16,7 @@ export const Information = ({ movie, movieDetails, person, personDetails, role }
           <Title person={person} personDetails={personDetails}>
             Donnie Yen
           </Title>
-          <Year person={person} role={role}>
+          <Year person={person} personDetails={personDetails} role={role}>
             {role}
           </Year>
         </>

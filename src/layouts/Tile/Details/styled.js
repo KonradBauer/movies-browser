@@ -35,12 +35,30 @@ const BlackColorText = styled.div`
 export const FirstDetails = styled.div`
   display: flex;
   gap: 10px;
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        display: flex;
+        gap: 4px;
+      }
+    `}
 `;
 
 export const FirstDetailsText = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        display: flex;
+        font-size: 12px;
+      }
+    `}
 `;
 
 export const FirstDetailsContent = styled(BlackColorText)``;
@@ -48,12 +66,31 @@ export const FirstDetailsContent = styled(BlackColorText)``;
 export const SecondDetails = styled.div`
   display: flex;
   gap: 11px;
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+    `}
 `;
 
 export const SecondDetailsText = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        display: block;
+        font-size: 12px;
+      }
+    `}
 `;
 
 export const SecondDetailsContent = styled(BlackColorText)``;

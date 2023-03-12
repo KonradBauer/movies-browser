@@ -51,8 +51,10 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImag
       {personDetails ? (
         <>
           <Poster personDetails={personDetails} src={srcImage ? srcImage : noPoster} alt="" />
-          <Information personDetails={personDetails} />
-          <Details personDetails={personDetails} />
+          <Description personDetails={personDetails}>
+            <Information personDetails={personDetails} />
+            <Details personDetails={personDetails} />
+          </Description>
           <DescriptionComponent personDetails={personDetails} />
         </>
       ) : (

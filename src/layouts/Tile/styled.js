@@ -68,12 +68,24 @@ export const Container = styled.div`
       padding: 40px;
       display: grid;
       grid-template-columns: 399px 1fr;
-      grid-template-rows: auto auto 1fr;
+      grid-template-rows: auto 1fr;
       gap: 24px 40px;
       grid-template-areas:
         "Poster Information"
-        "Poster Birth"
         "Poster Description";
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        max-width: 290px;
+        height: 365px;
+        padding: 16px;
+        display: grid;
+        grid-template-columns: 116px 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 16px;
+        grid-template-areas:
+          "Poster Information"
+          "Description Description";
+      }
     `}
 `;
 
@@ -113,6 +125,12 @@ export const Poster = styled.img`
       width: 399px;
       height: 564px;
       grid-area: Poster;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        width: 116px;
+        height: 163px;
+        grid-area: Poster;
+      }
     `}
 `;
 
@@ -143,5 +161,20 @@ export const Description = styled.div`
     movieDetails &&
     css`
       margin: 0;
+    `}
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      margin: 8px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
     `}
 `;

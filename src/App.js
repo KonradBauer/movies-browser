@@ -20,14 +20,14 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Tile movie={"movie"} srcImage={poster} /> */}
+      <Tile movie={"movie"} srcImage={poster} />
       <Tile movieDetails={"movieDetails"} srcImage={poster} />
       <Tile
         person={"person"}
         role={"Mulan"}
         srcImage={windowWidth > 830 ? person : personMobileAndDetails}
       />
-      {/* <Tile person={"person"} srcImage={person} /> */}
+      <Tile person={"person"} srcImage={person} />
       <Tile personDetails={"personDetails"} srcImage={personMobileAndDetails} />
     </ThemeProvider>
   );

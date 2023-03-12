@@ -14,7 +14,7 @@ export const Info = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodSmoke};
   font-size: 22px;
   font-weight: 500;
   line-height: 1.3;
@@ -53,7 +53,9 @@ export const Title = styled.h2`
       line-height: 1.2;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
       }
     `}
 `;

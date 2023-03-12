@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   DetailsContent,
   FirstDetails,
@@ -9,6 +10,17 @@ import {
 } from "./styled";
 
 export const Details = ({ movieDetails, personDetails }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <DetailsContent personDetails={personDetails}>
       {movieDetails ? (
@@ -27,12 +39,14 @@ export const Details = ({ movieDetails, personDetails }) => {
       )}
       {personDetails ? (
         <>
-          <FirstDetails>
-            <FirstDetailsText>Date of birth: :</FirstDetailsText>
+          <FirstDetails personDetails={personDetails}>
+            <FirstDetailsText personDetails={personDetails}>
+              {windowWidth > 830 ? "Date of birth:" : "Birth:"}
+            </FirstDetailsText>
             <FirstDetailsContent>25.08.1987</FirstDetailsContent>
           </FirstDetails>
-          <SecondDetails>
-            <SecondDetailsText>Place of birth:</SecondDetailsText>
+          <SecondDetails personDetails={personDetails}>
+            <SecondDetailsText personDetails={personDetails}>Place of birth:</SecondDetailsText>
             <SecondDetailsContent>Wuhan, Hubei, China</SecondDetailsContent>
           </SecondDetails>
         </>
