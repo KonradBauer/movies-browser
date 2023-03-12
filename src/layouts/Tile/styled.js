@@ -125,7 +125,6 @@ export const Content = styled.div`
     css`
       max-width: 936px;
       padding: 8px 0 0;
-      grid-area: Information;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         padding: 0;

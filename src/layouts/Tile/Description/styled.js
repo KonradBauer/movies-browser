@@ -5,8 +5,7 @@ export const MovieDescription = styled.div`
   font-size: 20px;
   line-height: 1.6;
   max-width: inherit;
-  grid-area: Description;
-
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     color: ${({ theme }) => theme.color.black};
     font-size: 14px;
