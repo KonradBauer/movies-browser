@@ -27,7 +27,7 @@ function App() {
         role={"Mulan"}
         srcImage={windowWidth > 830 ? person : personMobileAndDetails}
       />
-      <Tile person={"person"} srcImage={person} />
+      <Tile person={"person"} srcImage={windowWidth > 830 ? person : personMobileAndDetails} />
       <Tile personDetails={"personDetails"} srcImage={personMobileAndDetails} />
     </ThemeProvider>
   );
