@@ -146,6 +146,9 @@ export const Content = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
       }
     `}
 `;
@@ -161,6 +164,10 @@ export const Description = styled.div`
     movieDetails &&
     css`
       margin: 0;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin: 0;
+      }
     `}
 
   ${({ personDetails }) =>

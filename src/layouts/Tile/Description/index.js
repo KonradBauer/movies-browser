@@ -5,7 +5,7 @@ export const DescriptionComponent = ({ movieDetails, personDetails }) => {
     <>
       {movieDetails ? (
         <MovieDescription>
-          A young Chinese maiden disguises herself as a male warrior in order to save her father.
+          A young Chinese maiden disguises herself as a male warrior in order to save her father.<br />
           Disguises herself as a male warrior in order to save her father. A young Chinese maiden
           disguises herself as a male warrior in order to save her father.
         </MovieDescription>

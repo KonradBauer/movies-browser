@@ -20,7 +20,7 @@ export const StyledTags = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         gap: 8px;
-        margin-bottom: 8px;
+        margin-bottom: 0;
       }
     `}
 `;
