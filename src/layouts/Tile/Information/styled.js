@@ -10,9 +10,6 @@ export const Info = styled.div`
       text-align: center;
       gap: 8px;
       margin: 0;
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-      }
     `}
 `;
 
@@ -45,6 +42,18 @@ export const Title = styled.h2`
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 14px;
+      }
+    `}
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.2;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        
       }
     `}
 `;
@@ -88,5 +97,11 @@ export const Year = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 14px;
       }
+    `}
+
+    ${({ personDetails }) =>
+    personDetails &&
+    css`
+      display: none;
     `}
 `;

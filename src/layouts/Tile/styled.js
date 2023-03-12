@@ -60,6 +60,21 @@ export const Container = styled.div`
         gap: 8px;
       }
     `}
+
+    ${({ personDetails }) =>
+    personDetails &&
+    css`
+      max-width: 1368px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 399px 1fr;
+      grid-template-rows: auto auto 1fr;
+      gap: 24px 40px;
+      grid-template-areas:
+        "Poster Information"
+        "Poster Birth"
+        "Poster Description";
+    `}
 `;
 
 export const Poster = styled.img`
@@ -90,6 +105,14 @@ export const Poster = styled.img`
         width: 120px;
         height: 178px;
       }
+    `}
+
+    ${({ personDetails }) =>
+    personDetails &&
+    css`
+      width: 399px;
+      height: 564px;
+      grid-area: Poster;
     `}
 `;
 

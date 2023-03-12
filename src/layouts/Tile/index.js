@@ -3,19 +3,19 @@ import { TagsComponent } from "./Tags";
 import { Information } from "./Information";
 import { RaitingComponent } from "./Raiting";
 import { DescriptionComponent } from "./Description";
-import { ProductionAndRelease } from "./ProductionAndRelease";
+import { Details } from "./Details";
 import noPoster from "../../common/images/no-poster.png";
 import noperson from "../../common/images/no-person.png";
 
-export const Tile = ({ movie, movieDetails, person, role, srcImage }) => {
+export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImage }) => {
   return (
-    <Container movieDetails={movieDetails} person={person}>
+    <Container movieDetails={movieDetails} person={person} personDetails={personDetails}>
       {movie ? (
         <>
           <Poster src={srcImage ? srcImage : noPoster} alt="" />
           <Content>
             <Description>
-              <Information />
+              <Information movie={movie} />
               <TagsComponent />
             </Description>
             <RaitingComponent />
@@ -29,13 +29,13 @@ export const Tile = ({ movie, movieDetails, person, role, srcImage }) => {
           <Poster movieDetails={movieDetails} src={srcImage ? srcImage : noPoster} alt="" />
           <Content movieDetails={movieDetails}>
             <Description movieDetails={movieDetails}>
-              <Information />
-              <ProductionAndRelease />
+              <Information movieDetails={movieDetails} />
+              <Details movieDetails={movieDetails} />
               <TagsComponent movieDetails={movieDetails} />
             </Description>
             <RaitingComponent movieDetails={movieDetails} />
           </Content>
-          <DescriptionComponent />
+          <DescriptionComponent movieDetails={movieDetails} />
         </>
       ) : (
         ""
@@ -44,6 +44,16 @@ export const Tile = ({ movie, movieDetails, person, role, srcImage }) => {
         <>
           <Poster person={person} src={srcImage ? srcImage : noperson} alt="" />
           <Information person={person} role={role} />
+        </>
+      ) : (
+        ""
+      )}
+      {personDetails ? (
+        <>
+          <Poster personDetails={personDetails} src={srcImage ? srcImage : noPoster} alt="" />
+          <Information personDetails={personDetails} />
+          <Details personDetails={personDetails} />
+          <DescriptionComponent personDetails={personDetails} />
         </>
       ) : (
         ""

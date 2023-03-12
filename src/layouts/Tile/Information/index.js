@@ -1,8 +1,8 @@
 import { Info, Title, Year } from "./styled";
 
-export const Information = ({ movie, movieDetails, person, role }) => {
+export const Information = ({ movie, movieDetails, person, personDetails, role }) => {
   return (
-    <Info person={person}>
+    <Info person={person} personDetails={personDetails}>
       {movie || movieDetails ? (
         <>
           <Title movieDetails={movieDetails}>Mulan</Title>
@@ -11,9 +11,11 @@ export const Information = ({ movie, movieDetails, person, role }) => {
       ) : (
         ""
       )}
-      {person ? (
+      {person || personDetails ? (
         <>
-          <Title person={person}>Donnie Yen</Title>
+          <Title person={person} personDetails={personDetails}>
+            Donnie Yen
+          </Title>
           <Year person={person} role={role}>
             {role}
           </Year>
