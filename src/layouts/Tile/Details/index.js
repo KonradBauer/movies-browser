@@ -8,6 +8,8 @@ import {
   SecondDetailsContent,
   SecondDetailsText,
 } from "./styled";
+import { theme } from "../../../common/Theme/theme";
+
 
 export const Details = ({ movieDetails, personDetails }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -41,7 +43,7 @@ export const Details = ({ movieDetails, personDetails }) => {
         <>
           <FirstDetails personDetails={personDetails}>
             <FirstDetailsText personDetails={personDetails}>
-              {windowWidth > 830 ? "Date of birth:" : "Birth:"}
+              {windowWidth > theme.breakpoints.mobileMax ? "Date of birth:" : "Birth:"}
             </FirstDetailsText>
             <FirstDetailsContent>25.08.1987</FirstDetailsContent>
           </FirstDetails>

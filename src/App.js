@@ -25,9 +25,12 @@ function App() {
       <Tile
         person={"person"}
         role={"Mulan"}
-        srcImage={windowWidth > 830 ? person : personMobileAndDetails}
+        srcImage={windowWidth > theme.breakpoints.mobileMax ? person : personMobileAndDetails}
       />
-      <Tile person={"person"} srcImage={windowWidth > 830 ? person : personMobileAndDetails} />
+      <Tile
+        person={"person"}
+        srcImage={windowWidth > theme.breakpoints.mobileMax ? person : personMobileAndDetails}
+      />
       <Tile personDetails={"personDetails"} srcImage={personMobileAndDetails} />
     </ThemeProvider>
   );
