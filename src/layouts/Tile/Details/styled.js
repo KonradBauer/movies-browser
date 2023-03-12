@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const DetailsContent = styled.div`
+export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -45,7 +45,7 @@ export const FirstDetails = styled.div`
     `}
 `;
 
-export const FirstDetailsText = styled(StormGrayColorText)`
+export const FirstDetailsLabel = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }
@@ -76,7 +76,7 @@ export const SecondDetails = styled.div`
     `}
 `;
 
-export const SecondDetailsText = styled(StormGrayColorText)`
+export const SecondDetailsLabel = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledTags = styled.div`
+export const TagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -35,7 +35,7 @@ export const Tag = styled.div`
   }
 `;
 
-export const TextTag = styled.div`
+export const TagContent = styled.div`
   color: ${({ theme }) => theme.color.black};
   font-size: 14px;
   line-height: 1.4;

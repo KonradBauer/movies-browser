@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as Star } from "../../../common/svg/shape-star.svg";
 
-export const Raiting = styled.div`
+export const RaitingContainer = styled.div`
   display: flex;
   gap: 12px;
   position: absolute;

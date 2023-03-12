@@ -1,17 +1,17 @@
-import { StyledTags, Tag, TextTag } from "./styled"
+import { TagsContainer, Tag, TagContent } from "./styled";
 
-export const TagsComponent = ({movieDetails}) => {
-    return (
-      <StyledTags movieDetails={movieDetails}>
-        <Tag>
-          <TextTag movieDetails={movieDetails}>Action</TextTag>
-        </Tag>
-        <Tag>
-          <TextTag movieDetails={movieDetails}>Drama</TextTag>
-        </Tag>
-        <Tag>
-          <TextTag movieDetails={movieDetails}>Adventure</TextTag>
-        </Tag>
-      </StyledTags>
-    );
-}
+export const Tags = ({ movieDetails }) => {
+  return (
+    <TagsContainer movieDetails={movieDetails}>
+      <Tag>
+        <TagContent movieDetails={movieDetails}>Action</TagContent>
+      </Tag>
+      <Tag>
+        <TagContent movieDetails={movieDetails}>Drama</TagContent>
+      </Tag>
+      <Tag>
+        <TagContent movieDetails={movieDetails}>Adventure</TagContent>
+      </Tag>
+    </TagsContainer>
+  );
+};

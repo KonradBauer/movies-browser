@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import {
-  DetailsContent,
+  DetailsContainer,
   FirstDetails,
   FirstDetailsContent,
-  FirstDetailsText,
+  FirstDetailsLabel,
   SecondDetails,
   SecondDetailsContent,
-  SecondDetailsText,
+  SecondDetailsLabel,
 } from "./styled";
 import { theme } from "../../../common/Theme/theme";
-
 
 export const Details = ({ movieDetails, personDetails }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,15 +23,15 @@ export const Details = ({ movieDetails, personDetails }) => {
   }, []);
 
   return (
-    <DetailsContent personDetails={personDetails}>
+    <DetailsContainer personDetails={personDetails}>
       {movieDetails ? (
         <>
           <FirstDetails>
-            <FirstDetailsText>Production:</FirstDetailsText>
+            <FirstDetailsLabel>Production:</FirstDetailsLabel>
             <FirstDetailsContent>China, USA</FirstDetailsContent>
           </FirstDetails>
           <SecondDetails>
-            <SecondDetailsText>Release date:</SecondDetailsText>
+            <SecondDetailsLabel>Release date:</SecondDetailsLabel>
             <SecondDetailsContent>24.10.2020</SecondDetailsContent>
           </SecondDetails>
         </>
@@ -42,19 +41,19 @@ export const Details = ({ movieDetails, personDetails }) => {
       {personDetails ? (
         <>
           <FirstDetails personDetails={personDetails}>
-            <FirstDetailsText personDetails={personDetails}>
+            <FirstDetailsLabel personDetails={personDetails}>
               {windowWidth > theme.breakpoints.mobileMax ? "Date of birth:" : "Birth:"}
-            </FirstDetailsText>
+            </FirstDetailsLabel>
             <FirstDetailsContent>25.08.1987</FirstDetailsContent>
           </FirstDetails>
           <SecondDetails personDetails={personDetails}>
-            <SecondDetailsText personDetails={personDetails}>Place of birth:</SecondDetailsText>
+            <SecondDetailsLabel personDetails={personDetails}>Place of birth:</SecondDetailsLabel>
             <SecondDetailsContent>Wuhan, Hubei, China</SecondDetailsContent>
           </SecondDetails>
         </>
       ) : (
         ""
       )}
-    </DetailsContent>
+    </DetailsContainer>
   );
 };

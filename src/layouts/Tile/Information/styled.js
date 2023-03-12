@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Info = styled.div`
+export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -13,7 +13,7 @@ export const Info = styled.div`
     `}
 `;
 
-export const Title = styled.h2`
+export const FirstInformation = styled.h2`
   color: ${({ theme }) => theme.color.woodSmoke};
   font-size: 22px;
   font-weight: 500;
@@ -60,7 +60,7 @@ export const Title = styled.h2`
     `}
 `;
 
-export const Year = styled.div`
+export const SecondInformation = styled.div`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 16px;
   line-height: 1.5;

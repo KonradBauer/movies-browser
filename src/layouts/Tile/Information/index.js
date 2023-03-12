@@ -1,28 +1,28 @@
-import { Info, Title, Year } from "./styled";
+import { InfoContainer, FirstInformation, SecondInformation } from "./styled";
 
 export const Information = ({ movie, movieDetails, person, personDetails, role }) => {
   return (
-    <Info person={person} personDetails={personDetails}>
+    <InfoContainer person={person} personDetails={personDetails}>
       {movie || movieDetails ? (
         <>
-          <Title movieDetails={movieDetails}>Mulan</Title>
-          <Year movieDetails={movieDetails}>2020</Year>
+          <FirstInformation movieDetails={movieDetails}>Mulan</FirstInformation>
+          <SecondInformation movieDetails={movieDetails}>2020</SecondInformation>
         </>
       ) : (
         ""
       )}
       {person || personDetails ? (
         <>
-          <Title person={person} personDetails={personDetails}>
+          <FirstInformation person={person} personDetails={personDetails}>
             Donnie Yen
-          </Title>
-          <Year person={person} personDetails={personDetails} role={role}>
+          </FirstInformation>
+          <SecondInformation person={person} personDetails={personDetails} role={role}>
             {role}
-          </Year>
+          </SecondInformation>
         </>
       ) : (
         ""
       )}
-    </Info>
+    </InfoContainer>
   );
 };

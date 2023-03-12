@@ -83,7 +83,7 @@ export const Container = styled.div`
     `}
 `;
 
-export const Poster = styled.img`
+export const Image = styled.img`
   border-radius: 5px;
   width: 292px;
   height: 434px;
@@ -128,7 +128,7 @@ export const Poster = styled.img`
     `}
 `;
 
-export const Content = styled.div`
+export const MovieContainer = styled.div`
   ${({ movieDetails }) =>
     movieDetails &&
     css`
@@ -144,7 +144,7 @@ export const Content = styled.div`
     `}
 `;
 
-export const Description = styled.div`
+export const DescriptionContainer = styled.div`
   margin: 16px 0 39px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {

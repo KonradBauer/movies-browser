@@ -1,8 +1,8 @@
-import { Container, Description, Content, Poster } from "./styled";
-import { TagsComponent } from "./Tags";
+import { Container, DescriptionContainer, MovieContainer, Image } from "./styled";
+import { Tags } from "./Tags";
 import { Information } from "./Information";
-import { RaitingComponent } from "./Raiting";
-import { DescriptionComponent } from "./Description";
+import { Raiting } from "./Raiting";
+import { Description } from "./Description";
 import { Details } from "./Details";
 import noPoster from "../../common/images/no-poster.png";
 import noperson from "../../common/images/no-person.png";
@@ -12,37 +12,37 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImag
     <Container movieDetails={movieDetails} person={person} personDetails={personDetails}>
       {movie ? (
         <>
-          <Poster src={srcImage ? srcImage : noPoster} alt="" />
-          <Content>
-            <Description>
+          <Image src={srcImage ? srcImage : noPoster} alt="" />
+          <MovieContainer>
+            <DescriptionContainer>
               <Information movie={movie} />
-              <TagsComponent />
-            </Description>
-            <RaitingComponent />
-          </Content>
+              <Tags />
+            </DescriptionContainer>
+            <Raiting />
+          </MovieContainer>
         </>
       ) : (
         ""
       )}
       {movieDetails ? (
         <>
-          <Poster movieDetails={movieDetails} src={srcImage ? srcImage : noPoster} alt="" />
-          <Content movieDetails={movieDetails}>
-            <Description movieDetails={movieDetails}>
+          <Image movieDetails={movieDetails} src={srcImage ? srcImage : noPoster} alt="" />
+          <MovieContainer movieDetails={movieDetails}>
+            <DescriptionContainer movieDetails={movieDetails}>
               <Information movieDetails={movieDetails} />
               <Details movieDetails={movieDetails} />
-              <TagsComponent movieDetails={movieDetails} />
-            </Description>
-            <RaitingComponent movieDetails={movieDetails} />
-          </Content>
-          <DescriptionComponent movieDetails={movieDetails} />
+              <Tags movieDetails={movieDetails} />
+            </DescriptionContainer>
+            <Raiting movieDetails={movieDetails} />
+          </MovieContainer>
+          <Description movieDetails={movieDetails} />
         </>
       ) : (
         ""
       )}
       {person ? (
         <>
-          <Poster person={person} src={srcImage ? srcImage : noperson} alt="" />
+          <Image person={person} src={srcImage ? srcImage : noperson} alt="" />
           <Information person={person} role={role} />
         </>
       ) : (
@@ -50,12 +50,12 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImag
       )}
       {personDetails ? (
         <>
-          <Poster personDetails={personDetails} src={srcImage ? srcImage : noPoster} alt="" />
-          <Description personDetails={personDetails}>
+          <Image personDetails={personDetails} src={srcImage ? srcImage : noPoster} alt="" />
+          <DescriptionContainer personDetails={personDetails}>
             <Information personDetails={personDetails} />
             <Details personDetails={personDetails} />
-          </Description>
-          <DescriptionComponent personDetails={personDetails} />
+          </DescriptionContainer>
+          <Description personDetails={personDetails} />
         </>
       ) : (
         ""
