@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const ProdAndReleaseInfo = styled.div`
+export const DetailsContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -11,6 +11,12 @@ export const ProdAndReleaseInfo = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin-bottom: 0;
   }
+
+  ${({ personDetails }) =>
+    personDetails &&
+    css`
+      margin: 0;
+    `}
 `;
 
 const StormGrayColorText = styled.div`
@@ -26,28 +32,28 @@ const BlackColorText = styled.div`
   }
 `;
 
-export const Production = styled.div`
+export const FirstDetails = styled.div`
   display: flex;
   gap: 10px;
 `;
 
-export const ProductionText = styled(StormGrayColorText)`
+export const FirstDetailsText = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }
 `;
 
-export const ProductionContent = styled(BlackColorText)``;
+export const FirstDetailsContent = styled(BlackColorText)``;
 
-export const ReleaseDate = styled.div`
+export const SecondDetails = styled.div`
   display: flex;
   gap: 11px;
 `;
 
-export const ReleaseDateText = styled(StormGrayColorText)`
+export const SecondDetailsText = styled(StormGrayColorText)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: none;
   }
 `;
 
-export const ReleaseDateContent = styled(BlackColorText)``;
+export const SecondDetailsContent = styled(BlackColorText)``;
