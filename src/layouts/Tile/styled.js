@@ -33,12 +33,9 @@ export const Container = styled.div`
         "Poster Description";
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        max-width: 288px;
         height: 400px;
         padding: 16px;
-        display: flex;
         flex-wrap: wrap;
-        gap: 16px;
       }
     `}
 
@@ -55,13 +52,11 @@ export const Container = styled.div`
         max-width: 136px;
         height: 245px;
         padding: 8px;
-        display: flex;
-        flex-direction: column;
         gap: 8px;
       }
     `}
 
-    ${({ personDetails }) =>
+  ${({ personDetails }) =>
     personDetails &&
     css`
       max-width: 1368px;
@@ -81,7 +76,6 @@ export const Container = styled.div`
         display: grid;
         grid-template-columns: 116px 1fr;
         grid-template-rows: 1fr 1fr;
-        gap: 16px;
         grid-template-areas:
           "Poster Information"
           "Description Description";
@@ -135,9 +129,6 @@ export const Poster = styled.img`
 `;
 
 export const Content = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-  }
-
   ${({ movieDetails }) =>
     movieDetails &&
     css`
@@ -179,8 +170,6 @@ export const Description = styled.div`
       gap: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        display: flex;
-        flex-direction: column;
         gap: 16px;
       }
     `}

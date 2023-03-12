@@ -55,7 +55,6 @@ export const Rate = styled.div`
 export const MaxRate = styled.div`
   color: ${({ theme }) => theme.color.black};
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.2;
   align-self: center;
 
@@ -71,7 +70,6 @@ export const MaxRate = styled.div`
 export const Votes = styled.div`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -91,7 +89,6 @@ export const Votes = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         color: ${({ theme }) => theme.color.waterloo};
         font-size: 13px;
-        line-height: 1.3;
       }
     `}
 `;

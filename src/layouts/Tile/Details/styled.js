@@ -40,7 +40,6 @@ export const FirstDetails = styled.div`
     personDetails &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        display: flex;
         gap: 4px;
       }
     `}
@@ -71,7 +70,6 @@ export const SecondDetails = styled.div`
     personDetails &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        display: flex;
         flex-wrap: wrap;
         gap: 4px;
       }

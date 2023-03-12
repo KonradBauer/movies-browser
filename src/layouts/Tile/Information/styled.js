@@ -90,20 +90,12 @@ export const Year = styled.div`
       font-size: 18px;
       height: 21px;
 
-      ${({ role }) =>
-        role &&
-        css`
-          display: inline;
-        `}
+      ${({ role }) => role && `display: inline;`}
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 14px;
       }
     `}
 
-    ${({ personDetails }) =>
-    personDetails &&
-    css`
-      display: none;
-    `}
+    ${({ personDetails }) => personDetails && `display: none;`}
 `;
