@@ -194,6 +194,12 @@ export const Box = styled.div`
     flex-shrink: 1;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    margin: 0px 16px 15px;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     margin: 0px 16px 15px;
     flex-wrap: nowrap;
