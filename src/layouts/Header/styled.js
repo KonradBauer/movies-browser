@@ -7,7 +7,8 @@ export const HeadContainer = styled.div`
   font-family: "Poppins", sans-serif;
   flex-flow: row nowrap;
   align-items: center;
-  max-width: 1920px;
+  justify-content: center;
+  max-width: 100%;
   height: 94px;
   background: ${({ theme }) => theme.color.woodsmoke};
 
