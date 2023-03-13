@@ -37,6 +37,10 @@ export const Container = styled.div`
         padding: 16px;
         flex-wrap: wrap;
       }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.theSmallestMobileView}px) {
+        min-height: 410px;
+      }
     `}
 
   ${({ person }) =>
@@ -80,6 +84,10 @@ export const Container = styled.div`
           "Poster Information"
           "Description Description";
       }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.theSmallestMobileView}px) {
+        height: 410px;
+      }
     `}
 `;
 
@@ -99,6 +107,11 @@ export const Image = styled.img`
       width: 312px;
       height: 464px;
       grid-area: Poster;
+
+      @media (max-width: 290px) {
+        width: 105px;
+        height: 157px;
+      }
     `}
 
   ${({ person }) =>

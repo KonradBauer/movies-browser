@@ -6,7 +6,6 @@ export const Description = ({ movieDetails, personDetails }) => {
       {movieDetails ? (
         <DescriptionContent>
           A young Chinese maiden disguises herself as a male warrior in order to save her father.
-          <br />
           Disguises herself as a male warrior in order to save her father. A young Chinese maiden
           disguises herself as a male warrior in order to save her father.
         </DescriptionContent>
