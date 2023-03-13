@@ -1,9 +1,5 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./common/Theme/theme";
-import { Tile } from "./layouts/Tile";
-import poster from "./common/images/poster.png";
-import person from "./common/images/person.png";
-import personMobileAndDetails from "./common/images/personMobileAndDetails.png";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -20,18 +16,6 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Tile movie={"movie"} srcImage={poster} />
-      <Tile movieDetails={"movieDetails"} srcImage={poster} />
-      <Tile
-        person={"person"}
-        role={"Mulan"}
-        srcImage={windowWidth > theme.breakpoints.mobileMax ? person : personMobileAndDetails}
-      />
-      <Tile
-        person={"person"}
-        srcImage={windowWidth > theme.breakpoints.mobileMax ? person : personMobileAndDetails}
-      />
-      <Tile personDetails={"personDetails"} srcImage={personMobileAndDetails} />
     </ThemeProvider>
   );
 }
