@@ -4,6 +4,7 @@ import { ReactComponent as Loupe } from "../../common/svg/loupe.svg";
 
 export const HeadContainer = styled.div`
   display: flex;
+  font-family: "Poppins", sans-serif;
   flex-flow: row nowrap;
   align-items: center;
   max-width: 1920px;
