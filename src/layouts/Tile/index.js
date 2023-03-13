@@ -5,7 +5,7 @@ import { Raiting } from "./Raiting";
 import { Description } from "./Description";
 import { Details } from "./Details";
 import noPoster from "../../common/images/no-poster.png";
-import noperson from "../../common/images/no-person.png";
+import noPerson from "../../common/images/no-person.png";
 
 export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImage }) => {
   return (
@@ -42,7 +42,7 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImag
       )}
       {person ? (
         <>
-          <Image person={person} src={srcImage ? srcImage : noperson} alt="" />
+          <Image person={person} src={srcImage ? srcImage : noPerson} alt="" />
           <Information person={person} role={role} />
         </>
       ) : (
@@ -50,7 +50,7 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImag
       )}
       {personDetails ? (
         <>
-          <Image personDetails={personDetails} src={srcImage ? srcImage : noPoster} alt="" />
+          <Image personDetails={personDetails} src={srcImage ? srcImage : noPerson} alt="" />
           <DescriptionContainer personDetails={personDetails}>
             <Information personDetails={personDetails} />
             <Details personDetails={personDetails} />
