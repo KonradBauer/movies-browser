@@ -95,6 +95,8 @@ export const MoviesButton = styled.button`
     font-size: 12px;
     width: 70px;
     height: 35px;
+    margin-left: 0;
+    margin-right: 0;
 
     &:focus {
       border: 1px solid #ffffff;
@@ -151,6 +153,7 @@ export const PeopleButton = styled.button`
     font-size: 12px;
     width: 70px;
     height: 35px;
+    margin-left: 0;
 
     &:focus {
       border: 1px solid #ffffff;
@@ -192,7 +195,7 @@ export const Box = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin: 0px 16px 5px 16px;
+    margin: 0px 16px 15px;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
