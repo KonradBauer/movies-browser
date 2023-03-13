@@ -10,6 +10,7 @@ export const theme = {
   },
 
   breakpoints: {
+    theSmallestMobileView: 290,
     mobileMax: 847,
     beforeMobileMax: 1000,
     tabletVerticalMax: 991,
