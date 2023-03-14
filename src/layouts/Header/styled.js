@@ -116,9 +116,8 @@ export const PeopleButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-left: 64px;
+  margin-left: 30px;
   padding: 8px 24px;
-  gap: 10px;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -172,8 +171,8 @@ export const Box = styled.div`
   align-items: center;
   height: 48px;
   width: 432px;
-  margin-left: 411px;
-  margin-right: 292px;
+  margin-left: 100px;
+  margin-right: 130px;
   border: 1px solid;
   border-color: ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
