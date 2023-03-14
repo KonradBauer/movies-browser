@@ -10,7 +10,7 @@ export const HeadContainer = styled.div`
   justify-content: center;
   max-width: 100%;
   height: 94px;
-  background: ${({ theme }) => theme.color.woodsmoke};
+  background: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     width: 100%;
