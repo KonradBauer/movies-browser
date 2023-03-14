@@ -2,6 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./common/Theme/theme";
 import { Header } from "./layouts/Header/index";
 import { useEffect, useState } from "react";
+import { Content } from "./layouts/Content/index";
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -18,6 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+      <Content />
     </ThemeProvider>
   );
 }

@@ -4,11 +4,13 @@ import { ReactComponent as Loupe } from "../../common/svg/loupe.svg";
 
 export const HeadContainer = styled.div`
   display: flex;
+  font-family: "Poppins", sans-serif;
   flex-flow: row nowrap;
   align-items: center;
-  max-width: 1920px;
+  justify-content: center;
+  max-width: 100%;
   height: 94px;
-  background: ${({ theme }) => theme.color.woodsmoke};
+  background: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     width: 100%;
@@ -35,8 +37,8 @@ export const StyledLogo = styled(Logo)`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     display: flex;
-    height: 17px;
-    width: 95px;
+    height: 60px;
+    width: 124px;
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: none;
@@ -85,6 +87,24 @@ export const MoviesButton = styled.button`
     margin: auto;
     flex-wrap: nowrap;
     flex-shrink: 1;
+    font-size: 12px;
+    width: 43px;
+    height: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    font-size: 12px;
+    width: 70px;
+    height: 35px;
+    margin-left: 0;
+    margin-right: 0;
+
+    &:focus {
+      border: 1px solid #ffffff;
+      border-radius: 24px;
+      width: 70px;
+      height: 35px;
+    }
   }
 `;
 
@@ -120,6 +140,29 @@ export const PeopleButton = styled.button`
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    font-size: 12px;
+    width: 43px;
+    height: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    font-size: 12px;
+    width: 70px;
+    height: 35px;
+    margin-left: 0;
+
+    &:focus {
+      border: 1px solid #ffffff;
+      border-radius: 24px;
+      width: 70px;
+      height: 35px;
+    }
+  }
 `;
 
 export const Box = styled.div`
@@ -152,8 +195,14 @@ export const Box = styled.div`
     flex-shrink: 1;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    margin: 0px 16px 15px;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin: 1px 16px 16px 16px;
+    margin: 0px 16px 15px;
     flex-wrap: nowrap;
     flex-shrink: 1;
   }
@@ -161,6 +210,12 @@ export const Box = styled.div`
 
 export const StyledLoupe = styled(Loupe)`
   margin-left: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    margin-left: 15px;
+    height: 18px;
+    width: 18px;
+  }
 `;
 
 export const Input = styled.input`
@@ -178,5 +233,14 @@ export const Input = styled.input`
 
   &::placeholder {
     color: inherit;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    margin-left: 3px;
+
+    &::placeholder {
+      color: inherit;
+      font-size: 13px;
+    }
   }
 `;
