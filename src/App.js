@@ -2,8 +2,12 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./common/Theme/theme";
 import { Header } from "./layouts/Header/index";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchMovies } from "./features/movies/movie/moviesSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -17,7 +21,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <div onLoad={() => dispatch(fetchMovies())}>
+        <Header />
+      </div>
     </ThemeProvider>
   );
 }
