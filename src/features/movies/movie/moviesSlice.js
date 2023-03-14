@@ -16,14 +16,15 @@ const moviesSlice = createSlice({
       status: "success",
     }),
     loadMoviesError: () => ({ movies: null, status: "error" }),
+    fetchMovies: () => {},
   },
 });
 
-export const { loadMovies, loadMoviesSuccess, loadMoviesError } = moviesSlice.actions;
+export const { loadMovies, loadMoviesSuccess, loadMoviesError, fetchMovies } = moviesSlice.actions;
 
 const selectMoviesState = (state) => state.movies;
 
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
-export const selectMovies = (state) => selectMoviesState(state).projects;
+export const selectMovies = (state) => selectMoviesState(state).movies;
 
 export default moviesSlice.reducer;
