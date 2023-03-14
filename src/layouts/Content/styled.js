@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainBox = styled.div`
-  margin: auto;
+  margin: 0 auto;
   margin-top: 56px;
   margin-bottom: 40px;
   max-width: 1368px;
@@ -99,7 +99,7 @@ export const TilesList = styled.ul`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 512px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
 `;
