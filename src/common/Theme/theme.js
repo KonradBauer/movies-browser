@@ -7,13 +7,16 @@ export const theme = {
     waterloo: "#7E839A",
     mystic: "#E4E6F0",
     scienceBlue: "#0044CC",
+    stormGray: "#74788B",
   },
 
   breakpoints: {
+    theSmallestMobileView: 290,
     mobileS: 320,
     mobileM: 425,
-    mobileMax: 767,
+    mobileMax: 847,
     tabletVerticalMax: 991,
+    beforeMobileMax: 1000,
     tabletHorizontalMax: 1199,
     desktopHorizontal: 1250,
     desktopHorizontalMax: 1672,
