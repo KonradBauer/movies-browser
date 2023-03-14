@@ -6,7 +6,6 @@ export const MainBox = styled.div`
   margin-bottom: 40px;
   max-width: 1368px;
   height: 1391px;
-  border: 1px solid black;
   background: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
@@ -47,6 +46,7 @@ export const BoxTitle = styled.span`
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
+  margin-left: 16px;
   color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
