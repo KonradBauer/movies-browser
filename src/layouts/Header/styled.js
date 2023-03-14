@@ -20,8 +20,8 @@ export const HeadContainer = styled.div`
 `;
 
 export const StyledLogo = styled(Logo)`
-  margin-left: 293px;
-  margin-right: 80px;
+  margin-left: 297px;
+  flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     margin: auto;
@@ -46,6 +46,7 @@ export const StyledLogo = styled(Logo)`
 `;
 
 export const MoviesButton = styled.button`
+  margin-left: 104px;
   width: 102px;
   height: 48px;
   display: flex;
@@ -115,7 +116,7 @@ export const PeopleButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
+  margin-left: 64px;
   padding: 8px 24px;
   gap: 10px;
   font-style: normal;
@@ -172,6 +173,7 @@ export const Box = styled.div`
   height: 48px;
   width: 432px;
   margin-left: 411px;
+  margin-right: 292px;
   border: 1px solid;
   border-color: ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
