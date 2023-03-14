@@ -8,7 +8,6 @@ export const MainBox = styled.div`
   height: 1391px;
   border: 1px solid black;
   background: none;
-  display: flex;
 `;
 
 export const Section = styled.section`
@@ -32,6 +31,5 @@ export const TilesList = styled.ul`
   margin: 0px;
   display: grid;
   justify-content: center;
-  gap: 24px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
