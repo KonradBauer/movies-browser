@@ -4,10 +4,35 @@ export const MainBox = styled.div`
   margin: auto;
   margin-top: 56px;
   margin-bottom: 40px;
-  width: 1368px;
+  max-width: 1368px;
   height: 1391px;
   border: 1px solid black;
   background: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    max-width: 288px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    max-width: 1080px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
+    max-width: 1000px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 847px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 512px) {
+    max-width: 500px;
+    margin-top: 12px;
+  }
 `;
 
 export const Section = styled.section`
@@ -23,6 +48,31 @@ export const BoxTitle = styled.span`
   font-size: 36px;
   line-height: 120%;
   color: ${({ theme }) => theme.color.woodsmoke};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    width: 143px;
+    height: 22px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    font-size: 36px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 512px) {
+    font-size: 18px;
+  }
 `;
 
 export const TilesList = styled.ul`
@@ -32,4 +82,24 @@ export const TilesList = styled.ul`
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 512px) {
+    grid-template-columns: 1fr;
+  }
 `;
