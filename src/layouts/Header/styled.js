@@ -68,7 +68,7 @@ export const StyledLogo = styled(Logo)`
 `;
 
 export const MoviesButton = styled.button`
-  margin-left: 104px;
+  margin-left: 50px;
   width: 102px;
   height: 48px;
   display: flex;
@@ -189,8 +189,8 @@ export const Box = styled.div`
   align-items: center;
   height: 48px;
   width: 432px;
-  margin-left: 100px;
-  margin-right: 130px;
+  margin-left: 250px;
+  margin-right: 100px;
   border: 1px solid;
   border-color: ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
