@@ -179,7 +179,7 @@ export const Content = styled.div`
 
 export const TileContent = styled.div`
   margin: auto;
-  max-width: 1366px;
+  width: 1368px;
   height: 544px;
   display: flex;
   flex-direction: row;
