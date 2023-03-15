@@ -1,12 +1,16 @@
 import {
   Background,
+  CastContent,
   Content,
+  ContentBackground,
+  CrewContent,
   MainInfo,
   Poster,
   Raiting,
   RaitingCap,
   RaitingNumber,
   StyledStar,
+  TileContent,
   Title,
   Votes,
 } from "./styled";
@@ -29,7 +33,13 @@ export const MoviesDetails = () => {
           <Votes>335 votes</Votes>
         </MainInfo>
       </Background>
-      <Content></Content>
+      <ContentBackground>
+        <Content>
+          <TileContent></TileContent>
+          <CastContent></CastContent>
+          <CrewContent></CrewContent>
+        </Content>
+      </ContentBackground>
     </>
   );
 };

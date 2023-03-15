@@ -167,7 +167,32 @@ export const Votes = styled.div`
   }
 `;
 
+export const ContentBackground = styled.div`
+  background-color: ${({ theme }) => theme.color.mercury};
+`;
+
 export const Content = styled.div`
+  margin: auto;
   width: 1368px;
   height: 1863px;
+`;
+
+export const TileContent = styled.div`
+  width: 1368px;
+  height: 544px;
+  border: 1px solid black;
+`;
+
+export const CastContent = styled.div`
+  width: 1368px;
+  height: 777px;
+  margin-top: 64px;
+  border: 1px solid black;
+`;
+
+export const CrewContent = styled.div`
+  width: 1368px;
+  height: 414px;
+  margin-top: 64px;
+  border: 1px solid black;
 `;
