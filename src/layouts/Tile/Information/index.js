@@ -1,12 +1,14 @@
 import { InfoContainer, FirstInformation, SecondInformation } from "./styled";
 
-export const Information = ({ movie, movieDetails, person, personDetails, role }) => {
+export const Information = ({ movie, movieDetails, person, personDetails, role, title, release_date }) => {
   return (
     <InfoContainer person={person} personDetails={personDetails}>
       {movie || movieDetails ? (
         <>
-          <FirstInformation movieDetails={movieDetails}>Mulan</FirstInformation>
-          <SecondInformation movieDetails={movieDetails}>2020</SecondInformation>
+          <FirstInformation movieDetails={movieDetails}>{title}</FirstInformation>
+          <SecondInformation movieDetails={movieDetails}>
+            {new Date(release_date).getFullYear()}
+          </SecondInformation>
         </>
       ) : (
         ""

@@ -6,7 +6,7 @@ const APIUrl = "https://api.themoviedb.org/3";
 
 const language = "&language=en-US";
 
-const APIImageUrl = "https://image.tmdb.org/t/p";
+export const APIImageUrl = "https://image.tmdb.org/t/p";
 
 export const getMovie = () => {
   return axios

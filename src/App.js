@@ -4,6 +4,7 @@ import { Header } from "./layouts/Header/index";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
+import { Tile } from "./layouts/Tile/index";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,11 +20,14 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
-      <div onLoad={() => dispatch(fetchMovies())}>
-        <Header />
-      </div>
+      <Header />
+      <Tile movie={"movie"} />
     </ThemeProvider>
   );
 }
