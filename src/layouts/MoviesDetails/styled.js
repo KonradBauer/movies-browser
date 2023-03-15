@@ -196,3 +196,14 @@ export const CrewContent = styled.div`
   margin-top: 64px;
   border: 1px solid black;
 `;
+
+export const SubdivTitle = styled.span`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  width: 86px;
+  height: 43px;
+`;

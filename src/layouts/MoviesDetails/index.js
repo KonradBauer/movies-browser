@@ -10,6 +10,7 @@ import {
   RaitingCap,
   RaitingNumber,
   StyledStar,
+  SubdivTitle,
   TileContent,
   Title,
   Votes,
@@ -36,8 +37,12 @@ export const MoviesDetails = () => {
       <ContentBackground>
         <Content>
           <TileContent></TileContent>
-          <CastContent></CastContent>
-          <CrewContent></CrewContent>
+          <CastContent>
+            <SubdivTitle>Cast</SubdivTitle>
+          </CastContent>
+          <CrewContent>
+            <SubdivTitle>Crew</SubdivTitle>
+          </CrewContent>
         </Content>
       </ContentBackground>
     </>
