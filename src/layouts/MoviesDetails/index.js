@@ -11,7 +11,7 @@ import {
 } from "./styled";
 import PosterBig from "../../common/images/posterBig.png";
 
-export const BigPoster = () => {
+export const MoviesDetails = () => {
   return (
     <>
       <Background>

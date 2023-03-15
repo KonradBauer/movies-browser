@@ -24,6 +24,6 @@ export const { loadMovies, loadMoviesSuccess, loadMoviesError } = moviesSlice.ac
 const selectMoviesState = (state) => state.movies;
 
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
-export const selectMovies = (state) => selectMoviesState(state).projects;
+export const selectMovies = (state) => selectMoviesState(state).movies;
 
 export default moviesSlice.reducer;
