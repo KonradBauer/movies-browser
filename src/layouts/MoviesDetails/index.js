@@ -1,5 +1,6 @@
 import {
   Background,
+  Content,
   MainInfo,
   Poster,
   Raiting,
@@ -28,6 +29,7 @@ export const MoviesDetails = () => {
           <Votes>335 votes</Votes>
         </MainInfo>
       </Background>
+      <Content></Content>
     </>
   );
 };

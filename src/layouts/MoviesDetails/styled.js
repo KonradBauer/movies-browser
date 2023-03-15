@@ -4,7 +4,7 @@ import { ReactComponent as Star } from "../../common/svg/star.svg";
 export const Background = styled.div`
   display: flex;
   justify-content: center;
-  max-width: 1920px;
+  max-width: 100%;
   max-height: 769px;
   background-color: ${({ theme }) => theme.color.black};
   position: relative;
@@ -165,4 +165,9 @@ export const Votes = styled.div`
     margin-right: 1px;
     font-size: 10px;
   }
+`;
+
+export const Content = styled.div`
+  width: 1368px;
+  height: 1863px;
 `;
