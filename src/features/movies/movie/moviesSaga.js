@@ -1,11 +1,12 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getPopularMovies } from "../../getAPI";
-import { fetchMovies, loadMoviesSuccess } from "./moviesSlice";
+import { fetchMovies, getPages, loadMoviesSuccess } from "./moviesSlice";
 
 function* fetchMoviesHandler() {
   try {
     const movie = yield call(getPopularMovies);
-    yield put(loadMoviesSuccess(movie));
+    yield put(loadMoviesSuccess(movie.results));
+    yield put(getPages(movie.page))
   } catch(error) {
     if (error.response) {
       console.log("Error response:", error.response.data);
