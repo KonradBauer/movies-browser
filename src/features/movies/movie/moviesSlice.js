@@ -8,15 +8,15 @@ const moviesSlice = createSlice({
     status: "initial",
   },
   reducers: {
-    loadMovies: (state) => {
-      state.status = "loading";
+    loadMovies: ({ status }) => {
+      status = "loading";
     },
     loadMoviesSuccess: (state, { payload: movies }) => {
       state.movies = movies;
       state.status = "success";
     },
-    loadMoviesError: (state) => {
-      state.status = "error";
+    loadMoviesError: ({ status }) => {
+      status = "error";
     },
     fetchMovies: () => {},
     getPages: (state, { payload: page }) => {

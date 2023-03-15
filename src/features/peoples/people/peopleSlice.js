@@ -3,19 +3,20 @@ import { createSlice } from "@reduxjs/toolkit";
 const peopleSlice = createSlice({
   name: "people",
   initialState: {
-    people: null,
+    people: [],
     status: "initial",
   },
   reducers: {
-    loadPeople: () => ({
-      people: null,
-      status: "loading",
-    }),
-    loadPeopleSuccess: (state, { payload: people }) => ({
-      people,
-      status: "success",
-    }),
-    loadPeopleError: () => ({ people: null, status: "error" }),
+    loadPeople: ({ status }) => {
+      status = "loading";
+    },
+    loadPeopleSuccess: (state, { payload: people }) => {
+      state.people = people;
+      state.status = "success";
+    },
+    loadPeopleError: ({ status }) => {
+      status = "error";
+    },
   },
 });
 
