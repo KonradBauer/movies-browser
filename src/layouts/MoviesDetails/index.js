@@ -15,7 +15,9 @@ import {
   Title,
   Votes,
 } from "./styled";
+import poster from "../../common/images/poster.png";
 import PosterBig from "../../common/images/posterBig.png";
+import { Tile } from "../Tile";
 
 export const MoviesDetails = () => {
   return (
@@ -36,7 +38,9 @@ export const MoviesDetails = () => {
       </Background>
       <ContentBackground>
         <Content>
-          <TileContent></TileContent>
+          <TileContent>
+            <Tile movieDetails={MoviesDetails} srcImage={poster} />
+          </TileContent>
           <CastContent>
             <SubdivTitle>Cast</SubdivTitle>
           </CastContent>

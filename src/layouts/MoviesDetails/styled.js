@@ -178,9 +178,14 @@ export const Content = styled.div`
 `;
 
 export const TileContent = styled.div`
-  width: 1368px;
+  margin: auto;
+  max-width: 1366px;
   height: 544px;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px;
 `;
 
 export const CastContent = styled.div`
@@ -194,6 +199,7 @@ export const CrewContent = styled.div`
   width: 1368px;
   height: 414px;
   margin-top: 64px;
+  margin-bottom: 32px;
   border: 1px solid black;
 `;
 
