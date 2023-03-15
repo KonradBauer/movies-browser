@@ -4,7 +4,7 @@ import { Header } from "./layouts/Header/index";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
-import { Tile } from "./layouts/Tile/index";
+import { Content } from "./layouts/Content/index";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <Tile movie={"movie"} />
+      <Content />
     </ThemeProvider>
   );
 }
