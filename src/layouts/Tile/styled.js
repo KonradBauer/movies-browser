@@ -91,7 +91,7 @@ export const Container = styled.div`
     `}
 `;
 
-export const Image = styled.img`
+export const Image = styled.img.attrs((props) => ({src: props.source}))`
   border-radius: 5px;
   width: 292px;
   height: 434px;
