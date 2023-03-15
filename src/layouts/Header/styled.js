@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from "../../common/svg/logo.svg";
 import { ReactComponent as Loupe } from "../../common/svg/loupe.svg";
 
 export const HeadContainer = styled.div`
+  position: relative;
   display: flex;
   font-family: "Poppins", sans-serif;
   flex-flow: row nowrap;
@@ -17,6 +18,24 @@ export const HeadContainer = styled.div`
     height: 142px;
     flex-wrap: wrap;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
+    width: 100%;
+    height: 142px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    width: 100%;
+    height: 142px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 100%;
+    height: 142px;
+    flex-wrap: wrap;
+  }
 `;
 
 export const StyledLogo = styled(Logo)`
@@ -25,14 +44,17 @@ export const StyledLogo = styled(Logo)`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     margin: auto;
+    flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: auto;
+    flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: auto;
+    flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
@@ -40,7 +62,7 @@ export const StyledLogo = styled(Logo)`
     height: 60px;
     width: 124px;
     margin: auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-shrink: none;
   }
 `;
@@ -89,8 +111,6 @@ export const MoviesButton = styled.button`
     flex-wrap: nowrap;
     flex-shrink: 1;
     font-size: 12px;
-    width: 43px;
-    height: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
@@ -146,8 +166,6 @@ export const PeopleButton = styled.button`
     flex-wrap: nowrap;
     flex-shrink: 1;
     font-size: 12px;
-    width: 43px;
-    height: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
@@ -180,31 +198,31 @@ export const Box = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) and (max-width: 1250px) {
     margin: auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     margin: 0px 16px 15px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     margin: 0px 16px 15px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-shrink: 1;
   }
 `;
