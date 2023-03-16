@@ -174,29 +174,44 @@ export const ContentBackground = styled.div`
 export const Content = styled.div`
   margin: auto;
   max-width: 1368px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    max-width: 320px;
+  }
 `;
 
 export const TileContent = styled.div`
   margin: auto;
   padding: 10px;
   max-width: 1368px;
-  height: 544px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    max-width: 320px;
+  }
 `;
 
 export const CastContent = styled.div`
   max-width: 1368px;
-  height: 777px;
   margin-top: 64px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    max-width: 320px;
+    margin-top: 0;
+  }
 `;
 
 export const CrewContent = styled.div`
   max-width: 1368px;
-  height: 414px;
   margin-top: 64px;
   margin-bottom: 32px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    max-width: 320px;
+    margin-top: 21px;
+  }
 `;
 
 export const SubdivTitle = styled.span`
@@ -210,6 +225,11 @@ export const SubdivTitle = styled.span`
   height: 43px;
   margin-left: 10px;
   margin-bottom: 32px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
 `;
 
 export const List = styled.ul`
@@ -218,4 +238,9 @@ export const List = styled.ul`
   padding: 0;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    max-width: 320px;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
