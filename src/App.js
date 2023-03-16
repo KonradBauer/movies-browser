@@ -22,7 +22,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <MoviesDetails></MoviesDetails>
+      <MoviesDetails />
     </ThemeProvider>
   );
 }
