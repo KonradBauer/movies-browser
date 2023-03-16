@@ -10,6 +10,7 @@ import { getMovieID, selectMovies } from "../../features/movies/movie/moviesSlic
 import { useDispatch, useSelector } from "react-redux";
 import { APIImageUrl } from "../../features/getAPI";
 import { selectPeople } from "../../features/peoples/people/peopleSlice";
+import { fetchMovieDetails } from "../../features/movies/movieDetails/movieDetailsSlice";
 
 export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImage }) => {
   const dispatch = useDispatch();
@@ -35,7 +36,12 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImag
               <Container key={key} movieDetails={movieDetails}>
                 {movie ? (
                   <>
-                    <div onClick={() => dispatch(getMovieID(id))}>
+                    <div
+                      onClick={() => {
+                        dispatch(getMovieID(id));
+                        setTimeout(dispatch(fetchMovieDetails()), 4 * 1000);
+                      }}
+                    >
                       <Image source={`${APIImageUrl}/w500${poster_path}`} alt="" />
                       <MovieContainer>
                         <DescriptionContainer>

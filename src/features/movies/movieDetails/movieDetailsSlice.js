@@ -17,10 +17,11 @@ const movieDetailsSlice = createSlice({
     loadMovieDetailsError: ({ status }) => {
       status = "error";
     },
+    fetchMovieDetails: () => {},
   },
 });
 
-export const { loadMovieDetails, loadMovieDetailsSuccess, loadMovieDetailsError } =
+export const { loadMovieDetails, loadMovieDetailsSuccess, loadMovieDetailsError, fetchMovieDetails } =
   movieDetailsSlice.actions;
 
 const selectMovieDetailsState = (state) => state.movieDetails;
