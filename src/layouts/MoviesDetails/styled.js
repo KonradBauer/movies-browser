@@ -13,6 +13,7 @@ export const Background = styled.div`
 export const Poster = styled.img`
   max-width: 1920px;
   max-height: 770px;
+  opacity: 0.8;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     max-width: 80%;
