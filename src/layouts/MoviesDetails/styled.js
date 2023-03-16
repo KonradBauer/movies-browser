@@ -184,19 +184,17 @@ export const TileContent = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 40px;
-  gap: 40px;
 `;
 
 export const CastContent = styled.div`
-  width: 1368px;
+  max-width: 1368px;
   height: 777px;
   margin-top: 64px;
   border: 1px solid black;
 `;
 
 export const CrewContent = styled.div`
-  width: 1368px;
+  max-width: 1368px;
   height: 414px;
   margin-top: 64px;
   margin-bottom: 32px;
@@ -212,4 +210,13 @@ export const SubdivTitle = styled.span`
   align-items: center;
   width: 86px;
   height: 43px;
+  margin-bottom: 32px;
+`;
+
+export const List = styled.ul`
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 `;

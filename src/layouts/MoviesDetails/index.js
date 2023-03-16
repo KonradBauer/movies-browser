@@ -4,6 +4,7 @@ import {
   Content,
   ContentBackground,
   CrewContent,
+  List,
   MainInfo,
   Poster,
   Raiting,
@@ -15,6 +16,7 @@ import {
   Title,
   Votes,
 } from "./styled";
+import person from "../../common/images/poster.png";
 import poster from "../../common/images/poster.png";
 import PosterBig from "../../common/images/posterBig.png";
 import { Tile } from "../Tile";
@@ -43,6 +45,20 @@ export const MoviesDetails = () => {
           </TileContent>
           <CastContent>
             <SubdivTitle>Cast</SubdivTitle>
+            <List>
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+            </List>
           </CastContent>
           <CrewContent>
             <SubdivTitle>Crew</SubdivTitle>
