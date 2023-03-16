@@ -4,6 +4,7 @@ import { Header } from "./layouts/Header/index";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
+import { PeopleContent } from "./layouts/Content";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <MoviesDetails />
+      <PeopleContent />
     </ThemeProvider>
   );
 }
