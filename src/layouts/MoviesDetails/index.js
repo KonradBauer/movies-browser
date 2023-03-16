@@ -41,7 +41,7 @@ export const MoviesDetails = () => {
       <ContentBackground>
         <Content>
           <TileContent>
-            <Tile movieDetails={MoviesDetails} srcImage={poster} />
+            <Tile />
           </TileContent>
           <CastContent>
             <SubdivTitle>Cast</SubdivTitle>
@@ -57,7 +57,7 @@ export const MoviesDetails = () => {
               <Tile person={"person"} srcImage={person} role={"Rola"} />
               <Tile person={"person"} srcImage={person} role={"Rola"} />
               <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile />
             </List>
           </CastContent>
           <CrewContent>
