@@ -19,6 +19,7 @@ import {
 import person from "../../common/images/poster.png";
 import poster from "../../common/images/poster.png";
 import PosterBig from "../../common/images/posterBig.png";
+import { Tile } from "../Tile/index";
 export const MoviesDetails = () => {
   return (
     <>
@@ -39,7 +40,7 @@ export const MoviesDetails = () => {
       <ContentBackground>
         <Content>
           <TileContent>
-            <Tile />
+            <Tile movieDetails={MoviesDetails} srcImage={poster} />
           </TileContent>
           <CastContent>
             <SubdivTitle>Cast</SubdivTitle>
@@ -55,7 +56,6 @@ export const MoviesDetails = () => {
               <Tile person={"person"} srcImage={person} role={"Rola"} />
               <Tile person={"person"} srcImage={person} role={"Rola"} />
               <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile />
             </List>
           </CastContent>
           <CrewContent>
