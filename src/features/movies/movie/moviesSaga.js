@@ -6,7 +6,7 @@ function* fetchMoviesHandler() {
   try {
     const movie = yield call(getPopularMovies);
     yield put(loadMoviesSuccess(movie.results));
-    yield put(getPages(movie.page))
+    yield put(getPages(movie.page));
   } catch(error) {
     if (error.response) {
       console.log("Error response:", error.response.data);

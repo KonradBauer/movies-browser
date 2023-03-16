@@ -6,33 +6,45 @@ import { Description } from "./Description";
 import { Details } from "./Details";
 import noPoster from "../../common/images/no-poster.png";
 import noPerson from "../../common/images/no-person.png";
-import { selectMovies } from "../../features/movies/movie/moviesSlice";
-import { useSelector } from "react-redux";
-import { APIImageUrl} from "../../features/getAPI";
+import { getMovieID, selectMovies } from "../../features/movies/movie/moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { APIImageUrl } from "../../features/getAPI";
 import { selectPeople } from "../../features/peoples/people/peopleSlice";
 
 export const Tile = ({ movie, movieDetails, person, role, personDetails, srcImage }) => {
+  const dispatch = useDispatch();
+
   const movies = useSelector(selectMovies);
   const people = useSelector(selectPeople);
-  console.log(people);
 
   return (
     <>
       {movie || movieDetails ? (
         <>
           {movies.map(
-            ({ key, title, release_date, poster_path, genre_ids, vote_average, vote_count }) => (
+            ({
+              key,
+              id,
+              title,
+              release_date,
+              poster_path,
+              genre_ids,
+              vote_average,
+              vote_count,
+            }) => (
               <Container key={key} movieDetails={movieDetails}>
                 {movie ? (
                   <>
-                    <Image source={`${APIImageUrl}/w500${poster_path}`} alt="" />
-                    <MovieContainer>
-                      <DescriptionContainer>
-                        <Information movie={movie} title={title} release_date={release_date} />
-                        <Tags />
-                      </DescriptionContainer>
-                      <Raiting vote_average={vote_average} vote_count={vote_count} />
-                    </MovieContainer>
+                    <div onClick={() => dispatch(getMovieID(id))}>
+                      <Image source={`${APIImageUrl}/w500${poster_path}`} alt="" />
+                      <MovieContainer>
+                        <DescriptionContainer>
+                          <Information movie={movie} title={title} release_date={release_date} />
+                          <Tags />
+                        </DescriptionContainer>
+                        <Raiting vote_average={vote_average} vote_count={vote_count} />
+                      </MovieContainer>
+                    </div>
                   </>
                 ) : (
                   ""
