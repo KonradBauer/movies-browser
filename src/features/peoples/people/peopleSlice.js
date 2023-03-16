@@ -17,10 +17,11 @@ const peopleSlice = createSlice({
     loadPeopleError: ({ status }) => {
       status = "error";
     },
+    fetchPeople: () => {},
   },
 });
 
-export const { loadPeople, loadPeopleSuccess, loadPeopleError } = peopleSlice.actions;
+export const { loadPeople, loadPeopleSuccess, loadPeopleError, fetchPeople } = peopleSlice.actions;
 
 const selectPeopleState = (state) => state.people;
 
