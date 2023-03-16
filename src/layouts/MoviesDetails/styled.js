@@ -173,13 +173,13 @@ export const ContentBackground = styled.div`
 
 export const Content = styled.div`
   margin: auto;
-  width: 1368px;
+  max-width: 1368px;
 `;
 
 export const TileContent = styled.div`
   margin: auto;
   padding: 10px;
-  width: 1368px;
+  max-width: 1368px;
   height: 544px;
   display: flex;
   flex-direction: row;
