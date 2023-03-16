@@ -62,6 +62,13 @@ export const MoviesDetails = () => {
           </CastContent>
           <CrewContent>
             <SubdivTitle>Crew</SubdivTitle>
+            <List>
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              <Tile person={"person"} srcImage={person} role={"Rola"} />
+            </List>
           </CrewContent>
         </Content>
       </ContentBackground>

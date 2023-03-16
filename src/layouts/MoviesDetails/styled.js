@@ -174,11 +174,11 @@ export const ContentBackground = styled.div`
 export const Content = styled.div`
   margin: auto;
   width: 1368px;
-  height: 1863px;
 `;
 
 export const TileContent = styled.div`
   margin: auto;
+  padding: 10px;
   width: 1368px;
   height: 544px;
   display: flex;
@@ -190,7 +190,6 @@ export const CastContent = styled.div`
   max-width: 1368px;
   height: 777px;
   margin-top: 64px;
-  border: 1px solid black;
 `;
 
 export const CrewContent = styled.div`
@@ -198,7 +197,6 @@ export const CrewContent = styled.div`
   height: 414px;
   margin-top: 64px;
   margin-bottom: 32px;
-  border: 1px solid black;
 `;
 
 export const SubdivTitle = styled.span`
@@ -210,6 +208,7 @@ export const SubdivTitle = styled.span`
   align-items: center;
   width: 86px;
   height: 43px;
+  margin-left: 10px;
   margin-bottom: 32px;
 `;
 
