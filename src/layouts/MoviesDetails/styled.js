@@ -13,7 +13,7 @@ export const Background = styled.div`
 export const Poster = styled.img`
   max-width: 1920px;
   max-height: 770px;
-  opacity: 0.8;
+  opacity: 0.9;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     max-width: 80%;
@@ -179,6 +179,10 @@ export const Content = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     max-width: 320px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 847px;
+  }
 `;
 
 export const TileContent = styled.div`
@@ -192,6 +196,10 @@ export const TileContent = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     max-width: 320px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 847px;
+  }
 `;
 
 export const CastContent = styled.div`
@@ -200,6 +208,16 @@ export const CastContent = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     max-width: 320px;
+    margin-top: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    max-width: 425px;
+    margin-top: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 847px;
     margin-top: 0;
   }
 `;
@@ -212,6 +230,14 @@ export const CrewContent = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     max-width: 320px;
     margin-top: 21px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    max-width: 425px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 847px;
   }
 `;
 
@@ -231,6 +257,11 @@ export const SubdivTitle = styled.span`
     font-size: 20px;
     margin-bottom: 0;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 25px;
+    margin-bottom: 0;
+  }
 `;
 
 export const List = styled.ul`
@@ -242,6 +273,11 @@ export const List = styled.ul`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     max-width: 320px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    max-width: 425px;
     grid-template-columns: 1fr 1fr;
   }
 `;
