@@ -281,8 +281,15 @@ export const List = styled.ul`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 847px;
-    grid-template-columns: 1fr 1fr;
+  @media only screen and (min-width: 426px) and (max-width: 578px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 579px) and (max-width: 847px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 848px) and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
