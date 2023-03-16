@@ -280,4 +280,9 @@ export const List = styled.ul`
     max-width: 425px;
     grid-template-columns: 1fr 1fr;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 847px;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
