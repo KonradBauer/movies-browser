@@ -135,4 +135,12 @@ export const PersonTilesList = styled.ul`
   @media only screen and (min-width: 425px) and (max-width: 767px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @media only screen and (min-width: 848px) and (max-width: 1100px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media only screen and (min-width: 1101px) and (max-width: 1366px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
 `;
