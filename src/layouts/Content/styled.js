@@ -140,7 +140,11 @@ export const PersonTilesList = styled.ul`
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media only screen and (min-width: 1101px) and (max-width: 1366px) {
+  @media only screen and (min-width: 1101px) and (max-width: 1150px) {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media only screen and (min-width: 1151px) and (max-width: 1366px) {
+    grid-template-columns: repeat(6, 1fr);
   }
 `;
