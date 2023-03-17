@@ -289,7 +289,11 @@ export const List = styled.ul`
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  @media only screen and (min-width: 848px) and (max-width: 1000px) {
+  @media only screen and (min-width: 848px) and (max-width: 1059px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 1060px) and (max-width: 1200px) {
+    grid-template-columns: repeat(5, 1fr);
   }
 `;
