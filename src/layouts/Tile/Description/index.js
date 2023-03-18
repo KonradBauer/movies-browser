@@ -1,17 +1,9 @@
 import { DescriptionContent } from "./styled";
 
-export const Description = ({ movieDetails, personDetails }) => {
+export const Description = ({ movieDetails, personDetails, overview }) => {
   return (
     <>
-      {movieDetails ? (
-        <DescriptionContent>
-          A young Chinese maiden disguises herself as a male warrior in order to save her father.
-          Disguises herself as a male warrior in order to save her father. A young Chinese maiden
-          disguises herself as a male warrior in order to save her father.
-        </DescriptionContent>
-      ) : (
-        ""
-      )}
+      {movieDetails ? <DescriptionContent>{overview}</DescriptionContent> : ""}
       {personDetails ? (
         <DescriptionContent personDetails={personDetails}>
           Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began

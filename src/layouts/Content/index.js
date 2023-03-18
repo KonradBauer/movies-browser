@@ -7,7 +7,7 @@ export const Content = () => {
       <Section>
         <BoxTitle>Popular movies</BoxTitle>
         <TilesList>
-            <Tile movie={"movie"} />
+          <Tile movie />
         </TilesList>
       </Section>
     </MainBox>

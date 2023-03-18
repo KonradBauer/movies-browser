@@ -10,7 +10,7 @@ import {
 } from "./styled";
 import { theme } from "../../../common/Theme/theme";
 
-export const Details = ({ movieDetails, personDetails }) => {
+export const Details = ({ movieDetails, personDetails, production_countries, release_date }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -28,11 +28,13 @@ export const Details = ({ movieDetails, personDetails }) => {
         <>
           <FirstDetails>
             <FirstDetailsLabel>Production:</FirstDetailsLabel>
-            <FirstDetailsContent>China, USA</FirstDetailsContent>
+            {production_countries ?
+            production_countries.map(({name}) => <FirstDetailsContent>{name},</FirstDetailsContent>) : ""
+            }
           </FirstDetails>
           <SecondDetails>
             <SecondDetailsLabel>Release date:</SecondDetailsLabel>
-            <SecondDetailsContent>24.10.2020</SecondDetailsContent>
+            <SecondDetailsContent>{release_date}</SecondDetailsContent>
           </SecondDetails>
         </>
       ) : (

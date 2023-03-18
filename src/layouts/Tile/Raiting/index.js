@@ -5,7 +5,7 @@ export const Raiting = ({ movieDetails, vote_average, vote_count }) => {
     <RaitingContainer movieDetails={movieDetails}>
       <StarIcon alt="" />
       <Rate movieDetails={movieDetails}>
-        {vote_average}
+        {vote_average?.toFixed(1)}
         {movieDetails ? <MaxRate movieDetails={movieDetails}>/ 10</MaxRate> : null}
       </Rate>
       <Votes movieDetails={movieDetails}>{vote_count} votes</Votes>

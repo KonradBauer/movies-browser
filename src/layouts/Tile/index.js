@@ -5,9 +5,11 @@ import { MovieTile } from "./movies/movie";
 import { MovieDetailsTile } from "./movies/movieDetails";
 import { PersonTile } from "./persons/person";
 import { PersonDetailsTile } from "./persons/personDetails";
+import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsSlice";
 
 export const Tile = ({ movie, movieDetails, person, role, personDetails }) => {
   const movies = useSelector(selectMovies);
+  const moviesDetails = useSelector(selectMovieDetails);
   const people = useSelector(selectPeople);
 
   return (
@@ -42,7 +44,20 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails }) => {
       ) : (
         ""
       )}
-      {movieDetails ? <MovieDetailsTile movieDetails /> : ""}
+      {movieDetails ? (
+        <MovieDetailsTile
+          movieDetails
+          poster_path={moviesDetails.poster_path}
+          title={moviesDetails.title}
+          production_countries={moviesDetails.production_countries}
+          release_date={moviesDetails.release_date}
+          vote_average={moviesDetails.vote_average}
+          vote_count={moviesDetails.vote_count}
+          overview={moviesDetails.overview}
+        />
+      ) : (
+        ""
+      )}
       {person ? (
         <>
           {people.map(({ key, name, profile_path }) => (

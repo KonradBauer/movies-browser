@@ -24,6 +24,7 @@ export const MovieTile = ({
       <div
         onClick={() => {
           dispatch(getMovieID(id));
+          dispatch(fetchMovieDetails());
           setTimeout(() => dispatch(fetchMovieDetails()), 4 * 1000);
         }}
       >
