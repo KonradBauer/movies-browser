@@ -25,7 +25,6 @@ export const MovieTile = ({
         onClick={() => {
           dispatch(getMovieID(id));
           dispatch(fetchMovieDetails());
-          setTimeout(() => dispatch(fetchMovieDetails()), 4 * 1000);
         }}
       >
         <Image source={`${APIImageUrl}/w500${poster_path}`} alt="" />

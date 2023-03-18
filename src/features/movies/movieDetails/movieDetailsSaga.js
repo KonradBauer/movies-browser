@@ -1,10 +1,12 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { getMovie } from "../../getAPI";
 import { fetchMovieDetails, loadMovieDetailsSuccess } from "./movieDetailsSlice";
+import { selectMovieID } from "../movie/moviesSlice";
 
 function* fetchMovieDetailsHandler() {
   try {
-    const movieDetails = yield call(getMovie);
+    const movieID = yield select(selectMovieID)
+    const movieDetails = yield call(getMovie, movieID)
     yield put(loadMovieDetailsSuccess(movieDetails));
   } catch (error) {
     if (error.response) {

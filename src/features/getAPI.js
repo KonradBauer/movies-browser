@@ -8,9 +8,9 @@ const language = "&language=en-US";
 
 export const APIImageUrl = "https://image.tmdb.org/t/p";
 
-export const getMovie = () => {
+export const getMovie = (movieID) => {
   return axios
-    .get(`${APIUrl}/movie/{movie_id}?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/${movieID}?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };
