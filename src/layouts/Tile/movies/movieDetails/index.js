@@ -11,6 +11,7 @@ export const MovieDetailsTile = ({
   title,
   production_countries,
   release_date,
+  genresDetails,
   vote_average,
   vote_count,
   overview,
@@ -26,7 +27,7 @@ export const MovieDetailsTile = ({
             production_countries={production_countries}
             release_date={release_date}
           />
-          <Tags movieDetails />
+          <Tags movieDetails genresDetails={genresDetails} />
         </DescriptionContainer>
         <Raiting movieDetails vote_average={vote_average} vote_count={vote_count} />
       </MovieContainer>

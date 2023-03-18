@@ -29,6 +29,13 @@ export const getPopularMovies = () => {
     .catch(handleError);
 };
 
+export const getGenres = () => {
+  return axios
+    .get(`${APIUrl}/genre/movie/list?${APIKey}${language}`)
+    .then((response) => response.data)
+    .catch(handleError);
+};
+
 export const getPeople = () => {
   return axios
     .get(`${APIUrl}/person/{person_id}?${APIKey}${language}`)

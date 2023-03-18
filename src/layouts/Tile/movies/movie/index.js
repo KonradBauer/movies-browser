@@ -8,7 +8,7 @@ import { Raiting } from "../../Raiting";
 import { fetchMovieDetails } from "../../../../features/movies/movieDetails/movieDetailsSlice";
 
 export const MovieTile = ({
-  key,
+  movie,
   id,
   title,
   release_date,
@@ -20,7 +20,7 @@ export const MovieTile = ({
   const dispatch = useDispatch();
 
   return (
-    <Container key={key}>
+    <Container>
       <div
         onClick={() => {
           dispatch(getMovieID(id));
@@ -29,11 +29,11 @@ export const MovieTile = ({
         }}
       >
         <Image source={`${APIImageUrl}/w500${poster_path}`} alt="" />
-          <DescriptionContainer>
-            <Information movie title={title} release_date={release_date} />
-            <Tags />
-          </DescriptionContainer>
-          <Raiting vote_average={vote_average} vote_count={vote_count} />
+        <DescriptionContainer>
+          <Information movie title={title} release_date={release_date} />
+          <Tags movie={movie} genre_ids={genre_ids} />
+        </DescriptionContainer>
+        <Raiting vote_average={vote_average} vote_count={vote_count} />
       </div>
     </Container>
   );

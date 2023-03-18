@@ -51,6 +51,7 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails }) => {
           title={moviesDetails.title}
           production_countries={moviesDetails.production_countries}
           release_date={moviesDetails.release_date}
+          genresDetails={moviesDetails.genres}
           vote_average={moviesDetails.vote_average}
           vote_count={moviesDetails.vote_count}
           overview={moviesDetails.overview}

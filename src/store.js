@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
+import genresSilceReducer from "./features/movies/genresSilce";
 import moviesReducer from "./features/movies/movie/moviesSlice";
 import movieDetailsReducer from "./features/movies/movieDetails/movieDetailsSlice";
 import peopleReducer from "./features/peoples/people/peopleSlice";
@@ -10,6 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
+    genres: genresSilceReducer,
     movies: moviesReducer,
     movieDetails: movieDetailsReducer,
     people: peopleReducer,
