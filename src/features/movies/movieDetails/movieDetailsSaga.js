@@ -18,6 +18,5 @@ function* fetchMovieDetailsHandler() {
 }
 
 export function* movieDetailsSaga() {
-  console.log("Saga movieDetails działa.");
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
 }

@@ -18,6 +18,5 @@ function* fetchMoviesHandler() {
 }
 
 export function* peopleSaga() {
-  console.log("Saga people działa.");
   yield takeLatest(fetchPeople.type, fetchMoviesHandler);
 }
