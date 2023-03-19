@@ -31,10 +31,14 @@ export const MainInfo = styled.div`
   width: 45%;
   height: auto;
   left: 5%;
-  top: 60%;
+  top: 65%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     bottom: 5%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    top: 60%;
   }
 `;
 
