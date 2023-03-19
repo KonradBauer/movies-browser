@@ -3,6 +3,7 @@ import { theme } from "./common/Theme/theme";
 import { Header } from "./layouts/Header/index";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Content } from "./layouts/Content/index";
 
 function App() {
   const dispatch = useDispatch();
