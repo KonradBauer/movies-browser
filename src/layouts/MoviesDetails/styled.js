@@ -31,7 +31,7 @@ export const MainInfo = styled.div`
   width: 45%;
   height: auto;
   left: 11%;
-  top: 65%;
+  top: 60%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     bottom: 5%;
@@ -58,15 +58,17 @@ export const Title = styled.text`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 15px;
+    font-size: 24px;
+    font-weight: 500;
+    width: 214px;
   }
 `;
 
