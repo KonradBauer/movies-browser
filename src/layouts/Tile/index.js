@@ -67,6 +67,7 @@ export const Tile = ({
         <PersonTile
           person
           key={key}
+          id={id}
           profileSizes={profileSizes}
           name={name}
           character={character}

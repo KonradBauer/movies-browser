@@ -4,6 +4,7 @@ const peopleSlice = createSlice({
   name: "people",
   initialState: {
     people: [],
+    peopleID: null,
     status: "initial",
   },
   reducers: {
@@ -17,15 +18,19 @@ const peopleSlice = createSlice({
     loadPeopleError: ({ status }) => {
       status = "error";
     },
+    getPeopleID: (state, {payload: peopleID}) => {
+      state.peopleID = peopleID;
+    },
     fetchPeople: () => {},
   },
 });
 
-export const { loadPeople, loadPeopleSuccess, loadPeopleError, fetchPeople } = peopleSlice.actions;
+export const { loadPeople, loadPeopleSuccess, loadPeopleError, getPeopleID, fetchPeople } = peopleSlice.actions;
 
 const selectPeopleState = (state) => state.people;
 
 export const selectPeopleStatus = (state) => selectPeopleState(state).status;
 export const selectPeople = (state) => selectPeopleState(state).people;
+export const selectPeopleID = (state) => selectPeopleState(state).peopleID;
 
 export default peopleSlice.reducer;
