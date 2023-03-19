@@ -7,16 +7,21 @@ export const Background = styled.div`
   max-width: 100%;
   max-height: 769px;
   background-color: ${({ theme }) => theme.color.black};
+`;
+
+export const Wrapper = styled.div`
   position: relative;
+  margin: 0 auto;
 `;
 
 export const Poster = styled.img`
+  margin: 0 auto;
   max-width: 1920px;
   max-height: 770px;
   opacity: 0.9;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    max-width: 80%;
+    max-width: 100%;
     max-height: auto;
   }
 `;

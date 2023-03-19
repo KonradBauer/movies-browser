@@ -15,6 +15,7 @@ import {
   TileContent,
   Title,
   Votes,
+  Wrapper,
 } from "./styled";
 import person from "../../common/images/poster.png";
 import poster from "../../common/images/poster.png";
@@ -24,18 +25,20 @@ export const MoviesDetails = () => {
   return (
     <>
       <Background>
-        <Poster src={PosterBig} alt="movie poster" />
-        <MainInfo>
-          <Title>Mulan long title</Title>
-          <Raiting>
-            <StyledStar />
-            <RaitingNumber>
-              7,8
-              <RaitingCap>/10</RaitingCap>
-            </RaitingNumber>
-          </Raiting>
-          <Votes>335 votes</Votes>
-        </MainInfo>
+        <Wrapper>
+          <Poster src={PosterBig} alt="movie poster" />
+          <MainInfo>
+            <Title>Mulan long title</Title>
+            <Raiting>
+              <StyledStar />
+              <RaitingNumber>
+                7,8
+                <RaitingCap>/10</RaitingCap>
+              </RaitingNumber>
+            </Raiting>
+            <Votes>335 votes</Votes>
+          </MainInfo>
+        </Wrapper>
       </Background>
       <ContentBackground>
         <Content>
