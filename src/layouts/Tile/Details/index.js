@@ -10,7 +10,14 @@ import {
 } from "./styled";
 import { theme } from "../../../common/Theme/theme";
 
-export const Details = ({ movieDetails, personDetails, production_countries, release_date }) => {
+export const Details = ({
+  movieDetails,
+  personDetails,
+  production_countries,
+  release_date,
+  birthday,
+  place_of_birth,
+}) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -28,9 +35,11 @@ export const Details = ({ movieDetails, personDetails, production_countries, rel
         <>
           <FirstDetails>
             <FirstDetailsLabel>Production:</FirstDetailsLabel>
-            {production_countries ?
-            production_countries.map(({name}) => <FirstDetailsContent>{name},</FirstDetailsContent>) : ""
-            }
+            {production_countries
+              ? production_countries.map(({ name }) => (
+                  <FirstDetailsContent>{name},</FirstDetailsContent>
+                ))
+              : ""}
           </FirstDetails>
           <SecondDetails>
             <SecondDetailsLabel>Release date:</SecondDetailsLabel>
@@ -43,14 +52,28 @@ export const Details = ({ movieDetails, personDetails, production_countries, rel
       {personDetails ? (
         <>
           <FirstDetails personDetails={personDetails}>
-            <FirstDetailsLabel personDetails={personDetails}>
-              {windowWidth > theme.breakpoints.mobileMax ? "Date of birth:" : "Birth:"}
-            </FirstDetailsLabel>
-            <FirstDetailsContent>25.08.1987</FirstDetailsContent>
+            {birthday ? (
+              <>
+                <FirstDetailsLabel personDetails={personDetails}>
+                  {windowWidth > theme.breakpoints.mobileMax ? "Date of birth:" : "Birth:"}
+                </FirstDetailsLabel>
+                <FirstDetailsContent>{birthday}</FirstDetailsContent>
+              </>
+            ) : (
+              ""
+            )}
           </FirstDetails>
           <SecondDetails personDetails={personDetails}>
-            <SecondDetailsLabel personDetails={personDetails}>Place of birth:</SecondDetailsLabel>
-            <SecondDetailsContent>Wuhan, Hubei, China</SecondDetailsContent>
+            {place_of_birth ? (
+              <>
+                <SecondDetailsLabel personDetails={personDetails}>
+                  Place of birth:
+                </SecondDetailsLabel>
+                <SecondDetailsContent>{place_of_birth}</SecondDetailsContent>
+              </>
+            ) : (
+              ""
+            )}
           </SecondDetails>
         </>
       ) : (

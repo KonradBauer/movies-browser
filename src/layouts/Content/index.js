@@ -15,16 +15,18 @@ export const Content = () => {
 
   return (
     <MainBox>
-      <Tile movieDetails posterSizes={posterSizes} />
+      {/* <Tile movieDetails posterSizes={posterSizes} /> */}
+      <Tile personDetails profileSizes={profileSizes} />
       <Section>
         <BoxTitle>Popular movies</BoxTitle>
         <TilesList>
-          {movieCredits &&
+          {/* {movieCredits &&
             movieCredits.cast &&
-            movieCredits.cast.map(({ key, profile_path, name, character }) => (
+            movieCredits.cast.map(({ id, key, profile_path, name, character }) => (
               <Tile
                 person
                 profileSizes={profileSizes}
+                id={id}
                 key={key}
                 profile_path={profile_path}
                 name={name}
@@ -34,21 +36,22 @@ export const Content = () => {
           <br />
           {movieCredits &&
             movieCredits.cast &&
-            movieCredits.crew.map(({ key, profile_path, name, job }) => (
+            movieCredits.crew.map(({ id, key, profile_path, name, job }) => (
               <Tile
                 person
                 profileSizes={profileSizes}
+                id={id}
                 key={key}
                 profile_path={profile_path}
                 name={name}
                 job={job}
               />
             ))}
-            <br />
-          {people.map(({ key, name, profile_path }) => (
-            <Tile person profileSizes={profileSizes} key={key} name={name} profile_path={profile_path} />
+            <br /> */}
+          {people.map(({ id, key, name, profile_path }) => (
+            <Tile person profileSizes={profileSizes} id={id} key={key} name={name} profile_path={profile_path} />
           ))}
-          {movies.map(
+          {/* {movies.map(
             ({
               key,
               id,
@@ -72,7 +75,7 @@ export const Content = () => {
                 vote_count={vote_count}
               />
             )
-          )}
+          )} */}
         </TilesList>
       </Section>
     </MainBox>

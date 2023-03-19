@@ -4,6 +4,7 @@ import { MovieDetailsTile } from "./movies/movieDetails";
 import { PersonTile } from "./persons/person";
 import { PersonDetailsTile } from "./persons/personDetails";
 import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
+import { selectPeopleDetails } from "../../features/peoples/peopleDetails/peopleDetailsSlice";
 
 export const Tile = ({
   movie,
@@ -26,6 +27,7 @@ export const Tile = ({
   vote_count,
 }) => {
   const moviesDetails = useSelector(selectMovieDetails);
+  const peopleDetails = useSelector(selectPeopleDetails);
 
   return (
     <>
@@ -77,7 +79,19 @@ export const Tile = ({
       ) : (
         ""
       )}
-      {personDetails ? <PersonDetailsTile personDetails profileSizes={profileSizes} /> : ""}
+      {personDetails ? (
+        <PersonDetailsTile
+          personDetails
+          profileSizes={profileSizes}
+          profile_path={peopleDetails.profile_path}
+          name={peopleDetails.name}
+          birthday={peopleDetails.birthday}
+          place_of_birth={peopleDetails.place_of_birth}
+          biography={peopleDetails.biography}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 };
