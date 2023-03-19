@@ -6,7 +6,7 @@ import { PersonTile } from "./persons/person";
 import { PersonDetailsTile } from "./persons/personDetails";
 import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsSlice";
 
-export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id, title, release_date, poster_path, genre_ids, vote_average, vote_count }) => {
+export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id, posterSizes, profileSizes, title, release_date, poster_path, genre_ids, vote_average, vote_count }) => {
   const moviesDetails = useSelector(selectMovieDetails);
   const people = useSelector(selectPeople);
 
@@ -18,6 +18,7 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id
             movie
             key={key}
             id={id}
+            posterSizes={posterSizes}
             title={title}
             release_date={release_date}
             poster_path={poster_path}
@@ -32,6 +33,7 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id
       {movieDetails ? (
         <MovieDetailsTile
           movieDetails
+          posterSizes={posterSizes}
           poster_path={moviesDetails.poster_path}
           title={moviesDetails.title}
           production_countries={moviesDetails.production_countries}
@@ -47,13 +49,19 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id
       {person ? (
         <>
           {people.map(({ key, name, profile_path }) => (
-            <PersonTile person key={key} name={name} profile_path={profile_path} />
+            <PersonTile
+              person
+              key={key}
+              profileSizes={profileSizes}
+              name={name}
+              profile_path={profile_path}
+            />
           ))}
         </>
       ) : (
         ""
       )}
-      {personDetails ? <PersonDetailsTile personDetails /> : ""}
+      {personDetails ? <PersonDetailsTile personDetails profileSizes={profileSizes} /> : ""}
     </>
   );
 };

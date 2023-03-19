@@ -10,6 +10,7 @@ import { fetchMovieDetails } from "../../../../features/movies/movieDetails/movi
 export const MovieTile = ({
   movie,
   id,
+  posterSizes,
   title,
   release_date,
   poster_path,
@@ -27,7 +28,7 @@ export const MovieTile = ({
           dispatch(fetchMovieDetails());
         }}
       >
-        <Image source={`${APIImageUrl}/w500${poster_path}`} alt="" />
+        <Image source={`${APIImageUrl}/${posterSizes[3]}${poster_path}`} alt="" />
         <DescriptionContainer>
           <Information movie title={title} release_date={release_date} />
           <Tags movie={movie} genre_ids={genre_ids} />

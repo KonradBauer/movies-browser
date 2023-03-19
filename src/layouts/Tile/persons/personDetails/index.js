@@ -4,7 +4,7 @@ import { Information } from "../../Information";
 import { Container, DescriptionContainer, Image } from "./styled";
 import noPerson from "../../../../common/images/no-person.png";
 
-export const PersonDetailsTile = ({ srcImage }) => {
+export const PersonDetailsTile = ({ srcImage, profileSizes }) => {
   return (
     <Container personDetails>
       <Image personDetails src={srcImage ? srcImage : noPerson} alt="" />

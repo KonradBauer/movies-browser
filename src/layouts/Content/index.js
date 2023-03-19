@@ -2,13 +2,15 @@ import { BoxTitle, MainBox, Section, TilesList } from "./styled";
 import { Tile } from "../Tile/index";
 import { useSelector } from "react-redux";
 import { selectMovies } from "../../features/movies/movie/moviesSlice";
+import { selectPosterSizes } from "../../features/configurationSlice";
 
 export const Content = () => {
   const movies = useSelector(selectMovies);
+  const posterSizes = useSelector(selectPosterSizes);
 
   return (
     <MainBox>
-      <Tile movieDetails />
+      <Tile movieDetails posterSizes={posterSizes} />
       <Section>
         <BoxTitle>Popular movies</BoxTitle>
         <TilesList>
@@ -26,6 +28,7 @@ export const Content = () => {
               <Tile
                 movie
                 key={key}
+                posterSizes={posterSizes}
                 id={id}
                 title={title}
                 release_date={release_date}

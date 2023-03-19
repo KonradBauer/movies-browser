@@ -7,6 +7,7 @@ import { Container, DescriptionContainer, Image, MovieContainer } from "./styled
 import { APIImageUrl } from "../../../../features/getAPI";
 
 export const MovieDetailsTile = ({
+  posterSizes,
   poster_path,
   title,
   production_countries,
@@ -18,7 +19,7 @@ export const MovieDetailsTile = ({
 }) => {
   return (
     <Container movieDetails>
-      <Image movieDetails source={`${APIImageUrl}/w500${poster_path}`} alt="" />
+      <Image movieDetails source={`${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}`} alt="" />
       <MovieContainer movieDetails>
         <DescriptionContainer movieDetails>
           <Information movieDetails title={title} release_date={release_date} />
