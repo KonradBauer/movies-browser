@@ -30,7 +30,7 @@ export const MainInfo = styled.div`
   position: absolute;
   width: 45%;
   height: auto;
-  left: 11%;
+  left: 5%;
   top: 60%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
