@@ -31,10 +31,11 @@ export const MainInfo = styled.div`
   width: 45%;
   height: auto;
   left: 5%;
-  top: 65%;
+  top: 70%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    bottom: 5%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 214px;
+    top: 60%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
@@ -153,15 +154,14 @@ export const Votes = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: flex;
-    justify-content: center;
     margin-top: -13px;
-    margin-right: 100px;
+
     font-size: 10px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-top: -13px;
     margin-right: -10px;
     font-size: 10px;
