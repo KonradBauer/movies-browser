@@ -17,10 +17,11 @@ const peopleDetailsSlice = createSlice({
     loadPeopleDetailsError: ({ status }) => {
       status = "error";
     },
+    fetchPeopleDetails: () => {},
   },
 });
 
-export const { loadPeopleDetails, loadPeopleDetailsSuccess, loadPeopleDetailsError } =
+export const { loadPeopleDetails, loadPeopleDetailsSuccess, loadPeopleDetailsError, fetchPeopleDetails } =
   peopleDetailsSlice.actions;
 
 const selectPeopleDetailsState = (state) => state.peopleDetails;
