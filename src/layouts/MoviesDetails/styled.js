@@ -167,9 +167,15 @@ export const Votes = styled.div`
     font-size: 10px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    display: flex;
+    margin-top: -13px;
+    font-size: 10px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin-top: -13px;
-    margin-right: 1px;
+    margin-right: 8px;
     font-size: 10px;
   }
 `;
