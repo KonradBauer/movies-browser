@@ -21,6 +21,13 @@ export const Box = styled.div`
     padding: 0px;
     gap: 8px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 232px;
+    height: 24px;
+    padding: 0px;
+    gap: 8px;
+  }
 `;
 
 export const ButtonFirst = styled.div`
@@ -35,6 +42,13 @@ export const ButtonFirst = styled.div`
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    width: 38px;
+    height: 23px;
+    padding: 8px 12px;
+    gap: 4px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 38px;
     height: 23px;
     padding: 8px 12px;
@@ -59,6 +73,13 @@ export const ButtonPrevious = styled.div`
     padding: 8px 12px;
     gap: 8px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 29px;
+    height: 23px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
 `;
 
 export const ButtonNext = styled.div`
@@ -78,6 +99,13 @@ export const ButtonNext = styled.div`
     padding: 8px 12px;
     gap: 8px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 29px;
+    height: 24px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
 `;
 
 export const ButtonLast = styled.div`
@@ -92,6 +120,13 @@ export const ButtonLast = styled.div`
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    width: 38px;
+    height: 24px;
+    padding: 8px 12px;
+    gap: 4px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 38px;
     height: 24px;
     padding: 8px 12px;
@@ -125,9 +160,17 @@ export const Page = styled.text`
   width: 41px;
   height: 24px;
   display: flex;
+  font-size: 16px;
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    width: 26px;
+    height: 24px;
+    font-size: 10px;
+    line-height: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 26px;
     height: 24px;
     font-size: 10px;
@@ -140,8 +183,16 @@ export const Of = styled.text`
   height: 24px;
   display: flex;
   align-items: center;
+  font-size: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    width: 10px;
+    height: 24px;
+    font-size: 10px;
+    line-height: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 10px;
     height: 24px;
     font-size: 10px;
