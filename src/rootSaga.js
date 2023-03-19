@@ -1,7 +1,7 @@
 import { all } from "redux-saga/effects";
 import { genresSaga } from "./features/movies/genresSaga";
 import { moviesSaga } from "./features/movies/movie/moviesSaga";
-import { movieDetailsSaga } from "./features/movies/movieDetails/movieDetailsSaga";
+import { movieDetailsAndCreditsSaga } from "./features/movies/movieDetails/movieDetailsAndCreditsSaga";
 import { peopleSaga } from "./features/peoples/people/peopleSaga";
 import { configurationSaga } from "./features/configurationSaga";
 
@@ -10,7 +10,7 @@ export function* rootSaga() {
     configurationSaga(),
     genresSaga(),
     moviesSaga(),
-    movieDetailsSaga(),
+    movieDetailsAndCreditsSaga(),
     peopleSaga(),
   ]);
 }

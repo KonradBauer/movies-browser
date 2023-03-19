@@ -5,7 +5,7 @@ import { APIImageUrl } from "../../../../features/getAPI";
 import { getMovieID } from "../../../../features/movies/movie/moviesSlice";
 import { Tags } from "../../Tags";
 import { Raiting } from "../../Raiting";
-import { fetchMovieDetails } from "../../../../features/movies/movieDetails/movieDetailsSlice";
+import { fetchMovieDetailsAndCredits } from "../../../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 
 export const MovieTile = ({
   movie,
@@ -25,7 +25,7 @@ export const MovieTile = ({
       <div
         onClick={() => {
           dispatch(getMovieID(id));
-          dispatch(fetchMovieDetails());
+          dispatch(fetchMovieDetailsAndCredits());
         }}
       >
         <Image source={`${APIImageUrl}/${posterSizes[3]}${poster_path}`} alt="" />

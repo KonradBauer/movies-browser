@@ -15,9 +15,9 @@ export const getMovie = (movieID) => {
     .catch(handleError);
 };
 
-export const getMovieCredits = () => {
+export const getMovieCredits = (movieID) => {
   return axios
-    .get(`${APIUrl}/movie/{movie_id}/credits?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/${movieID}/credits?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };

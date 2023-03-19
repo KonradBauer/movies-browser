@@ -1,14 +1,31 @@
 import { useSelector } from "react-redux";
-import { selectPeople } from "../../features/peoples/people/peopleSlice";
 import { MovieTile } from "./movies/movie";
 import { MovieDetailsTile } from "./movies/movieDetails";
 import { PersonTile } from "./persons/person";
 import { PersonDetailsTile } from "./persons/personDetails";
-import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsSlice";
+import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 
-export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id, posterSizes, profileSizes, title, release_date, poster_path, genre_ids, vote_average, vote_count }) => {
+export const Tile = ({
+  movie,
+  movieDetails,
+  person,
+  personDetails,
+  key,
+  id,
+  posterSizes,
+  profileSizes,
+  title,
+  release_date,
+  poster_path,
+  profile_path,
+  name,
+  character,
+  job,
+  genre_ids,
+  vote_average,
+  vote_count,
+}) => {
   const moviesDetails = useSelector(selectMovieDetails);
-  const people = useSelector(selectPeople);
 
   return (
     <>
@@ -47,17 +64,15 @@ export const Tile = ({ movie, movieDetails, person, role, personDetails, key, id
         ""
       )}
       {person ? (
-        <>
-          {people.map(({ key, name, profile_path }) => (
-            <PersonTile
-              person
-              key={key}
-              profileSizes={profileSizes}
-              name={name}
-              profile_path={profile_path}
-            />
-          ))}
-        </>
+        <PersonTile
+          person
+          key={key}
+          profileSizes={profileSizes}
+          name={name}
+          character={character}
+          job={job}
+          profile_path={profile_path}
+        />
       ) : (
         ""
       )}

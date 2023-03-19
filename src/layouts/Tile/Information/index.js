@@ -1,6 +1,6 @@
 import { InfoContainer, FirstInformation, SecondInformation } from "./styled";
 
-export const Information = ({ movie, movieDetails, person, personDetails, role, title, release_date, name }) => {
+export const Information = ({ movie, movieDetails, person, personDetails, character, job, title, release_date, name }) => {
   return (
     <InfoContainer person={person} personDetails={personDetails}>
       {movie || movieDetails ? (
@@ -18,8 +18,8 @@ export const Information = ({ movie, movieDetails, person, personDetails, role, 
           <FirstInformation person={person} personDetails={personDetails}>
             {name}
           </FirstInformation>
-          <SecondInformation person={person} personDetails={personDetails} role={role}>
-            {role}
+          <SecondInformation person={person} personDetails={personDetails} >
+            {character ? character : job}
           </SecondInformation>
         </>
       ) : (
