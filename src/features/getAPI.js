@@ -36,16 +36,16 @@ export const getGenres = () => {
     .catch(handleError);
 };
 
-export const getPeople = () => {
+export const getPeople = (peopleID) => {
   return axios
-    .get(`${APIUrl}/person/{person_id}?${APIKey}${language}`)
+    .get(`${APIUrl}/person/${peopleID}?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };
 
-export const getPeopleCredits = () => {
+export const getPeopleCredits = (peopleID) => {
   return axios
-    .get(`${APIUrl}/person/{person_id}/movie_credits?${APIKey}${language}`)
+    .get(`${APIUrl}/person/${peopleID}/movie_credits?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };
