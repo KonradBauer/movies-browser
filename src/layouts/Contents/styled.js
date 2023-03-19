@@ -41,7 +41,7 @@ export const Section = styled.section`
 export const BoxTitle = styled.span`
   width: 285px;
   height: 43px;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -101,5 +101,50 @@ export const TilesList = styled.ul`
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+export const PersonTilesList = styled.ul`
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(6, 1fr);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 910px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media only screen and (min-width: 425px) and (max-width: 767px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (min-width: 848px) and (max-width: 1100px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media only screen and (min-width: 1101px) and (max-width: 1150px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media only screen and (min-width: 1151px) and (max-width: 1366px) {
+    grid-template-columns: repeat(6, 1fr);
   }
 `;
