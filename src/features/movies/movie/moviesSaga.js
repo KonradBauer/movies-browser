@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { getPopularMovies } from "../../getAPI";
 import { fetchMovies, getPages, loadMoviesSuccess } from "./moviesSlice";
 
@@ -6,7 +6,7 @@ function* fetchMoviesHandler() {
   try {
     const movie = yield call(getPopularMovies);
     yield put(loadMoviesSuccess(movie.results));
-    yield put(getPages(movie.page))
+    yield put(getPages(movie.page));
   } catch(error) {
     if (error.response) {
       console.log("Error response:", error.response.data);
@@ -19,6 +19,5 @@ function* fetchMoviesHandler() {
 }
 
 export function* moviesSaga() {
-    console.log("Saga movies działa.");
-    yield takeEvery(fetchMovies.type, fetchMoviesHandler);
+    yield takeLatest(fetchMovies.type, fetchMoviesHandler);
 }

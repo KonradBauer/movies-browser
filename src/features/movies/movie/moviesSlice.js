@@ -5,27 +5,31 @@ const moviesSlice = createSlice({
   initialState: {
     movies: [],
     page: null,
+    movieID: null,
     status: "initial",
   },
   reducers: {
-    loadMovies: (state) => {
-      state.status = "loading";
+    loadMovies: ({ status }) => {
+      status = "loading";
     },
     loadMoviesSuccess: (state, { payload: movies }) => {
       state.movies = movies;
       state.status = "success";
     },
-    loadMoviesError: (state) => {
-      state.status = "error";
+    loadMoviesError: ({ status }) => {
+      status = "error";
     },
-    fetchMovies: () => {},
     getPages: (state, { payload: page }) => {
       state.page = page;
     },
+    getMovieID: (state, { payload: movieID }) => {
+      state.movieID = movieID;
+    },
+    fetchMovies: () => {},
   },
 });
 
-export const { loadMovies, loadMoviesSuccess, loadMoviesError, fetchMovies, getPages } =
+export const { loadMovies, loadMoviesSuccess, loadMoviesError, fetchMovies, getPages, getMovieID } =
   moviesSlice.actions;
 
 const selectMoviesState = (state) => state.movies;
@@ -33,5 +37,6 @@ const selectMoviesState = (state) => state.movies;
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
 export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectPages = (state) => selectMoviesState(state).pages;
+export const selectMovieID = (state) => selectMoviesState(state).movieID;
 
 export default moviesSlice.reducer;

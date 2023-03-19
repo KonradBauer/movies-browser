@@ -8,16 +8,16 @@ const language = "&language=en-US";
 
 export const APIImageUrl = "https://image.tmdb.org/t/p";
 
-export const getMovie = () => {
+export const getMovie = (movieID) => {
   return axios
-    .get(`${APIUrl}/movie/{movie_id}?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/${movieID}?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };
 
-export const getMovieCredits = () => {
+export const getMovieCredits = (movieID) => {
   return axios
-    .get(`${APIUrl}/movie/{movie_id}/credits?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/${movieID}/credits?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };
@@ -29,16 +29,23 @@ export const getPopularMovies = () => {
     .catch(handleError);
 };
 
-export const getPeople = () => {
+export const getGenres = () => {
   return axios
-    .get(`${APIUrl}/person/{person_id}?${APIKey}${language}`)
+    .get(`${APIUrl}/genre/movie/list?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };
 
-export const getPeopleCredits = () => {
+export const getPeople = (peopleID) => {
   return axios
-    .get(`${APIUrl}/person/{person_id}/movie_credits?${APIKey}${language}`)
+    .get(`${APIUrl}/person/${peopleID}?${APIKey}${language}`)
+    .then((response) => response.data)
+    .catch(handleError);
+};
+
+export const getPeopleCredits = (peopleID) => {
+  return axios
+    .get(`${APIUrl}/person/${peopleID}/movie_credits?${APIKey}${language}`)
     .then((response) => response.data)
     .catch(handleError);
 };

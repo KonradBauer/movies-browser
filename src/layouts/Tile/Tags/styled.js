@@ -15,7 +15,7 @@ export const TagsContainer = styled.div`
     movieDetails &&
     css`
       gap: 16px;
-      max-width: 295px;
+      max-width: fit-content;
       margin-bottom: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
