@@ -8,6 +8,7 @@ export const theme = {
     mystic: "#E4E6F0",
     scienceBlue: "#0044CC",
     stormGray: "#74788B",
+    pattensBlue: "#D6E4FF",
   },
 
   breakpoints: {
