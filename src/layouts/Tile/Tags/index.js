@@ -9,11 +9,11 @@ export const Tags = ({ movie, movieDetails, genre_ids, genresDetails }) => {
     <TagsContainer movieDetails={movieDetails}>
       {movie ? (
         <>
-          {genre_ids.map((genreID) => {
+          {genre_ids && genre_ids.map((genreID) => {
             const genre = genres.find(({ id }) => id === genreID);
             return (
               <Tag key={genreID.key}>
-                <TagContent>{genre ? genre.name : ""}</TagContent>
+                <TagContent>{genre.name}</TagContent>
               </Tag>
             );
           })}
