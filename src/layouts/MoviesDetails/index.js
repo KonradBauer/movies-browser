@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectBackdropSizes, selectProfileSizes } from "../../features/configurationSlice";
+import { selectBackdropSizes, selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 import {
   selectMovieCredits,
   selectMovieDetails,
@@ -30,6 +30,7 @@ export const MoviesDetails = () => {
   const movieDetails = useSelector(selectMovieDetails);
   const movieCredits = useSelector(selectMovieCredits);
   const backdropSizes = useSelector(selectBackdropSizes);
+  const posterSizes = useSelector(selectPosterSizes);
   const profileSizes = useSelector(selectProfileSizes);
 
   return (
@@ -58,7 +59,7 @@ export const MoviesDetails = () => {
       <ContentBackground>
         <Content>
           <TileContent>
-            <Tile movieDetails posterSizes={backdropSizes} />
+            <Tile movieDetails posterSizes={posterSizes} />
           </TileContent>
           <CastContent>
             <SubdivTitle>Cast</SubdivTitle>
