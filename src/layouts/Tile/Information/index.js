@@ -18,7 +18,7 @@ export const Information = ({ movie, movieDetails, person, personDetails, charac
           <FirstInformation person={person} personDetails={personDetails}>
             {name}
           </FirstInformation>
-          <SecondInformation person={person} personDetails={personDetails} >
+          <SecondInformation person={person} personDetails={personDetails}>
             {character ? character : job}
           </SecondInformation>
         </>
