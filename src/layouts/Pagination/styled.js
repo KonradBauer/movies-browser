@@ -5,11 +5,12 @@ export const Box = styled.div`
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding-bottom: 109px;
   gap: 24px;
   width: 525px;
   margin: auto;
   margin-top: 40px;
+  margin-bottom: 100px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
