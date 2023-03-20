@@ -11,7 +11,7 @@ export const Information = ({ movie, movieDetails, person, personDetails, charac
         <>
           <FirstInformation movieDetails={movieDetails}>{title}</FirstInformation>
           <SecondInformation movieDetails={movieDetails}>
-            {peopleCredits
+            {peopleCredits > 0
               ? `${title} ${release_date ? `(${new Date(release_date).getFullYear()})` : ""}` 
               : new Date(release_date).getFullYear()}
           </SecondInformation>
