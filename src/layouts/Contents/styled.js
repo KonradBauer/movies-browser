@@ -81,14 +81,14 @@ export const TilesList = styled.ul`
   margin: 0px;
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     grid-template-columns: 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
@@ -97,6 +97,10 @@ export const TilesList = styled.ul`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 1000px) and (max-width: 1320px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: 600px) {
