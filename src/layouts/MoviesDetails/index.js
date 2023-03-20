@@ -1,3 +1,10 @@
+import { useSelector } from "react-redux";
+import { selectBackdropSizes, selectProfileSizes } from "../../features/configurationSlice";
+import {
+  selectMovieCredits,
+  selectMovieDetails,
+} from "../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
+import { APIImageUrl } from "../../features/getAPI";
 import {
   Background,
   CastContent,
@@ -17,63 +24,72 @@ import {
   Votes,
   Wrapper,
 } from "./styled";
-import person from "../../common/images/poster.png";
-import poster from "../../common/images/poster.png";
-import PosterBig from "../../common/images/posterBig.png";
 import { Tile } from "../Tile/index";
+
 export const MoviesDetails = () => {
+  const movieDetails = useSelector(selectMovieDetails);
+  const movieCredits = useSelector(selectMovieCredits);
+  const backdropSizes = useSelector(selectBackdropSizes);
+  const profileSizes = useSelector(selectProfileSizes);
+
   return (
     <>
       <Background>
         <Wrapper>
-          <Poster src={PosterBig} alt="movie poster" />
+          <Poster
+            source={`${APIImageUrl}/${backdropSizes ? backdropSizes[3] : ""}${
+              movieDetails.backdrop_path
+            }`}
+            alt="movie poster"
+          />
           <MainInfo>
-            <Title>Mulan long title</Title>
+            <Title>{movieDetails.title}</Title>
             <Raiting>
               <StyledStar />
               <RaitingNumber>
-                7,8
+                {movieDetails.vote_average?.toFixed(1)}
                 <RaitingCap>/10</RaitingCap>
               </RaitingNumber>
             </Raiting>
-            <Votes>335 votes</Votes>
+            <Votes>{movieDetails.vote_count} votes</Votes>
           </MainInfo>
         </Wrapper>
       </Background>
       <ContentBackground>
         <Content>
           <TileContent>
-            <Tile movieDetails={MoviesDetails} srcImage={poster} />
+            <Tile movieDetails posterSizes={backdropSizes} />
           </TileContent>
           <CastContent>
             <SubdivTitle>Cast</SubdivTitle>
             <List>
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              {movieCredits.cast &&
+                movieCredits.cast.map(({ key, profile_path, name, character }) => (
+                  <Tile
+                    person
+                    profileSizes={profileSizes}
+                    key={key}
+                    profile_path={profile_path}
+                    name={name}
+                    character={character}
+                  />
+                ))}
             </List>
           </CastContent>
           <CrewContent>
             <SubdivTitle>Crew</SubdivTitle>
             <List>
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
-              <Tile person={"person"} srcImage={person} role={"Rola"} />
+              {movieCredits.crew &&
+                movieCredits.crew.map(({ key, profile_path, name, job }) => (
+                  <Tile
+                    person
+                    profileSizes={profileSizes}
+                    key={key}
+                    profile_path={profile_path}
+                    name={name}
+                    job={job}
+                  />
+                ))}
             </List>
           </CrewContent>
         </Content>

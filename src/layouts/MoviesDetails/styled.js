@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const Poster = styled.img`
+export const Poster = styled.img.attrs((props) => ({ src: props.source }))`
   margin: 0 auto;
   max-width: 1920px;
   max-height: 770px;
