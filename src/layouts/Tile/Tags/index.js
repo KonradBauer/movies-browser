@@ -13,7 +13,7 @@ export const Tags = ({ movie, movieDetails, genre_ids, genresDetails }) => {
             const genre = genres.find(({ id }) => id === genreID);
             return (
               <Tag key={genreID.key}>
-                <TagContent movieDetails={movieDetails}>{genre.name}</TagContent>
+                <TagContent>{genre ? genre.name : ""}</TagContent>
               </Tag>
             );
           })}

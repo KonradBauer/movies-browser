@@ -28,7 +28,7 @@ export const MovieTile = ({
           dispatch(fetchMovieDetailsAndCredits());
         }}
       >
-        <Image source={`${APIImageUrl}/${posterSizes[3]}${poster_path}`} alt="" />
+        <Image source={`${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}`} alt="" />
         <DescriptionContainer>
           <Information movie title={title} release_date={release_date} />
           <Tags movie={movie} genre_ids={genre_ids} />
