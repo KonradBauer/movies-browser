@@ -5,11 +5,6 @@ export const TagsContainer = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 8px;
-  max-width: 279px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 107px;
-  }
 
   ${({ movieDetails }) =>
     movieDetails &&

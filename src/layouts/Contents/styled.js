@@ -8,28 +8,7 @@ export const MainBox = styled.div`
   height: 1391px;
   background: none;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 288px;
-    margin-top: 12px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    max-width: 1080px;
-    margin-top: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
-    max-width: 1000px;
-    margin-top: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 847px;
-    margin-top: 12px;
-  }
-
-  @media (max-width: 512px) {
-    max-width: 500px;
     margin-top: 12px;
   }
 `;
@@ -82,17 +61,11 @@ export const TilesList = styled.ul`
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    grid-template-columns: 1fr;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: 1100px) {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
-    grid-template-columns: 1fr 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
