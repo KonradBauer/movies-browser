@@ -11,5 +11,19 @@ export const StyledNavLink = styled(NavLink)`
     border-radius: 24px;
     width: 102px;
     height: 48px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+      font-size: 12px;
+      width: 70px;
+      height: 35px;
+      margin-left: 0;
+
+      &:focus {
+        border: 1px solid #ffffff;
+        border-radius: 24px;
+        width: 70px;
+        height: 35px;
+      }
+    }
   }
 `;

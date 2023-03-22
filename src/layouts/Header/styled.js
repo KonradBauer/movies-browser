@@ -39,7 +39,7 @@ export const HeadContainer = styled.div`
 `;
 
 export const StyledLogo = styled(Logo)`
-  margin-left: 297px;
+  margin-right: 30px;
   flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
@@ -67,8 +67,14 @@ export const StyledLogo = styled(Logo)`
   }
 `;
 
+export const ButtonsBox = styled.div`
+  display: flex;
+  text-decoration: none;
+  gap: 10px;
+  justify-content: center;
+`;
+
 export const MoviesButton = styled.button`
-  margin-left: 50px;
   width: 102px;
   height: 48px;
   display: flex;
@@ -86,13 +92,6 @@ export const MoviesButton = styled.button`
   background: none;
   color: ${({ theme }) => theme.color.white};
   cursor: pointer;
-
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.color.white};
-    border-radius: 24px;
-    width: 102px;
-    height: 48px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
@@ -119,13 +118,6 @@ export const MoviesButton = styled.button`
     height: 35px;
     margin-left: 0;
     margin-right: 0;
-
-    &:focus {
-      border: 1px solid #ffffff;
-      border-radius: 24px;
-      width: 70px;
-      height: 35px;
-    }
   }
 `;
 
@@ -136,7 +128,6 @@ export const PeopleButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
   padding: 8px 24px;
   font-style: normal;
   font-weight: 600;
@@ -147,13 +138,6 @@ export const PeopleButton = styled.button`
   background: none;
   color: ${({ theme }) => theme.color.white};
   cursor: pointer;
-
-  &:focus {
-    border: 1px solid #ffffff;
-    border-radius: 24px;
-    width: 102px;
-    height: 48px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
@@ -173,13 +157,6 @@ export const PeopleButton = styled.button`
     width: 70px;
     height: 35px;
     margin-left: 0;
-
-    &:focus {
-      border: 1px solid #ffffff;
-      border-radius: 24px;
-      width: 70px;
-      height: 35px;
-    }
   }
 `;
 

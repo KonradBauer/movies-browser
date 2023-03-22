@@ -1,6 +1,3 @@
-import { ThemeProvider } from "styled-components";
-import { theme } from "./common/Theme/theme";
-import { Header } from "./layouts/Header/index";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
@@ -19,12 +16,7 @@ function MoviesBrowser() {
     dispatch(fetchPeople());
   }, []);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <Content />
-    </ThemeProvider>
-  );
+  return <Content />;
 }
 
 export default MoviesBrowser;

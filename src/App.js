@@ -1,16 +1,35 @@
 import React from "react";
-import { HashRouter, Route, Redirect, Switch, Link } from "react-router-dom";
-import { MoviesButton, PeopleButton } from "./layouts/Header/styled";
+import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
+import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import MoviesBrowser from "./MoviesBrowser";
 import { PeopleContent } from "./layouts/Contents/index";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./common/Theme/theme";
+import { StyledNavLink } from "./StyledApp";
+import { StyledLogo, Box, StyledLoupe, Input, ButtonsBox } from "./layouts/Header/styled";
+import { useState } from "react";
 
 export const App = () => {
-  return (
-    <HashRouter>
-      <nav>
-        <Link to="/popular-movies">Movies</Link>
-        <Link to="/popular-people">People</Link>
+  const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
 
+  return (
+    <ThemeProvider theme={theme}>
+      <HashRouter>
+        <HeadContainer>
+          <StyledLogo />
+          <ButtonsBox>
+            <StyledNavLink to="/popular-movies">
+              <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>Movies</MoviesButton>
+            </StyledNavLink>
+            <StyledNavLink to="/popular-people">
+              <PeopleButton onClick={() => setPlaceholderTextMovies(false)}>People</PeopleButton>
+            </StyledNavLink>
+          </ButtonsBox>
+          <Box>
+            <StyledLoupe />
+            <Input placeholder={`Search for ${placeholderTextMovies ? "movies" : "people"}...`} />
+          </Box>
+        </HeadContainer>
         <Switch>
           <Route path="/popular-movies">
             <MoviesBrowser />
@@ -22,8 +41,8 @@ export const App = () => {
             <Redirect to="/popular-movies" />
           </Route>
         </Switch>
-      </nav>
-    </HashRouter>
+      </HashRouter>
+    </ThemeProvider>
   );
 };
 
