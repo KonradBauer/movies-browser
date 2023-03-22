@@ -7,41 +7,84 @@ import {
   SubdivTitle,
   TileContent,
 } from "./styled";
-import poster from "../../common/images/poster.png";
-import person from "../../common/images/person.png";
 import { Tile } from "../Tile/index";
+import { useSelector } from "react-redux";
+import {
+  selectPeopleCredits
+} from "../../features/peoples/peopleDetails/peopleDetailsSlice";
+import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 export const PersonDetails = () => {
+  const peopleCredits = useSelector(selectPeopleCredits);
+  const profileSizes = useSelector(selectProfileSizes);
+  const posterSizes = useSelector(selectPosterSizes);
+
   return (
     <>
       <ContentBackground>
         <Content>
           <TileContent>
-            <Tile personDetails={"personDetails"} srcImage={person} />
+            <Tile personDetails profileSizes={profileSizes} />
           </TileContent>
           <CastContent>
-            <SubdivTitle>Movies - cast()</SubdivTitle>
+            <SubdivTitle>
+              Movies - cast({peopleCredits.cast && peopleCredits.cast.length})
+            </SubdivTitle>
             <List>
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
+              {peopleCredits.cast &&
+                peopleCredits.cast.map(
+                  ({
+                    key,
+                    poster_path,
+                    title,
+                    release_date,
+                    genre_ids,
+                    vote_average,
+                    vote_count,
+                  }) => (
+                    <Tile
+                      movie
+                      posterSizes={posterSizes}
+                      key={key}
+                      poster_path={poster_path}
+                      title={title}
+                      release_date={release_date}
+                      genre_ids={genre_ids}
+                      vote_average={vote_average}
+                      vote_count={vote_count}
+                    />
+                  )
+                )}
             </List>
           </CastContent>
           <CrewContent>
-            <SubdivTitle>Movies - crew()</SubdivTitle>
+            <SubdivTitle>
+              Movies - crew({peopleCredits.crew && peopleCredits.crew.length})
+            </SubdivTitle>
             <List>
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
-              <Tile movie={"movie"} srcImage={poster} />
+              {peopleCredits.crew &&
+                peopleCredits.crew.map(
+                  ({
+                    key,
+                    poster_path,
+                    title,
+                    release_date,
+                    genre_ids,
+                    vote_average,
+                    vote_count,
+                  }) => (
+                    <Tile
+                      movie
+                      posterSizes={posterSizes}
+                      key={key}
+                      poster_path={poster_path}
+                      title={title}
+                      release_date={release_date}
+                      genre_ids={genre_ids}
+                      vote_average={vote_average}
+                      vote_count={vote_count}
+                    />
+                  )
+                )}
             </List>
           </CrewContent>
         </Content>

@@ -4,6 +4,7 @@ const peopleDetailsSlice = createSlice({
   name: "peopleDetails",
   initialState: {
     peopleDetails: [],
+    peopleCredits: [],
     status: "initial",
   },
   reducers: {
@@ -14,6 +15,10 @@ const peopleDetailsSlice = createSlice({
       state.peopleDetails = peopleDetails;
       state.status = "success";
     },
+    loadPeopleCreditsSuccess: (state, { payload: peopleCredits }) => {
+      state.peopleCredits = peopleCredits;
+      state.status = "success";
+    },
     loadPeopleDetailsError: ({ status }) => {
       status = "error";
     },
@@ -21,12 +26,13 @@ const peopleDetailsSlice = createSlice({
   },
 });
 
-export const { loadPeopleDetails, loadPeopleDetailsSuccess, loadPeopleDetailsError, fetchPeopleDetails } =
+export const { loadPeopleDetails, loadPeopleDetailsSuccess, loadPeopleCreditsSuccess, loadPeopleDetailsError, fetchPeopleDetails } =
   peopleDetailsSlice.actions;
 
 const selectPeopleDetailsState = (state) => state.peopleDetails;
 
 export const selectPeopleDetailsStatus = (state) => selectPeopleDetailsState(state).status;
 export const selectPeopleDetails = (state) => selectPeopleDetailsState(state).peopleDetails;
+export const selectPeopleCredits = (state) => selectPeopleDetailsState(state).peopleCredits;
 
 export default peopleDetailsSlice.reducer;

@@ -1,13 +1,15 @@
 import { call, put, select, takeLatest } from "redux-saga/effects";
-import { getPeople } from "../../getAPI";
+import { getPeople, getPeopleCredits } from "../../getAPI";
 import { selectPeopleID } from "../people/peopleSlice";
-import { fetchPeopleDetails, loadPeopleDetailsSuccess } from "./peopleDetailsSlice";
+import { fetchPeopleDetails, loadPeopleCreditsSuccess, loadPeopleDetailsSuccess } from "./peopleDetailsSlice";
 
 function* fetchPeopleDetailsHandler() {
   try {
     const peopleID = yield select(selectPeopleID);
     const peopleDetails = yield call(getPeople, peopleID);
+    const peopleCredits = yield call(getPeopleCredits, peopleID);
     yield put(loadPeopleDetailsSuccess(peopleDetails));
+    yield put(loadPeopleCreditsSuccess(peopleCredits));
   } catch (error) {
     if (error.response) {
       console.log("Error response:", error.response.data);
