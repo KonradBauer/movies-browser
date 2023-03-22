@@ -1,30 +1,30 @@
-import { ThemeProvider } from "styled-components";
-import { theme } from "./common/Theme/theme";
-import { Header } from "./layouts/Header/index";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchMovies } from "./features/movies/movie/moviesSlice";
-import { Content } from "./layouts/Contents/index";
-import { fetchPeople } from "./features/peoples/people/peopleSlice";
-import { fetchGenres } from "./features/movies/genresSilce";
-import { fetchConfiguration } from "./features/configurationSlice";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
+import { PeopleContent, Content } from "./layouts/Contents";
+import { MoviesButton, PeopleButton } from "./layouts/Header/styled";
+import { StyledNavLink } from "./StyledApp";
+import MoviesBrowser from "./MovieBrowser";
 
-function App() {
-  const dispatch = useDispatch();
+export const App = () => (
+  <HashRouter basename="movies-browser">
+    <nav>
+      <li>
+        <StyledNavLink to="/popular-movies">Movies</StyledNavLink>
+      </li>
+      <li>
+        <StyledNavLink to="/popular-people">People</StyledNavLink>
+      </li>
+    </nav>
 
-  useEffect(() => {
-    dispatch(fetchConfiguration());
-    dispatch(fetchGenres());
-    dispatch(fetchMovies());
-    dispatch(fetchPeople());
-  }, []);
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <Content />
-    </ThemeProvider>
-  );
-}
-
-export default App;
+    <Switch>
+      <Route path="/popular-movies">
+        <MoviesBrowser />
+      </Route>
+      <Route path="/popular-people">
+        <PeopleContent />
+      </Route>
+      <Route path="/">
+        <Redirect to="/popular-movies" />
+      </Route>
+    </Switch>
+  </HashRouter>
+);
