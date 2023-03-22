@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectMovies } from "../../features/movies/movie/moviesSlice";
 import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 import { selectPeople } from "../../features/peoples/people/peopleSlice";
+import { Pagination } from "../Pagination/index";
 
 export const Content = () => {
   const movies = useSelector(selectMovies);
@@ -41,6 +42,7 @@ export const Content = () => {
           )}
         </TilesList>
       </Section>
+      <Pagination />
     </MainBox>
   );
 };
@@ -66,6 +68,7 @@ export const PeopleContent = () => {
           ))}
         </PersonTilesList>
       </Section>
+      <Pagination />
     </MainBox>
   );
 };

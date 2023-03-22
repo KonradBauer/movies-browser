@@ -26,7 +26,7 @@ export const Pagination = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return windowWidth < 768 ? <PaginationMobile /> : <PaginationDesktop />;
+  return windowWidth < 848 ? <PaginationMobile /> : <PaginationDesktop />;
 };
 
 const PaginationDesktop = () => {

@@ -5,7 +5,7 @@ export const Box = styled.div`
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding-bottom: 109px;
   gap: 24px;
   width: 525px;
   margin: auto;
@@ -18,14 +18,14 @@ export const Box = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 232px;
     height: 24px;
-    padding: 0px;
+    padding-bottom: 31px;
     gap: 8px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 232px;
     height: 24px;
-    padding: 0px;
+    padding-bottom: 31px;
     gap: 8px;
   }
 `;

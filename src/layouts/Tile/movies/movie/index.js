@@ -6,6 +6,7 @@ import { getMovieID } from "../../../../features/movies/movie/moviesSlice";
 import { Tags } from "../../Tags";
 import { Raiting } from "../../Raiting";
 import { fetchMovieDetailsAndCredits } from "../../../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
+import noPoster from "../../../../common/images/no-poster.png"
 
 export const MovieTile = ({
   movie,
@@ -27,8 +28,8 @@ export const MovieTile = ({
 
   return (
     <Container onClick={dispatchHandler}>
-      <Image source={`${APIImageUrl}/${posterSizes[3]}${poster_path}`} alt="" />
       <div>
+        <Image source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster} alt="" />
         <DescriptionContainer>
           <Information movie title={title} release_date={release_date} />
           <Tags movie={movie} genre_ids={genre_ids} />

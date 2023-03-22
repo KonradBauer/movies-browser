@@ -72,6 +72,10 @@ export const TilesList = styled.ul`
     grid-template-columns: 1fr 1fr;
   }
 
+  @media only screen and (min-width: 1000px) and (max-width: 1320px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
