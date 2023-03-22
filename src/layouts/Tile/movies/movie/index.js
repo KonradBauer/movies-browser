@@ -28,8 +28,8 @@ export const MovieTile = ({
 
   return (
     <Container onClick={dispatchHandler}>
-      <div>
         <Image source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster} alt="" />
+      <div>
         <DescriptionContainer>
           <Information movie title={title} release_date={release_date} />
           <Tags movie={movie} genre_ids={genre_ids} />
