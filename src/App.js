@@ -1,30 +1,18 @@
-import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { PeopleContent, Content } from "./layouts/Contents";
-import { MoviesButton, PeopleButton } from "./layouts/Header/styled";
-import { StyledNavLink } from "./StyledApp";
-import MoviesBrowser from "./MovieBrowser";
+import React from "react";
+import { HashRouter, Route, Redirect } from "react-router-dom";
+import MoviesBrowser from "./MoviesBrowser";
 
-export const App = () => (
-  <HashRouter basename="movies-browser">
-    <nav>
-      <li>
-        <StyledNavLink to="/popular-movies">Movies</StyledNavLink>
-      </li>
-      <li>
-        <StyledNavLink to="/popular-people">People</StyledNavLink>
-      </li>
-    </nav>
-
-    <Switch>
-      <Route path="/popular-movies">
-        <MoviesBrowser />
-      </Route>
-      <Route path="/popular-people">
-        <PeopleContent />
-      </Route>
+export const App = () => {
+  return (
+    <HashRouter>
       <Route path="/">
         <Redirect to="/popular-movies" />
       </Route>
-    </Switch>
-  </HashRouter>
-);
+      <Route path="/popular-movies">
+        <MoviesBrowser />
+      </Route>
+    </HashRouter>
+  );
+};
+
+export default App;

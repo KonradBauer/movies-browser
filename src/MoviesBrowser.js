@@ -9,7 +9,7 @@ import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
 
-function MovieBrowser() {
+function MoviesBrowser() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,4 +27,4 @@ function MovieBrowser() {
   );
 }
 
-export default MovieBrowser;
+export default MoviesBrowser;
