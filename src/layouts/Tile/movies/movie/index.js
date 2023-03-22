@@ -20,16 +20,16 @@ export const MovieTile = ({
   vote_count,
 }) => {
   const dispatch = useDispatch();
+  
+  const dispatchHandler = () => {
+    dispatch(getMovieID(id));
+    dispatch(fetchMovieDetailsAndCredits());
+  };
 
   return (
-    <Container>
-      <div
-        onClick={() => {
-          dispatch(getMovieID(id));
-          dispatch(fetchMovieDetailsAndCredits());
-        }}
-      >
+    <Container onClick={dispatchHandler}>
         <Image source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster} alt="" />
+      <div>
         <DescriptionContainer>
           <Information movie title={title} release_date={release_date} />
           <Tags movie={movie} genre_ids={genre_ids} />
