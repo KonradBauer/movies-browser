@@ -9,25 +9,23 @@ import { fetchPeopleDetails } from "../../../../features/peoples/peopleDetails/p
 export const PersonTile = ({ profileSizes, id, name, profile_path, character, job }) => {
   const dispatch = useDispatch();
 
+  const dispatchHandler = () => {
+    dispatch(getPeopleID(id));
+    dispatch(fetchPeopleDetails());
+  };
+
   return (
-    <div
-      onClick={() => {
-        dispatch(getPeopleID(id));
-        dispatch(fetchPeopleDetails());
-      }}
-    >
-      <Container person>
-        <Image
-          person
-          source={
-            profile_path
-              ? `${APIImageUrl}/${profileSizes ? profileSizes[1] : ""}${profile_path}`
-              : noProfile
-          }
-          alt=""
-        />
-        <Information person name={name} character={character} job={job} />
-      </Container>
-    </div>
+    <Container onClick={dispatchHandler} person>
+      <Image
+        person
+        source={
+          profile_path
+            ? `${APIImageUrl}/${profileSizes ? profileSizes[1] : ""}${profile_path}`
+            : noProfile
+        }
+        alt=""
+      />
+      <Information person name={name} character={character} job={job} />
+    </Container>
   );
 };
