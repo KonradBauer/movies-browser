@@ -7,14 +7,7 @@ import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
 
 function MoviesBrowser() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchConfiguration());
-    dispatch(fetchGenres());
-    dispatch(fetchMovies());
-    dispatch(fetchPeople());
-  }, []);
+  
 
   return <Content />;
 }

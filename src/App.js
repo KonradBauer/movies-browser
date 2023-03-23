@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import MoviesBrowser from "./MoviesBrowser";
@@ -8,9 +8,22 @@ import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, Input, ButtonsBox } from "./layouts/Header/styled";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchConfiguration } from "./features/configurationSlice";
+import { fetchGenres } from "./features/movies/genresSilce";
+import { fetchMovies } from "./features/movies/movie/moviesSlice";
+import { fetchPeople } from "./features/peoples/people/peopleSlice";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchConfiguration());
+    dispatch(fetchGenres());
+    dispatch(fetchMovies());
+    dispatch(fetchPeople());
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
