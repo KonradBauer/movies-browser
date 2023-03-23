@@ -8,8 +8,8 @@ const peopleDetailsSlice = createSlice({
     status: "initial",
   },
   reducers: {
-    loadPeopleDetails: ({ status }) => {
-      status = "loading";
+    loadPeopleDetails: (state) => {
+      state.status = "loading";
     },
     loadPeopleDetailsSuccess: (state, { payload: peopleDetails }) => {
       state.peopleDetails = peopleDetails;
@@ -26,8 +26,13 @@ const peopleDetailsSlice = createSlice({
   },
 });
 
-export const { loadPeopleDetails, loadPeopleDetailsSuccess, loadPeopleCreditsSuccess, loadPeopleDetailsError, fetchPeopleDetails } =
-  peopleDetailsSlice.actions;
+export const {
+  loadPeopleDetails,
+  loadPeopleDetailsSuccess,
+  loadPeopleCreditsSuccess,
+  loadPeopleDetailsError,
+  fetchPeopleDetails,
+} = peopleDetailsSlice.actions;
 
 const selectPeopleDetailsState = (state) => state.peopleDetails;
 
