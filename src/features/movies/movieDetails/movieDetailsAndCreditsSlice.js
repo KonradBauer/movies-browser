@@ -8,8 +8,8 @@ const movieDetailsAndCreditsSlice = createSlice({
     status: "initial",
   },
   reducers: {
-    loadMovieDetails: ({ status }) => {
-      status = "loading";
+    loadMovieDetails: (state) => {
+      state.status = "loading";
     },
     loadMovieDetailsSuccess: (state, { payload: movieDetails }) => {
       state.movieDetails = movieDetails;
