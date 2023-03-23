@@ -22,9 +22,9 @@ export const getMovieCredits = (movieID) => {
     .catch(handleError);
 };
 
-export const getPopularMovies = () => {
+export const getPopularMovies = (page) => {
   return axios
-    .get(`${APIUrl}/movie/popular?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/popular?${APIKey}${language}&page=${page}`)
     .then((response) => response.data)
     .catch(handleError);
 };
@@ -50,9 +50,9 @@ export const getPeopleCredits = (peopleID) => {
     .catch(handleError);
 };
 
-export const getPopularPeople = () => {
+export const getPopularPeople = (page) => {
   return axios
-    .get(`${APIUrl}/person/popular?${APIKey}${language}`)
+    .get(`${APIUrl}/person/popular?${APIKey}${language}&page=${page}`)
     .then((response) => response.data)
     .catch(handleError);
 };
