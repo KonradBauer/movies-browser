@@ -1,5 +1,9 @@
 import { useSelector } from "react-redux";
-import { selectBackdropSizes, selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
+import {
+  selectBackdropSizes,
+  selectPosterSizes,
+  selectProfileSizes,
+} from "../../features/configurationSlice";
 import {
   selectMovieCredits,
   selectMovieDetails,
@@ -65,11 +69,12 @@ export const MoviesDetails = () => {
             <SubdivTitle>Cast</SubdivTitle>
             <List>
               {movieCredits.cast &&
-                movieCredits.cast.map(({ key, profile_path, name, character }) => (
+                movieCredits.cast.map(({ key, id, profile_path, name, character }) => (
                   <Tile
                     person
                     profileSizes={profileSizes}
                     key={key}
+                    id={id}
                     profile_path={profile_path}
                     name={name}
                     character={character}
@@ -81,11 +86,12 @@ export const MoviesDetails = () => {
             <SubdivTitle>Crew</SubdivTitle>
             <List>
               {movieCredits.crew &&
-                movieCredits.crew.map(({ key, profile_path, name, job }) => (
+                movieCredits.crew.map(({ key, id, profile_path, name, job }) => (
                   <Tile
                     person
                     profileSizes={profileSizes}
                     key={key}
+                    id={id}
                     profile_path={profile_path}
                     name={name}
                     job={job}

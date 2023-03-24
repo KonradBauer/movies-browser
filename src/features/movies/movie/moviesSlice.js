@@ -4,13 +4,14 @@ const moviesSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
-    page: null,
+    page: 1,
+    pageLast: 500,
     movieID: null,
     status: "initial",
   },
   reducers: {
-    loadMovies: ({ status }) => {
-      status = "loading";
+    loadMovies: (state) => {
+      state.status = "loading";
     },
     loadMoviesSuccess: (state, { payload: movies }) => {
       state.movies = movies;
@@ -19,8 +20,17 @@ const moviesSlice = createSlice({
     loadMoviesError: ({ status }) => {
       status = "error";
     },
-    getPages: (state, { payload: page }) => {
-      state.page = page;
+    pageIncrement: (state) => {
+      state.page === 500 ? (state.page = 500) : (state.page += 1);
+    },
+    pageDecrement: (state) => {
+      state.page === 1 ? (state.page = 1) : (state.page -= 1);
+    },
+    pageFirst: (state) => {
+      state.page = 1;
+    },
+    pageLast: (state) => {
+      state.page = 500;
     },
     getMovieID: (state, { payload: movieID }) => {
       state.movieID = movieID;
@@ -29,14 +39,24 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { loadMovies, loadMoviesSuccess, loadMoviesError, fetchMovies, getPages, getMovieID } =
-  moviesSlice.actions;
+export const {
+  loadMovies,
+  loadMoviesSuccess,
+  loadMoviesError,
+  pageIncrement,
+  pageDecrement,
+  pageFirst,
+  pageLast,
+  fetchMovies,
+  getPages,
+  getMovieID,
+} = moviesSlice.actions;
 
 const selectMoviesState = (state) => state.movies;
 
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
 export const selectMovies = (state) => selectMoviesState(state).movies;
-export const selectPages = (state) => selectMoviesState(state).pages;
+export const selectPages = (state) => selectMoviesState(state).page;
 export const selectMovieID = (state) => selectMoviesState(state).movieID;
 
 export default moviesSlice.reducer;

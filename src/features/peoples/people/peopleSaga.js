@@ -1,10 +1,12 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { getPopularPeople } from "../../getAPI";
+import { selectPages } from "../../movies/movie/moviesSlice";
 import { fetchPeople, loadPeopleSuccess } from "./peopleSlice";
 
 function* fetchPeopleHandler() {
   try {
-    const person = yield call(getPopularPeople);
+    const page = yield select(selectPages);
+    const person = yield call(getPopularPeople, page);
     yield put(loadPeopleSuccess(person.results));
   } catch (error) {
     if (error.response) {

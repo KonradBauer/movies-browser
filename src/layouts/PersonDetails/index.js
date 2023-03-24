@@ -9,9 +9,7 @@ import {
 } from "./styled";
 import { Tile } from "../Tile/index";
 import { useSelector } from "react-redux";
-import {
-  selectPeopleCredits
-} from "../../features/peoples/peopleDetails/peopleDetailsSlice";
+import { selectPeopleCredits } from "../../features/peoples/peopleDetails/peopleDetailsSlice";
 import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 export const PersonDetails = () => {
   const peopleCredits = useSelector(selectPeopleCredits);
@@ -34,6 +32,7 @@ export const PersonDetails = () => {
                 peopleCredits.cast.map(
                   ({
                     key,
+                    id,
                     poster_path,
                     title,
                     release_date,
@@ -45,6 +44,7 @@ export const PersonDetails = () => {
                       movie
                       posterSizes={posterSizes}
                       key={key}
+                      id={id}
                       poster_path={poster_path}
                       title={title}
                       release_date={release_date}
@@ -65,6 +65,7 @@ export const PersonDetails = () => {
                 peopleCredits.crew.map(
                   ({
                     key,
+                    id,
                     poster_path,
                     title,
                     release_date,
@@ -76,6 +77,7 @@ export const PersonDetails = () => {
                       movie
                       posterSizes={posterSizes}
                       key={key}
+                      id={id}
                       poster_path={poster_path}
                       title={title}
                       release_date={release_date}
