@@ -96,35 +96,25 @@ export const SubdivTitle = styled.span`
 `;
 
 export const List = styled.ul`
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 24px;
+  padding: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 320px;
-    grid-template-columns: 1fr;
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    max-width: 425px;
-    grid-template-columns: 1fr;
-  }
-
-  @media only screen and (min-width: 426px) and (max-width: 578px) {
-    grid-template-columns: 1fr;
-  }
-
-  @media only screen and (min-width: 579px) and (max-width: 847px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  @media only screen and (min-width: 848px) and (max-width: 1059px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media only screen and (min-width: 1060px) and (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
   }
 `;
