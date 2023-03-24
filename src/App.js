@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import MoviesBrowser from "./MoviesBrowser";
