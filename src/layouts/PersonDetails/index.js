@@ -18,7 +18,6 @@ export const PersonDetails = () => {
 
   return (
     <>
-      <ContentBackground>
         <Content>
           <TileContent>
             <Tile personDetails profileSizes={profileSizes} />
@@ -90,7 +89,6 @@ export const PersonDetails = () => {
             </List>
           </CrewContent>
         </Content>
-      </ContentBackground>
     </>
   );
 };

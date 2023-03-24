@@ -64,7 +64,6 @@ export const MoviesDetails = () => {
       ) : (
         ""
       )}
-      <ContentBackground>
         <Content>
           <TileContent>
             <Tile movieDetails posterSizes={posterSizes} />
@@ -104,7 +103,6 @@ export const MoviesDetails = () => {
             </List>
           </CrewContent>
         </Content>
-      </ContentBackground>
     </>
   );
 };
