@@ -88,7 +88,6 @@ export const SecondInformation = styled.div`
     person &&
     css`
       font-size: 18px;
-      height: 21px;
 
       ${({ role }) => role && `display: inline;`}
 
