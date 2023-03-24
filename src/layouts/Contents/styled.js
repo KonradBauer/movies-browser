@@ -27,7 +27,6 @@ export const BoxTitle = styled.span`
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
-  /* margin-left: 16px; */
   color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
@@ -64,7 +63,7 @@ export const TilesList = styled.ul`
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 16px;
-  padding: 16px;
+  padding: 16px 0;
 
   @media (max-width: 1100px) {
     grid-template-columns: 1fr 1fr 1fr;
