@@ -39,27 +39,31 @@ export const MoviesDetails = () => {
 
   return (
     <>
-      <Background>
-        <Wrapper>
-          <Poster
-            source={`${APIImageUrl}/${backdropSizes ? backdropSizes[3] : ""}${
-              movieDetails.backdrop_path
-            }`}
-            alt="movie poster"
-          />
-          <MainInfo>
-            <Title>{movieDetails.title}</Title>
-            <Raiting>
-              <StyledStar />
-              <RaitingNumber>
-                {movieDetails.vote_average?.toFixed(1)}
-                <RaitingCap>/10</RaitingCap>
-              </RaitingNumber>
-            </Raiting>
-            <Votes>{movieDetails.vote_count} votes</Votes>
-          </MainInfo>
-        </Wrapper>
-      </Background>
+      {movieDetails.backdrop_path ? (
+        <Background>
+          <Wrapper>
+            <Poster
+              source={`${APIImageUrl}/${backdropSizes ? backdropSizes[3] : ""}${
+                movieDetails.backdrop_path
+              }`}
+              alt="movie poster"
+            />
+            <MainInfo>
+              <Title>{movieDetails.title}</Title>
+              <Raiting>
+                <StyledStar />
+                <RaitingNumber>
+                  {movieDetails.vote_average?.toFixed(1)}
+                  <RaitingCap>/10</RaitingCap>
+                </RaitingNumber>
+              </Raiting>
+              <Votes>{movieDetails.vote_count} votes</Votes>
+            </MainInfo>
+          </Wrapper>
+        </Background>
+      ) : (
+        ""
+      )}
       <ContentBackground>
         <Content>
           <TileContent>
