@@ -7,8 +7,10 @@ export const Container = styled.div`
       border-radius: 5px;
       margin: 10px auto;
       padding: 40px;
+      width: 1368px;
+      max-width: 1368px;
       display: grid;
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: auto 1fr;
       grid-template-rows: repeat(2, auto);
       gap: 24px 40px;
       background: ${({ theme }) => theme.color.white};
