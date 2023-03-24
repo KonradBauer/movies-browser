@@ -1,9 +1,11 @@
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+export const ContainerLink = styled(NavLink)`
   ${({ person }) =>
     person &&
     css`
+      text-decoration: none;
       border-radius: 5px;
       max-width: 208px;
       width: 100%;
@@ -11,6 +13,7 @@ export const Container = styled.div`
       flex-direction: column;
       padding: 16px;
       gap: 12px;
+      color: ${({ theme }) => theme.color.black};
       background: ${({ theme }) => theme.color.white};
       box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
 

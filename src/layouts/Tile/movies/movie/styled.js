@@ -1,6 +1,9 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const ContainerLink = styled(NavLink)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
   position: relative;
   padding: 16px;
   border-radius: 5px;
