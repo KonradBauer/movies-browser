@@ -1,4 +1,20 @@
 import styled from "styled-components";
+import { ReactComponent as VectorLeft } from "../../common/svg/vectorLeft.svg";
+import { ReactComponent as VectorRight } from "../../common/svg/vectorRight.svg";
+
+export const StyledVectorLeft = styled(VectorLeft)`
+  color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.waterloo
+      : ({ theme }) => theme.color.scienceBlue};
+`;
+
+export const StyledVectorRight = styled(VectorRight)`
+  color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.waterloo
+      : ({ theme }) => theme.color.scienceBlue};
+`;
 
 export const Box = styled.div`
   display: flex;
@@ -37,7 +53,10 @@ export const ButtonFirst = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
@@ -63,7 +82,10 @@ export const ButtonPrevious = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
@@ -90,7 +112,10 @@ export const ButtonNext = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
@@ -117,7 +142,10 @@ export const ButtonLast = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as VectorLeft } from "../../common/svg/vectorLeft.svg";
-import { ReactComponent as VectorRight } from "../../common/svg/vectorRight.svg";
 import {
   fetchMovies,
   pageDecrement,
@@ -22,6 +20,8 @@ import {
   PageNumber,
   Pages,
   PageTotal,
+  StyledVectorLeft,
+  StyledVectorRight,
 } from "./styled";
 
 export const Pagination = () => {
@@ -70,21 +70,21 @@ export const Pagination = () => {
         {moviesPage === 1 ? (
           <>
             <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
-              <VectorLeft />
-              <VectorLeft />
+              <StyledVectorLeft buttonDisabled />
+              <StyledVectorLeft buttonDisabled />
             </ButtonFirst>
             <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
-              <VectorLeft />
+              <StyledVectorLeft buttonDisabled />
             </ButtonPrevious>
           </>
         ) : (
           <>
             <ButtonFirst onClick={dispatchPageFirst}>
-              <VectorLeft />
-              <VectorLeft />
+              <StyledVectorLeft />
+              <StyledVectorLeft />
             </ButtonFirst>
             <ButtonPrevious onClick={dispatchPageDecrement}>
-              <VectorLeft />
+              <StyledVectorLeft />
             </ButtonPrevious>
           </>
         )}
@@ -98,21 +98,21 @@ export const Pagination = () => {
           {moviesPage === 500 ? (
             <>
               <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
-                <VectorRight />
+                <StyledVectorRight buttonDisabled />
               </ButtonNext>
               <ButtonLast buttonDisabled onClick={dispatchPageLast}>
-                <VectorRight />
-                <VectorRight />
+                <StyledVectorRight buttonDisabled />
+                <StyledVectorRight buttonDisabled />
               </ButtonLast>
             </>
           ) : (
             <>
               <ButtonNext onClick={dispatchPageIncrement}>
-                <VectorRight />
+                <StyledVectorRight />
               </ButtonNext>
               <ButtonLast onClick={dispatchPageLast}>
-                <VectorRight />
-                <VectorRight />
+                <StyledVectorRight />
+                <StyledVectorRight />
               </ButtonLast>
             </>
           )}
@@ -125,22 +125,22 @@ export const Pagination = () => {
         {moviesPage === 1 ? (
           <>
             <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
-              <VectorLeft />
+              <StyledVectorLeft buttonDisabled />
               First
             </ButtonFirst>
             <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
-              <VectorLeft />
+              <StyledVectorLeft buttonDisabled />
               Previous
             </ButtonPrevious>
           </>
         ) : (
           <>
             <ButtonFirst onClick={dispatchPageFirst}>
-              <VectorLeft />
+              <StyledVectorLeft />
               First
             </ButtonFirst>
             <ButtonPrevious onClick={dispatchPageDecrement}>
-              <VectorLeft />
+              <StyledVectorLeft />
               Previous
             </ButtonPrevious>
           </>
@@ -155,11 +155,11 @@ export const Pagination = () => {
           <>
             <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
               Next
-              <VectorRight />
+              <StyledVectorRight buttonDisabled />
             </ButtonNext>
             <ButtonLast buttonDisabled onClick={dispatchPageLast}>
               Last
-              <VectorRight />
+              <StyledVectorRight buttonDisabled />
             </ButtonLast>
           </>
         ) : (
@@ -167,11 +167,11 @@ export const Pagination = () => {
             <>
               <ButtonNext onClick={dispatchPageIncrement}>
                 Next
-                <VectorRight />
+                <StyledVectorRight />
               </ButtonNext>
               <ButtonLast onClick={dispatchPageLast}>
                 Last
-                <VectorRight />
+                <StyledVectorRight />
               </ButtonLast>
             </>
           </>
