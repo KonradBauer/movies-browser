@@ -282,35 +282,20 @@ export const SubdivTitle = styled.span`
 `;
 
 export const List = styled.ul`
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
+  list-style: none;
+  padding: 24px 16px 0px;
+  margin: 0px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(202px, auto));
+  gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 320px;
-    grid-template-columns: 1fr 1fr;
+  @media (max-width: 1380px) {
+    grid-template-columns: repeat(auto-fill, minmax(166px, auto));
+    gap: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    max-width: 425px;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media only screen and (min-width: 426px) and (max-width: 578px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media only screen and (min-width: 579px) and (max-width: 847px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  @media only screen and (min-width: 848px) and (max-width: 1059px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  @media only screen and (min-width: 1060px) and (max-width: 1200px) {
-    grid-template-columns: repeat(5, 1fr);
+  @media (max-width: 933px) {
+    grid-template-columns: repeat(auto-fill, minmax(136px, auto));
   }
 `;

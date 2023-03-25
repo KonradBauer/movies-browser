@@ -5,7 +5,7 @@ export const Description = ({ movieDetails, personDetails, overview, biography }
     <>
       {movieDetails ? <DescriptionContent>{overview}</DescriptionContent> : ""}
       {personDetails ? (
-        <DescriptionContent personDetails={personDetails}>{biography}</DescriptionContent>
+        <DescriptionContent>{biography}</DescriptionContent>
       ) : (
         ""
       )}

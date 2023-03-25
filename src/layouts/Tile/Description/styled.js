@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const DescriptionContent = styled.div`
   color: ${({ theme }) => theme.color.black};
@@ -13,16 +13,4 @@ export const DescriptionContent = styled.div`
     grid-area: 2 / 1 / 3 / 3;
     font-size: 14px;
   }
-
-  ${({ personDetails }) =>
-    personDetails &&
-    css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        width: 256px;
-      }
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.theSmallestMobileView}px) {
-        width: 228px;
-      }
-    `}
 `;

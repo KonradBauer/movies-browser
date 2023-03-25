@@ -39,7 +39,7 @@ export const Box = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
+    width: 232px;
     height: 24px;
     padding-bottom: 31px;
     gap: 8px;
@@ -89,13 +89,6 @@ export const ButtonPrevious = styled.div`
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 23px;
-    padding: 8px 12px;
-    gap: 8px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
     height: 23px;
@@ -118,13 +111,6 @@ export const ButtonNext = styled.div`
       : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 24px;
-    padding: 8px 12px;
-    gap: 8px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;

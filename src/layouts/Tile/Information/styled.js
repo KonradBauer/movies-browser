@@ -40,6 +40,14 @@ export const FirstInformation = styled.h2`
   ${({ person }) =>
     person &&
     css`
+      @media (max-width: 1400px) {
+        font-size: 18px;
+      }
+
+      @media (max-width: 920px) {
+        font-size: 16px;
+      }
+
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 14px;
       }
@@ -88,7 +96,6 @@ export const SecondInformation = styled.div`
     person &&
     css`
       font-size: 18px;
-      height: 21px;
 
       ${({ role }) => role && `display: inline;`}
 
