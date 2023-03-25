@@ -290,8 +290,12 @@ export const List = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(202px, auto));
   gap: 24px;
 
+  @media (max-width: 1380px) {
+    grid-template-columns: repeat(auto-fill, minmax(166px, auto));
+    gap: 16px;
+  }
+
   @media (max-width: 933px) {
     grid-template-columns: repeat(auto-fill, minmax(136px, auto));
-    gap: 16px;
   }
 `;

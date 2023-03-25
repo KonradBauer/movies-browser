@@ -10,8 +10,8 @@ export const MainBox = styled.div`
   padding-top: 0;
   background: none;
 
-  @media (max-width: ${({theme}) => theme.breakpoints.mobileMax}px) {
-   margin-top: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin-top: 24px;
   }
 `;
 
@@ -72,7 +72,7 @@ export const TilesList = styled.ul`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
@@ -88,8 +88,12 @@ export const PersonTilesList = styled.ul`
   gap: 24px;
   padding-top: 24px;
 
+  @media (max-width: 1380px) {
+    grid-template-columns: repeat(auto-fill, minmax(166px, auto));
+    gap: 16px;
+  }
+
   @media (max-width: 933px) {
     grid-template-columns: repeat(auto-fill, minmax(136px, auto));
-    gap: 16px;
   }
 `;
