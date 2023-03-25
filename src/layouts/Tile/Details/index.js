@@ -43,7 +43,9 @@ export const Details = ({
           </FirstDetails>
           <SecondDetails>
             <SecondDetailsLabel>Release date:</SecondDetailsLabel>
-            <SecondDetailsContent>{release_date}</SecondDetailsContent>
+            <SecondDetailsContent>
+              {new Date(release_date).toLocaleDateString()}
+            </SecondDetailsContent>
           </SecondDetails>
         </>
       ) : (
