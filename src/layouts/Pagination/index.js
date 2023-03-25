@@ -67,53 +67,115 @@ export const Pagination = () => {
   return windowWidth < 848 ? (
     <>
       <Box>
-        <ButtonFirst onClick={dispatchPageFirst}>
-          <VectorLeft />
-          <VectorLeft />
-        </ButtonFirst>
-        <ButtonPrevious onClick={dispatchPageDecrement}>
-          <VectorLeft />
-        </ButtonPrevious>
+        {moviesPage === 1 ? (
+          <>
+            <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
+              <VectorLeft />
+              <VectorLeft />
+            </ButtonFirst>
+            <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
+              <VectorLeft />
+            </ButtonPrevious>
+          </>
+        ) : (
+          <>
+            <ButtonFirst onClick={dispatchPageFirst}>
+              <VectorLeft />
+              <VectorLeft />
+            </ButtonFirst>
+            <ButtonPrevious onClick={dispatchPageDecrement}>
+              <VectorLeft />
+            </ButtonPrevious>
+          </>
+        )}
         <Pages>
           <Page>Page</Page>
           <PageNumber>{moviesPage}</PageNumber>
           <Of>of</Of>
           <PageTotal>500</PageTotal>
         </Pages>
-        <ButtonNext onClick={dispatchPageIncrement}>
-          <VectorRight />
-        </ButtonNext>
-        <ButtonLast onClick={dispatchPageLast}>
-          <VectorRight />
-          <VectorRight />
-        </ButtonLast>
+        <>
+          {moviesPage === 500 ? (
+            <>
+              <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
+                <VectorRight />
+              </ButtonNext>
+              <ButtonLast buttonDisabled onClick={dispatchPageLast}>
+                <VectorRight />
+                <VectorRight />
+              </ButtonLast>
+            </>
+          ) : (
+            <>
+              <ButtonNext onClick={dispatchPageIncrement}>
+                <VectorRight />
+              </ButtonNext>
+              <ButtonLast onClick={dispatchPageLast}>
+                <VectorRight />
+                <VectorRight />
+              </ButtonLast>
+            </>
+          )}
+        </>
       </Box>
     </>
   ) : (
     <>
       <Box>
-        <ButtonFirst onClick={dispatchPageFirst}>
-          <VectorLeft />
-          First
-        </ButtonFirst>
-        <ButtonPrevious onClick={dispatchPageDecrement}>
-          <VectorLeft />
-          Previous
-        </ButtonPrevious>
+        {moviesPage === 1 ? (
+          <>
+            <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
+              <VectorLeft />
+              First
+            </ButtonFirst>
+            <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
+              <VectorLeft />
+              Previous
+            </ButtonPrevious>
+          </>
+        ) : (
+          <>
+            <ButtonFirst onClick={dispatchPageFirst}>
+              <VectorLeft />
+              First
+            </ButtonFirst>
+            <ButtonPrevious onClick={dispatchPageDecrement}>
+              <VectorLeft />
+              Previous
+            </ButtonPrevious>
+          </>
+        )}
         <Pages>
           <Page>Page</Page>
           <PageNumber>{moviesPage}</PageNumber>
           <Of>of</Of>
           <PageTotal>500</PageTotal>
         </Pages>
-        <ButtonNext onClick={dispatchPageIncrement}>
-          Next
-          <VectorRight />
-        </ButtonNext>
-        <ButtonLast onClick={dispatchPageLast}>
-          Last
-          <VectorRight />
-        </ButtonLast>
+        {moviesPage === 500 ? (
+          <>
+            <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
+              Next
+              <VectorRight />
+            </ButtonNext>
+            <ButtonLast buttonDisabled onClick={dispatchPageLast}>
+              Last
+              <VectorRight />
+            </ButtonLast>
+          </>
+        ) : (
+          <>
+            <>
+              <ButtonNext onClick={dispatchPageIncrement}>
+                Next
+                <VectorRight />
+              </ButtonNext>
+              <ButtonLast onClick={dispatchPageLast}>
+                Last
+                <VectorRight />
+              </ButtonLast>
+            </>
+          </>
+        )}
       </Box>
     </>
   );

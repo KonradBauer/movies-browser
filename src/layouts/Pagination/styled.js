@@ -37,7 +37,7 @@ export const ButtonFirst = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.mystic};
+  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
   cursor: pointer;
 
@@ -63,7 +63,7 @@ export const ButtonPrevious = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.mystic};
+  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
   cursor: pointer;
 
@@ -85,11 +85,12 @@ export const ButtonPrevious = styled.div`
 export const ButtonNext = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.pattensBlue};
+  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
   cursor: pointer;
 
@@ -112,10 +113,11 @@ export const ButtonLast = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.pattensBlue};
+  background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
   cursor: pointer;
 
