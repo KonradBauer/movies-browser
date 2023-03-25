@@ -10,7 +10,7 @@ import { selectMovieID } from "../movie/moviesSlice";
 
 function* fetchMovieDetailsAndCreditsHandler() {
   yield put(loadMovieDetails());
-  yield delay(1500);
+  yield delay(1_000);
 
   try {
     const movieID = yield select(selectMovieID);

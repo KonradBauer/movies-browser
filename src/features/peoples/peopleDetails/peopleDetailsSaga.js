@@ -10,7 +10,7 @@ import {
 
 function* fetchPeopleDetailsHandler() {
   yield put(loadPeopleDetails());
-  yield delay(1500);
+  yield delay(1_000);
 
   try {
     const peopleID = yield select(selectPeopleID);

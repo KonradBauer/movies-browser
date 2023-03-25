@@ -1,8 +1,17 @@
-import { call, put, takeLatest, select } from "redux-saga/effects";
+import { call, put, takeLatest, select, delay } from "redux-saga/effects";
 import { getPopularMovies } from "../../getAPI";
-import { fetchMovies, loadMoviesError, loadMoviesSuccess, selectPages } from "./moviesSlice";
+import {
+  fetchMovies,
+  loadMovies,
+  loadMoviesError,
+  loadMoviesSuccess,
+  selectPages,
+} from "./moviesSlice";
 
 function* fetchMoviesHandler() {
+  yield put(loadMovies());
+  yield delay(1_000);
+
   try {
     const page = yield select(selectPages);
     const movie = yield call(getPopularMovies, page);

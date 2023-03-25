@@ -59,7 +59,6 @@ export const PeopleContent = () => {
   const people = useSelector(selectPeople);
   const profileSizes = useSelector(selectProfileSizes);
   const peopleStatus = useSelector(selectPeopleStatus);
-  console.log(peopleStatus);
 
   return (
     <>

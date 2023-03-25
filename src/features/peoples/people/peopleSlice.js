@@ -8,8 +8,8 @@ const peopleSlice = createSlice({
     status: "initial",
   },
   reducers: {
-    loadPeople: ({ status }) => {
-      status = "loading";
+    loadPeople: (state) => {
+      state.status = "loading";
     },
     loadPeopleSuccess: (state, { payload: people }) => {
       state.people = people;
