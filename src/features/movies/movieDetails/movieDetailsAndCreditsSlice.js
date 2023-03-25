@@ -19,8 +19,8 @@ const movieDetailsAndCreditsSlice = createSlice({
       state.movieCredits = movieCredits;
       state.status = "success";
     },
-    loadMovieDetailsError: ({ status }) => {
-      status = "error";
+    loadMovieDetailsError: (state) => {
+      state.status = "error";
     },
     fetchMovieDetailsAndCredits: () => {},
   },
