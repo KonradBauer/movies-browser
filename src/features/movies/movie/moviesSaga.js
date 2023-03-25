@@ -1,6 +1,6 @@
 import { call, put, takeLatest, select } from "redux-saga/effects";
 import { getPopularMovies } from "../../getAPI";
-import { fetchMovies, getPages, loadMoviesSuccess, selectPages } from "./moviesSlice";
+import { fetchMovies, loadMoviesSuccess, selectPages } from "./moviesSlice";
 
 function* fetchMoviesHandler() {
   try {

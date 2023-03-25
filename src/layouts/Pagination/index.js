@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as VectorLeft } from "../../common/svg/vectorLeft.svg";
-import { ReactComponent as VectorRight } from "../../common/svg/vectorRight.svg";
 import {
   fetchMovies,
   pageDecrement,
@@ -22,6 +20,8 @@ import {
   PageNumber,
   Pages,
   PageTotal,
+  StyledVectorLeft,
+  StyledVectorRight,
 } from "./styled";
 
 export const Pagination = () => {
@@ -67,53 +67,115 @@ export const Pagination = () => {
   return windowWidth < 848 ? (
     <>
       <Box>
-        <ButtonFirst onClick={dispatchPageFirst}>
-          <VectorLeft />
-          <VectorLeft />
-        </ButtonFirst>
-        <ButtonPrevious onClick={dispatchPageDecrement}>
-          <VectorLeft />
-        </ButtonPrevious>
+        {moviesPage === 1 ? (
+          <>
+            <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
+              <StyledVectorLeft buttonDisabled />
+              <StyledVectorLeft buttonDisabled />
+            </ButtonFirst>
+            <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
+              <StyledVectorLeft buttonDisabled />
+            </ButtonPrevious>
+          </>
+        ) : (
+          <>
+            <ButtonFirst onClick={dispatchPageFirst}>
+              <StyledVectorLeft />
+              <StyledVectorLeft />
+            </ButtonFirst>
+            <ButtonPrevious onClick={dispatchPageDecrement}>
+              <StyledVectorLeft />
+            </ButtonPrevious>
+          </>
+        )}
         <Pages>
           <Page>Page</Page>
           <PageNumber>{moviesPage}</PageNumber>
           <Of>of</Of>
           <PageTotal>500</PageTotal>
         </Pages>
-        <ButtonNext onClick={dispatchPageIncrement}>
-          <VectorRight />
-        </ButtonNext>
-        <ButtonLast onClick={dispatchPageLast}>
-          <VectorRight />
-          <VectorRight />
-        </ButtonLast>
+        <>
+          {moviesPage === 500 ? (
+            <>
+              <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
+                <StyledVectorRight buttonDisabled />
+              </ButtonNext>
+              <ButtonLast buttonDisabled onClick={dispatchPageLast}>
+                <StyledVectorRight buttonDisabled />
+                <StyledVectorRight buttonDisabled />
+              </ButtonLast>
+            </>
+          ) : (
+            <>
+              <ButtonNext onClick={dispatchPageIncrement}>
+                <StyledVectorRight />
+              </ButtonNext>
+              <ButtonLast onClick={dispatchPageLast}>
+                <StyledVectorRight />
+                <StyledVectorRight />
+              </ButtonLast>
+            </>
+          )}
+        </>
       </Box>
     </>
   ) : (
     <>
       <Box>
-        <ButtonFirst onClick={dispatchPageFirst}>
-          <VectorLeft />
-          First
-        </ButtonFirst>
-        <ButtonPrevious onClick={dispatchPageDecrement}>
-          <VectorLeft />
-          Previous
-        </ButtonPrevious>
+        {moviesPage === 1 ? (
+          <>
+            <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
+              <StyledVectorLeft buttonDisabled />
+              First
+            </ButtonFirst>
+            <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
+              <StyledVectorLeft buttonDisabled />
+              Previous
+            </ButtonPrevious>
+          </>
+        ) : (
+          <>
+            <ButtonFirst onClick={dispatchPageFirst}>
+              <StyledVectorLeft />
+              First
+            </ButtonFirst>
+            <ButtonPrevious onClick={dispatchPageDecrement}>
+              <StyledVectorLeft />
+              Previous
+            </ButtonPrevious>
+          </>
+        )}
         <Pages>
           <Page>Page</Page>
           <PageNumber>{moviesPage}</PageNumber>
           <Of>of</Of>
           <PageTotal>500</PageTotal>
         </Pages>
-        <ButtonNext onClick={dispatchPageIncrement}>
-          Next
-          <VectorRight />
-        </ButtonNext>
-        <ButtonLast onClick={dispatchPageLast}>
-          Last
-          <VectorRight />
-        </ButtonLast>
+        {moviesPage === 500 ? (
+          <>
+            <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
+              Next
+              <StyledVectorRight buttonDisabled />
+            </ButtonNext>
+            <ButtonLast buttonDisabled onClick={dispatchPageLast}>
+              Last
+              <StyledVectorRight buttonDisabled />
+            </ButtonLast>
+          </>
+        ) : (
+          <>
+            <>
+              <ButtonNext onClick={dispatchPageIncrement}>
+                Next
+                <StyledVectorRight />
+              </ButtonNext>
+              <ButtonLast onClick={dispatchPageLast}>
+                Last
+                <StyledVectorRight />
+              </ButtonLast>
+            </>
+          </>
+        )}
       </Box>
     </>
   );

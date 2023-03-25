@@ -1,4 +1,20 @@
 import styled from "styled-components";
+import { ReactComponent as VectorLeft } from "../../common/svg/vectorLeft.svg";
+import { ReactComponent as VectorRight } from "../../common/svg/vectorRight.svg";
+
+export const StyledVectorLeft = styled(VectorLeft)`
+  color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.waterloo
+      : ({ theme }) => theme.color.scienceBlue};
+`;
+
+export const StyledVectorRight = styled(VectorRight)`
+  color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.waterloo
+      : ({ theme }) => theme.color.scienceBlue};
+`;
 
 export const Box = styled.div`
   display: flex;
@@ -37,9 +53,12 @@ export const ButtonFirst = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.mystic};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
@@ -63,9 +82,12 @@ export const ButtonPrevious = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.mystic};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
@@ -78,13 +100,17 @@ export const ButtonPrevious = styled.div`
 export const ButtonNext = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.pattensBlue};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
@@ -98,12 +124,16 @@ export const ButtonLast = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  background: ${({ theme }) => theme.color.pattensBlue};
+  background-color: ${(props) =>
+    props.buttonDisabled
+      ? ({ theme }) => theme.color.mystic
+      : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
