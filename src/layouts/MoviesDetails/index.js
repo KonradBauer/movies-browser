@@ -13,7 +13,6 @@ import {
   Background,
   CastContent,
   Content,
-  ContentBackground,
   CrewContent,
   List,
   MainInfo,
@@ -64,45 +63,45 @@ export const MoviesDetails = () => {
       ) : (
         ""
       )}
-        <Content>
-          <TileContent>
-            <Tile movieDetails posterSizes={posterSizes} />
-          </TileContent>
-          <CastContent>
-            <SubdivTitle>Cast</SubdivTitle>
-            <List>
-              {movieCredits.cast &&
-                movieCredits.cast.map(({ key, id, profile_path, name, character }) => (
-                  <Tile
-                    person
-                    profileSizes={profileSizes}
-                    key={key}
-                    id={id}
-                    profile_path={profile_path}
-                    name={name}
-                    character={character}
-                  />
-                ))}
-            </List>
-          </CastContent>
-          <CrewContent>
-            <SubdivTitle>Crew</SubdivTitle>
-            <List>
-              {movieCredits.crew &&
-                movieCredits.crew.map(({ key, id, profile_path, name, job }) => (
-                  <Tile
-                    person
-                    profileSizes={profileSizes}
-                    key={key}
-                    id={id}
-                    profile_path={profile_path}
-                    name={name}
-                    job={job}
-                  />
-                ))}
-            </List>
-          </CrewContent>
-        </Content>
+      <Content>
+        <TileContent>
+          <Tile movieDetails posterSizes={posterSizes} />
+        </TileContent>
+        <CastContent>
+          <SubdivTitle>Cast</SubdivTitle>
+          <List>
+            {movieCredits.cast &&
+              movieCredits.cast.map(({ key, id, profile_path, name, character }) => (
+                <Tile
+                  person
+                  profileSizes={profileSizes}
+                  key={key}
+                  id={id}
+                  profile_path={profile_path}
+                  name={name}
+                  character={character}
+                />
+              ))}
+          </List>
+        </CastContent>
+        <CrewContent>
+          <SubdivTitle>Crew</SubdivTitle>
+          <List>
+            {movieCredits.crew &&
+              movieCredits.crew.map(({ key, id, profile_path, name, job }) => (
+                <Tile
+                  person
+                  profileSizes={profileSizes}
+                  key={key}
+                  id={id}
+                  profile_path={profile_path}
+                  name={name}
+                  job={job}
+                />
+              ))}
+          </List>
+        </CrewContent>
+      </Content>
     </>
   );
 };

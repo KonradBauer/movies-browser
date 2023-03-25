@@ -17,8 +17,8 @@ const moviesSlice = createSlice({
       state.movies = movies;
       state.status = "success";
     },
-    loadMoviesError: ({ status }) => {
-      status = "error";
+    loadMoviesError: (state) => {
+      state.status = "error";
     },
     pageIncrement: (state) => {
       state.page === 500 ? (state.page = 500) : (state.page += 1);
