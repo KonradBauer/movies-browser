@@ -38,7 +38,6 @@ export const MoviesDetails = () => {
   const posterSizes = useSelector(selectPosterSizes);
   const profileSizes = useSelector(selectProfileSizes);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
-  console.log(movieDetailsStatus);
 
   return (
     <>

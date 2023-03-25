@@ -20,9 +20,7 @@ function* fetchMovieDetailsAndCreditsHandler() {
     yield put(loadMovieDetailsSuccess(movieDetails));
     yield put(loadMovieCreditsSuccess(movieCredits));
   } catch (error) {
-    if (error.response) {
-      yield put(loadMovieDetailsError());
-    }
+    yield put(loadMovieDetailsError());
   }
 }
 
