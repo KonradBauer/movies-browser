@@ -29,7 +29,6 @@ export const Image = styled.img.attrs((props) => ({ src: props.source }))`
     person &&
     css`
       border-radius: 5px;
-      /* max-width: 176px; */
       width: 100%;
     `}
 `;
