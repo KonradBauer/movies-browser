@@ -39,7 +39,7 @@ export const ButtonFirst = styled.div`
   width: 100%;
   background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
@@ -65,7 +65,7 @@ export const ButtonPrevious = styled.div`
   width: 100%;
   background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
@@ -92,7 +92,7 @@ export const ButtonNext = styled.div`
   width: 100%;
   background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
@@ -119,7 +119,7 @@ export const ButtonLast = styled.div`
   width: 100%;
   background-color: ${(props) => (props.buttonDisabled ? "red" : "blue")};
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
