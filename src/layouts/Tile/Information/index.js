@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { selectPeopleCredits } from "../../../features/peoples/peopleDetails/peopleDetailsSlice";
 import { InfoContainer, FirstInformation, SecondInformation } from "./styled";
 
@@ -14,6 +15,9 @@ export const Information = ({
   name,
 }) => {
   const peopleCredits = useSelector(selectPeopleCredits);
+  const history = useHistory();
+  const path = history.location.pathname;
+  console.log(path);
 
   return (
     <InfoContainer person={person} personDetails={personDetails}>
@@ -21,7 +25,7 @@ export const Information = ({
         <>
           <FirstInformation movieDetails={movieDetails}>{title}</FirstInformation>
           <SecondInformation movieDetails={movieDetails}>
-            {peopleCredits != null
+            {path.includes("/personDetails") && peopleCredits
               ? `${title} ${release_date ? `(${new Date(release_date).getFullYear()})` : ""}`
               : new Date(release_date).getFullYear()}
           </SecondInformation>
