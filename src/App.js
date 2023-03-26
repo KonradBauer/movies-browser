@@ -1,7 +1,16 @@
 import React from "react";
 import MoviesBrowser from "./MoviesBrowser";
 import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
-import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
+import {
+  HeadContainer,
+  MoviesButton,
+  PeopleButton,
+  StyledLogo,
+  Box,
+  StyledLoupe,
+  Input,
+  ButtonsBox,
+} from "./layouts/Header/styled";
 import { PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
@@ -9,7 +18,6 @@ import { Loading } from "./layouts/Loading/index";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
-import { StyledLogo, Box, StyledLoupe, Input, ButtonsBox } from "./layouts/Header/styled";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";

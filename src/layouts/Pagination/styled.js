@@ -7,6 +7,10 @@ export const StyledVectorLeft = styled(VectorLeft)`
     props.buttonDisabled
       ? ({ theme }) => theme.color.waterloo
       : ({ theme }) => theme.color.scienceBlue};
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const StyledVectorRight = styled(VectorRight)`
@@ -14,6 +18,10 @@ export const StyledVectorRight = styled(VectorRight)`
     props.buttonDisabled
       ? ({ theme }) => theme.color.waterloo
       : ({ theme }) => theme.color.scienceBlue};
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const Box = styled.div`
@@ -60,6 +68,10 @@ export const ButtonFirst = styled.div`
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
+  &:disabled {
+    opacity: 0.5;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
     height: 23px;
@@ -89,6 +101,10 @@ export const ButtonPrevious = styled.div`
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
+  &:disabled {
+    opacity: 0.5;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
     height: 23px;
@@ -112,6 +128,10 @@ export const ButtonNext = styled.div`
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
+  &:disabled {
+    opacity: 0.5;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
     height: 24px;
@@ -134,6 +154,10 @@ export const ButtonLast = styled.div`
       : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
+
+  &:disabled {
+    opacity: 0.5;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
