@@ -7,10 +7,6 @@ export const StyledVectorLeft = styled(VectorLeft)`
     props.buttonDisabled
       ? ({ theme }) => theme.color.waterloo
       : ({ theme }) => theme.color.scienceBlue};
-
-  &:disabled {
-    opacity: 0.5;
-  }
 `;
 
 export const StyledVectorRight = styled(VectorRight)`
@@ -18,10 +14,6 @@ export const StyledVectorRight = styled(VectorRight)`
     props.buttonDisabled
       ? ({ theme }) => theme.color.waterloo
       : ({ theme }) => theme.color.scienceBlue};
-
-  &:disabled {
-    opacity: 0.5;
-  }
 `;
 
 export const Box = styled.div`
@@ -61,16 +53,13 @@ export const ButtonFirst = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
       : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
-
-  &:disabled {
-    opacity: 0.5;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
@@ -94,16 +83,13 @@ export const ButtonPrevious = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
       : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
-
-  &:disabled {
-    opacity: 0.5;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
@@ -121,16 +107,13 @@ export const ButtonNext = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
       : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
-
-  &:disabled {
-    opacity: 0.5;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
@@ -148,16 +131,13 @@ export const ButtonLast = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
       : ({ theme }) => theme.color.pattensBlue};
   border-radius: 5px;
   cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
-
-  &:disabled {
-    opacity: 0.5;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     width: 100%;
