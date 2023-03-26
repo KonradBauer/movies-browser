@@ -17,8 +17,7 @@ export const Information = ({
   const peopleCredits = useSelector(selectPeopleCredits);
   const history = useHistory();
   const path = history.location.pathname;
-  console.log(path);
-
+  
   return (
     <InfoContainer person={person} personDetails={personDetails}>
       {movie || movieDetails ? (
