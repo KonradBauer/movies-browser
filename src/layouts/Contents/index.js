@@ -5,22 +5,15 @@ import { selectMovies } from "../../features/movies/movie/moviesSlice";
 import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 import { selectPeople } from "../../features/peoples/people/peopleSlice";
 import { Pagination } from "../Pagination/index";
-import { useQueryParameter } from "../../features/queryParameters";
-import searchQueryParamName from "../../features/searchQueryParamName";
 
 export const Content = () => {
   const movies = useSelector(selectMovies);
   const posterSizes = useSelector(selectPosterSizes);
-  const totalResults = useSelector(selectMovies);
-  const query = useQueryParameter(searchQueryParamName);
-  const boxTitle = query
-    ? `Search results for "${query}" (${totalResults})`
-    : "Popular movies";
 
   return (
     <MainBox>
       <Section>
-        <BoxTitle>{boxTitle}Popular movies</BoxTitle>
+        <BoxTitle>Popular movies</BoxTitle>
         <TilesList>
           {movies.map(
             ({
@@ -57,16 +50,11 @@ export const Content = () => {
 export const PeopleContent = () => {
   const people = useSelector(selectPeople);
   const profileSizes = useSelector(selectProfileSizes);
-  const totalResults = useSelector(selectPeople);
-  const query = useQueryParameter(searchQueryParamName);
-  const boxTitle = query
-    ? `Search results for "${query}" (${totalResults})`
-    : "Popular people";
 
   return (
     <MainBox>
       <Section>
-        <BoxTitle>{boxTitle}Popular people</BoxTitle>
+        <BoxTitle>Popular people</BoxTitle>
         <PersonTilesList>
           {people.map(({ id, key, name, profile_path }) => (
             <Tile
