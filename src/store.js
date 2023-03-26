@@ -6,6 +6,7 @@ import movieDetailsAndCreditsReducer from "./features/movies/movieDetails/movieD
 import peopleReducer from "./features/peoples/people/peopleSlice";
 import peopleDetailsReducer from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import configurationReducer from "./features/configurationSlice";
+import searchMoviesReducer from "./features/movies/searchMoviesSlice";
 import { rootSaga } from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -18,6 +19,7 @@ export const store = configureStore({
     movieDetailsAndCredits: movieDetailsAndCreditsReducer,
     people: peopleReducer,
     peopleDetails: peopleDetailsReducer,
+    searchMovies: searchMoviesReducer,
   },
   middleware: [sagaMiddleware],
 });

@@ -5,6 +5,7 @@ import { movieDetailsAndCreditsSaga } from "./features/movies/movieDetails/movie
 import { peopleSaga } from "./features/peoples/people/peopleSaga";
 import { configurationSaga } from "./features/configurationSaga";
 import { peopleDetailsSaga } from "./features/peoples/peopleDetails/peopleDetailsSaga";
+import { searchMoviesSaga } from "./features/movies/searchMoviesSaga";
 
 export function* rootSaga() {
   yield all([
@@ -14,5 +15,6 @@ export function* rootSaga() {
     movieDetailsAndCreditsSaga(),
     peopleSaga(),
     peopleDetailsSaga(),
+    searchMoviesSaga(),
   ]);
 }

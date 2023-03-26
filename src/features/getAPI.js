@@ -57,9 +57,9 @@ export const getPopularPeople = (page) => {
     .catch(handleError);
 };
 
-export const searchMovie = () => {
+export const searchMovie = (searchText) => {
   return axios
-    .get(`${APIUrl}/search/movie?${APIKey}${language}`)
+    .get(`${APIUrl}/search/movie?${APIKey}${language}&query=${searchText}`)
     .then((response) => response.data)
     .catch(handleError);
 };

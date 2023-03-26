@@ -7,6 +7,7 @@ import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
 import { Loading } from "./layouts/Loading/index";
 import { ThemeProvider } from "styled-components";
+import { Search } from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, Input, ButtonsBox } from "./layouts/Header/styled";
@@ -20,6 +21,9 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
+import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
+import { changeSearchText } from "./features/movies/searchMoviesSlice";
+import { selectSearchText } from "./features/movies/searchMoviesSlice";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
@@ -27,6 +31,7 @@ export const App = () => {
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
+  const searchTextMovies = useSelector(selectSearchText);
 
   const dispatch = useDispatch();
 
@@ -52,12 +57,18 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input placeholder={`Search for ${placeholderTextMovies ? "movies" : "people"}...`} />
+            <Input to={`/search`} onChange={({target}) => {
+              dispatch(fetchSearchMovies());
+              dispatch(changeSearchText(target.value));
+            }} placeholder={`Search for ${placeholderTextMovies ? "movies" : "people"}...`} />
           </Box>
         </HeadContainer>
         <Switch>
+        <Route path={`/search`}>
+          <Search/>
+        </Route>
           <Route path="/popular-movies">
-            <MoviesBrowser />
+            <Search />
           </Route>
           <Route path="/popular-people">
             <PeopleContent />
