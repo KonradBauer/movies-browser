@@ -4,13 +4,14 @@ import {
   fetchMovieDetailsAndCredits,
   loadMovieCreditsSuccess,
   loadMovieDetails,
+  loadMovieDetailsError,
   loadMovieDetailsSuccess,
 } from "./movieDetailsAndCreditsSlice";
 import { selectMovieID } from "../movie/moviesSlice";
 
 function* fetchMovieDetailsAndCreditsHandler() {
   yield put(loadMovieDetails());
-  yield delay(1500);
+  yield delay(1_000);
 
   try {
     const movieID = yield select(selectMovieID);
@@ -19,13 +20,7 @@ function* fetchMovieDetailsAndCreditsHandler() {
     yield put(loadMovieDetailsSuccess(movieDetails));
     yield put(loadMovieCreditsSuccess(movieCredits));
   } catch (error) {
-    if (error.response) {
-      console.log("Error response:", error.response.data);
-    } else if (error.request) {
-      console.log("Error request:", error.request);
-    } else {
-      console.log("Error message:", error.message);
-    }
+    yield put(loadMovieDetailsError());
   }
 }
 

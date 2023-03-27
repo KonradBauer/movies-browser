@@ -56,7 +56,7 @@ export const Button = styled.button`
   height: 51px;
   border-radius: 5px;
   border: none;
-  font-family: "Open Sans";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

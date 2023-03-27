@@ -70,11 +70,11 @@ export const Pagination = () => {
         {moviesPage === 1 ? (
           <>
             <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
-              <StyledVectorLeft buttonDisabled />
-              <StyledVectorLeft buttonDisabled />
+              <StyledVectorLeft buttonDisabled disabled />
+              <StyledVectorLeft buttonDisabled disabled />
             </ButtonFirst>
-            <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
-              <StyledVectorLeft buttonDisabled />
+            <ButtonPrevious buttonDisabled disabled onClick={dispatchPageDecrement}>
+              <StyledVectorLeft buttonDisabled disabled />
             </ButtonPrevious>
           </>
         ) : (

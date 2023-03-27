@@ -53,6 +53,7 @@ export const ButtonFirst = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
@@ -82,6 +83,7 @@ export const ButtonPrevious = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
@@ -105,6 +107,7 @@ export const ButtonNext = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
@@ -128,6 +131,7 @@ export const ButtonLast = styled.div`
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
+  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
   background-color: ${(props) =>
     props.buttonDisabled
       ? ({ theme }) => theme.color.mystic
