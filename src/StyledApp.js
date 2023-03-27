@@ -12,6 +12,13 @@ export const StyledNavLink = styled(NavLink)`
     width: 102px;
     height: 48px;
 
+    &:focus {
+      border: 1px solid #ffffff;
+      border-radius: 24px;
+      width: 70px;
+      height: 35px;
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
       font-size: 12px;
       width: 70px;
