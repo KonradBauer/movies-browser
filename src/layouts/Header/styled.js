@@ -13,24 +13,6 @@ export const HeadContainer = styled.div`
   height: 94px;
   background: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    width: 100%;
-    height: 142px;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
-    width: 100%;
-    height: 142px;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    width: 100%;
-    height: 142px;
-    flex-wrap: wrap;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
     height: 142px;
@@ -186,13 +168,11 @@ export const Box = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: auto;
     flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) and (max-width: 1250px) {
-    margin: auto;
     flex-wrap: wrap;
     flex-shrink: 1;
   }
