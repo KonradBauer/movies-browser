@@ -32,6 +32,7 @@ export const MainText = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     font-size: 28px;
+    margin: 0px 10px;
   }
 `;
 
@@ -49,6 +50,7 @@ export const SubText = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     font-size: 16px;
+    margin: 24px 20px;
   }
 `;
 
