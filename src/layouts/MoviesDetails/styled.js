@@ -68,14 +68,12 @@ export const Title = styled.text`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     font-size: 35px;
-    font-weight: 500;
     width: 700px;
     margin-bottom: -35px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 24px;
-    font-weight: 500;
     max-width: 260px;
     margin-bottom: -30px;
   }
@@ -83,14 +81,12 @@ export const Title = styled.text`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     font-size: 22px;
     font-size: 20px;
-    font-weight: 500;
     width: 260px;
     margin-bottom: -30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     font-size: 20px;
-    font-weight: 500;
     width: 260px;
     margin-bottom: -30px;
   }
