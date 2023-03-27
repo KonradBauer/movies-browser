@@ -16,7 +16,7 @@ export const ContainerLink = styled(NavLink)`
       color: ${({ theme }) => theme.color.black};
       background: ${({ theme }) => theme.color.white};
       box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-      transition: 0.5s;
+      transition: transform 0.5s;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         padding: 8px;
