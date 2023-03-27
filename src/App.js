@@ -51,9 +51,9 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <HashRouter>
         <HeadContainer>
-          {/* <NavLink to="/popular-movies"> */}
-          <StyledLogo />
-          {/* </NavLink> */}
+          <NavLink to="/popular-movies">
+            <StyledLogo onClick={() => dispatch(fetchMovies())} />
+          </NavLink>
           <ButtonsBox>
             <StyledNavLink to="/popular-movies">
               <MoviesButton
