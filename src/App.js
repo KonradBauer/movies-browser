@@ -28,6 +28,7 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
+import { Error } from "./layouts/Error";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
@@ -100,6 +101,7 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
+          <Route component={Error} />
         </Switch>
       </HashRouter>
     </ThemeProvider>
