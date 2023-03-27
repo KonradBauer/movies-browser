@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/movies-browser/static/js/main.479f4b1a.js",
+    "main.js": "/movies-browser/static/js/main.d0362581.js",
     "static/js/787.94542015.chunk.js": "/movies-browser/static/js/787.94542015.chunk.js",
     "static/media/logo.svg": "/movies-browser/static/media/logo.98398f14b8548a8e2e9bb5e71d293526.svg",
     "static/media/shape-star.svg": "/movies-browser/static/media/shape-star.9d9d3e3b84561a420af5343482f78b29.svg",
     "static/media/star.svg": "/movies-browser/static/media/star.f8fa76848843ad6f2e49384424f34380.svg",
-    "static/media/danger.svg": "/movies-browser/static/media/danger.a514e9c64a76d5cf149bdd7443857605.svg",
     "index.html": "/movies-browser/index.html",
+    "static/media/danger.svg": "/movies-browser/static/media/danger.a514e9c64a76d5cf149bdd7443857605.svg",
     "static/media/vectorRight.svg": "/movies-browser/static/media/vectorRight.9fdf3bd27bbc8f2eccc7031acdd6c09c.svg",
     "static/media/vectorLeft.svg": "/movies-browser/static/media/vectorLeft.40e7e2740b6e9b773a678fc642dc2019.svg",
     "static/media/loupe.svg": "/movies-browser/static/media/loupe.ed3f24f20cda9bb4e005406a3f864acb.svg",
     "static/media/spinner.svg": "/movies-browser/static/media/spinner.c5f29646f52eed97faa98a9f6f43ce08.svg",
-    "main.479f4b1a.js.map": "/movies-browser/static/js/main.479f4b1a.js.map",
+    "main.d0362581.js.map": "/movies-browser/static/js/main.d0362581.js.map",
     "787.94542015.chunk.js.map": "/movies-browser/static/js/787.94542015.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.479f4b1a.js"
+    "static/js/main.d0362581.js"
   ]
 }
