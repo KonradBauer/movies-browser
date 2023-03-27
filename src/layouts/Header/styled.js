@@ -22,25 +22,28 @@ export const HeadContainer = styled.div`
 
 export const StyledLogo = styled(Logo)`
   margin-right: 30px;
+  margin-left: 20px;
   flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     margin: auto;
+    margin-left: 20px;
     flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: auto;
+    margin-left: 20px;
     flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: auto;
     flex-wrap: wrap;
     display: flex;
     height: 60px;
     width: 110px;
     margin: auto;
+    margin-left: 20px;
     flex-wrap: wrap;
     flex-shrink: none;
   }
