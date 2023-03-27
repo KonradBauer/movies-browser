@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  margin-top: 180px;
+  margin-top: 80px;
   max-width: 592px;
   max-height: 201px;
 `;
