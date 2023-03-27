@@ -214,7 +214,7 @@ export const StyledLoupe = styled(Loupe)`
   }
 `;
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   display: flex;
   border: none;
   width: 73%;

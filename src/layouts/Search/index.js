@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { useQueryParameter } from "../../features/queryParameters";
 import { SearchResults, TilesList } from "./styled";
 import { selectSearchText, selectTotalResults, selectSearchMovies } from "../../features/movies/searchMoviesSlice";
 import { selectPosterSizes } from "../../features/configurationSlice";

@@ -2,7 +2,7 @@ import React from "react";
 import MoviesBrowser from "./MoviesBrowser";
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
-import { PeopleContent } from "./layouts/Contents/index";
+import { Content, PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
 import { Loading } from "./layouts/Loading/index";
@@ -10,7 +10,7 @@ import { ThemeProvider } from "styled-components";
 import { Search } from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
-import { StyledLogo, Box, StyledLoupe, Input, ButtonsBox } from "./layouts/Header/styled";
+import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieID } from "./features/movies/movie/moviesSlice";
@@ -24,6 +24,10 @@ import { fetchConfiguration } from "./features/configurationSlice";
 import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
 import { changeSearchText } from "./features/movies/searchMoviesSlice";
 import { selectSearchText } from "./features/movies/searchMoviesSlice";
+import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
+import Input from "./features/Input";
+import searchQueryParamsName from "./features/searchQueryParamName";
+import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
@@ -34,6 +38,8 @@ export const App = () => {
   const searchTextMovies = useSelector(selectSearchText);
 
   const dispatch = useDispatch();
+  // const query = useQueryParameter(searchQueryParamsName);
+  // console.log(query)
 
   useEffect(() => {
     dispatch(fetchConfiguration());
@@ -57,18 +63,12 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input to={`/search`} onChange={({target}) => {
-              dispatch(fetchSearchMovies());
-              dispatch(changeSearchText(target.value));
-            }} placeholder={`Search for ${placeholderTextMovies ? "movies" : "people"}...`} />
+            <Input to="/popular-movies?:query" />
           </Box>
         </HeadContainer>
         <Switch>
-        <Route path={`/search`}>
-          <Search/>
-        </Route>
           <Route path="/popular-movies">
-            <Search />
+            <Content />
           </Route>
           <Route path="/popular-people">
             <PeopleContent />
@@ -79,8 +79,11 @@ export const App = () => {
           <Route path={`/personDetails/${personID}`}>
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
           </Route>
+          <Route path=":target.value">
+            <Search />
+          </Route>
           <Route exact path="/">
-            <Redirect to={"/popular-movies"} />
+            <Redirect to={"/popular-movies?:query"} />
           </Route>
         </Switch>
       </HashRouter>

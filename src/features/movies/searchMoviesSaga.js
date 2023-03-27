@@ -1,7 +1,6 @@
 import { call, put, debounce, select } from "redux-saga/effects";
 import { searchMovie } from "../getAPI";
 import { loadSearchMoviesSuccess, fetchSearchMovies, selectSearchText } from "./searchMoviesSlice";
-import { useQueryParameter } from "../queryParameters";
 
 function* fetchSearchMoviesHandler() {
   try {
