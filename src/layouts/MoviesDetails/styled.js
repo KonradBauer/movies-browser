@@ -44,7 +44,7 @@ export const MainInfo = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    top: 60%;
+    top: 20%;
   }
 `;
 
@@ -61,6 +61,7 @@ export const Title = styled.text`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     font-size: 40px;
+    max-width: 1000px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
@@ -106,6 +107,7 @@ export const Raiting = styled.div`
 
 export const StyledStar = styled(Star)`
   max-width: 50%;
+  margin-top: 40px;
   height: auto;
 `;
 
@@ -116,6 +118,7 @@ export const RaitingNumber = styled.text`
   font-weight: 500;
   font-size: 30px;
   line-height: 130%;
+  margin-top: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     font-size: 40px;
