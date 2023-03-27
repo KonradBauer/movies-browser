@@ -9,7 +9,7 @@ export const StyledNavLink = styled(NavLink)`
   &.${activeClassName} {
     border: 1px solid ${({ theme }) => theme.color.white};
     border-radius: 24px;
-    width: 102px;
+    width: 95px;
     height: 48px;
 
     &:focus {

@@ -134,7 +134,7 @@ export const PeopleButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 8px 24px;
+  padding: 8px 19px;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
