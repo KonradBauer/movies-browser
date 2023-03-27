@@ -80,15 +80,10 @@ export const Title = styled.text`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     font-size: 22px;
-    font-size: 20px;
-    width: 260px;
-    margin-bottom: -30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     font-size: 20px;
-    width: 260px;
-    margin-bottom: -30px;
   }
 `;
 
