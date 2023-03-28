@@ -33,7 +33,6 @@ export const PersonDetails = () => {
                   peopleCredits.cast &&
                   peopleCredits.cast.map(
                     ({
-                      key,
                       id,
                       poster_path,
                       title,
@@ -45,7 +44,7 @@ export const PersonDetails = () => {
                       <Tile
                         movie
                         posterSizes={posterSizes}
-                        key={key}
+                        key={id}
                         id={id}
                         poster_path={poster_path}
                         title={title}
@@ -67,7 +66,6 @@ export const PersonDetails = () => {
                   peopleCredits.crew &&
                   peopleCredits.crew.map(
                     ({
-                      key,
                       id,
                       poster_path,
                       title,
@@ -79,7 +77,7 @@ export const PersonDetails = () => {
                       <Tile
                         movie
                         posterSizes={posterSizes}
-                        key={key}
+                        key={id}
                         id={id}
                         poster_path={poster_path}
                         title={title}

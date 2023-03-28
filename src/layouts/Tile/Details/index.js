@@ -36,8 +36,8 @@ export const Details = ({
           <FirstDetails>
             <FirstDetailsLabel>Production:</FirstDetailsLabel>
             {production_countries
-              ? production_countries.map(({ name }) => (
-                  <FirstDetailsContent>{name},</FirstDetailsContent>
+              ? production_countries.map(( country ) => (
+                  <FirstDetailsContent key={country.iso_3166_1}>{country.name},</FirstDetailsContent>
                 ))
               : ""}
           </FirstDetails>

@@ -79,11 +79,11 @@ export const MoviesDetails = () => {
               <List>
                 {movieCredits &&
                   movieCredits.cast &&
-                  movieCredits.cast.map(({ key, id, profile_path, name, character }) => (
+                  movieCredits.cast.map(({ id, profile_path, name, character }) => (
                     <Tile
                       person
                       profileSizes={profileSizes}
-                      key={key}
+                      key={id}
                       id={id}
                       profile_path={profile_path}
                       name={name}
@@ -97,11 +97,11 @@ export const MoviesDetails = () => {
               <List>
                 {movieCredits &&
                   movieCredits.crew &&
-                  movieCredits.crew.map(({ key, id, profile_path, name, job }) => (
+                  movieCredits.crew.map(({ id, profile_path, name, job }) => (
                     <Tile
                       person
                       profileSizes={profileSizes}
-                      key={key}
+                      key={id}
                       id={id}
                       profile_path={profile_path}
                       name={name}
