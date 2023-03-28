@@ -19,8 +19,8 @@ const peopleDetailsSlice = createSlice({
       state.peopleCredits = peopleCredits;
       state.status = "success";
     },
-    loadPeopleDetailsError: ({ status }) => {
-      status = "error";
+    loadPeopleDetailsError: (state) => {
+      state.status = "error";
     },
     fetchPeopleDetails: () => {},
   },

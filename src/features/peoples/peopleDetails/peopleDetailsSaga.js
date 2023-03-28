@@ -5,12 +5,13 @@ import {
   fetchPeopleDetails,
   loadPeopleCreditsSuccess,
   loadPeopleDetails,
+  loadPeopleDetailsError,
   loadPeopleDetailsSuccess,
 } from "./peopleDetailsSlice";
 
 function* fetchPeopleDetailsHandler() {
   yield put(loadPeopleDetails());
-  yield delay(1500);
+  yield delay(1_000);
 
   try {
     const peopleID = yield select(selectPeopleID);
@@ -19,13 +20,7 @@ function* fetchPeopleDetailsHandler() {
     yield put(loadPeopleDetailsSuccess(peopleDetails));
     yield put(loadPeopleCreditsSuccess(peopleCredits));
   } catch (error) {
-    if (error.response) {
-      console.log("Error response:", error.response.data);
-    } else if (error.request) {
-      console.log("Error request:", error.request);
-    } else {
-      console.log("Error message:", error.message);
-    }
+    yield put(loadPeopleDetailsError());
   }
 }
 

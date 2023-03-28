@@ -13,24 +13,6 @@ export const HeadContainer = styled.div`
   height: 94px;
   background: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    width: 100%;
-    height: 142px;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
-    width: 100%;
-    height: 142px;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    width: 100%;
-    height: 142px;
-    flex-wrap: wrap;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 100%;
     height: 142px;
@@ -40,27 +22,36 @@ export const HeadContainer = styled.div`
 
 export const StyledLogo = styled(Logo)`
   margin-right: 30px;
+  margin-left: 20px;
   flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
     margin: auto;
+    margin-left: 20px;
     flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: auto;
+    margin-left: 20px;
     flex-wrap: wrap;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: auto;
     flex-wrap: wrap;
+    display: flex;
+    height: 60px;
+    width: 110px;
+    margin: auto;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    flex-shrink: none;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     display: flex;
     height: 60px;
-    width: 124px;
+    width: 90px;
     margin: auto;
     flex-wrap: wrap;
     flex-shrink: none;
@@ -68,6 +59,7 @@ export const StyledLogo = styled(Logo)`
 `;
 
 export const ButtonsBox = styled.div`
+  margin-left: 20px;
   display: flex;
   text-decoration: none;
   gap: 10px;
@@ -75,7 +67,7 @@ export const ButtonsBox = styled.div`
 `;
 
 export const MoviesButton = styled.button`
-  width: 102px;
+  width: 95px;
   height: 48px;
   display: flex;
   flex-direction: row;
@@ -107,8 +99,7 @@ export const MoviesButton = styled.button`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: auto;
-    flex-wrap: nowrap;
-    flex-shrink: 1;
+
     font-size: 12px;
   }
 
@@ -122,13 +113,13 @@ export const MoviesButton = styled.button`
 `;
 
 export const PeopleButton = styled.button`
-  width: 102px;
+  width: 95x;
   height: 48px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 8px 24px;
+  padding: 8px 19px;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -166,8 +157,8 @@ export const Box = styled.div`
   align-items: center;
   height: 48px;
   width: 432px;
-  margin-left: 250px;
-  margin-right: 100px;
+  margin-left: 300px;
+  margin-right: 50px;
   border: 1px solid;
   border-color: ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
@@ -180,13 +171,11 @@ export const Box = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: auto;
     flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) and (max-width: 1250px) {
-    margin: auto;
     flex-wrap: wrap;
     flex-shrink: 1;
   }
@@ -198,6 +187,12 @@ export const Box = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    margin: 0px 16px 15px;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+  }
+
+  @media screen and (min-width: 280px) and (max-width: 361px) {
     margin: 0px 16px 15px;
     flex-wrap: wrap;
     flex-shrink: 1;
@@ -215,6 +210,7 @@ export const StyledLoupe = styled(Loupe)`
 `;
 
 export const StyledInput = styled.input`
+  outline: none;
   display: flex;
   border: none;
   width: 73%;

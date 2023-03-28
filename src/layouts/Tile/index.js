@@ -49,7 +49,7 @@ export const Tile = ({
       ) : (
         ""
       )}
-      {movieDetails ? (
+      {movieDetails && moviesDetails ? (
         <MovieDetailsTile
           movieDetails
           posterSizes={posterSizes}
