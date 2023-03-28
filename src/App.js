@@ -1,7 +1,7 @@
 import React from "react";
 import MoviesBrowser from "./MoviesBrowser";
-import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
-import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
+import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
+import { HeadContainer, MoviesButton, PeopleButton, StyledInput } from "./layouts/Header/styled";
 import { Content, PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
@@ -22,6 +22,7 @@ import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
 import { Error } from "./layouts/Error";
+import { selectSearchText } from "./features/movies/searchMoviesSlice";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
@@ -78,7 +79,9 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input to={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }} />
+            <StyledInput
+              to={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }}
+            />
           </Box>
         </HeadContainer>
         <Switch>
