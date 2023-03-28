@@ -21,13 +21,7 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
-import { changeSearchText } from "./features/movies/searchMoviesSlice";
-import { selectSearchText } from "./features/movies/searchMoviesSlice";
-import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
-import Input from "./features/Input";
-import searchQueryParamsName from "./features/searchQueryParamName";
-import { useQueryParameter } from "./features/queryParameters";
+import { Error } from "./layouts/Error";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
@@ -54,9 +48,9 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <HashRouter>
         <HeadContainer>
-          {/* <NavLink to="/popular-movies"> */}
-          <StyledLogo />
-          {/* </NavLink> */}
+          <NavLink to="/popular-movies">
+            <StyledLogo onClick={() => dispatch(fetchMovies())} />
+          </NavLink>
           <ButtonsBox>
             <StyledNavLink to="/popular-movies">
               <MoviesButton
@@ -106,6 +100,7 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
+          <Route component={Error} />
         </Switch>
       </HashRouter>
     </ThemeProvider>
