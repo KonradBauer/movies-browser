@@ -1,7 +1,7 @@
 import React from "react";
 import MoviesBrowser from "./MoviesBrowser";
-import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
-import { HeadContainer, MoviesButton, PeopleButton, StyledInput } from "./layouts/Header/styled";
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import { Content, PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
@@ -13,22 +13,25 @@ import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
-import { selectPeopleID, selectPeopleStatus } from "./features/peoples/people/peopleSlice";
+import { selectMovieID } from "./features/movies/movie/moviesSlice";
+import { selectPeopleID } from "./features/peoples/people/peopleSlice";
 import { selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { Error } from "./layouts/Error";
+import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
+import { changeSearchText } from "./features/movies/searchMoviesSlice";
 import { selectSearchText } from "./features/movies/searchMoviesSlice";
+import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
+import Input from "./features/Input";
+import searchQueryParamsName from "./features/searchQueryParamName";
+import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
-  const movieStatus = useSelector(selectMoviesStatus);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
-  const peopleStatus = useSelector(selectPeopleStatus);
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
@@ -49,39 +52,18 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <HashRouter>
         <HeadContainer>
-          <NavLink to="/popular-movies">
-            <StyledLogo onClick={() => dispatch(fetchMovies())} />
-          </NavLink>
+          <StyledLogo />
           <ButtonsBox>
             <StyledNavLink to="/popular-movies">
-              <MoviesButton
-                onClick={() => {
-                  setPlaceholderTextMovies(true);
-                  dispatch(fetchMovies());
-                  <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>
-                    Movies
-                  </MoviesButton>;
-                }}
-              >
-                Movies
-              </MoviesButton>
+              <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>Movies</MoviesButton>
             </StyledNavLink>
             <StyledNavLink to="/popular-people">
-              <PeopleButton
-                onClick={() => {
-                  setPlaceholderTextMovies(false);
-                  dispatch(fetchPeople());
-                }}
-              >
-                People
-              </PeopleButton>
+              <PeopleButton onClick={() => setPlaceholderTextMovies(false)}>People</PeopleButton>
             </StyledNavLink>
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <StyledInput
-              to={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }}
-            />
+            <Input to={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }} />
           </Box>
         </HeadContainer>
         <Switch>
@@ -89,7 +71,7 @@ export const App = () => {
             <Content />
           </Route>
           <Route path="/popular-people">
-            {peopleStatus === "loading" ? <Loading /> : <PeopleContent />}
+            <PeopleContent />
           </Route>
           <Route path={`/movieDetails/${movieID}`}>
             {movieDetailsStatus === "loading" ? <Loading /> : <MoviesDetails />}
@@ -103,7 +85,6 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
-          <Route component={Error} />
         </Switch>
       </HashRouter>
     </ThemeProvider>
