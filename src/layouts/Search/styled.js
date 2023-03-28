@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  max-width: 1368px;
+  margin: 0 auto;
+  margin-top: 56px;
+`;
+
 export const SearchResults = styled.div`
 font-weight: 600;
 font-size: 36px;
@@ -14,18 +20,16 @@ export const TilesList = styled.ul`
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
+  gap: 24px;
   padding: 16px 0;
-
-  @media (max-width: 1100px) {
+  @media (max-width: 1050px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
-
-  @media (max-width: 600px) {
+  @media (max-width: 630px) {
     grid-template-columns: 1fr;
   }
 `;

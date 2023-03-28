@@ -1,19 +1,24 @@
 import { useSelector } from "react-redux";
-import { SearchResults, TilesList } from "./styled";
+import { SearchResults, TilesList, Wrapper } from "./styled";
 import { selectSearchText, selectTotalResults, selectSearchMovies } from "../../features/movies/searchMoviesSlice";
 import { selectPosterSizes } from "../../features/configurationSlice";
 import { Tile } from "../Tile/index";
+import { NoResult } from "../NoResult";
+import { Pagination } from "../Pagination";
+import { useHistory } from "react-router-dom";
 
 export const Search = () => {
   const searchMovie = useSelector(selectSearchMovies);
   const totalResults = useSelector(selectTotalResults);
-    const query = useSelector(selectSearchText);
+  const query = useSelector(selectSearchText);
   const posterSizes = useSelector(selectPosterSizes);
+  const history = useHistory();
 
 
       return (
       <>
-        <SearchResults>Search results for “{query && query}” ({totalResults})</SearchResults>
+        {query === "" && history.push("/popular-movies")}
+        {totalResults !== 0 ? <Wrapper><SearchResults>Search results for “{query && query}” ({totalResults})</SearchResults>
         <TilesList>
             {searchMovie && searchMovie.length > 0 && searchMovie.map(({
               id,
@@ -35,6 +40,8 @@ export const Search = () => {
                 vote_average={vote_average}vote_count={vote_count}
             />)}
         </TilesList>
+        <Pagination />
+        </Wrapper> : <NoResult />}
       </>
       )
 }
