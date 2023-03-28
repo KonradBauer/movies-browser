@@ -50,8 +50,11 @@ export const getPopularPeople = (page) => {
     .then((response) => response.data);
 };
 
-export const searchMovie = () => {
-  return axios.get(`${APIUrl}/search/movie?${APIKey}${language}`).then((response) => response.data);
+export const searchMovie = (searchText) => {
+  return axios
+    .get(`${APIUrl}/search/movie?${APIKey}${language}&query=${searchText}`)
+    .then((response) => response.data)
+    .catch(handleError);
 };
 
 export const searchPeople = () => {
