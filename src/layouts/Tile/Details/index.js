@@ -36,8 +36,10 @@ export const Details = ({
           <FirstDetails>
             <FirstDetailsLabel>Production:</FirstDetailsLabel>
             {production_countries
-              ? production_countries.map(( country ) => (
-                  <FirstDetailsContent key={country.iso_3166_1}>{country.name},</FirstDetailsContent>
+              ? production_countries.map((country) => (
+                  <FirstDetailsContent key={country.iso_3166_1}>
+                    {country.name},
+                  </FirstDetailsContent>
                 ))
               : ""}
           </FirstDetails>
@@ -59,7 +61,7 @@ export const Details = ({
                 <FirstDetailsLabel personDetails={personDetails}>
                   {windowWidth > theme.breakpoints.mobileMax ? "Date of birth:" : "Birth:"}
                 </FirstDetailsLabel>
-                <FirstDetailsContent>{birthday}</FirstDetailsContent>
+                <FirstDetailsContent>{new Date(birthday).toLocaleDateString()}</FirstDetailsContent>
               </>
             ) : (
               ""
