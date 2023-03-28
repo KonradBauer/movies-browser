@@ -21,7 +21,7 @@ export default () => {
         dispatch(fetchSearchMovies());
         dispatch(changeSearchText(target.value));
         
-        setTimeout(() => history.push("/popular-movies?:query"), 4000)
+        history.push({pathname: "/movies-search", search: `?search=${target.value}`})
     };
 
     return (

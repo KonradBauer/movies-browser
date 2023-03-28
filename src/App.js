@@ -63,7 +63,7 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input to="/popular-movies?:query" />
+            <Input to={{pathname: "/movies-search", search: `?search=${searchTextMovies}`}} />
           </Box>
         </HeadContainer>
         <Switch>
@@ -79,11 +79,11 @@ export const App = () => {
           <Route path={`/personDetails/${personID}`}>
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
           </Route>
-          <Route path=":target.value">
+          <Route path={{pathname: "/movies-search", search: `?search=${searchTextMovies}`}}>
             <Search />
           </Route>
           <Route exact path="/">
-            <Redirect to={"/popular-movies?:query"} />
+            <Redirect to={"/popular-movies"} />
           </Route>
         </Switch>
       </HashRouter>
