@@ -1,16 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../queryParameters";
 import searchQueryParamsName from "../searchQueryParamName";
 import { fetchSearchMovies, changeSearchText } from "../movies/searchMoviesSlice";
 import { StyledInput } from "../../layouts/Header/styled";
-import { selectSearchText } from "../movies/searchMoviesSlice";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamsName);
   const replaceQueryParameter = useReplaceQueryParameter();
   const history = useHistory();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const pathname = location.pathname;
+  console.log(pathname);
 
   const onInputChange = ({ target }) => {
     replaceQueryParameter({
@@ -25,6 +27,16 @@ export default () => {
   };
 
   return (
-    <StyledInput placeholder="Search for movies" value={query || ""} onChange={onInputChange} />
+    <StyledInput
+      placeholder={`Search for ${
+        pathname.includes("/popular-movies")
+          ? "movies"
+          : pathname.includes("popular-people")
+          ? "people"
+          : ""
+      }`}
+      value={query || ""}
+      onChange={onInputChange}
+    />
   );
 };
