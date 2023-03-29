@@ -2,192 +2,135 @@ import styled from "styled-components";
 import { ReactComponent as Star } from "../../common/svg/star.svg";
 
 export const Background = styled.div`
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  max-height: 769px;
   background-color: ${({ theme }) => theme.color.black};
+  position: relative;
+  z-index: -3;
 `;
 
 export const Wrapper = styled.div`
   position: relative;
+  max-width: 1368px;
   margin: 0 auto;
-`;
+  box-shadow: inset 0px 0px 50px 60px ${({ theme }) => theme.color.black};
 
-export const Poster = styled.img.attrs((props) => ({ src: props.source }))`
-  margin: 0 auto;
-  max-width: 1920px;
-  max-height: 770px;
-  opacity: 0.9;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    max-width: 100%;
-    max-height: auto;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    box-shadow: inset 0px 0px 50px 30px ${({ theme }) => theme.color.black};
   }
 `;
 
-export const Shadow = styled.div`
-  max-width: 1920px;
+export const Poster = styled.img.attrs((props) => ({ src: props.source }))`
+  max-width: 100%;
   max-height: 769px;
+  position: relative;
+  z-index: -1;
 `;
 
 export const MainInfo = styled.div`
   position: absolute;
-  width: 45%;
-  height: auto;
+  width: 90%;
   left: 5%;
-  top: 70%;
+  bottom: 7%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 214px;
-    top: 65%;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    top: 60%;
+    left: 3%;
+    bottom: 5%;
   }
 `;
 
-export const Title = styled.text`
-  max-width: 503px;
-  max-height: 77px;
-  font-style: normal;
+export const Title = styled.div`
   font-weight: 600;
   font-size: 64px;
-  line-height: 120%;
-  display: flex;
-  align-items: center;
+  line-height: 1.2;
+  margin-bottom: 24px;
   color: ${({ theme }) => theme.color.white};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    font-size: 40px;
-    font-weight: 500;
-    margin-bottom: -30px;
-    max-width: 1000px;
+    font-size: 50px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    font-size: 35px;
-    width: 700px;
-    margin-bottom: -35px;
+    font-size: 45px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin-bottom: 5px;
     font-size: 24px;
-    max-width: 260px;
-    margin-bottom: -30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 20px;
+    font-size: 18px;
+  }
+`;
+
+export const RaitingWrapper = styled.div`
+  display: grid;
+  gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 `;
 
 export const Raiting = styled.div`
   display: flex;
   align-items: center;
-  grid-gap: 5px;
-  margin-top: 1%;
-  width: 20%;
-  height: auto;
+  gap: 8px;
+  max-width: 126px;
   color: ${({ theme }) => theme.color.white};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin-bottom: 13px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    display: flex;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    margin-bottom: 0;
+    gap: 4px;
   }
 `;
 
 export const StyledStar = styled(Star)`
-  max-width: 50%;
-  margin-top: 40px;
-  height: auto;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
-export const RaitingNumber = styled.text`
-  max-width: 50%;
-  height: auto;
-  font-style: normal;
+export const RaitingNumber = styled.div`
+  display: flex;
+  gap: 7px;
+  align-items: center;
   font-weight: 500;
   font-size: 30px;
-  line-height: 130%;
-  margin-top: 40px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    font-size: 40px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    font-size: 35px;
-  }
+  line-height: 1.3;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 22px;
+    font-size: 20px;
+    gap: 2px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 `;
 
-export const RaitingCap = styled.text`
-  width: 28px;
-  right: 1518px;
-  top: 23.93%;
-  bottom: 75.46%;
-  font-style: normal;
+export const RaitingCap = styled.div`
   font-weight: 400;
   font-size: 16px;
-  line-height: 120%;
+  line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 10px;
+  }
 `;
 
 export const Votes = styled.div`
-  margin-top: 17px;
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 120%;
+  line-height: 1.2;
   color: ${({ theme }) => theme.color.white};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    display: flex;
-    margin-top: -13px;
-
-    font-size: 10px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    display: flex;
-    justify-content: center;
-    margin-top: -13px;
-    margin-right: -10px;
-    font-size: 10px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    display: flex;
-    margin-top: -13px;
-    font-size: 10px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin-top: -13px;
-    margin-right: 8px;
     font-size: 10px;
   }
 `;
@@ -269,7 +212,7 @@ export const SubdivTitle = styled.span`
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
-  line-height: 120%;
+  line-height: 1.2;
   display: flex;
   align-items: center;
   width: 86px;
