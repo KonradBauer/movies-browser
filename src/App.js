@@ -88,16 +88,16 @@ export const App = () => {
           </Box>
         </HeadContainer>
         <Switch>
-          <Route path="/popular-movies">
+          <Route exact path="/popular-movies">
             <Content />
           </Route>
-          <Route path="/popular-people">
+          <Route exact path="/popular-people">
             {peopleStatus === "loading" ? <Loading /> : <PeopleContent />}
           </Route>
-          <Route path={`/movieDetails/${movieID}`}>
+          <Route path={`/popular-movies/${movieID}`}>
             {movieDetailsStatus === "loading" ? <Loading /> : <MoviesDetails />}
           </Route>
-          <Route path={`/personDetails/${personID}`}>
+          <Route path={`/popular-people/${personID}`}>
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
           </Route>
           <Route path={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }}>

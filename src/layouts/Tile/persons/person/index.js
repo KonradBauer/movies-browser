@@ -15,7 +15,7 @@ export const PersonTile = ({ profileSizes, id, name, profile_path, character, jo
   };
 
   return (
-    <ContainerLink to={`/personDetails/${id}`} onClick={dispatchPersonDetailsHandler} person>
+    <ContainerLink to={`/popular-people/${id}`} onClick={dispatchPersonDetailsHandler} person>
       <Image
         person
         source={
