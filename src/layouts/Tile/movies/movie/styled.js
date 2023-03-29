@@ -28,6 +28,7 @@ export const ContainerLink = styled(NavLink)`
 export const Image = styled.img.attrs((props) => ({ src: props.source }))`
   border-radius: 5px;
   width: 100%;
+  aspect-ratio: 2/3;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 114px;
