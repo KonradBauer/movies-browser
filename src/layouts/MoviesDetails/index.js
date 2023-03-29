@@ -21,6 +21,7 @@ import {
   Raiting,
   RaitingCap,
   RaitingNumber,
+  RaitingWrapper,
   StyledStar,
   SubdivTitle,
   TileContent,
@@ -56,14 +57,16 @@ export const MoviesDetails = () => {
                 />
                 <MainInfo>
                   <Title>{movieDetails.title}</Title>
-                  <Raiting>
-                    <StyledStar />
-                    <RaitingNumber>
-                      {movieDetails.vote_average?.toFixed(1)}
-                      <RaitingCap>/10</RaitingCap>
-                    </RaitingNumber>
-                  </Raiting>
-                  <Votes>{movieDetails.vote_count} votes</Votes>
+                  <RaitingWrapper>
+                    <Raiting>
+                      <StyledStar />
+                      <RaitingNumber>
+                        {movieDetails.vote_average?.toFixed(1)}
+                        <RaitingCap>/10</RaitingCap>
+                      </RaitingNumber>
+                    </Raiting>
+                    <Votes>{movieDetails.vote_count} votes</Votes>
+                  </RaitingWrapper>
                 </MainInfo>
               </Wrapper>
             </Background>
