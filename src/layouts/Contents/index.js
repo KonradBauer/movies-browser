@@ -48,7 +48,7 @@ export const Content = () => {
               )}
             </TilesList>
           </Section>
-          <Pagination />
+          <Pagination totalPages="500" />
         </MainBox>
       )}
     </>
@@ -81,7 +81,7 @@ export const PeopleContent = () => {
               ))}
             </PersonTilesList>
           </Section>
-          <Pagination />
+          <Pagination totalPages="500" />
         </MainBox>
       )}
     </>

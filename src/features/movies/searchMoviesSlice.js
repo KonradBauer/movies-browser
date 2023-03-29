@@ -18,20 +18,28 @@ const searchMoviesSlice = createSlice({
     loadSearchMoviesError: (state) => {
       state.status = "error";
     },
-    changeSearchText: (state, {payload: searchText}) => {
+    changeSearchText: (state, { payload: searchText }) => {
       state.searchText = searchText;
     },
     fetchSearchMovies: () => {},
   },
 });
 
-export const { loadSearchMovies, loadSearchMoviesSuccess, loadSearchMoviesError, changeSearchText, fetchSearchMovies } =
-  searchMoviesSlice.actions;
+export const {
+  loadSearchMovies,
+  loadSearchMoviesSuccess,
+  loadSearchMoviesError,
+  changeSearchText,
+  fetchSearchMovies,
+} = searchMoviesSlice.actions;
 
 const selectSearchMoviesState = (state) => state.searchMovies;
 
 export const selectSearchMovies = (state) => selectSearchMoviesState(state).searchMovies.results;
-export const selectTotalResults = (state) => selectSearchMoviesState(state).searchMovies.total_results;
+export const selectTotalResults = (state) =>
+  selectSearchMoviesState(state).searchMovies.total_results;
 export const selectSearchText = (state) => selectSearchMoviesState(state).searchText;
+export const selectTotalPages = (state) => selectSearchMoviesState(state).searchMovies.total_pages;
+export const selectSearchMoviesStatus = (state) => selectSearchMoviesState(state).status;
 
 export default searchMoviesSlice.reducer;

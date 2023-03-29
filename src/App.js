@@ -21,7 +21,7 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
+import { fetchSearchMovies, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
 import { changeSearchText } from "./features/movies/searchMoviesSlice";
 import { selectSearchText } from "./features/movies/searchMoviesSlice";
 import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
@@ -30,7 +30,6 @@ import searchQueryParamsName from "./features/searchQueryParamName";
 import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
-  const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
   const movieStatus = useSelector(selectMoviesStatus);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
   const peopleStatus = useSelector(selectPeopleStatus);
@@ -38,6 +37,7 @@ export const App = () => {
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
   const searchTextMovies = useSelector(selectSearchText);
+  const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
 
   const dispatch = useDispatch();
   // const query = useQueryParameter(searchQueryParamsName);
@@ -61,11 +61,8 @@ export const App = () => {
             <StyledNavLink to="/popular-movies">
               <MoviesButton
                 onClick={() => {
-                  setPlaceholderTextMovies(true);
                   dispatch(fetchMovies());
-                  <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>
-                    Movies
-                  </MoviesButton>;
+                  <MoviesButton>Movies</MoviesButton>;
                 }}
               >
                 Movies
@@ -74,7 +71,6 @@ export const App = () => {
             <StyledNavLink to="/popular-people">
               <PeopleButton
                 onClick={() => {
-                  setPlaceholderTextMovies(false);
                   dispatch(fetchPeople());
                 }}
               >
@@ -89,7 +85,7 @@ export const App = () => {
         </HeadContainer>
         <Switch>
           <Route exact path="/popular-movies">
-            <Content />
+            {movieStatus === "loading" ? <Loading /> : <Content />}
           </Route>
           <Route exact path="/popular-people">
             {peopleStatus === "loading" ? <Loading /> : <PeopleContent />}
@@ -101,7 +97,7 @@ export const App = () => {
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
           </Route>
           <Route path={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }}>
-            <Search />
+            {searchMoviesStatus === "loading" ? <Loading /> : <Search />}
           </Route>
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />

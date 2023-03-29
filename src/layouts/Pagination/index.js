@@ -24,7 +24,7 @@ import {
   StyledVectorRight,
 } from "./styled";
 
-export const Pagination = () => {
+export const Pagination = ({ totalPages }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const moviesPage = useSelector(selectPages);
 
@@ -92,10 +92,10 @@ export const Pagination = () => {
           <Page>Page</Page>
           <PageNumber>{moviesPage}</PageNumber>
           <Of>of</Of>
-          <PageTotal>500</PageTotal>
+          <PageTotal>{totalPages}</PageTotal>
         </Pages>
         <>
-          {moviesPage === 500 ? (
+          {moviesPage === totalPages ? (
             <>
               <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
                 <StyledVectorRight buttonDisabled />
@@ -149,9 +149,9 @@ export const Pagination = () => {
           <Page>Page</Page>
           <PageNumber>{moviesPage}</PageNumber>
           <Of>of</Of>
-          <PageTotal>500</PageTotal>
+          <PageTotal>{totalPages}</PageTotal>
         </Pages>
-        {moviesPage === 500 ? (
+        {moviesPage === totalPages ? (
           <>
             <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
               Next
