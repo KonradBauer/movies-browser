@@ -1,5 +1,4 @@
 import React from "react";
-import MoviesBrowser from "./MoviesBrowser";
 import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import { Content, PeopleContent } from "./layouts/Contents/index";
@@ -11,7 +10,7 @@ import { Search } from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   moviesPageFirst,
@@ -29,13 +28,9 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { fetchSearchMovies, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
-import { changeSearchText } from "./features/movies/searchMoviesSlice";
+import { changeSearchText, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
 import { selectSearchText } from "./features/movies/searchMoviesSlice";
-import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
 import Input from "./features/Input";
-import searchQueryParamsName from "./features/searchQueryParamName";
-import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -65,6 +60,7 @@ export const App = () => {
               onClick={() => {
                 dispatch(fetchMovies());
                 dispatch(moviesPageFirst());
+                dispatch(changeSearchText(""));
               }}
             />
           </NavLink>
@@ -74,6 +70,7 @@ export const App = () => {
                 onClick={() => {
                   dispatch(fetchMovies());
                   dispatch(moviesPageFirst());
+                  dispatch(changeSearchText(""));
                 }}
               >
                 Movies
@@ -84,6 +81,7 @@ export const App = () => {
                 onClick={() => {
                   dispatch(fetchPeople());
                   dispatch(peoplePageFirst());
+                  dispatch(changeSearchText(""));
                 }}
               >
                 People

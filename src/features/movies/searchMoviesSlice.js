@@ -6,6 +6,7 @@ const searchMoviesSlice = createSlice({
     searchMovies: [],
     status: "initial",
     searchText: "",
+    page: 1,
   },
   reducers: {
     loadSearchMovies: (state) => {
@@ -18,6 +19,9 @@ const searchMoviesSlice = createSlice({
     loadSearchMoviesError: (state) => {
       state.status = "error";
     },
+    changeSearchMoviesPage: (state, { payload: page }) => {
+      state.page = page;
+    },
     changeSearchText: (state, { payload: searchText }) => {
       state.searchText = searchText;
     },
@@ -29,6 +33,7 @@ export const {
   loadSearchMovies,
   loadSearchMoviesSuccess,
   loadSearchMoviesError,
+  changeSearchMoviesPage,
   changeSearchText,
   fetchSearchMovies,
 } = searchMoviesSlice.actions;
@@ -41,5 +46,6 @@ export const selectTotalResults = (state) =>
 export const selectSearchText = (state) => selectSearchMoviesState(state).searchText;
 export const selectTotalPages = (state) => selectSearchMoviesState(state).searchMovies.total_pages;
 export const selectSearchMoviesStatus = (state) => selectSearchMoviesState(state).status;
+export const selectSearchMoviesPage = (state) => selectSearchMoviesState(state).page;
 
 export default searchMoviesSlice.reducer;

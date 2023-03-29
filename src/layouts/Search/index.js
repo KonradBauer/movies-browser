@@ -5,15 +5,19 @@ import {
   selectTotalResults,
   selectSearchMovies,
   selectTotalPages,
+  selectSearchMoviesPage,
 } from "../../features/movies/searchMoviesSlice";
 import { selectPosterSizes } from "../../features/configurationSlice";
 import { Tile } from "../Tile/index";
 import { NoResult } from "../NoResult";
 import { Pagination } from "../Pagination";
 import { useHistory } from "react-router-dom";
+import { selectSearchPeoplePage } from "../../features/peoples/searchPeopleSlice";
 
 export const Search = () => {
   const searchMovie = useSelector(selectSearchMovies);
+  const searchMoviesPage = useSelector(selectSearchMoviesPage);
+  const searchPeoplePage = useSelector(selectSearchPeoplePage);
   const totalResults = useSelector(selectTotalResults);
   const totalPages = useSelector(selectTotalPages);
   const query = useSelector(selectSearchText);
@@ -47,7 +51,7 @@ export const Search = () => {
                 )
               )}
           </TilesList>
-          <Pagination totalPages={totalPages} />
+          <Pagination page={searchMoviesPage} totalPages={totalPages} />
         </Wrapper>
       ) : (
         <NoResult />
