@@ -13,8 +13,16 @@ import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
-import { selectPeopleID, selectPeopleStatus } from "./features/peoples/people/peopleSlice";
+import {
+  moviesPageFirst,
+  selectMovieID,
+  selectMoviesStatus,
+} from "./features/movies/movie/moviesSlice";
+import {
+  peoplePageFirst,
+  selectPeopleID,
+  selectPeopleStatus,
+} from "./features/peoples/people/peopleSlice";
 import { selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
@@ -40,8 +48,6 @@ export const App = () => {
   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
 
   const dispatch = useDispatch();
-  // const query = useQueryParameter(searchQueryParamsName);
-  // console.log(query)
 
   useEffect(() => {
     dispatch(fetchConfiguration());
@@ -55,14 +61,19 @@ export const App = () => {
       <HashRouter>
         <HeadContainer>
           <NavLink to="/popular-movies">
-            <StyledLogo onClick={() => dispatch(fetchMovies())} />
+            <StyledLogo
+              onClick={() => {
+                dispatch(fetchMovies());
+                dispatch(moviesPageFirst());
+              }}
+            />
           </NavLink>
           <ButtonsBox>
             <StyledNavLink to="/popular-movies">
               <MoviesButton
                 onClick={() => {
                   dispatch(fetchMovies());
-                  <MoviesButton>Movies</MoviesButton>;
+                  dispatch(moviesPageFirst());
                 }}
               >
                 Movies
@@ -72,6 +83,7 @@ export const App = () => {
               <PeopleButton
                 onClick={() => {
                   dispatch(fetchPeople());
+                  dispatch(peoplePageFirst());
                 }}
               >
                 People
