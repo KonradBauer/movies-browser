@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   max-width: 1368px;
-  margin-top: 50px;
+  margin: 50px auto 0;
 `;
 
-export const Disclaimer = styled.span`
+export const Disclaimer = styled.div`
   max-height: 43px;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
+  margin-left: 20px;
   color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {

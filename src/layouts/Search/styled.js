@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   max-width: 1368px;
   margin: 0 auto;
-  margin-top: 56px;
+  margin: 56px 16px 0;
 `;
 
 export const SearchResults = styled.div`
@@ -11,7 +11,6 @@ font-weight: 600;
 font-size: 36px;
 line-height: 1.2;
 margin-bottom:24px;
-margin-left:20px;
 color: ${({theme}) => theme.color.woodsmoke };
 `;
 
