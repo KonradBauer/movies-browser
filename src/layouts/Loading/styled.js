@@ -44,6 +44,7 @@ export const Disclaimer = styled.span`
 `;
 
 export const SpinnerWrapper = styled.div`
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;

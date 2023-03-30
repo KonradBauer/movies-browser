@@ -62,18 +62,19 @@ export const TilesList = styled.ul`
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
+  gap: 24px;
   padding: 16px 0;
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1050px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 630px) {
     grid-template-columns: 1fr;
   }
 `;

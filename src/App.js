@@ -13,8 +13,8 @@ import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectMovieID } from "./features/movies/movie/moviesSlice";
-import { selectPeopleID } from "./features/peoples/people/peopleSlice";
+import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
+import { selectPeopleID, selectPeopleStatus } from "./features/peoples/people/peopleSlice";
 import { selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
@@ -31,7 +31,9 @@ import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
+  const movieStatus = useSelector(selectMoviesStatus);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
+  const peopleStatus = useSelector(selectPeopleStatus);
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
@@ -52,13 +54,32 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <HashRouter>
         <HeadContainer>
-          <StyledLogo />
+          <NavLink to="/popular-movies">
+            <StyledLogo onClick={() => dispatch(fetchMovies())} />
+          </NavLink>
           <ButtonsBox>
             <StyledNavLink to="/popular-movies">
-              <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>Movies</MoviesButton>
+              <MoviesButton
+                onClick={() => {
+                  setPlaceholderTextMovies(true);
+                  dispatch(fetchMovies());
+                  <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>
+                    Movies
+                  </MoviesButton>;
+                }}
+              >
+                Movies
+              </MoviesButton>
             </StyledNavLink>
             <StyledNavLink to="/popular-people">
-              <PeopleButton onClick={() => setPlaceholderTextMovies(false)}>People</PeopleButton>
+              <PeopleButton
+                onClick={() => {
+                  setPlaceholderTextMovies(false);
+                  dispatch(fetchPeople());
+                }}
+              >
+                People
+              </PeopleButton>
             </StyledNavLink>
           </ButtonsBox>
           <Box>
@@ -68,10 +89,10 @@ export const App = () => {
         </HeadContainer>
         <Switch>
           <Route path="/popular-movies">
-            <Content />
+            {movieStatus === "loading" ? <Loading /> : <MoviesBrowser />}
           </Route>
           <Route path="/popular-people">
-            <PeopleContent />
+            {peopleStatus === "loading" ? <Loading /> : <PeopleContent />}
           </Route>
           <Route path={`/movieDetails/${movieID}`}>
             {movieDetailsStatus === "loading" ? <Loading /> : <MoviesDetails />}
@@ -85,6 +106,7 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
+          <Route component={Error} />
         </Switch>
       </HashRouter>
     </ThemeProvider>

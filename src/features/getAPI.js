@@ -11,50 +11,43 @@ export const APIImageUrl = "https://image.tmdb.org/t/p";
 export const getMovie = (movieID) => {
   return axios
     .get(`${APIUrl}/movie/${movieID}?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const getMovieCredits = (movieID) => {
   return axios
     .get(`${APIUrl}/movie/${movieID}/credits?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const getPopularMovies = (page) => {
   return axios
     .get(`${APIUrl}/movie/popular?${APIKey}${language}&page=${page}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const getGenres = () => {
   return axios
     .get(`${APIUrl}/genre/movie/list?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const getPeople = (peopleID) => {
   return axios
     .get(`${APIUrl}/person/${peopleID}?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const getPeopleCredits = (peopleID) => {
   return axios
     .get(`${APIUrl}/person/${peopleID}/movie_credits?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const getPopularPeople = (page) => {
   return axios
     .get(`${APIUrl}/person/popular?${APIKey}${language}&page=${page}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const searchMovie = (searchText) => {
@@ -67,23 +60,11 @@ export const searchMovie = (searchText) => {
 export const searchPeople = () => {
   return axios
     .get(`${APIUrl}/search/person?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const configuration = () => {
   return axios
     .get(`${APIUrl}/configuration?${APIKey}${language}`)
-    .then((response) => response.data)
-    .catch(handleError);
-};
-
-export const handleError = (error) => {
-  if (error.response) {
-    console.log("Error response:", error.response.data);
-  } else if (error.request) {
-    console.log("Error request:", error.request);
-  } else {
-    console.log("Error message:", error.message);
-  }
+    .then((response) => response.data);
 };
