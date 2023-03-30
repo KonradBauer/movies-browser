@@ -1,6 +1,6 @@
 import React from "react";
 import MoviesBrowser from "./MoviesBrowser";
-import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import { Content, PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";

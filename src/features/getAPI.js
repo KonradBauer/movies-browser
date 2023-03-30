@@ -53,8 +53,7 @@ export const getPopularPeople = (page) => {
 export const searchMovie = (searchText) => {
   return axios
     .get(`${APIUrl}/search/movie?${APIKey}${language}&query=${searchText}`)
-    .then((response) => response.data)
-    .catch(handleError);
+    .then((response) => response.data);
 };
 
 export const searchPeople = () => {
