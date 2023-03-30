@@ -34,7 +34,8 @@ const BlackColorText = styled.div`
 
 export const FirstDetails = styled.div`
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 0px 10px;
 
   ${({ personDetails }) =>
     personDetails &&

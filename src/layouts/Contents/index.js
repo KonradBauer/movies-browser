@@ -23,7 +23,6 @@ export const Content = () => {
             <TilesList>
               {movies.map(
                 ({
-                  key,
                   id,
                   title,
                   release_date,
@@ -34,7 +33,7 @@ export const Content = () => {
                 }) => (
                   <Tile
                     movie
-                    key={key}
+                    key={id}
                     posterSizes={posterSizes}
                     id={id}
                     title={title}
@@ -69,12 +68,12 @@ export const PeopleContent = () => {
           <Section>
             <BoxTitle>Popular people</BoxTitle>
             <PersonTilesList>
-              {people.map(({ id, key, name, profile_path }) => (
+              {people.map(({ id, name, profile_path }) => (
                 <Tile
                   person
                   profileSizes={profileSizes}
+                  key={id}
                   id={id}
-                  key={key}
                   name={name}
                   profile_path={profile_path}
                 />

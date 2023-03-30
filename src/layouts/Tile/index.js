@@ -11,7 +11,6 @@ export const Tile = ({
   movieDetails,
   person,
   personDetails,
-  key,
   id,
   posterSizes,
   profileSizes,
@@ -35,7 +34,6 @@ export const Tile = ({
         <>
           <MovieTile
             movie
-            key={key}
             id={id}
             posterSizes={posterSizes}
             title={title}
@@ -68,7 +66,6 @@ export const Tile = ({
       {person ? (
         <PersonTile
           person
-          key={key}
           id={id}
           profileSizes={profileSizes}
           name={name}

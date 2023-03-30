@@ -12,7 +12,7 @@ export const Tags = ({ movie, movieDetails, genre_ids, genresDetails }) => {
           {genre_ids && genre_ids.map((genreID) => {
             const genre = genres.find(({ id }) => id === genreID);
             return (
-              <Tag key={genreID.key}>
+              <Tag key={genreID}>
                 <TagContent>{genre && genre.name}</TagContent>
               </Tag>
             );
@@ -24,9 +24,9 @@ export const Tags = ({ movie, movieDetails, genre_ids, genresDetails }) => {
       {movieDetails ? (
         <>
           {genresDetails
-            ? genresDetails.map(({ key, name }) => {
+            ? genresDetails.map(({ id, name }) => {
                 return (
-                  <Tag key={key}>
+                  <Tag key={id}>
                     <TagContent movieDetails={movieDetails}>{name}</TagContent>
                   </Tag>
                 );
