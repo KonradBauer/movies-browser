@@ -1,43 +1,28 @@
 import styled from "styled-components";
 
-export const Disclaimer = styled.span`
-  margin-top: 50px;
-  margin-left: 276px;
-  max-width: 674px;
+export const Wrapper = styled.div`
+  max-width: 1368px;
+  margin: 50px auto 0;
+`;
+
+export const Disclaimer = styled.div`
   max-height: 43px;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
-  display: flex;
-  align-items: center;
+  margin-left: 20px;
   color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
     font-size: 30px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
-    font-size: 20px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
     font-size: 15px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
     font-size: 10px;
   }
 `;

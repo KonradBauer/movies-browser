@@ -1,23 +1,16 @@
 import React from "react";
 import MoviesBrowser from "./MoviesBrowser";
-import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
-import {
-  HeadContainer,
-  MoviesButton,
-  PeopleButton,
-  StyledLogo,
-  Box,
-  StyledLoupe,
-  Input,
-  ButtonsBox,
-} from "./layouts/Header/styled";
-import { PeopleContent } from "./layouts/Contents/index";
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
+import { Content, PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
 import { Loading } from "./layouts/Loading/index";
 import { ThemeProvider } from "styled-components";
+import { Search } from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
+import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
@@ -28,7 +21,13 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { Error } from "./layouts/Error";
+import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
+import { changeSearchText } from "./features/movies/searchMoviesSlice";
+import { selectSearchText } from "./features/movies/searchMoviesSlice";
+import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
+import Input from "./features/Input";
+import searchQueryParamsName from "./features/searchQueryParamName";
+import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
   const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
@@ -38,8 +37,11 @@ export const App = () => {
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
+  const searchTextMovies = useSelector(selectSearchText);
 
   const dispatch = useDispatch();
+  // const query = useQueryParameter(searchQueryParamsName);
+  // console.log(query)
 
   useEffect(() => {
     dispatch(fetchConfiguration());
@@ -82,7 +84,7 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input placeholder={`Search for ${placeholderTextMovies ? "movies" : "people"}...`} />
+            <Input to={{pathname: "/movies-search", search: `?search=${searchTextMovies}`}} />
           </Box>
         </HeadContainer>
         <Switch>
@@ -97,6 +99,9 @@ export const App = () => {
           </Route>
           <Route path={`/personDetails/${personID}`}>
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
+          </Route>
+          <Route path={{pathname: "/movies-search", search: `?search=${searchTextMovies}`}}>
+            <Search />
           </Route>
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />

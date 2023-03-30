@@ -209,8 +209,7 @@ export const StyledLoupe = styled(Loupe)`
   }
 `;
 
-export const Input = styled.input`
-  outline: none;
+export const StyledInput = styled.input`
   display: flex;
   border: none;
   width: 73%;
