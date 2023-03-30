@@ -10,6 +10,8 @@ export const SearchResults = styled.div`
 font-weight: 600;
 font-size: 36px;
 line-height: 1.2;
+margin-bottom:24px;
+margin-left:20px;
 color: ${({theme}) => theme.color.woodsmoke };
 `;
 
