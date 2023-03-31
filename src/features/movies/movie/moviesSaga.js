@@ -5,7 +5,7 @@ import {
   loadMovies,
   loadMoviesError,
   loadMoviesSuccess,
-  selectPages,
+  selectMoviesPages,
 } from "./moviesSlice";
 
 function* fetchMoviesHandler() {
@@ -13,7 +13,7 @@ function* fetchMoviesHandler() {
   yield delay(1_000);
 
   try {
-    const page = yield select(selectPages);
+    const page = yield select(selectMoviesPages);
     const movie = yield call(getPopularMovies, page);
     yield put(loadMoviesSuccess(movie.results));
   } catch (error) {

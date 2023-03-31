@@ -27,7 +27,7 @@ export const MovieTile = ({
   };
 
   return (
-    <ContainerLink to={`/movieDetails/${id}`} onClick={dispatchMvoieDetailsHandler}>
+    <ContainerLink to={`/popular-movies/${id}`} onClick={dispatchMvoieDetailsHandler}>
       <Image
         source={
           poster_path

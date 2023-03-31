@@ -1,5 +1,4 @@
 import React from "react";
-import MoviesBrowser from "./MoviesBrowser";
 import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
 import { Content, PeopleContent } from "./layouts/Contents/index";
@@ -11,26 +10,31 @@ import { Search } from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
 import { StyledNavLink } from "./StyledApp";
 import { StyledLogo, Box, StyledLoupe, ButtonsBox } from "./layouts/Header/styled";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
-import { selectPeopleID, selectPeopleStatus } from "./features/peoples/people/peopleSlice";
+import {
+  moviesPageFirst,
+  selectMovieID,
+  selectMoviesStatus,
+} from "./features/movies/movie/moviesSlice";
+import {
+  peoplePageFirst,
+  selectPeopleID,
+  selectPeopleStatus,
+} from "./features/peoples/people/peopleSlice";
 import { selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { fetchSearchMovies } from "./features/movies/searchMoviesSlice";
-import { changeSearchText } from "./features/movies/searchMoviesSlice";
+import { changeSearchText, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
 import { selectSearchText } from "./features/movies/searchMoviesSlice";
-import { fetchSearchPeople } from "./features/peoples/searchPeopleSlice";
 import Input from "./features/Input";
 import searchQueryParamsName from "./features/searchQueryParamName";
 import { useQueryParameter } from "./features/queryParameters";
 
 export const App = () => {
-  const [placeholderTextMovies, setPlaceholderTextMovies] = useState(true);
   const movieStatus = useSelector(selectMoviesStatus);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
   const peopleStatus = useSelector(selectPeopleStatus);
@@ -38,10 +42,9 @@ export const App = () => {
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
   const searchTextMovies = useSelector(selectSearchText);
+  const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
 
   const dispatch = useDispatch();
-  // const query = useQueryParameter(searchQueryParamsName);
-  // console.log(query)
 
   useEffect(() => {
     dispatch(fetchConfiguration());
@@ -55,17 +58,21 @@ export const App = () => {
       <HashRouter>
         <HeadContainer>
           <NavLink to="/popular-movies">
-            <StyledLogo onClick={() => dispatch(fetchMovies())} />
+            <StyledLogo
+              onClick={() => {
+                dispatch(fetchMovies());
+                dispatch(moviesPageFirst());
+                dispatch(changeSearchText(""));
+              }}
+            />
           </NavLink>
           <ButtonsBox>
             <StyledNavLink to="/popular-movies">
               <MoviesButton
                 onClick={() => {
-                  setPlaceholderTextMovies(true);
                   dispatch(fetchMovies());
-                  <MoviesButton onClick={() => setPlaceholderTextMovies(true)}>
-                    Movies
-                  </MoviesButton>;
+                  dispatch(moviesPageFirst());
+                  dispatch(changeSearchText(""));
                 }}
               >
                 Movies
@@ -74,8 +81,9 @@ export const App = () => {
             <StyledNavLink to="/popular-people">
               <PeopleButton
                 onClick={() => {
-                  setPlaceholderTextMovies(false);
                   dispatch(fetchPeople());
+                  dispatch(peoplePageFirst());
+                  dispatch(changeSearchText(""));
                 }}
               >
                 People
@@ -84,24 +92,24 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input to={{pathname: "/movies-search", search: `?search=${searchTextMovies}`}} />
+            <Input to={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }} />
           </Box>
         </HeadContainer>
         <Switch>
-          <Route path="/popular-movies">
-            {movieStatus === "loading" ? <Loading /> : <MoviesBrowser />}
+          <Route exact path="/popular-movies">
+            {movieStatus === "loading" ? <Loading /> : <Content />}
           </Route>
-          <Route path="/popular-people">
+          <Route exact path="/popular-people">
             {peopleStatus === "loading" ? <Loading /> : <PeopleContent />}
           </Route>
-          <Route path={`/movieDetails/${movieID}`}>
+          <Route path={`/popular-movies/${movieID}`}>
             {movieDetailsStatus === "loading" ? <Loading /> : <MoviesDetails />}
           </Route>
-          <Route path={`/personDetails/${personID}`}>
+          <Route path={`/popular-people/${personID}`}>
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
           </Route>
-          <Route path={{pathname: "/movies-search", search: `?search=${searchTextMovies}`}}>
-            <Search />
+          <Route path={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }}>
+            {searchMoviesStatus === "loading" ? <Loading /> : <Search />}
           </Route>
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />

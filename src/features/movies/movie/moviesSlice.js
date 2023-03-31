@@ -20,16 +20,16 @@ const moviesSlice = createSlice({
     loadMoviesError: (state) => {
       state.status = "error";
     },
-    pageIncrement: (state) => {
+    moviesPageIncrement: (state) => {
       state.page === 500 ? (state.page = 500) : (state.page += 1);
     },
-    pageDecrement: (state) => {
+    moviesPageDecrement: (state) => {
       state.page === 1 ? (state.page = 1) : (state.page -= 1);
     },
-    pageFirst: (state) => {
+    moviesPageFirst: (state) => {
       state.page = 1;
     },
-    pageLast: (state) => {
+    moviesPageLast: (state) => {
       state.page = 500;
     },
     getMovieID: (state, { payload: movieID }) => {
@@ -43,10 +43,10 @@ export const {
   loadMovies,
   loadMoviesSuccess,
   loadMoviesError,
-  pageIncrement,
-  pageDecrement,
-  pageFirst,
-  pageLast,
+  moviesPageIncrement,
+  moviesPageDecrement,
+  moviesPageFirst,
+  moviesPageLast,
   fetchMovies,
   getPages,
   getMovieID,
@@ -56,7 +56,7 @@ const selectMoviesState = (state) => state.movies;
 
 export const selectMoviesStatus = (state) => selectMoviesState(state).status;
 export const selectMovies = (state) => selectMoviesState(state).movies;
-export const selectPages = (state) => selectMoviesState(state).page;
+export const selectMoviesPages = (state) => selectMoviesState(state).page;
 export const selectMovieID = (state) => selectMoviesState(state).movieID;
 
 export default moviesSlice.reducer;

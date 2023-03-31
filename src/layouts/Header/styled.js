@@ -210,6 +210,7 @@ export const StyledLoupe = styled(Loupe)`
 `;
 
 export const StyledInput = styled.input`
+  outline: none;
   display: flex;
   border: none;
   width: 73%;
