@@ -28,12 +28,9 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { changeMoviesSearchText, removeSearchMovies, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
+import { changeMoviesSearchText, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
 import { selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
-import searchQueryParamsName from "./features/searchQueryParamName";
-import { useQueryParameter } from "./features/queryParameters";
-import { removeSearchPeople } from "./features/peoples/searchPeopleSlice";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -74,7 +71,6 @@ export const App = () => {
                   dispatch(fetchMovies());
                   dispatch(moviesPageFirst());
                   dispatch(changeMoviesSearchText(""));
-                  dispatch(removeSearchPeople());
                 }}
               >
                 Movies
@@ -86,7 +82,6 @@ export const App = () => {
                   dispatch(fetchPeople());
                   dispatch(peoplePageFirst());
                   dispatch(changeMoviesSearchText(""));
-                  dispatch(removeSearchMovies());
                 }}
               >
                 People

@@ -2,9 +2,9 @@ import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../queryParameters";
 import searchQueryParamsName from "../searchQueryParamName";
-import { fetchSearchMovies, changeMoviesSearchText } from "../movies/searchMoviesSlice";
+import { fetchSearchMovies, changeMoviesSearchText, removeSearchMovies } from "../movies/searchMoviesSlice";
 import { StyledInput } from "../../layouts/Header/styled";
-import { changePeopleSearchText, fetchSearchPeople } from "../peoples/searchPeopleSlice";
+import { changePeopleSearchText, fetchSearchPeople, removeSearchPeople } from "../peoples/searchPeopleSlice";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamsName);
@@ -20,6 +20,8 @@ export default () => {
       value: target.value.trim() ? target.value : undefined,
     });
 
+    dispatch(changePeopleSearchText(""));
+    dispatch(removeSearchPeople());
     dispatch(fetchSearchMovies());
     dispatch(changeMoviesSearchText(target.value));
 
@@ -32,6 +34,8 @@ export default () => {
       value: target.value.trim() ? target.value : undefined,
     });
 
+    dispatch(changeMoviesSearchText(""));
+    dispatch(removeSearchMovies());
     dispatch(fetchSearchPeople());
     dispatch(changePeopleSearchText(target.value));
 
