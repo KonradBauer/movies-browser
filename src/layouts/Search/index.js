@@ -32,7 +32,7 @@ export const Search = () => {
   return (
     <>
       {/* {peopleQuery === "" ? history.push("/popular-people") : moviesQuery === "" ? history.push("/popular-movies") : ""} */}
-      {moviesTotalResults !== 0 || peopleTotalResults !== 0 ? (
+      {moviesTotalResults !== 0 && peopleTotalResults !== 0 ? (
         <Wrapper>
           <SearchResults>
             Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” ({moviesTotalResults !== null ? moviesTotalResults : peopleTotalResults})
