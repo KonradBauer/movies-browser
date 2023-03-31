@@ -28,11 +28,12 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { changeSearchText, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
-import { selectSearchText } from "./features/movies/searchMoviesSlice";
+import { changeMoviesSearchText, removeSearchMovies, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
+import { selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
 import searchQueryParamsName from "./features/searchQueryParamName";
 import { useQueryParameter } from "./features/queryParameters";
+import { removeSearchPeople } from "./features/peoples/searchPeopleSlice";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -41,7 +42,7 @@ export const App = () => {
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
-  const searchTextMovies = useSelector(selectSearchText);
+  const searchTextMovies = useSelector(selectSearchMoviesText);
   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
 
   const dispatch = useDispatch();
@@ -62,7 +63,7 @@ export const App = () => {
               onClick={() => {
                 dispatch(fetchMovies());
                 dispatch(moviesPageFirst());
-                dispatch(changeSearchText(""));
+                dispatch(changeMoviesSearchText(""));
               }}
             />
           </NavLink>
@@ -72,7 +73,8 @@ export const App = () => {
                 onClick={() => {
                   dispatch(fetchMovies());
                   dispatch(moviesPageFirst());
-                  dispatch(changeSearchText(""));
+                  dispatch(changeMoviesSearchText(""));
+                  dispatch(removeSearchPeople());
                 }}
               >
                 Movies
@@ -83,7 +85,8 @@ export const App = () => {
                 onClick={() => {
                   dispatch(fetchPeople());
                   dispatch(peoplePageFirst());
-                  dispatch(changeSearchText(""));
+                  dispatch(changeMoviesSearchText(""));
+                  dispatch(removeSearchMovies());
                 }}
               >
                 People
@@ -92,7 +95,7 @@ export const App = () => {
           </ButtonsBox>
           <Box>
             <StyledLoupe />
-            <Input to={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }} />
+            <Input  />
           </Box>
         </HeadContainer>
         <Switch>
@@ -108,7 +111,7 @@ export const App = () => {
           <Route path={`/popular-people/${personID}`}>
             {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
           </Route>
-          <Route path={{ pathname: "/movies-search", search: `?search=${searchTextMovies}` }}>
+          <Route path={{ pathname: "/popular-people/search", search: `?search=${searchTextMovies}` }}>
             {searchMoviesStatus === "loading" ? <Loading /> : <Search />}
           </Route>
           <Route exact path="/">

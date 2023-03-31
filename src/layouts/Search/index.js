@@ -1,41 +1,46 @@
 import { useSelector } from "react-redux";
-import { SearchResults, TilesList, Wrapper } from "./styled";
+import { SearchResults, MoviesTilesList, Wrapper, PeopleTilesList } from "./styled";
 import {
-  selectSearchText,
-  selectTotalResults,
+  selectSearchMoviesText,
+  selectMoviesTotalResults,
   selectSearchMovies,
-  selectTotalPages,
+  selectMoviesTotalPages,
   selectSearchMoviesPage,
 } from "../../features/movies/searchMoviesSlice";
-import { selectPosterSizes } from "../../features/configurationSlice";
+import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 import { Tile } from "../Tile/index";
 import { NoResult } from "../NoResult";
 import { Pagination } from "../Pagination";
 import { useHistory } from "react-router-dom";
-import { selectSearchPeoplePage } from "../../features/peoples/searchPeopleSlice";
+import { selectSearchPeople, selectSearchPeoplePage, selectPeopleTotalResults, selectPeopleTotalPages, selectPeopleSearchText } from "../../features/peoples/searchPeopleSlice";
 
 export const Search = () => {
   const searchMovie = useSelector(selectSearchMovies);
+  const searchPeople = useSelector(selectSearchPeople);
   const searchMoviesPage = useSelector(selectSearchMoviesPage);
   const searchPeoplePage = useSelector(selectSearchPeoplePage);
-  const totalResults = useSelector(selectTotalResults);
-  const totalPages = useSelector(selectTotalPages);
-  const query = useSelector(selectSearchText);
+  const moviesTotalResults = useSelector(selectMoviesTotalResults);
+  const peopleTotalResults = useSelector(selectPeopleTotalResults);
+  const moviesTotalPages = useSelector(selectMoviesTotalPages);
+  const peopleTotalPages = useSelector(selectPeopleTotalPages);
+  const moviesQuery = useSelector(selectSearchMoviesText);
+  const peopleQuery = useSelector(selectPeopleSearchText);
   const posterSizes = useSelector(selectPosterSizes);
+  const profileSizes = useSelector(selectProfileSizes);
   const history = useHistory();
-
+  console.log(peopleTotalResults);
   return (
     <>
-      {query === "" && history.push("/popular-movies")}
-      {totalResults !== 0 ? (
+      {/* {peopleQuery === "" ? history.push("/popular-people") : moviesQuery === "" ? history.push("/popular-movies") : ""} */}
+      {moviesTotalResults !== 0 || peopleTotalResults !== 0 ? (
         <Wrapper>
           <SearchResults>
-            Search results for “{query && query}” ({totalResults})
+            Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” ({moviesTotalResults !== null ? moviesTotalResults : peopleTotalResults})
           </SearchResults>
-          <TilesList>
-            {searchMovie &&
-              searchMovie.length > 0 &&
-              searchMovie.map(
+          {searchMovie &&
+            searchMovie.length > 0 &&
+            <MoviesTilesList>
+              {searchMovie.map(
                 ({ id, title, release_date, poster_path, genre_ids, vote_average, vote_count }) => (
                   <Tile
                     movie
@@ -50,8 +55,21 @@ export const Search = () => {
                   />
                 )
               )}
-          </TilesList>
-          <Pagination page={searchMoviesPage} totalPages={totalPages} />
+            </MoviesTilesList>}
+          {searchPeople && searchPeople.length > 0 &&
+            <PeopleTilesList>
+              {searchPeople.map(({ id, name, profile_path }) => (
+                <Tile
+                  person
+                  profileSizes={profileSizes}
+                  key={id}
+                  id={id}
+                  name={name}
+                  profile_path={profile_path}
+                />
+              ))}
+              </PeopleTilesList>}
+          <Pagination page={searchMoviesPage !== "" ? searchMoviesPage : searchPeoplePage } totalPages={moviesTotalPages !== "" ? moviesTotalPages : peopleTotalPages} />
         </Wrapper>
       ) : (
         <NoResult />

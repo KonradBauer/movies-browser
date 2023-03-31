@@ -1,10 +1,10 @@
 import { call, put, debounce, select } from "redux-saga/effects";
 import { searchPeople } from "../getAPI";
-import { loadSearchPeopleSuccess, fetchSearchPeople, selectSearchText } from "../peoples/searchPeopleSlice";
+import { loadSearchPeopleSuccess, fetchSearchPeople, selectPeopleSearchText } from "../peoples/searchPeopleSlice";
 
 function* fetchSearchPeopleHandler() {
   try {
-    const searchText = yield select(selectSearchText)
+    const searchText = yield select(selectPeopleSearchText)
     const searchPeoples = yield call(searchPeople, searchText);
     yield put(loadSearchPeopleSuccess(searchPeoples));
   } catch (error) {

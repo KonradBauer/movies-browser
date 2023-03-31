@@ -19,13 +19,16 @@ const searchPeopleSlice = createSlice({
     loadSearchPeopleError: (state) => {
       state.status = "error";
     },
-    changeSearchText: (state, { payload: searchText }) => {
+    changePeopleSearchText: (state, { payload: searchText }) => {
       state.searchText = searchText;
     },
     changeSearchPeoplePage: (state, { payload: page }) => {
       state.page = page;
     },
-    fetchSearchPeople: () => {},
+    removeSearchPeople: (state) => {
+      state.searchPeople = [];
+    },
+    fetchSearchPeople: () => { },
   },
 });
 
@@ -33,15 +36,18 @@ export const {
   loadSearchPeople,
   loadSearchPeopleSuccess,
   loadSearchPeopleError,
-  changeSearchText,
+  changePeopleSearchText,
+  removeSearchPeople,
   fetchSearchPeople,
 } = searchPeopleSlice.actions;
 
 const selectSearchPeopleState = (state) => state.searchPeople;
 
 export const selectSearchPeople = (state) => selectSearchPeopleState(state).searchPeople.results;
-export const selectTotalResults = (state) =>
+export const selectPeopleTotalResults = (state) =>
   selectSearchPeopleState(state).searchPeople.total_results;
-export const selectSearchText = (state) => selectSearchPeopleState(state).searchText;
+export const selectPeopleSearchText = (state) => selectSearchPeopleState(state).searchText;
+export const selectPeopleTotalPages = (state) => selectSearchPeopleState(state).searchPeople.total_pages;
+export const selectSearchPeopleStatus = (state) => selectSearchPeopleState(state).status;
 export const selectSearchPeoplePage = (state) => selectSearchPeopleState(state).page;
 export default searchPeopleSlice.reducer;

@@ -3,7 +3,7 @@ import { searchMovie } from "../getAPI";
 import {
   loadSearchMoviesSuccess,
   fetchSearchMovies,
-  selectSearchText,
+  selectSearchMoviesText,
   loadSearchMovies,
 } from "./searchMoviesSlice";
 
@@ -12,7 +12,7 @@ function* fetchSearchMoviesHandler() {
   yield delay(1000);
 
   try {
-    const searchText = yield select(selectSearchText);
+    const searchText = yield select(selectSearchMoviesText);
     const searchMovies = yield call(searchMovie, searchText);
     yield put(loadSearchMoviesSuccess(searchMovies));
   } catch (error) {
