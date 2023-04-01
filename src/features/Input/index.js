@@ -7,13 +7,13 @@ import {
   changeMoviesSearchText,
   removeSearchMovies,
   setMoviesPageFirst,
-  selectSearchMoviesPage,
 } from "../movies/searchMoviesSlice";
 import { StyledInput } from "../../layouts/Header/styled";
 import {
   changePeopleSearchText,
   fetchSearchPeople,
   removeSearchPeople,
+  setPeoplePageFirst,
 } from "../peoples/searchPeopleSlice";
 
 export default () => {
@@ -23,7 +23,6 @@ export default () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
-  const searchMoviesPage = useSelector(selectSearchMoviesPage);
 
   const searchMovies = (target) => {
     replaceQueryParameter({
@@ -51,6 +50,7 @@ export default () => {
     dispatch(changeMoviesSearchText(""));
     dispatch(removeSearchMovies());
     dispatch(fetchSearchPeople());
+    dispatch(setPeoplePageFirst());
     dispatch(changePeopleSearchText(target.value));
 
     history.push({
