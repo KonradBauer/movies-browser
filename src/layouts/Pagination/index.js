@@ -74,7 +74,7 @@ export const Pagination = ({ page, totalPages }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const addPageToLink = () => {
+  useEffect(() => {
     switch (true) {
       case pathname.includes("/popular-movies"):
         pathname.includes("search")
@@ -89,7 +89,7 @@ export const Pagination = ({ page, totalPages }) => {
       default:
         return null;
     }
-  };
+  }, []);
 
   const dispatchData = () => {
     switch (true) {
@@ -112,13 +112,11 @@ export const Pagination = ({ page, totalPages }) => {
         dispatch(moviesPageDecrement());
         dispatch(searchMoviesPageDecrement());
         dispatchData();
-        addPageToLink();
         break;
       case pathname.includes("/popular-people"):
         dispatch(peoplePageDecrement());
         dispatch(searchPeoplePageDecrement());
         dispatchData();
-        addPageToLink();
         break;
       default:
         return null;
@@ -131,13 +129,11 @@ export const Pagination = ({ page, totalPages }) => {
         dispatch(moviesPageIncrement());
         dispatch(searchMoviesPageIncrement());
         dispatchData();
-        addPageToLink();
         break;
       case pathname.includes("/popular-people"):
         dispatch(peoplePageIncrement());
         dispatch(searchPeoplePageIncrement());
         dispatchData();
-        addPageToLink();
         break;
       default:
         return null;
@@ -150,13 +146,11 @@ export const Pagination = ({ page, totalPages }) => {
         dispatch(moviesPageFirst());
         dispatch(setMoviesPageFirst());
         dispatchData();
-        addPageToLink();
         break;
       case pathname.includes("/popular-people"):
         dispatch(peoplePageFirst());
         dispatch(setPeoplePageFirst());
         dispatchData();
-        addPageToLink();
         break;
       default:
         return null;
@@ -170,13 +164,11 @@ export const Pagination = ({ page, totalPages }) => {
         dispatch(setMoviesPageLast());
         paginationPageSet();
         dispatchData();
-        addPageToLink();
         break;
       case pathname.includes("/popular-people"):
         dispatch(peoplePageLast());
         dispatch(setPeoplePageLast());
         dispatchData();
-        addPageToLink();
         break;
       default:
         return null;
@@ -185,9 +177,13 @@ export const Pagination = ({ page, totalPages }) => {
 
   const paginationPageSet = (pageNumber) => {
     return pathname.includes("/popular-movies")
-      ? history.push(`?search=${searchMoviesText}&page=${pageNumber}`)
+      ? pathname.includes("search")
+        ? history.push(`?search=${searchMoviesText}&page=${pageNumber}`)
+        : history.push(`?page=${pageNumber}`)
       : pathname.includes("/popular-people")
-      ? history.push(`?search=${searchPeopleText}&page=${pageNumber}`)
+      ? pathname.includes("search")
+        ? history.push(`?search=${searchPeopleText}&page=${pageNumber}`)
+        : history.push(`?page=${pageNumber}`)
       : "";
   };
 
