@@ -1,9 +1,17 @@
 import { BoxTitle, MainBox, PersonTilesList, Section, TilesList } from "./styled";
 import { Tile } from "../Tile/index";
 import { useSelector } from "react-redux";
-import { selectMovies, selectMoviesStatus } from "../../features/movies/movie/moviesSlice";
+import {
+  selectMovies,
+  selectMoviesPages,
+  selectMoviesStatus,
+} from "../../features/movies/movie/moviesSlice";
 import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
-import { selectPeople, selectPeopleStatus } from "../../features/peoples/people/peopleSlice";
+import {
+  selectPeople,
+  selectPeoplePages,
+  selectPeopleStatus,
+} from "../../features/peoples/people/peopleSlice";
 import { Pagination } from "../Pagination/index";
 import { Error } from "../Error/index";
 
@@ -11,6 +19,7 @@ export const Content = () => {
   const movies = useSelector(selectMovies);
   const posterSizes = useSelector(selectPosterSizes);
   const moviesStatus = useSelector(selectMoviesStatus);
+  const moviesPage = useSelector(selectMoviesPages);
 
   return (
     <>
@@ -47,7 +56,7 @@ export const Content = () => {
               )}
             </TilesList>
           </Section>
-          <Pagination />
+          <Pagination page={moviesPage} totalPages="500" />
         </MainBox>
       )}
     </>
@@ -58,6 +67,7 @@ export const PeopleContent = () => {
   const people = useSelector(selectPeople);
   const profileSizes = useSelector(selectProfileSizes);
   const peopleStatus = useSelector(selectPeopleStatus);
+  const peoplePages = useSelector(selectPeoplePages);
 
   return (
     <>
@@ -80,7 +90,7 @@ export const PeopleContent = () => {
               ))}
             </PersonTilesList>
           </Section>
-          <Pagination />
+          <Pagination page={peoplePages} totalPages="500" />
         </MainBox>
       )}
     </>

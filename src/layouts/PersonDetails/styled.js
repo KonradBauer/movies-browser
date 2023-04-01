@@ -58,7 +58,6 @@ export const CastContent = styled.div`
 export const CrewContent = styled.div`
   max-width: 1368px;
   margin-top: 64px;
-  /* margin-bottom: 32px; */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     max-width: 320px;

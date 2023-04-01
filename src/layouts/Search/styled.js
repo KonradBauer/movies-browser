@@ -12,10 +12,10 @@ font-weight: 600;
 font-size: 36px;
 line-height: 1.2;
 margin-bottom:24px;
-color: ${({theme}) => theme.color.woodsmoke };
+color: ${({ theme }) => theme.color.woodsmoke};
 `;
 
-export const TilesList = styled.ul`
+export const MoviesTilesList = styled.ul`
   list-style: none;
   padding: 0px;
   margin: 0px;
@@ -23,15 +23,37 @@ export const TilesList = styled.ul`
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
-  padding: 16px 0;
-  @media (max-width: 1050px) {
+  padding: 16px;
+
+  @media (max-width: 1100px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
-  @media (max-width: 630px) {
+
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+export const PeopleTilesList = styled.ul`
+  list-style: none;
+  padding: 24px 16px 0px;
+  margin: 0px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(202px, auto));
+  gap: 24px;
+
+  @media (max-width: 1380px) {
+    grid-template-columns: repeat(auto-fill, minmax(166px, auto));
+    gap: 16px;
+  }
+
+  @media (max-width: 933px) {
+    grid-template-columns: repeat(auto-fill, minmax(136px, auto));
   }
 `;

@@ -56,9 +56,9 @@ export const searchMovie = (searchText) => {
     .then((response) => response.data);
 };
 
-export const searchPeople = () => {
+export const searchPeople = searchText => {
   return axios
-    .get(`${APIUrl}/search/person?${APIKey}${language}`)
+    .get(`${APIUrl}/search/person?${APIKey}${language}&query=${searchText}`)
     .then((response) => response.data);
 };
 

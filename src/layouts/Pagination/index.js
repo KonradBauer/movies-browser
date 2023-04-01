@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import {
   fetchMovies,
-  pageDecrement,
-  pageFirst,
-  pageIncrement,
-  pageLast,
-  selectPages,
+  moviesPageDecrement,
+  moviesPageFirst,
+  moviesPageIncrement,
+  moviesPageLast,
 } from "../../features/movies/movie/moviesSlice";
-import { fetchPeople } from "../../features/peoples/people/peopleSlice";
+import {
+  fetchPeople,
+  peoplePageIncrement,
+  peoplePageDecrement,
+  peoplePageFirst,
+  peoplePageLast,
+} from "../../features/peoples/people/peopleSlice";
 import {
   Box,
   ButtonFirst,
@@ -24,9 +30,8 @@ import {
   StyledVectorRight,
 } from "./styled";
 
-export const Pagination = () => {
+export const Pagination = ({ page, totalPages }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const moviesPage = useSelector(selectPages);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,37 +42,87 @@ export const Pagination = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const location = useLocation();
+  const pathname = location.pathname;
   const dispatch = useDispatch();
 
   const dispatchData = () => {
-    dispatch(fetchMovies());
-    dispatch(fetchPeople());
+    switch (pathname) {
+      case "/popular-movies":
+        dispatch(fetchMovies());
+        break;
+      case "/popular-people":
+        dispatch(fetchPeople());
+        break;
+      default:
+        return null;
+    }
   };
 
   const dispatchPageDecrement = () => {
-    dispatch(pageDecrement());
-    dispatchData();
+    switch (pathname) {
+      case "/popular-movies":
+        dispatch(moviesPageDecrement());
+        dispatchData();
+        break;
+      case "/popular-people":
+        dispatch(peoplePageDecrement());
+        dispatchData();
+        break;
+      default:
+        return null;
+    }
   };
 
   const dispatchPageIncrement = () => {
-    dispatch(pageIncrement());
-    dispatchData();
+    switch (pathname) {
+      case "/popular-movies":
+        dispatch(moviesPageIncrement());
+        dispatchData();
+        break;
+      case "/popular-people":
+        dispatch(peoplePageIncrement());
+        dispatchData();
+        break;
+      default:
+        return null;
+    }
   };
 
   const dispatchPageFirst = () => {
-    dispatch(pageFirst());
-    dispatchData();
+    switch (pathname) {
+      case "/popular-movies":
+        dispatch(moviesPageFirst());
+        dispatchData();
+        break;
+      case "/popular-people":
+        dispatch(peoplePageFirst());
+        dispatchData();
+        break;
+      default:
+        return null;
+    }
   };
 
   const dispatchPageLast = () => {
-    dispatch(pageLast());
-    dispatchData();
+    switch (pathname) {
+      case "/popular-movies":
+        dispatch(moviesPageLast());
+        dispatchData();
+        break;
+      case "/popular-people":
+        dispatch(peoplePageLast());
+        dispatchData();
+        break;
+      default:
+        return null;
+    }
   };
 
   return windowWidth < 848 ? (
     <>
       <Box>
-        {moviesPage === 1 ? (
+        {page === 1 ? (
           <>
             <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
               <StyledVectorLeft buttonDisabled disabled />
@@ -90,12 +145,12 @@ export const Pagination = () => {
         )}
         <Pages>
           <Page>Page</Page>
-          <PageNumber>{moviesPage}</PageNumber>
+          <PageNumber>{page}</PageNumber>
           <Of>of</Of>
-          <PageTotal>500</PageTotal>
+          <PageTotal>{totalPages}</PageTotal>
         </Pages>
         <>
-          {moviesPage === 500 ? (
+          {page === totalPages ? (
             <>
               <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
                 <StyledVectorRight buttonDisabled />
@@ -122,7 +177,7 @@ export const Pagination = () => {
   ) : (
     <>
       <Box>
-        {moviesPage === 1 ? (
+        {page === 1 ? (
           <>
             <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
               <StyledVectorLeft buttonDisabled />
@@ -147,11 +202,11 @@ export const Pagination = () => {
         )}
         <Pages>
           <Page>Page</Page>
-          <PageNumber>{moviesPage}</PageNumber>
+          <PageNumber>{page}</PageNumber>
           <Of>of</Of>
-          <PageTotal>500</PageTotal>
+          <PageTotal>{totalPages}</PageTotal>
         </Pages>
-        {moviesPage === 500 ? (
+        {page === totalPages ? (
           <>
             <ButtonNext buttonDisabled onClick={dispatchPageIncrement}>
               Next

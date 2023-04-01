@@ -1,6 +1,6 @@
 import { call, put, select, takeLatest, delay } from "redux-saga/effects";
 import { getPopularPeople } from "../../getAPI";
-import { selectPages } from "../../movies/movie/moviesSlice";
+import { selectPeoplePages } from "./peopleSlice";
 import { fetchPeople, loadPeople, loadPeopleError, loadPeopleSuccess } from "./peopleSlice";
 
 function* fetchPeopleHandler() {
@@ -8,7 +8,7 @@ function* fetchPeopleHandler() {
   yield delay(1_000);
 
   try {
-    const page = yield select(selectPages);
+    const page = yield select(selectPeoplePages);
     const person = yield call(getPopularPeople, page);
     yield put(loadPeopleSuccess(person.results));
   } catch (error) {
