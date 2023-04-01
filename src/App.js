@@ -28,7 +28,10 @@ import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
 import { fetchConfiguration } from "./features/configurationSlice";
-import { changeMoviesSearchText, selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
+import {
+  changeMoviesSearchText,
+  selectSearchMoviesStatus,
+} from "./features/movies/searchMoviesSlice";
 import { selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
 import { selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
@@ -111,8 +114,17 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
-          <Route path={{ pathname: "/popular-people/search", search: `?search=${searchTextMovies}` }}>
-            {searchMoviesStatus === "loading" || searchPeopleStatus === "loading" ? <Loading /> : <Search />}
+          <Route
+            path={{
+              pathname: "/popular-people/search",
+              search: `?search=${searchTextMovies}`,
+            }}
+          >
+            {searchMoviesStatus === "loading" || searchPeopleStatus === "loading" ? (
+              <Loading />
+            ) : (
+              <Search />
+            )}
           </Route>
           <Route component={Error} />
         </Switch>

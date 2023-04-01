@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../queryParameters";
 import searchQueryParamsName from "../searchQueryParamName";
@@ -7,6 +7,7 @@ import {
   changeMoviesSearchText,
   removeSearchMovies,
   setMoviesPageFirst,
+  selectSearchMoviesPage,
 } from "../movies/searchMoviesSlice";
 import { StyledInput } from "../../layouts/Header/styled";
 import {
@@ -22,6 +23,7 @@ export default () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
+  const searchMoviesPage = useSelector(selectSearchMoviesPage);
 
   const searchMovies = (target) => {
     replaceQueryParameter({
