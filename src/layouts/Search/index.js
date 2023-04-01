@@ -28,10 +28,11 @@ export const Search = () => {
   const posterSizes = useSelector(selectPosterSizes);
   const profileSizes = useSelector(selectProfileSizes);
   const history = useHistory();
-  console.log(peopleTotalResults);
+  
   return (
     <>
-      {/* {peopleQuery === "" ? history.push("/popular-people") : moviesQuery === "" ? history.push("/popular-movies") : ""} */}
+      {peopleTotalResults === 0 && peopleQuery === "" ? history.push("/popular-people") 
+        : moviesTotalResults === 0 && moviesQuery === "" ? history.push("/popular-movies") : ""}
       {moviesTotalResults !== 0 && peopleTotalResults !== 0 ? (
         <Wrapper>
           <SearchResults>

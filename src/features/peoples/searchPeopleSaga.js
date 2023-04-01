@@ -1,8 +1,11 @@
-import { call, put, debounce, select } from "redux-saga/effects";
+import { call, put, debounce, select, delay } from "redux-saga/effects";
 import { searchPeople } from "../getAPI";
-import { loadSearchPeopleSuccess, fetchSearchPeople, selectPeopleSearchText } from "../peoples/searchPeopleSlice";
+import { loadSearchPeopleSuccess, fetchSearchPeople, selectPeopleSearchText, loadSearchPeople } from "../peoples/searchPeopleSlice";
 
 function* fetchSearchPeopleHandler() {
+  yield put(loadSearchPeople());
+  yield delay(1000);
+
   try {
     const searchText = yield select(selectPeopleSearchText)
     const searchPeoples = yield call(searchPeople, searchText);
