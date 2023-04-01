@@ -31,15 +31,7 @@ export const Content = () => {
             <BoxTitle>Popular movies</BoxTitle>
             <TilesList>
               {movies.map(
-                ({
-                  id,
-                  title,
-                  release_date,
-                  poster_path,
-                  genre_ids,
-                  vote_average,
-                  vote_count,
-                }) => (
+                ({ id, title, release_date, poster_path, genre_ids, vote_average, vote_count }) => (
                   <Tile
                     movie
                     key={id}
@@ -56,7 +48,7 @@ export const Content = () => {
               )}
             </TilesList>
           </Section>
-          <Pagination page={moviesPage} totalPages="500" />
+          <Pagination page={moviesPage} totalPages={500} />
         </MainBox>
       )}
     </>
@@ -90,7 +82,7 @@ export const PeopleContent = () => {
               ))}
             </PersonTilesList>
           </Section>
-          <Pagination page={peoplePages} totalPages="500" />
+          <Pagination page={peoplePages} totalPages={500} />
         </MainBox>
       )}
     </>

@@ -4,6 +4,7 @@ import {
   loadSearchMoviesSuccess,
   fetchSearchMovies,
   selectSearchMoviesText,
+  selectSearchMoviesPage,
   loadSearchMovies,
 } from "./searchMoviesSlice";
 
@@ -13,7 +14,8 @@ function* fetchSearchMoviesHandler() {
 
   try {
     const searchText = yield select(selectSearchMoviesText);
-    const searchMovies = yield call(searchMovie, searchText);
+    const page = yield select(selectSearchMoviesPage);
+    const searchMovies = yield call(searchMovie, page, searchText);
     yield put(loadSearchMoviesSuccess(searchMovies));
   } catch (error) {
     if (error.response) {

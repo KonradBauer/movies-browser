@@ -29,6 +29,20 @@ import {
   StyledVectorLeft,
   StyledVectorRight,
 } from "./styled";
+import {
+  fetchSearchMovies,
+  searchMoviesPageDecrement,
+  searchMoviesPageIncrement,
+  setMoviesPageFirst,
+  setMoviesPageLast,
+} from "../../features/movies/searchMoviesSlice";
+import {
+  fetchSearchPeople,
+  searchPeoplePageDecrement,
+  searchPeoplePageIncrement,
+  setPeoplePageFirst,
+  setPeoplePageLast,
+} from "../../features/peoples/searchPeopleSlice";
 
 export const Pagination = ({ page, totalPages }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -47,12 +61,14 @@ export const Pagination = ({ page, totalPages }) => {
   const dispatch = useDispatch();
 
   const dispatchData = () => {
-    switch (pathname) {
-      case "/popular-movies":
+    switch (true) {
+      case pathname.includes("/popular-movies"):
         dispatch(fetchMovies());
+        dispatch(fetchSearchMovies());
         break;
-      case "/popular-people":
+      case pathname.includes("/popular-people"):
         dispatch(fetchPeople());
+        dispatch(fetchSearchPeople());
         break;
       default:
         return null;
@@ -60,13 +76,15 @@ export const Pagination = ({ page, totalPages }) => {
   };
 
   const dispatchPageDecrement = () => {
-    switch (pathname) {
-      case "/popular-movies":
+    switch (true) {
+      case pathname.includes("/popular-movies"):
         dispatch(moviesPageDecrement());
+        dispatch(searchMoviesPageDecrement());
         dispatchData();
         break;
-      case "/popular-people":
+      case pathname.includes("/popular-people"):
         dispatch(peoplePageDecrement());
+        dispatch(searchPeoplePageDecrement());
         dispatchData();
         break;
       default:
@@ -75,13 +93,15 @@ export const Pagination = ({ page, totalPages }) => {
   };
 
   const dispatchPageIncrement = () => {
-    switch (pathname) {
-      case "/popular-movies":
+    switch (true) {
+      case pathname.includes("/popular-movies"):
         dispatch(moviesPageIncrement());
+        dispatch(searchMoviesPageIncrement());
         dispatchData();
         break;
-      case "/popular-people":
+      case pathname.includes("/popular-people"):
         dispatch(peoplePageIncrement());
+        dispatch(searchPeoplePageIncrement());
         dispatchData();
         break;
       default:
@@ -90,13 +110,15 @@ export const Pagination = ({ page, totalPages }) => {
   };
 
   const dispatchPageFirst = () => {
-    switch (pathname) {
-      case "/popular-movies":
+    switch (true) {
+      case pathname.includes("/popular-movies"):
         dispatch(moviesPageFirst());
+        dispatch(setMoviesPageFirst());
         dispatchData();
         break;
-      case "/popular-people":
+      case pathname.includes("/popular-people"):
         dispatch(peoplePageFirst());
+        dispatch(setPeoplePageFirst());
         dispatchData();
         break;
       default:
@@ -105,13 +127,15 @@ export const Pagination = ({ page, totalPages }) => {
   };
 
   const dispatchPageLast = () => {
-    switch (pathname) {
-      case "/popular-movies":
+    switch (true) {
+      case pathname.includes("/popular-movies"):
         dispatch(moviesPageLast());
+        dispatch(setMoviesPageLast());
         dispatchData();
         break;
-      case "/popular-people":
+      case pathname.includes("/popular-people"):
         dispatch(peoplePageLast());
+        dispatch(setPeoplePageLast());
         dispatchData();
         break;
       default:
@@ -125,11 +149,11 @@ export const Pagination = ({ page, totalPages }) => {
         {page === 1 ? (
           <>
             <ButtonFirst buttonDisabled onClick={dispatchPageFirst}>
-              <StyledVectorLeft buttonDisabled disabled />
-              <StyledVectorLeft buttonDisabled disabled />
+              <StyledVectorLeft buttonDisabled />
+              <StyledVectorLeft buttonDisabled />
             </ButtonFirst>
-            <ButtonPrevious buttonDisabled disabled onClick={dispatchPageDecrement}>
-              <StyledVectorLeft buttonDisabled disabled />
+            <ButtonPrevious buttonDisabled onClick={dispatchPageDecrement}>
+              <StyledVectorLeft buttonDisabled />
             </ButtonPrevious>
           </>
         ) : (

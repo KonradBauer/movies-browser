@@ -50,15 +50,15 @@ export const getPopularPeople = (page) => {
     .then((response) => response.data);
 };
 
-export const searchMovie = (searchText) => {
+export const searchMovie = (page, searchText) => {
   return axios
-    .get(`${APIUrl}/search/movie?${APIKey}${language}&query=${searchText}`)
+    .get(`${APIUrl}/search/movie?${APIKey}${language}&page=${page}&query=${searchText}`)
     .then((response) => response.data);
 };
 
-export const searchPeople = searchText => {
+export const searchPeople = (page, searchText) => {
   return axios
-    .get(`${APIUrl}/search/person?${APIKey}${language}&query=${searchText}`)
+    .get(`${APIUrl}/search/person?${APIKey}${language}&page=${page}&query=${searchText}`)
     .then((response) => response.data);
 };
 

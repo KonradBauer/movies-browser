@@ -6,7 +6,7 @@ const searchMoviesSlice = createSlice({
     searchMovies: [],
     status: "initial",
     searchText: "",
-    page: null,
+    page: 1,
   },
   reducers: {
     loadSearchMovies: (state) => {
@@ -15,10 +15,21 @@ const searchMoviesSlice = createSlice({
     loadSearchMoviesSuccess: (state, { payload: searchMovies }) => {
       state.searchMovies = searchMovies;
       state.status = "success";
-      state.page = 1;
     },
     loadSearchMoviesError: (state) => {
       state.status = "error";
+    },
+    searchMoviesPageIncrement: (state) => {
+      state.page === 500 ? (state.page = 500) : (state.page += 1);
+    },
+    searchMoviesPageDecrement: (state) => {
+      state.page === 1 ? (state.page = 1) : (state.page -= 1);
+    },
+    setMoviesPageFirst: (state) => {
+      state.page = 1;
+    },
+    setMoviesPageLast: (state) => {
+      state.page = state.searchMovies.total_pages;
     },
     changeSearchMoviesPage: (state, { payload: page }) => {
       state.page = page;
@@ -30,7 +41,7 @@ const searchMoviesSlice = createSlice({
       state.searchMovies = [];
       state.page = null;
     },
-    fetchSearchMovies: () => { },
+    fetchSearchMovies: () => {},
   },
 });
 
@@ -38,6 +49,10 @@ export const {
   loadSearchMovies,
   loadSearchMoviesSuccess,
   loadSearchMoviesError,
+  searchMoviesPageIncrement,
+  searchMoviesPageDecrement,
+  setMoviesPageFirst,
+  setMoviesPageLast,
   changeSearchMoviesPage,
   changeMoviesSearchText,
   removeSearchMovies,
@@ -50,7 +65,8 @@ export const selectSearchMovies = (state) => selectSearchMoviesState(state).sear
 export const selectMoviesTotalResults = (state) =>
   selectSearchMoviesState(state).searchMovies.total_results;
 export const selectSearchMoviesText = (state) => selectSearchMoviesState(state).searchText;
-export const selectMoviesTotalPages = (state) => selectSearchMoviesState(state).searchMovies.total_pages;
+export const selectMoviesTotalPages = (state) =>
+  selectSearchMoviesState(state).searchMovies.total_pages;
 export const selectSearchMoviesStatus = (state) => selectSearchMoviesState(state).status;
 export const selectSearchMoviesPage = (state) => selectSearchMoviesState(state).page;
 

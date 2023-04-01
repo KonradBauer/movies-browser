@@ -19,6 +19,18 @@ const searchPeopleSlice = createSlice({
     loadSearchPeopleError: (state) => {
       state.status = "error";
     },
+    searchPeoplePageIncrement: (state) => {
+      state.page === 500 ? (state.page = 500) : (state.page += 1);
+    },
+    searchPeoplePageDecrement: (state) => {
+      state.page === 1 ? (state.page = 1) : (state.page -= 1);
+    },
+    setPeoplePageFirst: (state) => {
+      state.page = 1;
+    },
+    setPeoplePageLast: (state) => {
+      state.page = state.searchPeople.total_pages;
+    },
     changePeopleSearchText: (state, { payload: searchText }) => {
       state.searchText = searchText;
     },
@@ -28,7 +40,7 @@ const searchPeopleSlice = createSlice({
     removeSearchPeople: (state) => {
       state.searchPeople = [];
     },
-    fetchSearchPeople: () => { },
+    fetchSearchPeople: () => {},
   },
 });
 
@@ -36,6 +48,10 @@ export const {
   loadSearchPeople,
   loadSearchPeopleSuccess,
   loadSearchPeopleError,
+  searchPeoplePageIncrement,
+  searchPeoplePageDecrement,
+  setPeoplePageFirst,
+  setPeoplePageLast,
   changePeopleSearchText,
   removeSearchPeople,
   fetchSearchPeople,
@@ -47,7 +63,8 @@ export const selectSearchPeople = (state) => selectSearchPeopleState(state).sear
 export const selectPeopleTotalResults = (state) =>
   selectSearchPeopleState(state).searchPeople.total_results;
 export const selectPeopleSearchText = (state) => selectSearchPeopleState(state).searchText;
-export const selectPeopleTotalPages = (state) => selectSearchPeopleState(state).searchPeople.total_pages;
+export const selectPeopleTotalPages = (state) =>
+  selectSearchPeopleState(state).searchPeople.total_pages;
 export const selectSearchPeopleStatus = (state) => selectSearchPeopleState(state).status;
 export const selectSearchPeoplePage = (state) => selectSearchPeopleState(state).page;
 export default searchPeopleSlice.reducer;
