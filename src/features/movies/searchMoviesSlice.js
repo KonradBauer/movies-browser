@@ -6,7 +6,7 @@ const searchMoviesSlice = createSlice({
     searchMovies: [],
     status: "initial",
     searchText: "",
-    page: 1,
+    page: null,
   },
   reducers: {
     loadSearchMovies: (state) => {
@@ -15,6 +15,7 @@ const searchMoviesSlice = createSlice({
     loadSearchMoviesSuccess: (state, { payload: searchMovies }) => {
       state.searchMovies = searchMovies;
       state.status = "success";
+      state.page = 1;
     },
     loadSearchMoviesError: (state) => {
       state.status = "error";
@@ -27,6 +28,7 @@ const searchMoviesSlice = createSlice({
     },
     removeSearchMovies: (state) => {
       state.searchMovies = [];
+      state.page = null;
     },
     fetchSearchMovies: () => { },
   },

@@ -54,9 +54,9 @@ export default () => {
   return (
     <StyledInput
       placeholder={`Search for ${pathname.includes("/popular-movies")
-        ? "movies"
+        ? "movies..."
         : pathname.includes("popular-people")
-          ? "people"
+          ? "people..."
           : ""
         }`}
       value={query || ""}

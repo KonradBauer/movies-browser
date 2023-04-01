@@ -35,7 +35,8 @@ export const Search = () => {
       {moviesTotalResults !== 0 && peopleTotalResults !== 0 ? (
         <Wrapper>
           <SearchResults>
-            Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” ({moviesTotalResults !== null ? moviesTotalResults : peopleTotalResults})
+            Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” 
+            ({moviesTotalResults ? moviesTotalResults : peopleTotalResults})
           </SearchResults>
           {searchMovie &&
             searchMovie.length > 0 &&
@@ -68,8 +69,11 @@ export const Search = () => {
                   profile_path={profile_path}
                 />
               ))}
-              </PeopleTilesList>}
-          <Pagination page={searchMoviesPage !== "" ? searchMoviesPage : searchPeoplePage } totalPages={moviesTotalPages !== "" ? moviesTotalPages : peopleTotalPages} />
+            </PeopleTilesList>}
+          <Pagination
+            page={searchMoviesPage !== null ? searchMoviesPage : searchPeoplePage}
+            totalPages={moviesTotalPages ? moviesTotalPages : peopleTotalPages}
+          />
         </Wrapper>
       ) : (
         <NoResult />
