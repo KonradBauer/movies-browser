@@ -7,6 +7,7 @@ import { Tags } from "../../Tags";
 import { Raiting } from "../../Raiting";
 import { fetchMovieDetailsAndCredits } from "../../../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import noPoster from "../../../../common/images/no-poster.png";
+import { setIdLocalStorage } from "../../../../features/idLocalStorage";
 
 export const MovieTile = ({
   movie,
