@@ -39,6 +39,7 @@ const searchMoviesSlice = createSlice({
     },
     removeSearchMovies: (state) => {
       state.searchMovies = [];
+      state.status = "initial";
       state.page = null;
     },
     fetchSearchMovies: () => {},

@@ -39,6 +39,7 @@ const searchPeopleSlice = createSlice({
     },
     removeSearchPeople: (state) => {
       state.searchPeople = [];
+      state.status = "initial";
     },
     fetchSearchPeople: () => {},
   },
