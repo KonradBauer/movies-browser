@@ -57,7 +57,7 @@ export const PersonDetails = () => {
                   )}
               </List>
             </CastContent>
-            {peopleCredits.crew.length !== 0 ? (
+            {peopleCredits.crew && peopleCredits.crew.length !== 0 ? (
               <CrewContent>
                 <SubdivTitle>
                   Movies - crew({peopleCredits.crew && peopleCredits.crew.length})
