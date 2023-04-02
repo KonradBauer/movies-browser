@@ -8,14 +8,14 @@ import {
   loadMovieDetailsSuccess,
 } from "./movieDetailsAndCreditsSlice";
 import { selectMovieID } from "../movie/moviesSlice";
-import { getIdLoaclStorage, setIdLocalStorage } from "../../idLocalStorage";
+import { getIdLocalStorage, setIdLocalStorage } from "../../idLocalStorage";
 
 function* fetchMovieDetailsAndCreditsHandler() {
   yield put(loadMovieDetails());
   yield delay(1_000);
 
   try {
-    const movieID = yield call(getIdLoaclStorage, "movieId");
+    const movieID = yield call(getIdLocalStorage, "movieId");
     const movieDetails = yield call(getMovie, movieID);
     const movieCredits = yield call(getMovieCredits, movieID);
     yield put(loadMovieDetailsSuccess(movieDetails));

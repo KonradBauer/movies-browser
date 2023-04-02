@@ -23,7 +23,7 @@ import {
   selectPeopleStatus,
 } from "./features/peoples/people/peopleSlice";
 import { fetchMovieDetailsAndCredits, selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
-import { selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
+import { fetchPeopleDetails, selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
@@ -55,6 +55,7 @@ export const App = () => {
     dispatch(fetchMovies());
     dispatch(fetchMovieDetailsAndCredits());
     dispatch(fetchPeople());
+    dispatch(fetchPeopleDetails());
   }, [dispatch]);
 
   return (

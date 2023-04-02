@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getIdLoaclStorage } from "../../idLocalStorage";
+import { getIdLocalStorage } from "../../idLocalStorage";
 
 const moviesSlice = createSlice({
   name: "movies",
@@ -7,7 +7,7 @@ const moviesSlice = createSlice({
     movies: [],
     page: 1,
     pageLast: 500,
-    movieID: getIdLoaclStorage("movieId"),
+    movieID: getIdLocalStorage("movieId"),
     status: "initial",
   },
   reducers: {
