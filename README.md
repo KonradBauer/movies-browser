@@ -6,7 +6,7 @@ The Movies Browser is a platform you can easily search for your favorite movies,
 Also you can find more information about the cast and crew who worked on the movie.
 Here below you can find example
 
-
+![example](https://github.com/KonradBauer/movies-browser/blob/1f13f65493f779c9f542299e3a6734a8ca48771c/public/moviebrowser1.gif)
 
 ## Contributors
 > The project was created by:
