@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getLocalStorage } from "../localStorage";
 
 const searchMoviesSlice = createSlice({
   name: "searchMovies",
   initialState: {
     searchMovies: [],
     status: "initial",
-    searchText: "",
+    searchText: getLocalStorage("moviesSearch"),
     page: 1,
   },
   reducers: {

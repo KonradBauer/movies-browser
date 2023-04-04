@@ -8,14 +8,14 @@ import {
   loadPeopleDetailsError,
   loadPeopleDetailsSuccess,
 } from "./peopleDetailsSlice";
-import { getIdLocalStorage, setIdLocalStorage } from "../../idLocalStorage";
+import { getLocalStorage, setLocalStorage } from "../../localStorage";
 
 function* fetchPeopleDetailsHandler() {
   yield put(loadPeopleDetails());
   yield delay(1_000);
 
   try {
-    const peopleID = yield call(getIdLocalStorage, "peopleId");
+    const peopleID = yield call(getLocalStorage, "peopleId");
     const peopleDetails = yield call(getPeople, peopleID);
     const peopleCredits = yield call(getPeopleCredits, peopleID);
     yield put(loadPeopleDetailsSuccess(peopleDetails));
@@ -27,7 +27,7 @@ function* fetchPeopleDetailsHandler() {
 
 function* saveIdInLocalStorage() {
   const peopleId = yield select(selectPeopleID);
-  yield call(setIdLocalStorage, "peopleId", peopleId);
+  yield call(setLocalStorage, "peopleId", peopleId);
 };
 
 export function* peopleDetailsSaga() {

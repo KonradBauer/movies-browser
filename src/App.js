@@ -32,9 +32,9 @@ import {
   changeMoviesSearchText,
   selectSearchMoviesStatus,
 } from "./features/movies/searchMoviesSlice";
-import { selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
+import { fetchSearchMovies, selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
-import { selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
+import { fetchSearchPeople, selectSearchPeopleStatus, selectPeopleSearchText } from "./features/peoples/searchPeopleSlice";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -45,6 +45,7 @@ export const App = () => {
   const personID = useSelector(selectPeopleID);
   const searchTextMovies = useSelector(selectSearchMoviesText);
   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
+  const searchTextPeople = useSelector(selectPeopleSearchText);
   const searchPeopleStatus = useSelector(selectSearchPeopleStatus);
 
   const dispatch = useDispatch();
@@ -56,6 +57,14 @@ export const App = () => {
     dispatch(fetchMovieDetailsAndCredits());
     dispatch(fetchPeople());
     dispatch(fetchPeopleDetails());
+
+    if (searchMoviesStatus === "initial" && searchTextMovies != "") {
+      dispatch(fetchSearchMovies());
+    }
+    if (searchPeopleStatus === "initial" && searchTextPeople != "") {
+      dispatch(fetchSearchPeople());
+    }
+
   }, [dispatch]);
 
   return (

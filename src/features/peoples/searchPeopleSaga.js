@@ -1,4 +1,4 @@
-import { call, put, debounce, select, delay } from "redux-saga/effects";
+import { call, put, debounce, select, delay, takeEvery } from "redux-saga/effects";
 import { searchPeople } from "../getAPI";
 import {
   loadSearchPeopleSuccess,
@@ -7,13 +7,14 @@ import {
   loadSearchPeople,
   selectSearchPeoplePage,
 } from "../peoples/searchPeopleSlice";
+import { getLocalStorage, setLocalStorage } from "../localStorage";
 
 function* fetchSearchPeopleHandler() {
   yield put(loadSearchPeople());
   yield delay(1000);
 
   try {
-    const searchText = yield select(selectPeopleSearchText);
+    const searchText = yield call(getLocalStorage, "peopleSearch");
     const page = yield select(selectSearchPeoplePage);
     const searchPeoples = yield call(searchPeople, page, searchText);
     yield put(loadSearchPeopleSuccess(searchPeoples));
@@ -28,6 +29,12 @@ function* fetchSearchPeopleHandler() {
   }
 }
 
+function* savePeopleSearchInLocalStorage() {
+  const peopleSearch = yield select(selectPeopleSearchText);
+  yield call(setLocalStorage, "peopleSearch", peopleSearch);
+};
+
 export function* searchPeopleSaga() {
   yield debounce(300, fetchSearchPeople.type, fetchSearchPeopleHandler);
+  yield takeEvery("*", savePeopleSearchInLocalStorage);
 }
