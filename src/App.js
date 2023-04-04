@@ -38,9 +38,8 @@ import {
   changeMoviesSearchText,
   selectSearchMoviesStatus,
 } from "./features/movies/searchMoviesSlice";
-import { selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
-import { fetchSearchPeople, selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
+import { selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
 import { Error } from "./layouts/Error";
 
 export const App = () => {
@@ -50,7 +49,6 @@ export const App = () => {
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
-  const searchTextMovies = useSelector(selectSearchMoviesText);
   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
   const searchPeopleStatus = useSelector(selectSearchPeopleStatus);
 
@@ -63,7 +61,6 @@ export const App = () => {
     dispatch(fetchMovieDetailsAndCredits());
     dispatch(fetchPeople());
     dispatch(fetchPeopleDetails());
-    dispatch(fetchSearchPeople());
   }, [dispatch]);
 
   return (
@@ -124,12 +121,7 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
-          <Route
-            path={{
-              pathname: "/popular-people",
-              search: `?search=${searchTextMovies}`,
-            }}
-          >
+          <Route path="*/search">
             {searchMoviesStatus === "loading" || searchPeopleStatus === "loading" ? (
               <Loading />
             ) : (
