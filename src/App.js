@@ -22,8 +22,14 @@ import {
   selectPeopleID,
   selectPeopleStatus,
 } from "./features/peoples/people/peopleSlice";
-import { fetchMovieDetailsAndCredits, selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
-import { fetchPeopleDetails, selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
+import {
+  fetchMovieDetailsAndCredits,
+  selectMovieDetailsStatus,
+} from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
+import {
+  fetchPeopleDetails,
+  selectPeopleDetailsStatus,
+} from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
@@ -34,7 +40,8 @@ import {
 } from "./features/movies/searchMoviesSlice";
 import { selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
-import { selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
+import { fetchSearchPeople, selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
+import { Error } from "./layouts/Error";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -56,6 +63,7 @@ export const App = () => {
     dispatch(fetchMovieDetailsAndCredits());
     dispatch(fetchPeople());
     dispatch(fetchPeopleDetails());
+    dispatch(fetchSearchPeople());
   }, [dispatch]);
 
   return (
@@ -118,7 +126,7 @@ export const App = () => {
           </Route>
           <Route
             path={{
-              pathname: "/popular-people/search",
+              pathname: "/popular-people",
               search: `?search=${searchTextMovies}`,
             }}
           >
@@ -128,7 +136,9 @@ export const App = () => {
               <Search />
             )}
           </Route>
-          <Route component={Error} />
+          <Route path="*">
+            <Error />
+          </Route>
         </Switch>
       </HashRouter>
     </ThemeProvider>
