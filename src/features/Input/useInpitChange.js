@@ -29,8 +29,7 @@ export const useInputChange = () => {
     };
 
     const pushToPath = (pathname, target) => {
-        setTimeout(
-            () => history.push({
+        setTimeout(() => history.push({
                 pathname: pathname,
                 search: `?${searchQueryParamsName}=${target.value}`,
             }), 1 * 1000);
