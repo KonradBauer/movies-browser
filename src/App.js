@@ -22,8 +22,14 @@ import {
   selectPeopleID,
   selectPeopleStatus,
 } from "./features/peoples/people/peopleSlice";
-import { fetchMovieDetailsAndCredits, selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
-import { fetchPeopleDetails, selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
+import {
+  fetchMovieDetailsAndCredits,
+  selectMovieDetailsStatus,
+} from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
+import {
+  fetchPeopleDetails,
+  selectPeopleDetailsStatus,
+} from "./features/peoples/peopleDetails/peopleDetailsSlice";
 import { fetchMovies } from "./features/movies/movie/moviesSlice";
 import { fetchPeople } from "./features/peoples/people/peopleSlice";
 import { fetchGenres } from "./features/movies/genresSilce";
@@ -34,7 +40,12 @@ import {
 } from "./features/movies/searchMoviesSlice";
 import { fetchSearchMovies, selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
 import Input from "./features/Input";
-import { fetchSearchPeople, selectSearchPeopleStatus, selectPeopleSearchText } from "./features/peoples/searchPeopleSlice";
+import {
+  fetchSearchPeople,
+  selectSearchPeopleStatus,
+  selectPeopleSearchText,
+} from "./features/peoples/searchPeopleSlice";
+import { Error } from "./layouts/Error";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -43,9 +54,9 @@ export const App = () => {
   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
   const movieID = useSelector(selectMovieID);
   const personID = useSelector(selectPeopleID);
-  const searchTextMovies = useSelector(selectSearchMoviesText);
   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
   const searchTextPeople = useSelector(selectPeopleSearchText);
+  const searchTextMovies = useSelector(selectSearchMoviesText);
   const searchPeopleStatus = useSelector(selectSearchPeopleStatus);
 
   const dispatch = useDispatch();
@@ -64,7 +75,6 @@ export const App = () => {
     if (searchPeopleStatus === "initial" && searchTextPeople != "") {
       dispatch(fetchSearchPeople());
     }
-
   }, [dispatch]);
 
   return (
@@ -125,19 +135,16 @@ export const App = () => {
           <Route exact path="/">
             <Redirect to={"/popular-movies"} />
           </Route>
-          <Route
-            path={{
-              pathname: "/popular-people/search",
-              search: `?search=${searchTextMovies}`,
-            }}
-          >
+          <Route path="*/search">
             {searchMoviesStatus === "loading" || searchPeopleStatus === "loading" ? (
               <Loading />
             ) : (
               <Search />
             )}
           </Route>
-          <Route component={Error} />
+          <Route path="*">
+            <Error />
+          </Route>
         </Switch>
       </HashRouter>
     </ThemeProvider>

@@ -36,6 +36,6 @@ export const Image = styled.img.attrs((props) => ({ src: props.source }))`
     css`
       border-radius: 5px;
       width: 100%;
-      aspect-ratio: 3/4;
+      aspect-ratio: 7/10;
     `}
 `;

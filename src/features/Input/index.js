@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../queryParameters";
 import searchQueryParamsName from "../searchQueryParamName";
@@ -29,16 +29,21 @@ export default () => {
       key: searchQueryParamsName,
       value: target.value.trim() ? target.value : undefined,
     });
-    dispatch(changePeopleSearchText(""));
+
     dispatch(removeSearchPeople());
     dispatch(fetchSearchMovies());
     dispatch(setMoviesPageFirst());
-    dispatch(changeMoviesSearchText(target.value));
+    dispatch(changePeopleSearchText(""));
+    setTimeout(() => dispatch(changeMoviesSearchText(target.value)), 1000);
 
-    history.push({
-      pathname: "/popular-movies/search",
-      search: `?${searchQueryParamsName}=${target.value}`,
-    });
+    setTimeout(
+      () =>
+        history.push({
+          pathname: "/popular-movies/search",
+          search: `?${searchQueryParamsName}=${target.value}`,
+        }),
+      1000
+    );
   };
 
   const searchPeople = (target) => {
@@ -47,16 +52,20 @@ export default () => {
       value: target.value.trim() ? target.value : undefined,
     });
 
-    dispatch(changeMoviesSearchText(""));
     dispatch(removeSearchMovies());
     dispatch(fetchSearchPeople());
     dispatch(setPeoplePageFirst());
-    dispatch(changePeopleSearchText(target.value));
+    dispatch(changeMoviesSearchText(""));
+    setTimeout(() => dispatch(changePeopleSearchText(target.value)), 1000);
 
-    history.push({
-      pathname: "/popular-people/search",
-      search: `?${searchQueryParamsName}=${target.value}`,
-    });
+    setTimeout(
+      () =>
+        history.push({
+          pathname: "/popular-people/search",
+          search: `?${searchQueryParamsName}=${target.value}`,
+        }),
+      1000
+    );
   };
 
   const onInputChange = ({ target }) => {
