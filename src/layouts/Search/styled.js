@@ -8,11 +8,23 @@ export const Wrapper = styled.div`
 `;
 
 export const SearchResults = styled.div`
-font-weight: 600;
-font-size: 36px;
-line-height: 1.2;
-margin-bottom:24px;
-color: ${({ theme }) => theme.color.woodsmoke};
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: ${({ theme }) => theme.color.woodsmoke};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
+    font-size: 14px;
+  }
 `;
 
 export const MoviesTilesList = styled.ul`
