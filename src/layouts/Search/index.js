@@ -28,15 +28,15 @@ export const Search = () => {
   const posterSizes = useSelector(selectPosterSizes);
   const profileSizes = useSelector(selectProfileSizes);
   const history = useHistory();
-  
+
   return (
     <>
-      {peopleTotalResults === 0 && peopleQuery === "" ? history.push("/popular-people") 
+      {peopleTotalResults === 0 && peopleQuery === "" ? history.push("/popular-people")
         : moviesTotalResults === 0 && moviesQuery === "" ? history.push("/popular-movies") : ""}
       {moviesTotalResults !== 0 && peopleTotalResults !== 0 ? (
         <Wrapper>
           <SearchResults>
-            Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” 
+            Search results for “{moviesQuery != "" ? moviesQuery : peopleQuery}”
             ({moviesTotalResults ? moviesTotalResults : peopleTotalResults})
           </SearchResults>
           {searchMovie &&
