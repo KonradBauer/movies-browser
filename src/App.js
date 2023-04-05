@@ -39,7 +39,7 @@ import {
   selectSearchMoviesStatus,
 } from "./features/movies/searchMoviesSlice";
 import { fetchSearchMovies, selectSearchMoviesText } from "./features/movies/searchMoviesSlice";
-import Input from "./features/Input";
+import Input from "./layouts/Input";
 import {
   fetchSearchPeople,
   selectSearchPeopleStatus,
