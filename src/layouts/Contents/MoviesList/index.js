@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { Error } from "../../Error";
+import Error from "../../Error";
 import { Pagination } from "../../Pagination";
 import { selectMovies, selectMoviesPages, selectMoviesStatus } from "../../../features/movies/movie/moviesSlice";
 import { selectPosterSizes } from "../../../features/configurationSlice";

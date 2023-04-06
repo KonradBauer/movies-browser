@@ -30,7 +30,7 @@ import {
   Wrapper,
 } from "./styled";
 import { Tile } from "../Tile/index";
-import { Error } from "../Error/index";
+import Error from "../Error/index";
 
 export const MoviesDetails = () => {
   const movieDetails = useSelector(selectMovieDetails);
