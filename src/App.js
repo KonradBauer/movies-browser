@@ -44,7 +44,7 @@ import {
   selectSearchPeopleStatus,
   selectPeopleSearchText,
 } from "./features/peoples/searchPeopleSlice";
-import { Error } from "./layouts/Error";
+import Error from "./layouts/Error";
 import MoviesListContent from "./layouts/Contents/MoviesList";
 import PeopleListContent from "./layouts/Contents/PeopleList";
 

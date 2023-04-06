@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { Error } from "../../Error";
+import Error from "../../Error";
 import { Pagination } from "../../Pagination";
 import { selectPeople, selectPeoplePages, selectPeopleStatus } from "../../../features/peoples/people/peopleSlice";
 import { selectProfileSizes } from "../../../features/configurationSlice";

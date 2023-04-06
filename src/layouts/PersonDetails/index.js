@@ -6,7 +6,7 @@ import {
   selectPeopleDetailsStatus,
 } from "../../features/peoples/peopleDetails/peopleDetailsSlice";
 import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
-import { Error } from "../Error/index";
+import Error from "../Error/index";
 
 export const PersonDetails = () => {
   const peopleCredits = useSelector(selectPeopleCredits);

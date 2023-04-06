@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { fetchMovies } from "../../features/movies/movie/moviesSlice";
 import { Button, MainText, StyledDanger, SubText, Wrapper } from "./styled";
 
-export const Error = () => {
+const Error = () => {
   const dispatch = useDispatch();
   return (
     <Wrapper>
@@ -15,3 +15,5 @@ export const Error = () => {
     </Wrapper>
   );
 };
+
+export default Error;
