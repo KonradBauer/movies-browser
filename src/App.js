@@ -1,7 +1,6 @@
 import React from "react";
 import { HashRouter, Route, Redirect, Switch, NavLink } from "react-router-dom";
 import { HeadContainer, MoviesButton, PeopleButton } from "./layouts/Header/styled";
-import { Content, PeopleContent } from "./layouts/Contents/index";
 import { PersonDetails } from "./layouts/PersonDetails/index";
 import { MoviesDetails } from "./layouts/MoviesDetails/index";
 import { Loading } from "./layouts/Loading/index";
@@ -46,6 +45,8 @@ import {
   selectPeopleSearchText,
 } from "./features/peoples/searchPeopleSlice";
 import { Error } from "./layouts/Error";
+import MoviesListContent from "./layouts/Contents/MoviesList";
+import PeopleListContent from "./layouts/Contents/PeopleList";
 
 export const App = () => {
   const movieStatus = useSelector(selectMoviesStatus);
@@ -121,10 +122,10 @@ export const App = () => {
         </HeadContainer>
         <Switch>
           <Route exact path="/popular-movies">
-            {movieStatus === "loading" ? <Loading /> : <Content />}
+            {movieStatus === "loading" ? <Loading /> : <MoviesListContent />}
           </Route>
           <Route exact path="/popular-people">
-            {peopleStatus === "loading" ? <Loading /> : <PeopleContent />}
+            {peopleStatus === "loading" ? <Loading /> : <PeopleListContent />}
           </Route>
           <Route path={`/popular-movies/${movieID}`}>
             {movieDetailsStatus === "loading" ? <Loading /> : <MoviesDetails />}
