@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import Input from "../Input";
+import Input from "./Input";
 import { fetchMovies, moviesPageFirst } from "../../features/movies/movie/moviesSlice";
 import { fetchPeople, peoplePageFirst } from "../../features/peoples/people/peopleSlice";
 import { useDispatchHandler } from "../../features/Header/useDispatchHandler";

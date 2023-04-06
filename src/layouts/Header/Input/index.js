@@ -1,10 +1,10 @@
-import searchQueryParamsName from "../../features/searchQueryParamName";
-import { useQueryParameter } from "../../features/queryParameters";
+import searchQueryParamsName from "../../../features/searchQueryParamName";
+import { useQueryParameter } from "../../../features/queryParameters";
 
-import { useInputChange } from "../../features/Input/useInpitChange";
-import { usePathname } from "../../features/usePathname";
+import { useInputChange } from "../../../features/Input/useInpitChange";
+import { usePathname } from "../../../features/usePathname";
 
-import { StyledInput } from "../Header/styled";
+import { StyledInput } from "../styled";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamsName);
