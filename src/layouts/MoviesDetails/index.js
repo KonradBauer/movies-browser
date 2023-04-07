@@ -9,7 +9,7 @@ import { selectPosterSizes } from "../../features/configurationSlice";
 
 import { Content, TileContent } from "./styled";
 
-export const MoviesDetails = () => {
+const MoviesDetails = () => {
    const posterSizes = useSelector(selectPosterSizes);
    const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
@@ -32,3 +32,5 @@ export const MoviesDetails = () => {
       </>
    );
 };
+
+export default MoviesDetails;
