@@ -1,8 +1,10 @@
-import { Disclaimer, PictureWrapper, Wrapper } from "./styled";
-import { ReactComponent as Picture } from "../../common/svg/noResult.svg";
 import { useSelector } from "react-redux";
+
+import { ReactComponent as Picture } from "../../common/svg/noResult.svg";
 import { selectSearchMoviesText } from "../../features/movies/searchMoviesSlice";
 import { selectPeopleSearchText } from "../../features/peoples/searchPeopleSlice";
+
+import { Disclaimer, PictureWrapper, Wrapper } from "./styled";
 
 export const NoResult = () => {
   const moviesQuery = useSelector(selectSearchMoviesText);
