@@ -1,4 +1,4 @@
-import { call, put, debounce, select, delay, takeEvery } from "redux-saga/effects";
+import { call, put, select, delay, takeEvery, takeLatest } from "redux-saga/effects";
 import { searchPeople } from "../getAPI";
 import {
   loadSearchPeopleSuccess,
@@ -32,9 +32,9 @@ function* fetchSearchPeopleHandler() {
 function* savePeopleSearchInLocalStorage() {
   const peopleSearch = yield select(selectPeopleSearchText);
   yield call(setLocalStorage, "peopleSearch", peopleSearch);
-};
+}
 
 export function* searchPeopleSaga() {
-  yield debounce(300, fetchSearchPeople.type, fetchSearchPeopleHandler);
+  yield takeLatest(fetchSearchPeople.type, fetchSearchPeopleHandler);
   yield takeEvery("*", savePeopleSearchInLocalStorage);
 }
