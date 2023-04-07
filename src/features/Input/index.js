@@ -34,7 +34,7 @@ export default () => {
     dispatch(fetchSearchMovies());
     dispatch(setMoviesPageFirst());
     dispatch(changePeopleSearchText(""));
-    setTimeout(() => dispatch(changeMoviesSearchText(target.value)), 1000);
+    dispatch(changeMoviesSearchText(target.value));
 
     setTimeout(
       () =>
@@ -56,7 +56,7 @@ export default () => {
     dispatch(fetchSearchPeople());
     dispatch(setPeoplePageFirst());
     dispatch(changeMoviesSearchText(""));
-    setTimeout(() => dispatch(changePeopleSearchText(target.value)), 1000);
+    dispatch(changePeopleSearchText(target.value));
 
     setTimeout(
       () =>
