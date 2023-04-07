@@ -36,14 +36,10 @@ export default () => {
     dispatch(changePeopleSearchText(""));
     dispatch(changeMoviesSearchText(target.value));
 
-    setTimeout(
-      () =>
-        history.push({
-          pathname: "/popular-movies/search",
-          search: `?${searchQueryParamsName}=${target.value}`,
-        }),
-      1000
-    );
+    history.push({
+      pathname: "/popular-movies/search",
+      search: `?${searchQueryParamsName}=${target.value}`,
+    });
   };
 
   const searchPeople = (target) => {
@@ -58,14 +54,10 @@ export default () => {
     dispatch(changeMoviesSearchText(""));
     dispatch(changePeopleSearchText(target.value));
 
-    setTimeout(
-      () =>
-        history.push({
-          pathname: "/popular-people/search",
-          search: `?${searchQueryParamsName}=${target.value}`,
-        }),
-      1000
-    );
+    history.push({
+      pathname: "/popular-people/search",
+      search: `?${searchQueryParamsName}=${target.value}`,
+    });
   };
 
   const onInputChange = ({ target }) => {
