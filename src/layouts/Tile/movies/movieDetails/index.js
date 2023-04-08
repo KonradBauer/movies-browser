@@ -1,4 +1,4 @@
-import { Description } from "../../Description";
+import Description from "../../Description";
 import { Details } from "../../Details";
 import { Information } from "../../Information";
 import { Raiting } from "../../Raiting";
