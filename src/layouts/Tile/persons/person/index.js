@@ -1,5 +1,5 @@
 import { APIImageUrl } from "../../../../features/getAPI";
-import { Information } from "../../Information";
+import Information from "../../Information";
 import { ContainerLink, Image } from "./styled";
 import noProfile from "../../../../common/images/no-person.png";
 import { useDispatch } from "react-redux";
