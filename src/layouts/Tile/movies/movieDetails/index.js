@@ -3,10 +3,11 @@ import Details from "../../Details";
 import Information from "../../Information";
 import { Raiting } from "../../Raiting";
 import { Tags } from "../../Tags";
-import { Container, DescriptionContainer, Image, MovieContainer } from "./styled";
 import { APIImageUrl } from "../../../../features/getAPI";
 
-export const MovieDetailsTile = ({
+import { Container, DescriptionContainer, Image, MovieContainer } from "./styled";
+
+const MovieDetailsTile = ({
   posterSizes,
   poster_path,
   title,
@@ -23,11 +24,7 @@ export const MovieDetailsTile = ({
       <MovieContainer movieDetails>
         <DescriptionContainer movieDetails>
           <Information movieDetails title={title} release_date={release_date} />
-          <Details
-            movieDetails
-            production_countries={production_countries}
-            release_date={release_date}
-          />
+          <Details movieDetails production_countries={production_countries} release_date={release_date} />
           <Tags movieDetails genresDetails={genresDetails} />
         </DescriptionContainer>
         <Raiting movieDetails vote_average={vote_average} vote_count={vote_count} />
@@ -36,3 +33,5 @@ export const MovieDetailsTile = ({
     </Container>
   );
 };
+
+export default MovieDetailsTile;
