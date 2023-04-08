@@ -1,5 +1,5 @@
 import Description from "../../Description";
-import { Details } from "../../Details";
+import Details from "../../Details";
 import { Information } from "../../Information";
 import { Raiting } from "../../Raiting";
 import { Tags } from "../../Tags";
