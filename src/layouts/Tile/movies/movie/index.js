@@ -1,6 +1,6 @@
 import { ContainerLink, DescriptionContainer, Image } from "./styled";
 import { useDispatch } from "react-redux";
-import { Information } from "../../Information";
+import Information from "../../Information";
 import { APIImageUrl } from "../../../../features/getAPI";
 import { getMovieID } from "../../../../features/movies/movie/moviesSlice";
 import { Tags } from "../../Tags";
