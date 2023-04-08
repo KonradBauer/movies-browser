@@ -10,7 +10,7 @@ import {
 import { selectPosterSizes, selectProfileSizes } from "../../features/configurationSlice";
 import { Tile } from "../Tile/index";
 import { NoResult } from "../NoResult";
-import { Pagination } from "../Pagination";
+import Pagination from "../Pagination";
 import { useHistory } from "react-router-dom";
 import { selectSearchPeople, selectSearchPeoplePage, selectPeopleTotalResults, selectPeopleTotalPages, selectPeopleSearchText } from "../../features/peoples/searchPeopleSlice";
 
