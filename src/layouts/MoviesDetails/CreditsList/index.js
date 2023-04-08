@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 
-import { selectMovieCredits } from "../../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
-import { CastContent, List, SubdivTitle } from "../styled";
 import { Tile } from "../../Tile";
+import { selectMovieCredits } from "../../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectProfileSizes } from "../../../features/configurationSlice";
+
+import { CastContent, List, SubdivTitle } from "../styled";
 
 const CreditsList = ({ cast, crew, title }) => {
    const movieCredits = useSelector(selectMovieCredits);
