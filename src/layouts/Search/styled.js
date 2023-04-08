@@ -53,12 +53,13 @@ export const MoviesTilesList = styled.ul`
 
 export const PeopleTilesList = styled.ul`
   list-style: none;
-  padding: 24px 16px 0px;
+  padding: 0px;
   margin: 0px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(202px, auto));
   gap: 24px;
+  padding-top: 24px;
 
   @media (max-width: 1380px) {
     grid-template-columns: repeat(auto-fill, minmax(166px, auto));
