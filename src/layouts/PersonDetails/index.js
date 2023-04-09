@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import CreditsList from "./CreditsList";
 import Error from "../Error/index";
-import { Tile } from "../Tile/index";
+import Tile from "../Tile/index";
 import { selectPeopleDetailsStatus } from "../../features/peoples/peopleDetails/peopleDetailsSlice";
 import { selectProfileSizes } from "../../features/configurationSlice";
 
