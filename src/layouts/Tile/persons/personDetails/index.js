@@ -1,18 +1,12 @@
+import Information from "../../Information";
 import Description from "../../Description";
 import Details from "../../Details";
-import Information from "../../Information";
-import { Container, DescriptionContainer, Image } from "./styled";
 import noPerson from "../../../../common/images/no-person.png";
 import { APIImageUrl } from "../../../../features/getAPI";
 
-export const PersonDetailsTile = ({
-  profileSizes,
-  profile_path,
-  name,
-  birthday,
-  place_of_birth,
-  biography,
-}) => {
+import { Container, DescriptionContainer, Image } from "./styled";
+
+export const PersonDetailsTile = ({ profileSizes, profile_path, name, birthday, place_of_birth, biography }) => {
   return (
     <Container personDetails>
       <Image
