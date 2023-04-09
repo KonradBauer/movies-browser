@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 
 import Error from "../../Error";
 import Pagination from "../../Pagination";
+import Tile from "../../Tile";
 import { selectPeople, selectPeoplePages, selectPeopleStatus } from "../../../features/peoples/people/peopleSlice";
 import { selectProfileSizes } from "../../../features/configurationSlice";
-import Tile from "../../Tile";
 
 import { BoxTitle, MainBox, PersonTilesList, Section } from "../styled";
 

@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 
 import Error from "../../Error";
 import Pagination from "../../Pagination";
+import Tile from "../../Tile";
 import { selectMovies, selectMoviesPages, selectMoviesStatus } from "../../../features/movies/movie/moviesSlice";
 import { selectPosterSizes } from "../../../features/configurationSlice";
-import Tile from "../../Tile";
 
 import { BoxTitle, MainBox, Section, TilesList } from "../styled";
 
