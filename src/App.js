@@ -1,7 +1,7 @@
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import PersonDetails from "./layouts/PersonDetails/index";
 import MoviesDetails from "./layouts/MoviesDetails/index";
-import { Loading } from "./layouts/Loading/index";
+import Loading from "./layouts/Loading/index";
 import { ThemeProvider } from "styled-components";
 import { Search } from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
