@@ -1,31 +1,22 @@
-import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
-import PersonDetails from "./layouts/PersonDetails/index";
-import MoviesDetails from "./layouts/MoviesDetails/index";
-import Loading from "./layouts/Loading/index";
-import { ThemeProvider } from "styled-components";
-import Search from "./layouts/Search/index";
-import { theme } from "./common/Theme/theme";
 import { useSelector } from "react-redux";
-import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
-import { selectPeopleID, selectPeopleStatus } from "./features/peoples/people/peopleSlice";
-import { selectMovieDetailsStatus } from "./features/movies/movieDetails/movieDetailsAndCreditsSlice";
-import { selectPeopleDetailsStatus } from "./features/peoples/peopleDetails/peopleDetailsSlice";
-import { selectSearchMoviesStatus } from "./features/movies/searchMoviesSlice";
-import { selectSearchPeopleStatus } from "./features/peoples/searchPeopleSlice";
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
 import Error from "./layouts/Error";
-import MoviesListContent from "./layouts/Contents/MoviesList";
-import PeopleListContent from "./layouts/Contents/PeopleList";
 import Header from "./layouts/Header";
+import MoviesDetails from "./layouts/MoviesDetails/index";
+import MoviesListContent from "./layouts/Contents/MoviesList";
+import PersonDetails from "./layouts/PersonDetails/index";
+import PeopleListContent from "./layouts/Contents/PeopleList";
+import Search from "./layouts/Search/index";
+import { selectMovieID } from "./features/movies/movie/moviesSlice";
+import { selectPeopleID } from "./features/peoples/people/peopleSlice";
+import { theme } from "./common/Theme/theme";
+
 
 export const App = () => {
-   const movieStatus = useSelector(selectMoviesStatus);
-   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
-   const peopleStatus = useSelector(selectPeopleStatus);
-   const personDetailsStatus = useSelector(selectPeopleDetailsStatus);
    const movieID = useSelector(selectMovieID);
    const personID = useSelector(selectPeopleID);
-   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
-   const searchPeopleStatus = useSelector(selectSearchPeopleStatus);
 
    return (
       <ThemeProvider theme={theme}>
@@ -33,22 +24,22 @@ export const App = () => {
             <Header />
             <Switch>
                <Route exact path="/popular-movies">
-                  {movieStatus === "loading" ? <Loading /> : <MoviesListContent />}
+                  <MoviesListContent />
                </Route>
                <Route exact path="/popular-people">
-                  {peopleStatus === "loading" ? <Loading /> : <PeopleListContent />}
+                  <PeopleListContent />
                </Route>
                <Route path={`/popular-movies/${movieID}`}>
-                  {movieDetailsStatus === "loading" ? <Loading /> : <MoviesDetails />}
+                  <MoviesDetails />
                </Route>
                <Route path={`/popular-people/${personID}`}>
-                  {personDetailsStatus === "loading" ? <Loading /> : <PersonDetails />}
+                  <PersonDetails />
                </Route>
                <Route exact path="/">
                   <Redirect to={"/popular-movies"} />
                </Route>
                <Route path="*/search">
-                  {searchMoviesStatus === "loading" || searchPeopleStatus === "loading" ? <Loading /> : <Search />}
+                  <Search />
                </Route>
                <Route path="*">
                   <Error />
