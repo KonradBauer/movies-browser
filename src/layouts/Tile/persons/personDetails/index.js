@@ -6,7 +6,7 @@ import { APIImageUrl } from "../../../../features/getAPI";
 
 import { Container, DescriptionContainer, Image } from "./styled";
 
-export const PersonDetailsTile = ({ profileSizes, profile_path, name, birthday, place_of_birth, biography }) => {
+const PersonDetailsTile = ({ profileSizes, profile_path, name, birthday, place_of_birth, biography }) => {
   return (
     <Container personDetails>
       <Image
@@ -22,3 +22,5 @@ export const PersonDetailsTile = ({ profileSizes, profile_path, name, birthday, 
     </Container>
   );
 };
+
+export default PersonDetailsTile;
