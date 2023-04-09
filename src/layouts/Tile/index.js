@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 
 import MovieDetailsTile from "./movies/movieDetails";
 import MovieTile from "./movies/movie";
-import { PersonDetailsTile } from "./persons/personDetails";
-import { PersonTile } from "./persons/person";
+import PersonDetailsTile from "./persons/personDetails";
+import PersonTile from "./persons/person";
 import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPeopleDetails } from "../../features/peoples/peopleDetails/peopleDetailsSlice";
 

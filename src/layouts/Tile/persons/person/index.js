@@ -8,7 +8,7 @@ import { getPeopleID } from "../../../../features/peoples/people/peopleSlice";
 
 import { ContainerLink, Image } from "./styled";
 
-export const PersonTile = ({ profileSizes, id, name, profile_path, character, job }) => {
+const PersonTile = ({ profileSizes, id, name, profile_path, character, job }) => {
   const dispatch = useDispatch();
 
   const dispatchPersonDetailsHandler = () => {
@@ -27,3 +27,5 @@ export const PersonTile = ({ profileSizes, id, name, profile_path, character, jo
     </ContainerLink>
   );
 };
+
+export default PersonTile;
