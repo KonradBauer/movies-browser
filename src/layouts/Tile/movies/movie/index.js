@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 
 import Information from "../../Information";
 import { Raiting } from "../../Raiting";
-import { Tags } from "../../Tags";
+import Tags from "../../Tags";
 import { APIImageUrl } from "../../../../features/getAPI";
 import { fetchMovieDetailsAndCredits } from "../../../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { getMovieID } from "../../../../features/movies/movie/moviesSlice";

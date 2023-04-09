@@ -2,7 +2,7 @@ import Description from "../../Description";
 import Details from "../../Details";
 import Information from "../../Information";
 import { Raiting } from "../../Raiting";
-import { Tags } from "../../Tags";
+import Tags from "../../Tags";
 import { APIImageUrl } from "../../../../features/getAPI";
 
 import { Container, DescriptionContainer, Image, MovieContainer } from "./styled";
