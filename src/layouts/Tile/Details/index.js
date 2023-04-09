@@ -1,5 +1,5 @@
-import MovieDetails from "./movieDetails";
-import PersonDetails from "./personDetails";
+import MovieDetails from "./MovieDetails";
+import PersonDetails from "./PersonDetails";
 
 import { DetailsContainer } from "./styled";
 
