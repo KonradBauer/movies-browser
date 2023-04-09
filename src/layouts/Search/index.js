@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { NoResult } from "../NoResult";
+import NoResult from "../NoResult";
 import Pagination from "../Pagination";
 import Tile from "../Tile/index";
 import {
