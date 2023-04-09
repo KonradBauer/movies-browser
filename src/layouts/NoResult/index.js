@@ -6,7 +6,7 @@ import { selectPeopleSearchText } from "../../features/peoples/searchPeopleSlice
 
 import { Disclaimer, PictureWrapper, Wrapper } from "./styled";
 
-export const NoResult = () => {
+const NoResult = () => {
   const moviesQuery = useSelector(selectSearchMoviesText);
   const peopleQuery = useSelector(selectPeopleSearchText);
 
@@ -19,3 +19,5 @@ export const NoResult = () => {
     </Wrapper>
   );
 };
+
+export default NoResult;
