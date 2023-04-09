@@ -3,7 +3,7 @@ import PersonDetails from "./layouts/PersonDetails/index";
 import MoviesDetails from "./layouts/MoviesDetails/index";
 import Loading from "./layouts/Loading/index";
 import { ThemeProvider } from "styled-components";
-import { Search } from "./layouts/Search/index";
+import Search from "./layouts/Search/index";
 import { theme } from "./common/Theme/theme";
 import { useSelector } from "react-redux";
 import { selectMovieID, selectMoviesStatus } from "./features/movies/movie/moviesSlice";
