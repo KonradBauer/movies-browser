@@ -5,7 +5,7 @@ import {
   SecondDetails,
   SecondDetailsContent,
   SecondDetailsLabel,
-} from "./styled";
+} from "../styled";
 
 const MovieDetails = ({ production_countries, release_date }) => {
   return (
@@ -14,8 +14,8 @@ const MovieDetails = ({ production_countries, release_date }) => {
         <FirstDetailsLabel>Production:</FirstDetailsLabel>
         {production_countries
           ? production_countries.map((country) => (
-              <FirstDetailsContent key={country.iso_3166_1}>{country.name},</FirstDetailsContent>
-            ))
+            <FirstDetailsContent key={country.iso_3166_1}>{country.name},</FirstDetailsContent>
+          ))
           : ""}
       </FirstDetails>
       <SecondDetails>

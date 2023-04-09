@@ -1,5 +1,5 @@
-import { theme } from "../../../common/Theme/theme";
-import { useResizeWindowHandler } from "../../../features/useResizeWindowHandler";
+import { theme } from "../../../../common/Theme/theme";
+import { useResizeWindowHandler } from "../../../../features/useResizeWindowHandler";
 
 import {
   FirstDetails,
@@ -8,7 +8,7 @@ import {
   SecondDetails,
   SecondDetailsContent,
   SecondDetailsLabel,
-} from "./styled";
+} from "../styled";
 
 const PersonDetails = ({ birthday, place_of_birth }) => {
   const windowWidth = useResizeWindowHandler();
