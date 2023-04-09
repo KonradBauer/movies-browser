@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
-import MovieTile from "./movies/movie";
+
 import MovieDetailsTile from "./movies/movieDetails";
-import { PersonTile } from "./persons/person";
+import MovieTile from "./movies/movie";
 import { PersonDetailsTile } from "./persons/personDetails";
+import { PersonTile } from "./persons/person";
 import { selectMovieDetails } from "../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPeopleDetails } from "../../features/peoples/peopleDetails/peopleDetailsSlice";
 
-export const Tile = ({
+const Tile = ({
   movie,
   movieDetails,
   person,
@@ -30,7 +31,7 @@ export const Tile = ({
 
   return (
     <>
-      {movie ? (
+      {movie && (
         <>
           <MovieTile
             movie
@@ -44,10 +45,8 @@ export const Tile = ({
             vote_count={vote_count}
           />
         </>
-      ) : (
-        ""
       )}
-      {movieDetails && moviesDetails ? (
+      {movieDetails && moviesDetails && (
         <MovieDetailsTile
           movieDetails
           posterSizes={posterSizes}
@@ -60,10 +59,8 @@ export const Tile = ({
           vote_count={moviesDetails.vote_count}
           overview={moviesDetails.overview}
         />
-      ) : (
-        ""
       )}
-      {person ? (
+      {person && (
         <PersonTile
           person
           id={id}
@@ -73,10 +70,8 @@ export const Tile = ({
           job={job}
           profile_path={profile_path}
         />
-      ) : (
-        ""
       )}
-      {personDetails ? (
+      {personDetails && (
         <PersonDetailsTile
           personDetails
           profileSizes={profileSizes}
@@ -86,9 +81,9 @@ export const Tile = ({
           place_of_birth={peopleDetails.place_of_birth}
           biography={peopleDetails.biography}
         />
-      ) : (
-        ""
       )}
     </>
   );
 };
+
+export default Tile;

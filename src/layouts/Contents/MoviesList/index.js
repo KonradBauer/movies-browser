@@ -4,7 +4,7 @@ import Error from "../../Error";
 import Pagination from "../../Pagination";
 import { selectMovies, selectMoviesPages, selectMoviesStatus } from "../../../features/movies/movie/moviesSlice";
 import { selectPosterSizes } from "../../../features/configurationSlice";
-import { Tile } from "../../Tile";
+import Tile from "../../Tile";
 
 import { BoxTitle, MainBox, Section, TilesList } from "../styled";
 

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import BackgroundImageContent from "./BackgroundImageContent";
 import CreditsList from "./CreditsList";
 import Error from "../Error/index";
-import { Tile } from "../Tile/index";
+import Tile from "../Tile/index";
 import { selectMovieDetailsStatus } from "../../features/movies/movieDetails/movieDetailsAndCreditsSlice";
 import { selectPosterSizes } from "../../features/configurationSlice";
 

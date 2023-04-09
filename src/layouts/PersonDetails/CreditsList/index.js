@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { Tile } from "../../Tile";
+import Tile from "../../Tile";
 import { selectPeopleCredits } from "../../../features/peoples/peopleDetails/peopleDetailsSlice";
 import { selectPosterSizes } from "../../../features/configurationSlice";
 

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { NoResult } from "../NoResult";
 import Pagination from "../Pagination";
-import { Tile } from "../Tile/index";
+import Tile from "../Tile/index";
 import {
    selectSearchMoviesText,
    selectMoviesTotalResults,
