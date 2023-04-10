@@ -1,6 +1,6 @@
 import { SpinnerWrapper, StyledSpinner } from "./styled";
 
-export const Loading = () => {
+const Loading = () => {
   return (
     <>
       <SpinnerWrapper>
@@ -9,3 +9,5 @@ export const Loading = () => {
     </>
   );
 };
+
+export default Loading;

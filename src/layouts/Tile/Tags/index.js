@@ -1,41 +1,15 @@
-import { useSelector } from "react-redux";
-import { selectGenres } from "../../../features/movies/genresSilce";
-import { TagsContainer, Tag, TagContent } from "./styled";
+import MovieDetailsTags from "./MovieDetailsTags";
+import MovieTags from "./MovieTags";
 
-export const Tags = ({ movie, movieDetails, genre_ids, genresDetails }) => {
-  const genres = useSelector(selectGenres);
+import { TagsContainer } from "./styled";
 
+const Tags = ({ movie, movieDetails, genre_ids, genresDetails }) => {
   return (
     <TagsContainer movieDetails={movieDetails}>
-      {movie ? (
-        <>
-          {genre_ids && genre_ids.map((genreID) => {
-            const genre = genres.find(({ id }) => id === genreID);
-            return (
-              <Tag key={genreID}>
-                <TagContent>{genre && genre.name}</TagContent>
-              </Tag>
-            );
-          })}
-        </>
-      ) : (
-        ""
-      )}
-      {movieDetails ? (
-        <>
-          {genresDetails
-            ? genresDetails.map(({ id, name }) => {
-                return (
-                  <Tag key={id}>
-                    <TagContent movieDetails={movieDetails}>{name}</TagContent>
-                  </Tag>
-                );
-              })
-            : ""}
-        </>
-      ) : (
-        ""
-      )}
+      {movie && <MovieTags genre_ids={genre_ids} />}
+      {movieDetails && <MovieDetailsTags genresDetails={genresDetails} />}
     </TagsContainer>
   );
 };
+
+export default Tags;

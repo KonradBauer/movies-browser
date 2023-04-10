@@ -1,10 +1,12 @@
-import { Disclaimer, PictureWrapper, Wrapper } from "./styled";
-import { ReactComponent as Picture } from "../../common/svg/noResult.svg";
 import { useSelector } from "react-redux";
+
+import { ReactComponent as Picture } from "../../common/svg/noResult.svg";
 import { selectSearchMoviesText } from "../../features/movies/searchMoviesSlice";
 import { selectPeopleSearchText } from "../../features/peoples/searchPeopleSlice";
 
-export const NoResult = () => {
+import { Disclaimer, PictureWrapper, Wrapper } from "./styled";
+
+const NoResult = () => {
   const moviesQuery = useSelector(selectSearchMoviesText);
   const peopleQuery = useSelector(selectPeopleSearchText);
 
@@ -17,3 +19,5 @@ export const NoResult = () => {
     </Wrapper>
   );
 };
+
+export default NoResult;
