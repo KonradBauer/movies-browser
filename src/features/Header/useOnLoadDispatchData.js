@@ -40,5 +40,5 @@ export const useOnLoadDispatchData = () => {
     if (searchPeopleStatus === "initial" && searchTextPeople !== "") {
       dispatch(fetchSearchPeople());
     }
-  }, [dispatch]);
+  }, [dispatch, searchMoviesStatus, searchPeopleStatus, searchTextMovies, searchTextPeople]);
 };
