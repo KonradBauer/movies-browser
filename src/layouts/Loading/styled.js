@@ -46,11 +46,12 @@ export const Disclaimer = styled.span`
 export const SpinnerWrapper = styled.div`
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 219px;
   max-width: 1920px;
+  height: 100vh;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     margin-top: 24px;
