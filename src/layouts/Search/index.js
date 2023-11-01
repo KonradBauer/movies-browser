@@ -53,7 +53,7 @@ const Search = () => {
         moviesTotalResults !== 0 && peopleTotalResults !== 0 ? (
           <Wrapper>
             <SearchResults>
-              Search results for “{moviesQuery != "" ? moviesQuery : peopleQuery}” (
+              Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” (
               {moviesTotalResults ? moviesTotalResults : peopleTotalResults})
             </SearchResults>
             {searchMovie && searchMovie.length > 0 && <MoviesList />}

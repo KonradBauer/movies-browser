@@ -12,7 +12,9 @@ const NoResult = () => {
 
   return (
     <Wrapper>
-      <Disclaimer>Sorry, there are no results for "{moviesQuery !== "" ? moviesQuery : peopleQuery}"</Disclaimer>
+      <Disclaimer>
+        Sorry, there are no results for "{moviesQuery !== "" ? moviesQuery : peopleQuery}"
+      </Disclaimer>
       <PictureWrapper>
         <Picture />
       </PictureWrapper>
