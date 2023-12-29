@@ -8,8 +8,6 @@ const language = "&language=en-US";
 
 export const APIImageUrl = "https://image.tmdb.org/t/p";
 
-// ... (previous code)
-
 export const getMovie = (movieID) => {
   return axios
     .get(`${APIUrl}/movie/${movieID}?api_key=${APIKey}${language}`)
