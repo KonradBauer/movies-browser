@@ -8,62 +8,64 @@ const language = "&language=en-US";
 
 export const APIImageUrl = "https://image.tmdb.org/t/p";
 
+// ... (previous code)
+
 export const getMovie = (movieID) => {
   return axios
-    .get(`${APIUrl}/movie/${movieID}?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/${movieID}?api_key=${APIKey}${language}`)
     .then((response) => response.data);
 };
 
 export const getMovieCredits = (movieID) => {
   return axios
-    .get(`${APIUrl}/movie/${movieID}/credits?${APIKey}${language}`)
+    .get(`${APIUrl}/movie/${movieID}/credits?api_key=${APIKey}${language}`)
     .then((response) => response.data);
 };
 
 export const getPopularMovies = (page) => {
   return axios
-    .get(`${APIUrl}/movie/popular?${APIKey}${language}&page=${page}`)
+    .get(`${APIUrl}/movie/popular?api_key=${APIKey}${language}&page=${page}`)
     .then((response) => response.data);
 };
 
 export const getGenres = () => {
   return axios
-    .get(`${APIUrl}/genre/movie/list?${APIKey}${language}`)
+    .get(`${APIUrl}/genre/movie/list?api_key=${APIKey}${language}`)
     .then((response) => response.data);
 };
 
 export const getPeople = (peopleID) => {
   return axios
-    .get(`${APIUrl}/person/${peopleID}?${APIKey}${language}`)
+    .get(`${APIUrl}/person/${peopleID}?api_key=${APIKey}${language}`)
     .then((response) => response.data);
 };
 
 export const getPeopleCredits = (peopleID) => {
   return axios
-    .get(`${APIUrl}/person/${peopleID}/movie_credits?${APIKey}${language}`)
+    .get(`${APIUrl}/person/${peopleID}/movie_credits?api_key=${APIKey}${language}`)
     .then((response) => response.data);
 };
 
 export const getPopularPeople = (page) => {
   return axios
-    .get(`${APIUrl}/person/popular?${APIKey}${language}&page=${page}`)
+    .get(`${APIUrl}/person/popular?api_key=${APIKey}${language}&page=${page}`)
     .then((response) => response.data);
 };
 
 export const searchMovie = (page, searchText) => {
   return axios
-    .get(`${APIUrl}/search/movie?${APIKey}${language}&page=${page}&query=${searchText}`)
+    .get(`${APIUrl}/search/movie?api_key=${APIKey}${language}&page=${page}&query=${searchText}`)
     .then((response) => response.data);
 };
 
 export const searchPeople = (page, searchText) => {
   return axios
-    .get(`${APIUrl}/search/person?${APIKey}${language}&page=${page}&query=${searchText}`)
+    .get(`${APIUrl}/search/person?api_key=${APIKey}${language}&page=${page}&query=${searchText}`)
     .then((response) => response.data);
 };
 
 export const configuration = () => {
   return axios
-    .get(`${APIUrl}/configuration?${APIKey}${language}`)
+    .get(`${APIUrl}/configuration?api_key=${APIKey}${language}`)
     .then((response) => response.data);
 };
