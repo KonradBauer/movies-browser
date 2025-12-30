@@ -7,13 +7,7 @@ function* fetchGenressHandler() {
     const genres = yield call(getGenres);
     yield put(loadGenresSuccess(genres.genres));
   } catch (error) {
-    if (error.response) {
-      console.log("Error response:", error.response.data);
-    } else if (error.request) {
-      console.log("Error request:", error.request);
-    } else {
-      console.log("Error message:", error.message);
-    }
+    yield put(loadGenresSuccess([]));
   }
 }
 

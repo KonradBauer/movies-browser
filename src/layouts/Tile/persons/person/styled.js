@@ -7,7 +7,6 @@ export const ContainerLink = styled(NavLink)`
     css`
       text-decoration: none;
       border-radius: 5px;
-      max-width: 208px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -18,7 +17,7 @@ export const ContainerLink = styled(NavLink)`
       box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
       transition: transform 0.5s;
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
         padding: 8px;
         gap: 8px;
       }

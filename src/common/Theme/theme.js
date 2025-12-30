@@ -11,15 +11,25 @@ export const theme = {
     pattensBlue: "#D6E4FF",
   },
 
+  typography: {
+    h1: 'clamp(24px, 5vw, 64px)',
+    h2: 'clamp(20px, 4vw, 36px)',
+    h3: 'clamp(18px, 3vw, 22px)',
+    body: 'clamp(14px, 2vw, 16px)',
+    small: 'clamp(12px, 1.5vw, 14px)',
+  },
+
   breakpoints: {
-    theSmallestMobileView: 290,
+    mobile: 480,
+    mobileLarge: 768,
+    tablet: 1024,
+    desktop: 1280,
+    desktopLarge: 1440,
     mobileS: 320,
     mobileM: 425,
     mobileMax: 847,
     tabletVerticalMax: 991,
-    beforeMobileMax: 1000,
     tabletHorizontalMax: 1199,
-    desktopHorizontal: 1250,
     desktopHorizontalMax: 1672,
   },
 };

@@ -25,27 +25,12 @@ export const StyledLogo = styled(Logo)`
   margin-left: 20px;
   flex-shrink: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    margin: auto;
-    margin-left: 20px;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin: auto;
-    margin-left: 20px;
-    flex-wrap: wrap;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    flex-wrap: wrap;
     display: flex;
     height: 60px;
     width: 110px;
     margin: auto;
     margin-left: 20px;
-    flex-wrap: wrap;
-    flex-shrink: none;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
@@ -53,8 +38,6 @@ export const StyledLogo = styled(Logo)`
     height: 60px;
     width: 90px;
     margin: auto;
-    flex-wrap: wrap;
-    flex-shrink: none;
   }
 `;
 
@@ -113,7 +96,7 @@ export const MoviesButton = styled.button`
 `;
 
 export const PeopleButton = styled.button`
-  width: 95x;
+  width: 95px;
   height: 48px;
   display: flex;
   flex-direction: row;
@@ -157,7 +140,7 @@ export const Box = styled.div`
   align-items: center;
   height: 48px;
   width: 432px;
-  margin-left: 300px;
+  margin-left: auto;
   margin-right: 50px;
   border: 1px solid;
   border-color: ${({ theme }) => theme.color.mystic};
@@ -166,35 +149,16 @@ export const Box = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
-    flex-wrap: wrap;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    flex-wrap: wrap;
-    flex-shrink: 1;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.mobileMax}px) and (max-width: 1250px) {
-    flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
     margin: 0px 16px 15px;
-    flex-wrap: wrap;
     flex-shrink: 1;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
     margin: 0px 16px 15px;
-    flex-wrap: wrap;
-    flex-shrink: 1;
-  }
-
-  @media screen and (min-width: 280px) and (max-width: 361px) {
-    margin: 0px 16px 15px;
-    flex-wrap: wrap;
     flex-shrink: 1;
   }
 `;

@@ -19,13 +19,7 @@ function* fetchSearchMoviesHandler() {
     const searchMovies = yield call(searchMovie, page, searchText);
     yield put(loadSearchMoviesSuccess(searchMovies));
   } catch (error) {
-    if (error.response) {
-      console.log("Error response:", error.response.data);
-    } else if (error.request) {
-      console.log("Error request:", error.request);
-    } else {
-      console.log("Error message:", error.message);
-    }
+    yield put(loadSearchMoviesSuccess({ results: [], total_pages: 0 }));
   }
 }
 

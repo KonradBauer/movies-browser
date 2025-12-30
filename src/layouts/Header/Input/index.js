@@ -6,19 +6,23 @@ import { usePathname } from "../../../features/usePathname";
 
 import { StyledInput } from "../styled";
 
-export default () => {
+const SearchInput = () => {
   const query = useQueryParameter(searchQueryParamsName);
+  const pathname = usePathname();
+
+  const placeholder = pathname.includes("/popular-movies")
+    ? "Search for movies..."
+    : pathname.includes("popular-people")
+    ? "Search for people..."
+    : "";
 
   return (
     <StyledInput
-      placeholder={`Search for ${usePathname().includes("/popular-movies")
-        ? "movies..."
-        : usePathname().includes("popular-people")
-          ? "people..."
-          : ""
-        }`}
+      placeholder={placeholder}
       value={query || ""}
       onChange={useInputChange()}
     />
   );
 };
+
+export default SearchInput;

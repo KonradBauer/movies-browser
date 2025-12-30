@@ -1,72 +1,56 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 1368px;
-  margin: 0 auto;
+  max-width: 90vw;
+  width: 100%;
   margin: 56px auto;
-  padding: 0 16px;
+  padding: 0 clamp(16px, 3vw, 64px);
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktopLarge}px) {
+    max-width: 1440px;
+  }
 `;
 
-export const SearchResults = styled.div`
+export const SearchResults = styled.h1`
   font-weight: 600;
-  font-size: 36px;
+  font-size: clamp(20px, 4vw, 36px);
   line-height: 1.2;
   margin-bottom: 24px;
   color: ${({ theme }) => theme.color.woodsmoke};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 30px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    font-size: 20px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 14px;
-  }
 `;
 
 export const MoviesTilesList = styled.ul`
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 16px 0;
+  margin: 0;
   display: grid;
-  justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
-  padding: 16px;
 
-  @media (max-width: 1100px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    grid-template-columns: 1fr 1fr;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 16px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     grid-template-columns: 1fr;
   }
 `;
 
 export const PeopleTilesList = styled.ul`
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 24px 0 0;
+  margin: 0;
   display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(202px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(202px, 1fr));
   gap: 24px;
-  padding-top: 24px;
 
-  @media (max-width: 1380px) {
-    grid-template-columns: repeat(auto-fill, minmax(166px, auto));
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    grid-template-columns: repeat(auto-fill, minmax(166px, 1fr));
     gap: 16px;
   }
 
-  @media (max-width: 933px) {
-    grid-template-columns: repeat(auto-fill, minmax(136px, auto));
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
   }
 `;

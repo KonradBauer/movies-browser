@@ -19,13 +19,7 @@ function* fetchSearchPeopleHandler() {
     const searchPeoples = yield call(searchPeople, page, searchText);
     yield put(loadSearchPeopleSuccess(searchPeoples));
   } catch (error) {
-    if (error.response) {
-      console.log("Error response:", error.response.data);
-    } else if (error.request) {
-      console.log("Error request:", error.request);
-    } else {
-      console.log("Error message:", error.message);
-    }
+    yield put(loadSearchPeopleSuccess({ results: [], total_pages: 0 }));
   }
 }
 

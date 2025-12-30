@@ -1,30 +1,22 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 1368px;
+  max-width: 90vw;
+  width: 100%;
   margin: 50px auto 0;
+  padding: 0 clamp(16px, 3vw, 64px);
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktopLarge}px) {
+    max-width: 1440px;
+  }
 `;
 
-export const Disclaimer = styled.div`
-  max-height: 43px;
+export const Disclaimer = styled.h1`
   font-style: normal;
   font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
-  margin-left: 20px;
+  font-size: clamp(18px, 4vw, 36px);
+  line-height: 1.2;
   color: ${({ theme }) => theme.color.woodsmoke};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    font-size: 30px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    font-size: 15px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 10px;
-  }
 `;
 
 export const PictureWrapper = styled.div`

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useRef } from "react";
 
 import searchQueryParamsName from "../searchQueryParamName";
 import { changePeopleSearchText, fetchSearchPeople, removeSearchPeople, setPeoplePageFirst, } from "../peoples/searchPeopleSlice";
@@ -12,6 +13,7 @@ export const useInputChange = () => {
     const history = useHistory();
     const pathname = usePathname();
     const replaceQueryParameter = useReplaceQueryParameter();
+    const debounceTimer = useRef(null);
 
     const updateSearchParams = (target) => {
         replaceQueryParameter({
@@ -35,46 +37,37 @@ export const useInputChange = () => {
         });
     };
 
-    const searchMovies = (target) => {
-        updateSearchParams(target);
-
-        dispatchesHandler(
-            removeSearchPeople,
-            fetchSearchMovies,
-            setMoviesPageFirst,
-            changePeopleSearchText,
-            changeMoviesSearchText,
-            target,
-        );
-
-        pushToPath("/popular-movies/search", target);
-    };
-
-    const searchPeople = (target) => {
-        updateSearchParams(target);
-
-        dispatchesHandler(
-            removeSearchMovies,
-            fetchSearchPeople,
-            setPeoplePageFirst,
-            changeMoviesSearchText,
-            changePeopleSearchText,
-            target,
-        );
-
-        pushToPath("/popular-people/search", target);
-    };
-
     const onInputChange = ({ target }) => {
-        if (pathname.includes('/popular-movies')) {
-            searchMovies(target);
-        } else if (pathname.includes('/popular-people')) {
-            searchPeople(target);
-        } else {
-            return null;
-        };
-    };
+        if (debounceTimer.current) {
+            clearTimeout(debounceTimer.current);
+        }
 
+        updateSearchParams(target);
+
+        debounceTimer.current = setTimeout(() => {
+            if (pathname.includes('/popular-movies')) {
+                dispatchesHandler(
+                    removeSearchPeople,
+                    fetchSearchMovies,
+                    setMoviesPageFirst,
+                    changePeopleSearchText,
+                    changeMoviesSearchText,
+                    target,
+                );
+                pushToPath("/popular-movies/search", target);
+            } else if (pathname.includes('/popular-people')) {
+                dispatchesHandler(
+                    removeSearchMovies,
+                    fetchSearchPeople,
+                    setPeoplePageFirst,
+                    changeMoviesSearchText,
+                    changePeopleSearchText,
+                    target,
+                );
+                pushToPath("/popular-people/search", target);
+            }
+        }, 500);
+    };
 
     return onInputChange;
 }

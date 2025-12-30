@@ -23,26 +23,18 @@ export const Box = styled.div`
   align-items: center;
   padding-bottom: 109px;
   gap: 24px;
-  width: 525px;
-  margin: auto;
-  margin-top: 40px;
+  max-width: 525px;
+  width: 100%;
+  margin: 40px auto 0;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     padding-bottom: 31px;
     gap: 8px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 232px;
-    height: 24px;
-    padding-bottom: 31px;
-    gap: 8px;
+    flex-wrap: wrap;
   }
 `;
 
@@ -176,82 +168,52 @@ export const Pages = styled.div`
   }
 `;
 
-export const Page = styled.text`
-  width: 100%;
-  height: 24px;
-  display: flex;
-  font-size: 16px;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 24px;
-    font-size: 10px;
-    line-height: 24px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
-    height: 24px;
-    font-size: 10px;
-    line-height: 24px;
-  }
-`;
-
-export const Of = styled.text`
-  width: 100%;
-  height: 24px;
+export const Page = styled.span`
   display: flex;
   align-items: center;
   font-size: 16px;
+  white-space: nowrap;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 24px;
-    font-size: 10px;
-    line-height: 24px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
-    height: 24px;
-    font-size: 10px;
-    line-height: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 14px;
   }
 `;
 
-export const PageNumber = styled.text`
-  width: 100%;
-  height: 24px;
+export const Of = styled.span`
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  white-space: nowrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 14px;
+  }
+`;
+
+export const PageNumber = styled.span`
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
   display: flex;
   color: ${({ theme }) => theme.color.woodsmoke};
+  white-space: nowrap;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 24px;
-    font-size: 10px;
-    line-height: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 14px;
   }
 `;
 
-export const PageTotal = styled.text`
-  width: 100%;
-  height: 24px;
+export const PageTotal = styled.span`
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
   display: flex;
   color: ${({ theme }) => theme.color.woodsmoke};
+  white-space: nowrap;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
-    height: 24px;
-    font-size: 10px;
-    line-height: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 14px;
   }
 `;

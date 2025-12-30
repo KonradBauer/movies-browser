@@ -9,11 +9,16 @@ export const Background = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
-  max-width: 1368px;
+  max-width: 90vw;
+  width: 100%;
   margin: 0 auto;
   box-shadow: inset 0px 0px 50px 60px ${({ theme }) => theme.color.black};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktopLarge}px) {
+    max-width: 1440px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
     box-shadow: inset 0px 0px 50px 30px ${({ theme }) => theme.color.black};
   }
 `;
@@ -37,32 +42,15 @@ export const MainInfo = styled.div`
   }
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   font-weight: 600;
-  font-size: 64px;
+  font-size: clamp(24px, 5vw, 64px);
   line-height: 1.2;
   margin-bottom: 24px;
   color: ${({ theme }) => theme.color.white};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    font-size: 50px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    font-size: 45px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
     margin-bottom: 5px;
-    font-size: 24px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    font-size: 20px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 18px;
   }
 `;
 
@@ -119,8 +107,8 @@ export const RaitingCap = styled.div`
   font-size: 16px;
   line-height: 1.2;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+    font-size: 13px;
   }
 `;
 
@@ -130,8 +118,8 @@ export const Votes = styled.div`
   line-height: 1.2;
   color: ${({ theme }) => theme.color.white};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+    font-size: 13px;
   }
 `;
 
@@ -139,113 +127,68 @@ export const ContentBackground = styled.div`
   background-color: ${({ theme }) => theme.color.mercury};
 `;
 
-export const Content = styled.div`
-  margin: auto;
-  max-width: 1368px;
-  margin-bottom: 100px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 320px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 847px;
-  }
+const ResponsiveContent = styled.div`
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
 `;
 
-export const TileContent = styled.div`
-  margin: auto;
-  padding: 10px;
-  max-width: 1368px;
+export const Content = styled(ResponsiveContent)`
+  margin-bottom: 100px;
+`;
+
+export const TileContent = styled(ResponsiveContent)`
+  padding: 10px 16px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 320px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 847px;
-  }
 `;
 
-export const CastContent = styled.div`
-  max-width: 1368px;
+export const CastContent = styled(ResponsiveContent)`
   margin-top: 64px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 320px;
-    margin-top: 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    max-width: 425px;
-    margin-top: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 847px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
     margin-top: 0;
   }
 `;
 
-export const CrewContent = styled.div`
-  max-width: 1368px;
+export const CrewContent = styled(ResponsiveContent)`
   margin-top: 64px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    max-width: 320px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     margin-top: 21px;
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    max-width: 425px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-width: 847px;
-  }
 `;
 
-export const SubdivTitle = styled.span`
+export const SubdivTitle = styled.h2`
   font-style: normal;
   font-weight: 600;
-  font-size: 36px;
+  font-size: clamp(20px, 3vw, 36px);
   line-height: 1.2;
   display: flex;
   align-items: center;
-  width: 86px;
-  height: 43px;
-  margin-left: 10px;
-  margin-bottom: 32px;
+  margin: 0 0 32px 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 20px;
-    margin-bottom: 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 25px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
     margin-bottom: 0;
   }
 `;
 
 export const List = styled.ul`
   list-style: none;
-  padding: 24px 16px 0px;
-  margin: 0px;
+  padding: 24px 16px 0;
+  margin: 0;
   display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(202px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(202px, 1fr));
   gap: 24px;
 
-  @media (max-width: 1380px) {
-    grid-template-columns: repeat(auto-fill, minmax(166px, auto));
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    grid-template-columns: repeat(auto-fill, minmax(166px, 1fr));
     gap: 16px;
   }
 
-  @media (max-width: 933px) {
-    grid-template-columns: repeat(auto-fill, minmax(136px, auto));
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
   }
 `;

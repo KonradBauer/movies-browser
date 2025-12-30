@@ -2,44 +2,19 @@ import styled, { keyframes } from "styled-components";
 import { ReactComponent as Spinner } from "../../common/svg/spinner.svg";
 
 export const Disclaimer = styled.span`
-  margin-top: 50px;
-  margin-left: 276px;
-  max-width: 674px;
-  max-height: 43px;
+  margin: 50px auto 0;
+  max-width: 90%;
+  padding: 0 16px;
   font-style: normal;
   font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
+  font-size: clamp(18px, 4vw, 36px);
+  line-height: 1.2;
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopHorizontalMax}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
-    font-size: 30px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
-    font-size: 20px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    margin: auto;
-    margin-top: 50px;
-    margin-left: 15px;
-    font-size: 15px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin: auto;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     margin-top: 24px;
-    margin-left: 16px;
-    font-size: 14px;
   }
 `;
 

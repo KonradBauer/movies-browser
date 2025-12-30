@@ -24,7 +24,7 @@ export const useDispatchHandler = () => {
 
    useEffect(() => {
       ifHandler({ useEffect: true });
-   }, [pathname]);
+   }, [pathname, ifHandler]);
 
    const dispatchData = () => {
       ifHandler({
