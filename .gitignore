@@ -10,6 +10,8 @@
 
 # production
 /build
+.claude/
+CLAUDE.md
 
 # misc
 .env
