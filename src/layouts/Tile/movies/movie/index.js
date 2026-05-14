@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import Information from "../../Information";
@@ -9,7 +9,7 @@ import { fetchMovieDetailsAndCredits } from "../../../../features/movies/movieDe
 import { getMovieID } from "../../../../features/movies/movie/moviesSlice";
 
 import noPoster from "../../../../common/images/no-poster.png";
-import { ContainerLink, DescriptionContainer, Image } from "./styled";
+import { ContainerLink, DescriptionContainer, Image, ImageWrapper } from "./styled";
 
 const MovieTile = memo(({
   movie,
@@ -23,6 +23,7 @@ const MovieTile = memo(({
   vote_count,
 }) => {
   const dispatch = useDispatch();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleClick = () => {
     dispatch(getMovieID(id));
@@ -31,11 +32,14 @@ const MovieTile = memo(({
 
   return (
     <ContainerLink to={`/popular-movies/${id}`} onClick={handleClick}>
-      <Image
-        source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster}
-        alt={title || "Movie poster"}
-        loading="lazy"
-      />
+      <ImageWrapper>
+        <Image
+          source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster}
+          alt={title || "Movie poster"}
+          onLoad={() => setImageLoaded(true)}
+          style={{ opacity: imageLoaded ? 1 : 0 }}
+        />
+      </ImageWrapper>
       <div>
         <DescriptionContainer>
           <Information movie title={title} release_date={release_date} />

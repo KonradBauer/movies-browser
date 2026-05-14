@@ -1,5 +1,10 @@
 import { NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const shimmer = keyframes`
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+`;
 
 export const ContainerLink = styled(NavLink)`
   ${({ person }) =>
@@ -29,6 +34,15 @@ export const ContainerLink = styled(NavLink)`
     `}
 `;
 
+export const ImageWrapper = styled.div`
+  width: 100%;
+  aspect-ratio: 7/10;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #ebebeb 25%, #f5f5f5 50%, #ebebeb 75%);
+  background-size: 200% 100%;
+  animation: ${shimmer} 1.5s infinite linear;
+`;
+
 export const Image = styled.img.attrs((props) => ({ src: props.source }))`
   ${({ person }) =>
     person &&
@@ -36,5 +50,7 @@ export const Image = styled.img.attrs((props) => ({ src: props.source }))`
       border-radius: 5px;
       width: 100%;
       aspect-ratio: 7/10;
+      display: block;
+      transition: opacity 0.3s;
     `}
 `;
