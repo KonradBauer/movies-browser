@@ -7,8 +7,9 @@ export const Container = styled.div`
       border-radius: 5px;
       margin: 10px auto;
       padding: 40px;
-      width: 1368px;
+      width: 100%;
       max-width: 1368px;
+      box-sizing: border-box;
       display: grid;
       grid-template-columns: auto 1fr;
       grid-template-rows: repeat(2, auto);

@@ -1,34 +1,39 @@
-import { call, put, select, delay, takeEvery, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { searchPeople } from "../getAPI";
+import { setLocalStorage } from "../localStorage";
 import {
-  loadSearchPeopleSuccess,
+  changePeopleSearchText,
   fetchSearchPeople,
-  selectPeopleSearchText,
   loadSearchPeople,
+  loadSearchPeopleError,
+  loadSearchPeopleSuccess,
+  selectPeopleSearchText,
   selectSearchPeoplePage,
 } from "../peoples/searchPeopleSlice";
-import { getLocalStorage, setLocalStorage } from "../localStorage";
 
 function* fetchSearchPeopleHandler() {
+  const searchText = yield select(selectPeopleSearchText);
+
+  if (!searchText || !searchText.trim()) {
+    return;
+  }
+
   yield put(loadSearchPeople());
-  yield delay(1000);
 
   try {
-    const searchText = yield call(getLocalStorage, "peopleSearch");
     const page = yield select(selectSearchPeoplePage);
-    const searchPeoples = yield call(searchPeople, page, searchText);
-    yield put(loadSearchPeopleSuccess(searchPeoples));
+    const result = yield call(searchPeople, page, searchText);
+    yield put(loadSearchPeopleSuccess(result));
   } catch (error) {
-    yield put(loadSearchPeopleSuccess({ results: [], total_pages: 0 }));
+    yield put(loadSearchPeopleError());
   }
 }
 
-function* savePeopleSearchInLocalStorage() {
-  const peopleSearch = yield select(selectPeopleSearchText);
-  yield call(setLocalStorage, "peopleSearch", peopleSearch);
+function* savePeopleSearchHandler({ payload: searchText }) {
+  yield call(setLocalStorage, "peopleSearch", searchText);
 }
 
 export function* searchPeopleSaga() {
   yield takeLatest(fetchSearchPeople.type, fetchSearchPeopleHandler);
-  yield takeEvery("*", savePeopleSearchInLocalStorage);
+  yield takeLatest(changePeopleSearchText.type, savePeopleSearchHandler);
 }

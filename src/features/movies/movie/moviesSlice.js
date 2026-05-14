@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getLocalStorage } from "../../localStorage";
 
 const moviesSlice = createSlice({
   name: "movies",
@@ -7,7 +6,7 @@ const moviesSlice = createSlice({
     movies: [],
     page: 1,
     pageLast: 500,
-    movieID: getLocalStorage("movieId"),
+    movieID: null,
     status: "initial",
   },
   reducers: {
@@ -49,7 +48,6 @@ export const {
   moviesPageFirst,
   moviesPageLast,
   fetchMovies,
-  getPages,
   getMovieID,
 } = moviesSlice.actions;
 

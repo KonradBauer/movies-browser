@@ -12,7 +12,8 @@ const PersonDetailsTile = ({ profileSizes, profile_path, name, birthday, place_o
       <Image
         personDetails
         source={profile_path ? `${APIImageUrl}/${profileSizes ? profileSizes[3] : ""}${profile_path}` : noPerson}
-        alt=""
+        alt={name || "Person profile picture"}
+        loading="lazy"
       />
       <DescriptionContainer personDetails>
         <Information personDetails name={name} />

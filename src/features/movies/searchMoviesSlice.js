@@ -6,7 +6,7 @@ const searchMoviesSlice = createSlice({
   initialState: {
     searchMovies: [],
     status: "initial",
-    searchText: getLocalStorage("moviesSearch"),
+    searchText: getLocalStorage("moviesSearch") ?? "",
     page: 1,
   },
   reducers: {
@@ -41,7 +41,7 @@ const searchMoviesSlice = createSlice({
     removeSearchMovies: (state) => {
       state.searchMovies = [];
       state.status = "initial";
-      state.page = null;
+      state.page = 1;
     },
     fetchSearchMovies: () => {},
   },

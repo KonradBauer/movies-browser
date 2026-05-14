@@ -7,15 +7,15 @@ const genresSlice = createSlice({
     status: "initial",
   },
   reducers: {
-    loadGenres: ({ status }) => {
-      status = "loading";
+    loadGenres: (state) => {
+      state.status = "loading";
     },
     loadGenresSuccess: (state, { payload: genres }) => {
       state.genres = genres;
       state.status = "success";
     },
-    loadGenresError: ({ status }) => {
-      status = "error";
+    loadGenresError: (state) => {
+      state.status = "error";
     },
     fetchGenres: () => {},
   },

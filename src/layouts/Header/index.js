@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import Input from "./Input";
 import { fetchMovies, moviesPageFirst } from "../../features/movies/movie/moviesSlice";
 import { fetchPeople, peoplePageFirst } from "../../features/peoples/people/peopleSlice";
+import { changeMoviesSearchText } from "../../features/movies/searchMoviesSlice";
+import { changePeopleSearchText } from "../../features/peoples/searchPeopleSlice";
 import { useDispatchHandler } from "../../features/Header/useDispatchHandler";
 import { useOnLoadDispatchData } from "../../features/Header/useOnLoadDispatchData";
 
@@ -10,8 +12,8 @@ import { Box, ButtonsBox, HeadContainer, MoviesButton, PeopleButton, StyledLogo,
 import { StyledNavLink } from "../../StyledApp";
 
 const Header = () => {
-   const dispatchHandlerMovies = useDispatchHandler(fetchMovies, moviesPageFirst);
-   const dispatchHandlerPeople = useDispatchHandler(fetchPeople, peoplePageFirst);
+   const dispatchHandlerMovies = useDispatchHandler(fetchMovies, moviesPageFirst, changeMoviesSearchText);
+   const dispatchHandlerPeople = useDispatchHandler(fetchPeople, peoplePageFirst, changePeopleSearchText);
 
    useOnLoadDispatchData();
 

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import Information from "../../Information";
@@ -10,7 +11,7 @@ import { getMovieID } from "../../../../features/movies/movie/moviesSlice";
 import noPoster from "../../../../common/images/no-poster.png";
 import { ContainerLink, DescriptionContainer, Image } from "./styled";
 
-const MovieTile = ({
+const MovieTile = memo(({
   movie,
   id,
   posterSizes,
@@ -23,16 +24,17 @@ const MovieTile = ({
 }) => {
   const dispatch = useDispatch();
 
-  const dispatchMvoieDetailsHandler = () => {
+  const handleClick = () => {
     dispatch(getMovieID(id));
     dispatch(fetchMovieDetailsAndCredits());
   };
 
   return (
-    <ContainerLink to={`/popular-movies/${id}`} onClick={dispatchMvoieDetailsHandler}>
+    <ContainerLink to={`/popular-movies/${id}`} onClick={handleClick}>
       <Image
         source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster}
-        alt=""
+        alt={title || "Movie poster"}
+        loading="lazy"
       />
       <div>
         <DescriptionContainer>
@@ -43,6 +45,6 @@ const MovieTile = ({
       </div>
     </ContainerLink>
   );
-};
+});
 
 export default MovieTile;

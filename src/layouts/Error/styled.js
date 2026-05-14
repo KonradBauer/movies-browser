@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const MainText = styled.span`
+export const MainText = styled.h1`
   margin-top: 38px;
   font-style: normal;
   font-weight: 600;

@@ -7,15 +7,15 @@ const configurationSlice = createSlice({
     status: "initial",
   },
   reducers: {
-    loadConfiguration: ({ status }) => {
-      status = "loading";
+    loadConfiguration: (state) => {
+      state.status = "loading";
     },
     loadConfigurationSuccess: (state, { payload: configuration }) => {
       state.configuration = configuration;
       state.status = "success";
     },
-    loadConfigurationError: ({ status }) => {
-      status = "error";
+    loadConfigurationError: (state) => {
+      state.status = "error";
     },
     fetchConfiguration: () => {},
   },

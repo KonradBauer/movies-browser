@@ -1,4 +1,4 @@
-import { all } from "redux-saga/effects";
+import { all, fork } from "redux-saga/effects";
 import { genresSaga } from "./features/movies/genresSaga";
 import { moviesSaga } from "./features/movies/movie/moviesSaga";
 import { movieDetailsAndCreditsSaga } from "./features/movies/movieDetails/movieDetailsAndCreditsSaga";
@@ -10,13 +10,13 @@ import { searchPeopleSaga } from "./features/peoples/searchPeopleSaga";
 
 export function* rootSaga() {
   yield all([
-    configurationSaga(),
-    genresSaga(),
-    moviesSaga(),
-    movieDetailsAndCreditsSaga(),
-    peopleSaga(),
-    peopleDetailsSaga(),
-    searchMoviesSaga(),
-    searchPeopleSaga(),
+    fork(configurationSaga),
+    fork(genresSaga),
+    fork(moviesSaga),
+    fork(movieDetailsAndCreditsSaga),
+    fork(peopleSaga),
+    fork(peopleDetailsSaga),
+    fork(searchMoviesSaga),
+    fork(searchPeopleSaga),
   ]);
 }

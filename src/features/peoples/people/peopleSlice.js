@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getLocalStorage } from "../../localStorage";
 
 const peopleSlice = createSlice({
   name: "people",
   initialState: {
     people: [],
-    peopleID: getLocalStorage("peopleId"),
+    peopleID: null,
     status: "initial",
     page: 1,
   },

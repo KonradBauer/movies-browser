@@ -38,108 +38,73 @@ export const Box = styled.div`
   }
 `;
 
-export const ButtonFirst = styled.div`
+const buttonBase = (props) => `
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
   width: 100%;
-  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
-  background-color: ${(props) =>
-    props.buttonDisabled
-      ? ({ theme }) => theme.color.mystic
-      : ({ theme }) => theme.color.pattensBlue};
+  border: none;
   border-radius: 5px;
-  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
+  background-color: ${props.buttonDisabled ? props.theme.color.mystic : props.theme.color.pattensBlue};
+  cursor: ${props.buttonDisabled ? "not-allowed" : "pointer"};
+  opacity: ${props.buttonDisabled ? "0.7" : "1"};
+
+  &:focus-visible {
+    outline: 2px solid ${props.theme.color.scienceBlue};
+    outline-offset: 2px;
+  }
+`;
+
+export const ButtonFirst = styled.button`
+  ${(props) => buttonBase(props)}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
     height: 23px;
     padding: 8px 12px;
     gap: 4px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
     height: 23px;
     padding: 8px 12px;
     gap: 4px;
   }
 `;
 
-export const ButtonPrevious = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px 16px;
-  gap: 8px;
-  width: 100%;
-  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
-  background-color: ${(props) =>
-    props.buttonDisabled
-      ? ({ theme }) => theme.color.mystic
-      : ({ theme }) => theme.color.pattensBlue};
-  border-radius: 5px;
-  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
+export const ButtonPrevious = styled.button`
+  ${(props) => buttonBase(props)}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
     height: 23px;
     padding: 8px 12px;
     gap: 8px;
   }
 `;
 
-export const ButtonNext = styled.div`
-  display: flex;
-  flex-direction: row;
+export const ButtonNext = styled.button`
+  ${(props) => buttonBase(props)}
   justify-content: flex-end;
-  align-items: center;
-  padding: 8px 16px;
-  gap: 8px;
-  width: 100%;
-  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
-  background-color: ${(props) =>
-    props.buttonDisabled
-      ? ({ theme }) => theme.color.mystic
-      : ({ theme }) => theme.color.pattensBlue};
-  border-radius: 5px;
-  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
     height: 24px;
     padding: 8px 12px;
     gap: 8px;
   }
 `;
 
-export const ButtonLast = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+export const ButtonLast = styled.button`
+  ${(props) => buttonBase(props)}
   justify-content: flex-end;
-  padding: 8px 16px;
-  gap: 8px;
-  width: 100%;
-  pointer-events: ${(props) => (props.buttonDisabled ? "none" : "auto")};
-  background-color: ${(props) =>
-    props.buttonDisabled
-      ? ({ theme }) => theme.color.mystic
-      : ({ theme }) => theme.color.pattensBlue};
-  border-radius: 5px;
-  cursor: ${(props) => (props.buttonDisabled ? "not-allowed" : "Pointer")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    width: 100%;
     height: 24px;
     padding: 8px 12px;
     gap: 4px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
     height: 24px;
     padding: 8px 12px;
     gap: 4px;

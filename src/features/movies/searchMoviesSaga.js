@@ -1,34 +1,39 @@
-import { call, put, takeLatest, select, delay, takeEvery } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { searchMovie } from "../getAPI";
+import { setLocalStorage } from "../localStorage";
 import {
-  loadSearchMoviesSuccess,
+  changeMoviesSearchText,
   fetchSearchMovies,
-  selectSearchMoviesText,
-  selectSearchMoviesPage,
   loadSearchMovies,
+  loadSearchMoviesError,
+  loadSearchMoviesSuccess,
+  selectSearchMoviesPage,
+  selectSearchMoviesText,
 } from "./searchMoviesSlice";
-import { getLocalStorage, setLocalStorage } from "../localStorage";
 
 function* fetchSearchMoviesHandler() {
+  const searchText = yield select(selectSearchMoviesText);
+
+  if (!searchText || !searchText.trim()) {
+    return;
+  }
+
   yield put(loadSearchMovies());
-  yield delay(1000);
 
   try {
-    const searchText = yield call(getLocalStorage, "moviesSearch");
     const page = yield select(selectSearchMoviesPage);
-    const searchMovies = yield call(searchMovie, page, searchText);
-    yield put(loadSearchMoviesSuccess(searchMovies));
+    const result = yield call(searchMovie, page, searchText);
+    yield put(loadSearchMoviesSuccess(result));
   } catch (error) {
-    yield put(loadSearchMoviesSuccess({ results: [], total_pages: 0 }));
+    yield put(loadSearchMoviesError());
   }
 }
 
-function* saveMoviesSearchInLocalStorage() {
-  const moviesSearch = yield select(selectSearchMoviesText);
-  yield call(setLocalStorage, "moviesSearch", moviesSearch);
+function* saveMoviesSearchHandler({ payload: searchText }) {
+  yield call(setLocalStorage, "moviesSearch", searchText);
 }
 
 export function* searchMoviesSaga() {
   yield takeLatest(fetchSearchMovies.type, fetchSearchMoviesHandler);
-  yield takeEvery("*", saveMoviesSearchInLocalStorage);
+  yield takeLatest(changeMoviesSearchText.type, saveMoviesSearchHandler);
 }

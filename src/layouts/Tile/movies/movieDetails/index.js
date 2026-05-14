@@ -20,7 +20,7 @@ const MovieDetailsTile = ({
 }) => {
   return (
     <Container movieDetails>
-      <Image movieDetails source={`${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}`} alt="" />
+      <Image movieDetails source={`${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}`} alt={title || "Movie poster"} loading="lazy" />
       <MovieContainer movieDetails>
         <DescriptionContainer movieDetails>
           <Information movieDetails title={title} release_date={release_date} />

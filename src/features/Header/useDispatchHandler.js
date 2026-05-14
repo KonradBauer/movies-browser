@@ -1,13 +1,12 @@
 import { useDispatch } from "react-redux";
-import { changeMoviesSearchText } from "../movies/searchMoviesSlice";
 
-export const useDispatchHandler = (fetchData, firstPage) => {
+export const useDispatchHandler = (fetchData, firstPage, clearSearchText) => {
    const dispatch = useDispatch();
 
    const dispatchHandler = () => {
       dispatch(fetchData());
       dispatch(firstPage());
-      dispatch(changeMoviesSearchText(""));
+      if (clearSearchText) dispatch(clearSearchText(""));
    };
 
    return dispatchHandler;

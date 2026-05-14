@@ -27,29 +27,56 @@ const Pagination = ({ page, totalPages }) => {
    const dispatchPageFirst = dispatchHandler.dispatchPageFirst;
    const dispatchPageLast = dispatchHandler.dispatchPageLast;
 
+   const isFirst = page === 1;
+   const isLast = page === totalPages;
+
    return (
       <Box>
-         <ButtonFirst buttonDisabled={page === 1} onClick={dispatchPageFirst}>
-            <StyledVectorLeft buttonDisabled={page === 1} />
-            {windowWidth > mobileMax ? "First" : <StyledVectorLeft buttonDisabled={page === 1} />}
+         <ButtonFirst
+            type="button"
+            buttonDisabled={isFirst}
+            disabled={isFirst}
+            onClick={dispatchPageFirst}
+            aria-label="First page"
+         >
+            <StyledVectorLeft buttonDisabled={isFirst} />
+            {windowWidth > mobileMax ? "First" : <StyledVectorLeft buttonDisabled={isFirst} />}
          </ButtonFirst>
-         <ButtonPrevious buttonDisabled={page === 1} onClick={dispatchPageDecrement}>
-            <StyledVectorLeft buttonDisabled={page === 1} />
+         <ButtonPrevious
+            type="button"
+            buttonDisabled={isFirst}
+            disabled={isFirst}
+            onClick={dispatchPageDecrement}
+            aria-label="Previous page"
+         >
+            <StyledVectorLeft buttonDisabled={isFirst} />
             {windowWidth > mobileMax && "Previous"}
          </ButtonPrevious>
-         <Pages>
+         <Pages aria-live="polite" aria-atomic="true">
             <Page>Page</Page>
             <PageNumber>{page}</PageNumber>
             <Of>of</Of>
             <PageTotal>{totalPages}</PageTotal>
          </Pages>
-         <ButtonNext buttonDisabled={page === totalPages} onClick={dispatchPageIncrement}>
+         <ButtonNext
+            type="button"
+            buttonDisabled={isLast}
+            disabled={isLast}
+            onClick={dispatchPageIncrement}
+            aria-label="Next page"
+         >
             {windowWidth > mobileMax && "Next"}
-            <StyledVectorRight buttonDisabled={page === totalPages} />
+            <StyledVectorRight buttonDisabled={isLast} />
          </ButtonNext>
-         <ButtonLast buttonDisabled={page === totalPages} onClick={dispatchPageLast}>
-            {windowWidth > mobileMax ? "Last" : <StyledVectorRight buttonDisabled={page === totalPages} />}
-            <StyledVectorRight buttonDisabled={page === totalPages} />
+         <ButtonLast
+            type="button"
+            buttonDisabled={isLast}
+            disabled={isLast}
+            onClick={dispatchPageLast}
+            aria-label="Last page"
+         >
+            {windowWidth > mobileMax ? "Last" : <StyledVectorRight buttonDisabled={isLast} />}
+            <StyledVectorRight buttonDisabled={isLast} />
          </ButtonLast>
       </Box>
    );

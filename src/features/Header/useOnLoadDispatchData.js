@@ -1,12 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchConfiguration } from "../configurationSlice";
 import { fetchGenres } from "../movies/genresSilce";
 import { fetchMovies } from "../movies/movie/moviesSlice";
-import { fetchMovieDetailsAndCredits } from "../movies/movieDetails/movieDetailsAndCreditsSlice";
 import { fetchPeople } from "../peoples/people/peopleSlice";
-import { fetchPeopleDetails } from "../peoples/peopleDetails/peopleDetailsSlice";
 import {
   fetchSearchMovies,
   selectSearchMoviesStatus,
@@ -20,6 +18,7 @@ import {
 
 export const useOnLoadDispatchData = () => {
   const dispatch = useDispatch();
+  const searchRestoredRef = useRef(false);
 
   const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
   const searchTextMovies = useSelector(selectSearchMoviesText);
@@ -30,14 +29,17 @@ export const useOnLoadDispatchData = () => {
     dispatch(fetchConfiguration());
     dispatch(fetchGenres());
     dispatch(fetchMovies());
-    dispatch(fetchMovieDetailsAndCredits());
     dispatch(fetchPeople());
-    dispatch(fetchPeopleDetails());
+  }, [dispatch]);
 
-    if (searchMoviesStatus === "initial" && searchTextMovies !== "") {
+  useEffect(() => {
+    if (searchRestoredRef.current) return;
+    searchRestoredRef.current = true;
+
+    if (searchMoviesStatus === "initial" && searchTextMovies) {
       dispatch(fetchSearchMovies());
     }
-    if (searchPeopleStatus === "initial" && searchTextPeople !== "") {
+    if (searchPeopleStatus === "initial" && searchTextPeople) {
       dispatch(fetchSearchPeople());
     }
   }, [dispatch, searchMoviesStatus, searchPeopleStatus, searchTextMovies, searchTextPeople]);

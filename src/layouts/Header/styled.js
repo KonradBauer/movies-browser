@@ -68,6 +68,12 @@ export const MoviesButton = styled.button`
   color: ${({ theme }) => theme.color.white};
   cursor: pointer;
 
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.color.pattensBlue};
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
     flex-wrap: nowrap;
@@ -112,6 +118,12 @@ export const PeopleButton = styled.button`
   background: none;
   color: ${({ theme }) => theme.color.white};
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.color.pattensBlue};
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: auto;
@@ -170,6 +182,34 @@ export const StyledLoupe = styled(Loupe)`
     margin-left: 15px;
     height: 18px;
     width: 18px;
+  }
+`;
+
+export const ClearButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.color.mystic};
+  color: ${({ theme }) => theme.color.stormGray};
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: ${({ theme }) => theme.color.waterloo};
+    color: ${({ theme }) => theme.color.white};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.color.scienceBlue};
+    outline-offset: 2px;
   }
 `;
 

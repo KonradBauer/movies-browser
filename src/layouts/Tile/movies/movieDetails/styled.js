@@ -10,8 +10,9 @@ export const Container = styled.div`
       gap: 27px 40px;
       margin: 10px auto;
       padding: 40px;
-      width: 1368px;
+      width: 100%;
       max-width: 1368px;
+      box-sizing: border-box;
       background: ${({ theme }) => theme.color.white};
       box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
 

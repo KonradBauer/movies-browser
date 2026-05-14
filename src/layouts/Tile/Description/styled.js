@@ -5,7 +5,7 @@ export const DescriptionContent = styled.div`
   font-size: 20px;
   line-height: 1.6;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.beforeMobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     font-size: 18px;
   }
 

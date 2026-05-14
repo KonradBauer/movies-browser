@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -9,15 +8,10 @@ import MoviesListContent from "./layouts/Contents/MoviesList";
 import PersonDetails from "./layouts/PersonDetails/index";
 import PeopleListContent from "./layouts/Contents/PeopleList";
 import Search from "./layouts/Search/index";
-import { selectMovieID } from "./features/movies/movie/moviesSlice";
-import { selectPeopleID } from "./features/peoples/people/peopleSlice";
 import { theme } from "./common/Theme/theme";
 
 
 export const App = () => {
-   const movieID = useSelector(selectMovieID);
-   const personID = useSelector(selectPeopleID);
-
    return (
       <ThemeProvider theme={theme}>
          <HashRouter>
@@ -29,10 +23,10 @@ export const App = () => {
                <Route exact path="/popular-people">
                   <PeopleListContent />
                </Route>
-               <Route path={`/popular-movies/${movieID}`}>
+               <Route path="/popular-movies/:id">
                   <MoviesDetails />
                </Route>
-               <Route path={`/popular-people/${personID}`}>
+               <Route path="/popular-people/:id">
                   <PersonDetails />
                </Route>
                <Route exact path="/">
