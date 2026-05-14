@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -16,6 +17,17 @@ const SearchInput = () => {
   const query = useQueryParameter(searchQueryParamsName);
   const pathname = usePathname();
   const onInputChange = useInputChange();
+
+  const [localValue, setLocalValue] = useState(query || "");
+
+  useEffect(() => {
+    setLocalValue(query || "");
+  }, [query]);
+
+  const handleChange = (e) => {
+    setLocalValue(e.target.value);
+    onInputChange(e);
+  };
 
   const placeholder = pathname.includes("/popular-movies")
     ? "Search for movies..."
@@ -39,11 +51,11 @@ const SearchInput = () => {
     <>
       <StyledInput
         placeholder={placeholder}
-        value={query || ""}
-        onChange={onInputChange}
+        value={localValue}
+        onChange={handleChange}
         aria-label={placeholder}
       />
-      {query && (
+      {localValue && (
         <ClearButton
           type="button"
           onClick={handleClear}

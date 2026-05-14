@@ -42,10 +42,9 @@ export const useInputChange = () => {
             clearTimeout(debounceTimer.current);
         }
 
-        updateSearchParams(target);
-
         debounceTimer.current = setTimeout(() => {
             if (pathname.includes('/popular-movies')) {
+                updateSearchParams(target);
                 dispatchesHandler(
                     removeSearchPeople,
                     fetchSearchMovies,
@@ -56,6 +55,7 @@ export const useInputChange = () => {
                 );
                 pushToPath("/popular-movies/search", target);
             } else if (pathname.includes('/popular-people')) {
+                updateSearchParams(target);
                 dispatchesHandler(
                     removeSearchMovies,
                     fetchSearchPeople,
@@ -66,7 +66,7 @@ export const useInputChange = () => {
                 );
                 pushToPath("/popular-people/search", target);
             }
-        }, 500);
+        }, 300);
     };
 
     return onInputChange;
