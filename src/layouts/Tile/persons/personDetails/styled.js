@@ -1,4 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const shimmer = keyframes`
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+`;
 
 export const Container = styled.div`
   ${({ personDetails }) =>
@@ -26,21 +31,36 @@ export const Container = styled.div`
     `}
 `;
 
+export const ImageWrapper = styled.div`
+  max-width: 312px;
+  width: 312px;
+  aspect-ratio: 7/10;
+  border-radius: 5px;
+  grid-area: 1 / 1 / 3 / 2;
+  background: linear-gradient(90deg, #ebebeb 25%, #f5f5f5 50%, #ebebeb 75%);
+  background-size: 200% 100%;
+  animation: ${shimmer} 1.5s infinite linear;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 114px;
+    width: 114px;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
+    max-width: 105px;
+    width: 105px;
+  }
+`;
+
 export const Image = styled.img.attrs((props) => ({ src: props.source }))`
   ${({ personDetails }) =>
     personDetails &&
     css`
-      max-width: 312px;
-      grid-area: 1 / 1 / 3 / 2;
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        max-width: 114px;
-        grid-area: 1 / 1 / 2 / 2;
-      }
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-        max-width: 105px;
-      }
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+      transition: opacity 0.3s;
     `}
 `;
 
