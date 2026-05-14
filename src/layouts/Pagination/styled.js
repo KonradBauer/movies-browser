@@ -34,7 +34,6 @@ export const Box = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     padding-bottom: 31px;
     gap: 8px;
-    flex-wrap: wrap;
   }
 `;
 
@@ -54,6 +53,12 @@ const buttonBase = (props) => `
   &:focus-visible {
     outline: 2px solid ${props.theme.color.scienceBlue};
     outline-offset: 2px;
+  }
+
+  @media (max-width: ${props.theme.breakpoints.mobile}px) {
+    width: auto;
+    flex-shrink: 0;
+    padding: 8px 10px;
   }
 `;
 
@@ -122,14 +127,10 @@ export const Pages = styled.div`
   height: 24px;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    gap: 2px;
-    width: 100%;
-    height: 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
   }
 `;
 

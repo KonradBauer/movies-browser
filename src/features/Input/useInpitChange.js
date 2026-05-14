@@ -6,65 +6,69 @@ import searchQueryParamsName from "../searchQueryParamName";
 import { changePeopleSearchText, fetchSearchPeople, removeSearchPeople, setPeoplePageFirst, } from "../peoples/searchPeopleSlice";
 import { changeMoviesSearchText, fetchSearchMovies, removeSearchMovies, setMoviesPageFirst, } from "../movies/searchMoviesSlice";
 import { usePathname } from "../usePathname";
-import { useReplaceQueryParameter } from "../queryParameters";
 
 export const useInputChange = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const pathname = usePathname();
-    const replaceQueryParameter = useReplaceQueryParameter();
     const debounceTimer = useRef(null);
 
-    const updateSearchParams = (target) => {
-        replaceQueryParameter({
-            key: searchQueryParamsName,
-            value: target.value.trim() ? target.value : undefined,
-        });
+    const navigateToSearch = (searchPath, value) => {
+        const destination = {
+            pathname: searchPath,
+            search: `?${searchQueryParamsName}=${value}`,
+        };
+        pathname.includes("search")
+            ? history.replace(destination)
+            : history.push(destination);
     };
 
-    const dispatchesHandler = (removeDispatch, fetchDispatch, firstPageDispatch, searchFirstTextDispatch, searchSecondTextDispatch, target) => {
+    const dispatchesHandler = (removeDispatch, fetchDispatch, firstPageDispatch, searchFirstTextDispatch, searchSecondTextDispatch, value) => {
         dispatch(removeDispatch());
         dispatch(fetchDispatch());
         dispatch(firstPageDispatch());
         dispatch(searchFirstTextDispatch(""));
-        dispatch(searchSecondTextDispatch(target.value));
-    };
-
-    const pushToPath = (pathname, target) => {
-        history.push({
-            pathname: pathname,
-            search: `?${searchQueryParamsName}=${target.value}`,
-        });
+        dispatch(searchSecondTextDispatch(value));
     };
 
     const onInputChange = ({ target }) => {
-        if (debounceTimer.current) {
-            clearTimeout(debounceTimer.current);
-        }
+        clearTimeout(debounceTimer.current);
 
         debounceTimer.current = setTimeout(() => {
-            if (pathname.includes('/popular-movies')) {
-                updateSearchParams(target);
+            const value = target.value;
+
+            if (pathname.includes("/popular-movies")) {
+                if (!value.trim()) {
+                    dispatch(removeSearchMovies());
+                    dispatch(changeMoviesSearchText(""));
+                    history.push("/popular-movies");
+                    return;
+                }
                 dispatchesHandler(
                     removeSearchPeople,
                     fetchSearchMovies,
                     setMoviesPageFirst,
                     changePeopleSearchText,
                     changeMoviesSearchText,
-                    target,
+                    value,
                 );
-                pushToPath("/popular-movies/search", target);
-            } else if (pathname.includes('/popular-people')) {
-                updateSearchParams(target);
+                navigateToSearch("/popular-movies/search", value);
+            } else if (pathname.includes("/popular-people")) {
+                if (!value.trim()) {
+                    dispatch(removeSearchPeople());
+                    dispatch(changePeopleSearchText(""));
+                    history.push("/popular-people");
+                    return;
+                }
                 dispatchesHandler(
                     removeSearchMovies,
                     fetchSearchPeople,
                     setPeoplePageFirst,
                     changeMoviesSearchText,
                     changePeopleSearchText,
-                    target,
+                    value,
                 );
-                pushToPath("/popular-people/search", target);
+                navigateToSearch("/popular-people/search", value);
             }
         }, 300);
     };

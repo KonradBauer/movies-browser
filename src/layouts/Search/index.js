@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -43,17 +44,27 @@ const Search = () => {
   const peopleTotalPages = useSelector(selectPeopleTotalPages);
   const peopleQuery = useSelector(selectPeopleSearchText);
 
+  useEffect(() => {
+    if (moviesTotalResults === 0 && moviesQuery === "") {
+      history.push("/popular-movies");
+    }
+  }, [moviesTotalResults, moviesQuery, history]);
+
+  useEffect(() => {
+    if (peopleTotalResults === 0 && peopleQuery === "") {
+      history.push("/popular-people");
+    }
+  }, [peopleTotalResults, peopleQuery, history]);
+
   return (
     <>
-      {moviesTotalResults === 0 && moviesQuery === "" && history.push("/popular-movies")}
-      {peopleTotalResults === 0 && peopleQuery === "" && history.push("/popular-people")}
       {searchMoviesStatus === "error" || searchPeopleStatus === "error" ? <Error /> : null}
       {searchMoviesStatus === "loading" || searchPeopleStatus === "loading" ? <Loading /> : null}
       {searchMoviesStatus === "success" || searchPeopleStatus === "success" ? (
         moviesTotalResults !== 0 && peopleTotalResults !== 0 ? (
           <Wrapper>
             <SearchResults>
-              Search results for “{moviesQuery !== "" ? moviesQuery : peopleQuery}” (
+              Search results for "{moviesQuery !== "" ? moviesQuery : peopleQuery}" (
               {moviesTotalResults ? moviesTotalResults : peopleTotalResults})
             </SearchResults>
             {searchMovie && searchMovie.length > 0 && <MoviesList />}
