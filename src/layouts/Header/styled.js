@@ -5,68 +5,54 @@ import { ReactComponent as Loupe } from "../../common/svg/loupe.svg";
 export const HeadContainer = styled.div`
   position: relative;
   display: flex;
-  font-family: "Poppins", sans-serif;
-  flex-flow: row nowrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  height: 94px;
+  font-family: "Poppins", sans-serif;
+  gap: 8px;
+  padding: 0 32px 0 20px;
+  height: 64px;
   background: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 100%;
-    height: 142px;
     flex-wrap: wrap;
+    height: auto;
+    padding: 10px 16px;
+    row-gap: 10px;
   }
 `;
 
 export const StyledLogo = styled(Logo)`
-  margin-right: 30px;
-  margin-left: 20px;
   flex-shrink: 0;
+  height: 40px;
+  width: auto;
+  margin-right: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    display: flex;
-    height: 60px;
-    width: 110px;
-    margin: auto;
-    margin-left: 20px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    display: flex;
-    height: 60px;
-    width: 90px;
-    margin: auto;
+    height: 32px;
+    margin-right: 4px;
   }
 `;
 
 export const ButtonsBox = styled.div`
-  margin-left: 20px;
   display: flex;
-  text-decoration: none;
-  gap: 10px;
-  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
 `;
 
-export const MoviesButton = styled.button`
-  width: 95px;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 24px;
-  gap: 10px;
+const NavButtonBase = styled.button`
+  height: 40px;
+  padding: 0 18px;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 1.5;
   text-transform: uppercase;
   border: none;
   background: none;
   color: ${({ theme }) => theme.color.white};
   cursor: pointer;
+  white-space: nowrap;
 
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.color.pattensBlue};
@@ -74,114 +60,45 @@ export const MoviesButton = styled.button`
     border-radius: 3px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: auto;
-    flex-wrap: nowrap;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin: auto;
-    flex-wrap: nowrap;
-    flex-shrink: 1;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: auto;
-
     font-size: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 12px;
-    width: 70px;
-    height: 35px;
-    margin-left: 0;
-    margin-right: 0;
+    height: 34px;
+    padding: 0 14px;
   }
 `;
 
-export const PeopleButton = styled.button`
-  width: 95px;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 19px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  text-transform: uppercase;
-  border: none;
-  background: none;
-  color: ${({ theme }) => theme.color.white};
-  cursor: pointer;
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.color.pattensBlue};
-    outline-offset: 2px;
-    border-radius: 3px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: auto;
-    flex-wrap: nowrap;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: auto;
-    flex-wrap: nowrap;
-    flex-shrink: 1;
-    font-size: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    font-size: 12px;
-    width: 70px;
-    height: 35px;
-    margin-left: 0;
-  }
-`;
+export const MoviesButton = NavButtonBase;
+export const PeopleButton = NavButtonBase;
 
 export const Box = styled.div`
   display: flex;
-  flex-shrink: 0;
+  flex: 1 1 auto;
   align-items: center;
-  height: 48px;
-  width: 432px;
+  height: 40px;
+  min-width: 160px;
+  max-width: 432px;
   margin-left: auto;
-  margin-right: 50px;
-  border: 1px solid;
-  border-color: ${({ theme }) => theme.color.mystic};
+  border: 1px solid ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
   background: ${({ theme }) => theme.color.white};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: auto;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileM}px) {
-    margin: 0px 16px 15px;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin: 0px 16px 15px;
-    flex-shrink: 1;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    flex: 0 0 100%;
+    max-width: none;
+    min-width: 0;
+    margin-left: 0;
+    height: 38px;
   }
 `;
 
 export const StyledLoupe = styled(Loupe)`
-  margin-left: 24px;
+  flex-shrink: 0;
+  margin-left: 20px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin-left: 15px;
-    height: 18px;
-    width: 18px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin-left: 14px;
+    height: 17px;
+    width: 17px;
   }
 `;
 
@@ -214,29 +131,25 @@ export const ClearButton = styled.button`
 `;
 
 export const StyledInput = styled.input`
+  flex: 1;
+  min-width: 0;
   outline: none;
-  display: flex;
   border: none;
-  width: 73%;
-  align-items: center;
-  margin-left: 19px;
-  font-family: "Poppins";
+  margin-left: 16px;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   color: ${({ theme }) => theme.color.waterloo};
+  background: transparent;
 
   &::placeholder {
     color: inherit;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
-    margin-left: 3px;
-
-    &::placeholder {
-      color: inherit;
-      font-size: 13px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 14px;
+    margin-left: 10px;
   }
 `;
