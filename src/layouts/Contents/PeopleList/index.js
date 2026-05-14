@@ -1,13 +1,15 @@
 import { useSelector } from "react-redux";
 
 import Error from "../../Error";
-import Loading from "../../Loading";
 import Pagination from "../../Pagination";
 import Tile from "../../Tile";
+import PersonTileSkeleton from "../../Skeleton/PersonTileSkeleton";
 import { selectPeople, selectPeoplePages, selectPeopleStatus } from "../../../features/peoples/people/peopleSlice";
 import { selectProfileSizes } from "../../../features/configurationSlice";
 
 import { BoxTitle, MainBox, PersonTilesList, Section } from "../styled";
+
+const SKELETON_COUNT = 20;
 
 const PeopleListContent = () => {
   const people = useSelector(selectPeople);
@@ -18,7 +20,18 @@ const PeopleListContent = () => {
   return (
     <>
       {peopleStatus === "error" && <Error />}
-      {peopleStatus === "loading" && <Loading />}
+      {peopleStatus === "loading" && (
+        <MainBox>
+          <Section>
+            <BoxTitle>Popular people</BoxTitle>
+            <PersonTilesList>
+              {Array.from({ length: SKELETON_COUNT }, (_, i) => (
+                <PersonTileSkeleton key={i} />
+              ))}
+            </PersonTilesList>
+          </Section>
+        </MainBox>
+      )}
       {peopleStatus === "success" && (
         <MainBox>
           <Section>

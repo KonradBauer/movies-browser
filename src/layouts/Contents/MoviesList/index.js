@@ -1,13 +1,15 @@
 import { useSelector } from "react-redux";
 
 import Error from "../../Error";
-import Loading from "../../Loading";
 import Pagination from "../../Pagination";
 import Tile from "../../Tile";
+import MovieTileSkeleton from "../../Skeleton/MovieTileSkeleton";
 import { selectMovies, selectMoviesPages, selectMoviesStatus } from "../../../features/movies/movie/moviesSlice";
 import { selectPosterSizes } from "../../../features/configurationSlice";
 
 import { BoxTitle, MainBox, Section, TilesList } from "../styled";
+
+const SKELETON_COUNT = 20;
 
 const MoviesListContent = () => {
   const movies = useSelector(selectMovies);
@@ -18,7 +20,18 @@ const MoviesListContent = () => {
   return (
     <>
       {moviesStatus === "error" && <Error />}
-      {moviesStatus === "loading" && <Loading />}
+      {moviesStatus === "loading" && (
+        <MainBox>
+          <Section>
+            <BoxTitle>Popular movies</BoxTitle>
+            <TilesList>
+              {Array.from({ length: SKELETON_COUNT }, (_, i) => (
+                <MovieTileSkeleton key={i} />
+              ))}
+            </TilesList>
+          </Section>
+        </MainBox>
+      )}
       {moviesStatus === "success" && (
         <MainBox>
           <Section>
