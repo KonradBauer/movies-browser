@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { APIImageUrl } from "../../../features/getAPI";
@@ -21,6 +22,7 @@ import {
 const BackgroundImageContent = () => {
    const movieDetails = useSelector(selectMovieDetails);
    const backdropSizes = useSelector(selectBackdropSizes);
+   const [imageLoaded, setImageLoaded] = useState(false);
 
    return (
       <>
@@ -30,6 +32,8 @@ const BackgroundImageContent = () => {
                   <Poster
                      source={`${APIImageUrl}/${backdropSizes ? backdropSizes[3] : ""}${movieDetails.backdrop_path}`}
                      alt="movie poster"
+                     onLoad={() => setImageLoaded(true)}
+                     style={{ opacity: imageLoaded ? 1 : 0 }}
                   />
                   <MainInfo>
                      <Title>{movieDetails.title}</Title>

@@ -28,6 +28,8 @@ export const Poster = styled.img.attrs((props) => ({ src: props.source }))`
   max-height: 769px;
   position: relative;
   z-index: -1;
+  display: block;
+  transition: opacity 0.4s;
 `;
 
 export const MainInfo = styled.div`
