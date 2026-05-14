@@ -9,7 +9,7 @@ import { fetchMovieDetailsAndCredits } from "../../../../features/movies/movieDe
 import { getMovieID } from "../../../../features/movies/movie/moviesSlice";
 
 import noPoster from "../../../../common/images/no-poster.png";
-import { ContainerLink, DescriptionContainer, Image, ImageWrapper } from "./styled";
+import { ContainerLink, DescriptionContainer, Image, ImageWrapper, Spinner } from "./styled";
 
 const MovieTile = memo(({
   movie,
@@ -33,6 +33,7 @@ const MovieTile = memo(({
   return (
     <ContainerLink to={`/popular-movies/${id}`} onClick={handleClick}>
       <ImageWrapper>
+        {!imageLoaded && <Spinner />}
         <Image
           source={poster_path ? `${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}` : noPoster}
           alt={title || "Movie poster"}

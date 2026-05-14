@@ -5,6 +5,11 @@ const shimmer = keyframes`
   100% { background-position: 200% 0; }
 `;
 
+const spin = keyframes`
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+`;
+
 export const Container = styled.div`
   ${({ movieDetails }) =>
     movieDetails &&
@@ -31,6 +36,7 @@ export const Container = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
+  position: relative;
   max-width: 312px;
   width: 312px;
   aspect-ratio: 2/3;
@@ -50,6 +56,18 @@ export const ImageWrapper = styled.div`
     max-width: 105px;
     width: 105px;
   }
+`;
+
+export const Spinner = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 68, 204, 0.2);
+  border-top-color: ${({ theme }) => theme.color.scienceBlue};
+  border-radius: 50%;
+  animation: ${spin} 0.7s linear infinite;
 `;
 
 export const Image = styled.img.attrs((props) => ({ src: props.source }))`

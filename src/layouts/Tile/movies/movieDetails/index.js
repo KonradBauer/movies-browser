@@ -7,7 +7,7 @@ import { Raiting } from "../../Raiting";
 import Tags from "../../Tags";
 import { APIImageUrl } from "../../../../features/getAPI";
 
-import { Container, DescriptionContainer, Image, ImageWrapper, MovieContainer } from "./styled";
+import { Container, DescriptionContainer, Image, ImageWrapper, MovieContainer, Spinner } from "./styled";
 
 const MovieDetailsTile = ({
   posterSizes,
@@ -25,6 +25,7 @@ const MovieDetailsTile = ({
   return (
     <Container movieDetails>
       <ImageWrapper>
+        {!imageLoaded && <Spinner />}
         <Image
           movieDetails
           source={`${APIImageUrl}/${posterSizes ? posterSizes[3] : ""}${poster_path}`}

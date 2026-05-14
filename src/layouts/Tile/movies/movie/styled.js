@@ -6,6 +6,11 @@ const shimmer = keyframes`
   100% { background-position: 200% 0; }
 `;
 
+const spin = keyframes`
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+`;
+
 export const ContainerLink = styled(NavLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.color.black};
@@ -29,6 +34,7 @@ export const ContainerLink = styled(NavLink)`
 `;
 
 export const ImageWrapper = styled.div`
+  position: relative;
   width: 100%;
   aspect-ratio: 2/3;
   border-radius: 5px;
@@ -42,6 +48,18 @@ export const ImageWrapper = styled.div`
     flex-shrink: 0;
     aspect-ratio: unset;
   }
+`;
+
+export const Spinner = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0, 68, 204, 0.2);
+  border-top-color: ${({ theme }) => theme.color.scienceBlue};
+  border-radius: 50%;
+  animation: ${spin} 0.7s linear infinite;
 `;
 
 export const Image = styled.img.attrs((props) => ({ src: props.source }))`
