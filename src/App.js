@@ -23,6 +23,9 @@ export const App = () => {
                <Route exact path="/popular-people">
                   <PeopleListContent />
                </Route>
+               <Route path="*/search">
+                  <Search />
+               </Route>
                <Route path="/popular-movies/:id">
                   <MoviesDetails />
                </Route>
@@ -31,9 +34,6 @@ export const App = () => {
                </Route>
                <Route exact path="/">
                   <Redirect to={"/popular-movies"} />
-               </Route>
-               <Route path="*/search">
-                  <Search />
                </Route>
                <Route path="*">
                   <Error />
